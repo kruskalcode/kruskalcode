@@ -35,7 +35,7 @@ export default function ContactPage() {
       <section className="relative overflow-hidden px-5 pb-16 pt-36 lg:px-8 lg:pt-44">
         <div className="bg-grid absolute inset-0 -z-10" />
         <div className="mx-auto max-w-4xl text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.3em] text-blue-300">Contact</p>
+          <p className="text-sm font-bold uppercase tracking-[0.3em] text-theme-accent">Contact</p>
           <h1 className="mt-5 font-heading text-5xl font-bold tracking-tight text-white sm:text-6xl">
             Tell us what you want to build.
           </h1>
@@ -65,7 +65,7 @@ export default function ContactPage() {
                 <input
                   name="Name"
                   required
-                  className="w-full rounded-2xl border border-white/10 bg-[#0A0F1E]/70 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-blue-400"
+                  className="w-full rounded-2xl border border-white/10 bg-[#0A0F1E]/70 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-theme-accent"
                   placeholder="Your name"
                 />
               </label>
@@ -75,7 +75,7 @@ export default function ContactPage() {
                   type="email"
                   name="Email"
                   required
-                  className="w-full rounded-2xl border border-white/10 bg-[#0A0F1E]/70 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-blue-400"
+                  className="w-full rounded-2xl border border-white/10 bg-[#0A0F1E]/70 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-theme-accent"
                   placeholder="you@example.com"
                 />
               </label>
@@ -83,7 +83,7 @@ export default function ContactPage() {
                 <span className="mb-2 block text-sm font-semibold text-slate-200">Phone</span>
                 <input
                   name="Phone"
-                  className="w-full rounded-2xl border border-white/10 bg-[#0A0F1E]/70 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-blue-400"
+                  className="w-full rounded-2xl border border-white/10 bg-[#0A0F1E]/70 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-theme-accent"
                   placeholder="+92..."
                 />
               </label>
@@ -91,7 +91,7 @@ export default function ContactPage() {
                 <span className="mb-2 block text-sm font-semibold text-slate-200">Service</span>
                 <select
                   name="Service"
-                  className="w-full rounded-2xl border border-white/10 bg-[#0A0F1E]/70 px-4 py-3 text-white outline-none transition focus:border-blue-400"
+                  className="w-full rounded-2xl border border-white/10 bg-[#0A0F1E]/70 px-4 py-3 text-white outline-none transition focus:border-theme-accent"
                   defaultValue=""
                 >
                   <option value="" disabled>
@@ -112,14 +112,14 @@ export default function ContactPage() {
                 name="Message"
                 required
                 rows={6}
-                className="w-full rounded-2xl border border-white/10 bg-[#0A0F1E]/70 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-blue-400"
+                className="w-full rounded-2xl border border-white/10 bg-[#0A0F1E]/70 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-theme-accent"
                 placeholder="Tell us about your project, timeline, and goals."
               />
             </label>
 
             <button
               type="submit"
-              className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-blue-600 px-7 py-4 text-sm font-bold text-white shadow-xl shadow-blue-600/25 transition hover:-translate-y-0.5 hover:bg-blue-500 sm:w-auto"
+              className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-theme-accent px-7 py-4 text-sm font-bold text-white shadow-xl shadow-theme-accent-25 transition hover:-translate-y-0.5 hover:bg-theme-accent-hover sm:w-auto"
             >
               Submit Message
             </button>
@@ -134,9 +134,9 @@ export default function ContactPage() {
                   href={card.href}
                   target={card.label === "Address" ? "_blank" : undefined}
                   rel={card.label === "Address" ? "noreferrer" : undefined}
-                  className="flex gap-4 rounded-3xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur transition hover:border-blue-400/50 hover:bg-white/[0.09]"
+                  className="flex gap-4 rounded-3xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur transition hover:border-theme-accent hover:bg-white/[0.09]"
                 >
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-600/15 text-blue-300">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-theme-accent-15 text-theme-accent">
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </span>
                   <span>
@@ -153,7 +153,7 @@ export default function ContactPage() {
               href={company.scheduleUrl}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-4 text-sm font-bold text-white transition hover:bg-blue-500"
+              className="flex items-center justify-center gap-2 rounded-full bg-theme-accent px-6 py-4 text-sm font-bold text-white transition hover:bg-theme-accent-hover"
             >
               <Calendar className="h-4 w-4" aria-hidden="true" />
               Schedule Free Call

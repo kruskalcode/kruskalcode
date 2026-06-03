@@ -13,6 +13,7 @@ import {
 
 export const company = {
   name: "KruskalCode",
+  logo: "/assets/logo.png",
   tagline: "Web, Mobile & Cloud Development Experts",
   location: "Plot 81 St 4 Sector I-10/3 Islamabad, Pakistan",
   email: "info@kruskalcode.com",
@@ -43,7 +44,13 @@ export const services = [
       "Data pipelines for training, retrieval, and analytics",
       "Secure deployment and monitoring for AI features",
     ],
-    technologies: ["OpenAI", "Python", "LangChain", "TensorFlow", "Vector Databases"],
+    technologies: [
+      "OpenAI",
+      "Python",
+      "LangChain",
+      "TensorFlow",
+      "Vector Databases",
+    ],
   },
   {
     slug: "cloud-storage",
@@ -60,7 +67,13 @@ export const services = [
       "Media storage and delivery optimization",
       "Cost monitoring and lifecycle policies",
     ],
-    technologies: ["AWS S3", "Google Cloud Storage", "Azure Blob", "Cloudflare R2", "CDN"],
+    technologies: [
+      "AWS S3",
+      "Google Cloud Storage",
+      "Azure Blob",
+      "Cloudflare R2",
+      "CDN",
+    ],
   },
   {
     slug: "devops-services",
@@ -77,7 +90,13 @@ export const services = [
       "Monitoring, logging, and alerting implementation",
       "Release management and cloud cost improvements",
     ],
-    technologies: ["Docker", "GitHub Actions", "AWS", "Terraform", "Kubernetes"],
+    technologies: [
+      "Docker",
+      "GitHub Actions",
+      "AWS",
+      "Terraform",
+      "Kubernetes",
+    ],
   },
   {
     slug: "digital-marketing",
@@ -94,7 +113,13 @@ export const services = [
       "Campaign tracking and marketing automation setup",
       "Content and product growth consulting",
     ],
-    technologies: ["Google Analytics", "Meta Pixel", "Search Console", "Next.js", "HubSpot"],
+    technologies: [
+      "Google Analytics",
+      "Meta Pixel",
+      "Search Console",
+      "Next.js",
+      "HubSpot",
+    ],
   },
   {
     slug: "innovation-product-development-consulting",
@@ -128,7 +153,13 @@ export const services = [
       "Legacy modernization and migration roadmaps",
       "Technical documentation and decision records",
     ],
-    technologies: ["Node.js", "PostgreSQL", "AWS", "Microservices", "REST APIs"],
+    technologies: [
+      "Node.js",
+      "PostgreSQL",
+      "AWS",
+      "Microservices",
+      "REST APIs",
+    ],
   },
   {
     slug: "mobile-application-development",
@@ -145,7 +176,13 @@ export const services = [
       "Testing, performance tuning, and release support",
       "Maintenance and feature iteration after launch",
     ],
-    technologies: ["React Native", "Flutter", "Firebase", "Node.js", "App Store"],
+    technologies: [
+      "React Native",
+      "Flutter",
+      "Firebase",
+      "Node.js",
+      "App Store",
+    ],
   },
   {
     slug: "staffing-services",
@@ -192,17 +229,20 @@ export const stats = [
 
 export const testimonials = [
   {
-    quote: "Exceptional experience! Developer is knowledgeable and responsive...",
+    quote:
+      "Exceptional experience! Developer is knowledgeable and responsive...",
     name: "botbp2018",
     location: "United States",
   },
   {
-    quote: "Great communication. Willing to make sure you get what you want and go beyond.",
+    quote:
+      "Great communication. Willing to make sure you get what you want and go beyond.",
     name: "theekgguy",
     location: "United States",
   },
   {
-    quote: "Excellent communications, service, skill, ability to over deliver and be on time.",
+    quote:
+      "Excellent communications, service, skill, ability to over deliver and be on time.",
     name: "tomkinghouston",
     location: "Houston",
   },

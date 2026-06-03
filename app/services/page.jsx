@@ -14,7 +14,7 @@ export default function ServicesPage() {
       <section className="relative overflow-hidden px-5 pb-16 pt-36 lg:px-8 lg:pt-44">
         <div className="bg-grid absolute inset-0 -z-10" />
         <div className="mx-auto max-w-4xl text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.3em] text-blue-300">Services</p>
+          <p className="text-sm font-bold uppercase tracking-[0.3em] text-theme-accent">Services</p>
           <h1 className="mt-5 font-heading text-5xl font-bold tracking-tight text-white sm:text-6xl">
             Our Services
           </h1>

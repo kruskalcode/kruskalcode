@@ -26,23 +26,19 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 site-header ${
         scrolled || menuOpen
-          ? "border-b border-white/10 bg-[#0A0F1E]/90 shadow-xl shadow-black/20 backdrop-blur-xl"
-          : "bg-transparent"
+          ? "border-b border-(--header-border) shadow-xl shadow-black/20 backdrop-blur-xl"
+          : ""
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-        <Link href="/" className="flex items-center gap-3" onClick={() => setMenuOpen(false)}>
-          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-blue-600 font-heading text-lg font-bold text-white shadow-lg shadow-blue-600/30">
-            K
-          </span>
-          <span>
-            <span className="block font-heading text-xl font-bold tracking-tight text-white">
-              {company.name}
-            </span>
-            <span className="hidden text-xs text-slate-400 sm:block">{company.tagline}</span>
-          </span>
+        <Link
+          href="/"
+          className="flex items-center gap-3"
+          onClick={() => setMenuOpen(false)}
+        >
+          <img src={company.logo} alt={company.name} className="h-15 w-auto" />
         </Link>
 
         <div className="hidden items-center gap-8 lg:flex">
@@ -50,7 +46,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-slate-300 transition hover:text-white"
+              className="text-sm font-medium transition nav-link"
             >
               {link.label}
             </Link>
@@ -61,7 +57,7 @@ export default function Navbar() {
           href={company.scheduleUrl}
           target="_blank"
           rel="noreferrer"
-          className="hidden items-center gap-2 rounded-full bg-blue-600 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/25 transition hover:-translate-y-0.5 hover:bg-blue-500 lg:inline-flex"
+          className="hidden items-center gap-2 rounded-full bg-theme-accent px-5 py-3 text-sm font-bold text-white shadow-lg shadow-theme-accent-25 transition hover:bg-theme-accent-hover header-button lg:inline-flex"
         >
           <Calendar className="h-4 w-4" aria-hidden="true" />
           Schedule Free Call
@@ -94,7 +90,7 @@ export default function Navbar() {
               href={company.scheduleUrl}
               target="_blank"
               rel="noreferrer"
-              className="mt-3 inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-5 py-3 text-sm font-bold text-white"
+              className="mt-3 inline-flex items-center justify-center gap-2 rounded-full bg-theme-accent px-5 py-3 text-sm font-bold text-white shadow-lg shadow-theme-accent-25 transition hover:bg-theme-accent-hover header-button"
             >
               <Calendar className="h-4 w-4" aria-hidden="true" />
               Schedule Free Call
