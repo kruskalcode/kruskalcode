@@ -2,18 +2,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import MotionSection from "@/components/MotionSection";
-import { company, getServiceBySlug, services } from "@/data/site";
+import { company, getServiceBySlug } from "@/data/site";
 
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return services.map((service) => ({
-    slug: service.slug,
-  }));
-}
-
-export function generateMetadata({ params }) {
-  const service = getServiceBySlug(params.slug);
+export function getServiceMetadata(slug) {
+  const service = getServiceBySlug(slug);
 
   if (!service) {
     return {
@@ -27,8 +19,8 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function ServiceDetailPage({ params }) {
-  const service = getServiceBySlug(params.slug);
+export default function ServiceDetail({ slug }) {
+  const service = getServiceBySlug(slug);
 
   if (!service) {
     notFound();
@@ -88,7 +80,10 @@ export default function ServiceDetailPage({ params }) {
             <ul className="mt-8 space-y-5">
               {service.features.map((feature) => (
                 <li key={feature} className="flex gap-4 text-slate-300">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-blue-400" aria-hidden="true" />
+                  <CheckCircle2
+                    className="mt-1 h-5 w-5 shrink-0 text-blue-400"
+                    aria-hidden="true"
+                  />
                   <span>{feature}</span>
                 </li>
               ))}
