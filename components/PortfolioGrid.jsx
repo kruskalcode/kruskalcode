@@ -157,7 +157,7 @@ export default function PortfolioGrid() {
               <img
                 src={project.image}
                 alt={project.title}
-                className="h-64 w-full object-cover"
+                className="h-64 w-full"
               />
             </div>
             <div className="p-6">
