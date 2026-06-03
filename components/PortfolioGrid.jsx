@@ -4,50 +4,114 @@ import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-const filters = ["All", "Web", "Mobile", "AI", "Cloud"];
+const filters = ["All", "CRM", "Mobile Application", "SAAS", "Websites"];
 
 const projects = [
   {
-    title: "Fintech Growth Dashboard",
+    title: "Tunzie",
     category: "Web",
-    tags: ["Web", "Analytics", "SaaS"],
+    image: "/assets/mockups/tunzie-tobwq-Mockup.jpg",
+    tags: ["CRM", "SAAS", "Websites"],
     description:
-      "A responsive dashboard concept for subscription analytics, reporting, and customer insights.",
+      "A clean web dashboard concept for fintech onboarding, features, and analytics presentation.",
   },
   {
-    title: "Healthcare Booking App",
-    category: "Mobile",
-    tags: ["Mobile", "Scheduling", "API"],
-    description:
-      "A mobile-first booking experience for patients, providers, notifications, and appointment history.",
-  },
-  {
-    title: "AI Support Assistant",
-    category: "AI",
-    tags: ["AI", "Automation", "Chat"],
-    description:
-      "A support assistant prototype that answers FAQs, triages tickets, and routes complex requests.",
-  },
-  {
-    title: "Cloud Media Vault",
-    category: "Cloud",
-    tags: ["Cloud", "Storage", "Security"],
-    description:
-      "A secure media storage workflow with lifecycle policies, CDN delivery, and role-based access.",
-  },
-  {
-    title: "Ecommerce Experience",
+    title: "Toolkitlaw",
     category: "Web",
-    tags: ["Web", "Commerce", "SEO"],
+    image: "/assets/mockups/Toolkitlaw-Mockup-scaled.jpg",
+    tags: ["CRM", "SAAS", "Websites"],
+    link: "https://www.toolkit.law",
     description:
-      "A fast storefront concept with product discovery, conversion-focused pages, and analytics events.",
+      "A polished legal tech landing page and product showcase for modern law firm services.",
   },
   {
-    title: "Field Operations Platform",
-    category: "Mobile",
-    tags: ["Mobile", "Cloud", "Workflow"],
+    title: "Seeyougo",
+    category: "Web",
+    image: "/assets/mockups/seeyougo-Mockup-scaled.jpg",
+    tags: ["Websites"],
+    link: "https://seeyougo.fr",
     description:
-      "A field team platform for task management, status updates, offline capture, and cloud sync.",
+      "A travel platform concept focused on destination discovery, hotel booking, and trip planning.",
+  },
+  {
+    title: "ProMathTools",
+    category: "Web",
+    image: "/assets/mockups/ProMathTools_Mockup-scaled.jpg",
+    tags: ["SAAS", "Websites"],
+    link: "https://promathtools.com",
+    description:
+      "A math tools portal with data visualization, calculators, and resource discovery experiences.",
+  },
+  {
+    title: "Healthcareed",
+    category: "Mobile",
+    image: "/assets/mockups/Healthcareed-Mockup-scaled.jpg",
+    tags: ["Mobile Application", "SAAS", "Websites"],
+    link: "https://www.healthcareed.com",
+    description:
+      "A healthcare mobile experience for appointments, patient journeys, and telehealth access.",
+  },
+  {
+    title: "Explore Walletopia",
+    category: "Mobile",
+    image: "/assets/mockups/explore-walletopia-Mockup-scaled.jpg",
+    tags: ["Mobile Application", "Websites"],
+    link: "https://explore.walletopia.info",
+    description:
+      "A mobile wallet interface designed for secure payments, balances, and digital finance tools.",
+  },
+  {
+    title: "EvolventaLux",
+    category: "Web",
+    image: "/assets/mockups/evolventalux_Mockup-scaled.jpg",
+    tags: ["Websites"],
+    link: "https://evolventalux.com",
+    description:
+      "A premium brand site concept built for a luxury service provider with elegant visual design.",
+  },
+  {
+    title: "CompsUSA",
+    category: "Web",
+    image: "/assets/mockups/compsusa-Mockup-scaled.jpg",
+    tags: ["CRM", "Websites"],
+    link: "https://compsusa.com",
+    description:
+      "A platform experience tailored for cloud operations, analytics, and enterprise workflows.",
+  },
+  {
+    title: "CaClimate Investments",
+    category: "Web",
+    image: "/assets/mockups/caclimateinvestments-Mockup-scaled.jpg",
+    tags: ["Websites"],
+    description:
+      "An investment dashboard concept focused on climate portfolio performance and insights.",
+  },
+  {
+    title: "Building Consulting",
+    category: "Web",
+    image: "/assets/mockups/buildingconsulting-Mockup-scaled.jpg",
+    tags: ["Websites"],
+    link: "https://buildingconsulting.ie",
+    description:
+      "A consulting agency website concept featuring case studies, expertise, and service packages.",
+  },
+  {
+    title: "Breeze Insurance",
+    category: "Mobile",
+    image: "/assets/mockups/breezeinsurance-Mockup-scaled.jpg",
+    tags: ["Mobile Application", "Websites"],
+    link: "http://breezeinsurance.ie",
+    description:
+      "A mobile insurance experience built for policy management, claims, and customer support.",
+  },
+  {
+    title: "Bitcoin Magazine",
+    category: "Web",
+    image: "/assets/mockups/Bitcoin-Magzine-Mockup-scaled.jpg",
+    tags: ["Websites"],
+    link: "https://bitcoin-magazin-login.net",
+    description:
+      "A digital magazine concept for crypto news, market insights, and editorial storytelling.",
   },
 ];
 
@@ -71,8 +135,8 @@ export default function PortfolioGrid() {
             onClick={() => setActiveFilter(filter)}
             className={`rounded-full border px-5 py-2 text-sm font-semibold transition ${
               activeFilter === filter
-                ? "border-blue-500 bg-blue-600 text-white shadow-lg shadow-blue-600/25"
-                : "border-white/10 bg-white/[0.05] text-slate-300 hover:border-blue-400 hover:text-white"
+                ? "border-orange-500 bg-orange-600 text-white shadow-lg shadow-orange-600/25"
+                : "border-white/10 bg-white/5 text-slate-300 hover:border-orange-400 hover:text-white"
             }`}
           >
             {filter}
@@ -84,37 +148,46 @@ export default function PortfolioGrid() {
         {visibleProjects.map((project, index) => (
           <motion.article
             key={project.title}
-            className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.06] shadow-2xl shadow-blue-950/20 backdrop-blur"
+            className="overflow-hidden rounded-3xl border border-white/10 bg-white/6 shadow-2xl shadow-orange-950/20 backdrop-blur"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35, delay: index * 0.05 }}
           >
-            <div className="relative h-52 bg-gradient-to-br from-blue-600/40 via-slate-800 to-slate-950">
-              <div className="absolute inset-6 rounded-3xl border border-white/10 bg-white/[0.05]" />
-              <div className="absolute bottom-5 left-5 rounded-full bg-[#0A0F1E]/80 px-4 py-2 text-xs font-bold text-blue-200 backdrop-blur">
-                {project.category}
-              </div>
+            <div className="overflow-hidden">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="h-64 w-full object-cover"
+              />
             </div>
             <div className="p-6">
               <div className="mb-4 flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full bg-blue-600/10 px-3 py-1 text-xs font-semibold text-blue-200"
+                    className="rounded-full bg-orange-600/10 px-3 py-1 text-xs font-semibold text-orange-200"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
-              <h3 className="font-heading text-xl font-semibold text-white">{project.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-300">{project.description}</p>
-              <button
-                type="button"
-                className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-blue-400 hover:bg-blue-600"
-              >
-                View Project
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </button>
+              <h3 className="font-heading text-xl font-semibold text-white">
+                {project.title}
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-slate-300">
+                {project.description}
+              </p>
+              {project.link && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-orange-400 hover:bg-orange-600"
+                >
+                  View Project
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+              )}
             </div>
           </motion.article>
         ))}
