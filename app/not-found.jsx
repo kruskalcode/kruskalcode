@@ -1,5 +1,6 @@
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { Box, Button, Container, Typography } from "@mui/material";
+import NextLink from "next/link";
 
 export const metadata = {
   title: "Page Not Found",
@@ -8,25 +9,32 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <section className="relative flex min-h-[70vh] items-center overflow-hidden px-5 py-36 lg:px-8">
-      <div className="bg-grid absolute inset-0 -z-10" />
-      <div className="mx-auto max-w-3xl text-center">
-        <p className="font-heading text-8xl font-bold text-theme-accent">404</p>
-        <h1 className="mt-6 font-heading text-4xl font-bold text-white sm:text-5xl">
+    <Box
+      component="section"
+      sx={{ display: "flex", minHeight: "70vh", alignItems: "center", bgcolor: "background.default", py: 10 }}
+    >
+      <Container maxWidth="md" sx={{ textAlign: "center" }}>
+        <Typography variant="h1" color="primary" sx={{ fontSize: { xs: 92, md: 132 } }}>
+          404
+        </Typography>
+        <Typography variant="h2" sx={{ mt: 2 }}>
           Page not found
-        </h1>
-        <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-slate-300">
+        </Typography>
+        <Typography color="text.secondary" sx={{ mx: "auto", mt: 2.5, maxWidth: 560, fontSize: 18, lineHeight: 1.8 }}>
           The page may have moved, or the link may be incorrect. Head back home and keep exploring
           KruskalCode.
-        </p>
-        <Link
+        </Typography>
+        <Button
+          component={NextLink}
           href="/"
-          className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-theme-accent px-7 py-4 text-sm font-bold text-white transition hover:bg-theme-accent-hover"
+          variant="contained"
+          color="primary"
+          startIcon={<ArrowBackIcon />}
+          sx={{ mt: 4, color: "#0a0f1e" }}
         >
-          <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-          Back to Home
-        </Link>
-      </div>
-    </section>
+          Go Home
+        </Button>
+      </Container>
+    </Box>
   );
 }

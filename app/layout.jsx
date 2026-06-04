@@ -1,20 +1,9 @@
-import { DM_Sans, Syne } from "next/font/google";
+/* eslint-disable @next/next/no-page-custom-font */
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
+import ThemeRegistry from "@/components/ThemeRegistry";
 import "./globals.css";
-
-const syne = Syne({
-  subsets: ["latin"],
-  variable: "--font-syne",
-  display: "swap",
-});
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  variable: "--font-dm-sans",
-  display: "swap",
-});
 
 export const metadata = {
   metadataBase: new URL("https://kruskalcode.com"),
@@ -28,11 +17,21 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${syne.variable} ${dmSans.variable} scroll-smooth`}>
-      <body className="min-h-screen bg-[#0A0F1E] font-body text-white antialiased">
-        <Navbar />
-        <PageTransition>{children}</PageTransition>
-        <Footer />
+    <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body>
+        <ThemeRegistry>
+          <Navbar />
+          <PageTransition>{children}</PageTransition>
+          <Footer />
+        </ThemeRegistry>
       </body>
     </html>
   );

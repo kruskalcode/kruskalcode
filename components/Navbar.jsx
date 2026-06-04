@@ -1,103 +1,190 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import { Calendar, Menu, X } from "lucide-react";
-import { company } from "@/data/site";
-
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/contact", label: "Contact" },
-];
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import CloseIcon from "@mui/icons-material/Close";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import MenuIcon from "@mui/icons-material/Menu";
+import {
+  AppBar,
+  Box,
+  Button,
+  Divider,
+  Drawer,
+  IconButton,
+  List,
+  ListItemButton,
+  ListItemText,
+  Menu,
+  MenuItem,
+  Stack,
+  Toolbar,
+  Typography,
+  useScrollTrigger,
+} from "@mui/material";
+import NextLink from "next/link";
+import { useState } from "react";
+import { company, getServiceHref, navLinks, services } from "@/data/site";
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const scrolled = useScrollTrigger({ disableHysteresis: true, threshold: 8 });
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [servicesAnchor, setServicesAnchor] = useState(null);
+  const [logoFailed, setLogoFailed] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 16);
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const openServices = (event) => setServicesAnchor(event.currentTarget);
+  const closeServices = () => setServicesAnchor(null);
 
   return (
-    <header
-      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 site-header ${
-        scrolled || menuOpen
-          ? "border-b border-(--header-border) shadow-xl shadow-black/20 backdrop-blur-xl"
-          : ""
-      }`}
+    <AppBar
+      position="sticky"
+      elevation={scrolled ? 8 : 0}
+      sx={{
+        top: 0,
+        borderBottom: "1px solid rgba(15, 23, 42, 0.08)",
+        transition: "box-shadow 220ms ease",
+        zIndex: (theme) => theme.zIndex.drawer + 1,
+      }}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-        <Link
-          href="/"
-          className="flex items-center gap-3"
-          onClick={() => setMenuOpen(false)}
-        >
-          <img src={company.logo} alt={company.name} className="h-15 w-auto" />
-        </Link>
-
-        <div className="hidden items-center gap-8 lg:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium transition nav-link"
+      <Toolbar sx={{ mx: "auto", width: "100%", maxWidth: 1240, gap: 2, px: { xs: 2, md: 3 } }}>
+        <Box component={NextLink} href="/" sx={{ display: "flex", alignItems: "center", minWidth: 190 }}>
+          {!logoFailed ? (
+            <Box
+              component="img"
+              src={company.logo}
+              alt={`${company.name} logo`}
+              onError={() => setLogoFailed(true)}
+              sx={{ maxHeight: 52, width: "auto" }}
+            />
+          ) : (
+            <Typography
+              variant="h5"
+              sx={{ color: "#0a0f1e", fontFamily: "'Sora', sans-serif", fontWeight: 800 }}
             >
-              {link.label}
-            </Link>
-          ))}
-        </div>
+              KruskalCode
+            </Typography>
+          )}
+        </Box>
 
-        <a
+        <Stack
+          component="nav"
+          direction="row"
+          spacing={1}
+          sx={{ display: { xs: "none", lg: "flex" }, flex: 1, justifyContent: "center" }}
+        >
+          {navLinks.map((link) =>
+            link.label === "Services" ? (
+              <Button
+                key={link.href}
+                component={NextLink}
+                href={link.href}
+                onMouseEnter={openServices}
+                endIcon={<ExpandMoreIcon />}
+                sx={{ color: "#1f2937" }}
+              >
+                {link.label}
+              </Button>
+            ) : (
+              <Button key={link.href} component={NextLink} href={link.href} sx={{ color: "#1f2937" }}>
+                {link.label}
+              </Button>
+            ),
+          )}
+        </Stack>
+
+        <Button
           href={company.scheduleUrl}
           target="_blank"
           rel="noreferrer"
-          className="hidden items-center gap-2 rounded-full bg-theme-accent px-5 py-3 text-sm font-bold text-white shadow-lg shadow-theme-accent-25 transition hover:bg-theme-accent-hover header-button lg:inline-flex"
+          variant="contained"
+          color="primary"
+          startIcon={<CalendarMonthIcon />}
+          sx={{ display: { xs: "none", lg: "inline-flex" }, color: "#0a0f1e", px: 2.5, py: 1.2 }}
         >
-          <Calendar className="h-4 w-4" aria-hidden="true" />
           Schedule Free Call
-        </a>
+        </Button>
 
-        <button
-          type="button"
-          onClick={() => setMenuOpen((value) => !value)}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-white lg:hidden"
-          aria-label="Toggle navigation menu"
+        <IconButton
+          aria-label="Open navigation menu"
+          onClick={() => setDrawerOpen(true)}
+          sx={{ display: { xs: "inline-flex", lg: "none" }, ml: "auto", color: "#0f172a" }}
         >
-          {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
-      </nav>
+          <MenuIcon />
+        </IconButton>
+      </Toolbar>
 
-      {menuOpen ? (
-        <div className="border-t border-white/10 bg-[#0A0F1E]/95 px-5 pb-6 pt-2 backdrop-blur-xl lg:hidden">
-          <div className="mx-auto flex max-w-7xl flex-col gap-2">
+      <Menu
+        anchorEl={servicesAnchor}
+        open={Boolean(servicesAnchor)}
+        onClose={closeServices}
+        MenuListProps={{ onMouseLeave: closeServices }}
+        slotProps={{ paper: { sx: { mt: 1, minWidth: 320, bgcolor: "#ffffff", color: "#0f172a" } } }}
+      >
+        {services.map((service) => (
+          <MenuItem
+            key={service.slug}
+            component={NextLink}
+            href={getServiceHref(service)}
+            onClick={closeServices}
+            sx={{ whiteSpace: "normal", py: 1.2 }}
+          >
+            {service.title}
+          </MenuItem>
+        ))}
+      </Menu>
+
+      <Drawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+        <Box sx={{ width: 320, bgcolor: "background.default", minHeight: "100%", p: 2 }}>
+          <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ mb: 1 }}>
+            <Typography variant="h6">Menu</Typography>
+            <IconButton onClick={() => setDrawerOpen(false)} sx={{ color: "text.primary" }}>
+              <CloseIcon />
+            </IconButton>
+          </Stack>
+          <Divider sx={{ borderColor: "rgba(255,255,255,0.12)", mb: 1 }} />
+          <List>
             {navLinks.map((link) => (
-              <Link
+              <ListItemButton
                 key={link.href}
+                component={NextLink}
                 href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="rounded-2xl px-4 py-3 text-sm font-medium text-slate-200 transition hover:bg-white/10 hover:text-white"
+                onClick={() => setDrawerOpen(false)}
+                sx={{ borderRadius: 2 }}
               >
-                {link.label}
-              </Link>
+                <ListItemText primary={link.label} />
+              </ListItemButton>
             ))}
-            <a
-              href={company.scheduleUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-3 inline-flex items-center justify-center gap-2 rounded-full bg-theme-accent px-5 py-3 text-sm font-bold text-white shadow-lg shadow-theme-accent-25 transition hover:bg-theme-accent-hover header-button"
-            >
-              <Calendar className="h-4 w-4" aria-hidden="true" />
-              Schedule Free Call
-            </a>
-          </div>
-        </div>
-      ) : null}
-    </header>
+          </List>
+          <Divider sx={{ borderColor: "rgba(255,255,255,0.12)", my: 1 }} />
+          <Typography sx={{ px: 2, py: 1, color: "primary.main", fontWeight: 700 }}>
+            Services
+          </Typography>
+          <List dense>
+            {services.map((service) => (
+              <ListItemButton
+                key={service.slug}
+                component={NextLink}
+                href={getServiceHref(service)}
+                onClick={() => setDrawerOpen(false)}
+                sx={{ borderRadius: 2 }}
+              >
+                <ListItemText primary={service.title} />
+              </ListItemButton>
+            ))}
+          </List>
+          <Button
+            fullWidth
+            href={company.scheduleUrl}
+            target="_blank"
+            rel="noreferrer"
+            variant="contained"
+            color="primary"
+            startIcon={<CalendarMonthIcon />}
+            sx={{ mt: 2, color: "#0a0f1e" }}
+          >
+            Schedule Free Call
+          </Button>
+        </Box>
+      </Drawer>
+    </AppBar>
   );
 }

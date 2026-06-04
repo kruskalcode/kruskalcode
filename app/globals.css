@@ -1,138 +1,15 @@
-@import "tailwindcss";
-
 :root {
   --background: #0a0f1e;
   --foreground: #ffffff;
   --accent: #fcb51e;
-  --accent-rgb: 252, 181, 30;
-  --accent-hover: #fcb51e;
+  --accent-hover: #e6a018;
   --header-bg: #ffffff;
   --header-text: #0f172a;
   --header-link: #1f2937;
-  --header-border: rgba(15, 23, 42, 0.08);
   --footer-bg: #fef0d2;
   --footer-text: #000000;
+  --footer-muted: #1f2937;
   --footer-heading: #fcb51e;
-  --footer-border: rgba(15, 23, 42, 0.16);
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-accent: var(--accent);
-  --font-heading: var(--font-syne);
-  --font-body: var(--font-dm-sans);
-}
-
-.site-header {
-  background-color: var(--header-bg);
-  color: var(--header-text);
-}
-
-.site-header .nav-link {
-  color: var(--header-link);
-}
-
-.site-header .nav-link:hover,
-.site-header .nav-link:focus-visible {
-  color: var(--header-text);
-}
-
-.site-header .header-button {
-  background-color: var(--accent);
-}
-
-.site-header .header-button:hover,
-.site-header .header-button:focus-visible {
-  background-color: var(--accent-hover);
-}
-
-.text-theme-accent {
-  color: var(--accent);
-}
-
-.text-theme-accent-100 {
-  color: rgba(var(--accent-rgb), 0.15);
-}
-
-.text-theme-accent-200 {
-  color: rgba(var(--accent-rgb), 0.6);
-}
-
-.bg-theme-accent {
-  background-color: var(--accent);
-}
-
-.bg-theme-accent-hover:hover,
-.bg-theme-accent-hover:focus-visible {
-  background-color: var(--accent-hover);
-}
-
-.bg-theme-accent-10 {
-  background-color: rgba(var(--accent-rgb), 0.1);
-}
-
-.bg-theme-accent-15 {
-  background-color: rgba(var(--accent-rgb), 0.15);
-}
-
-.bg-theme-accent-05 {
-  background-color: rgba(var(--accent-rgb), 0.05);
-}
-
-.border-theme-accent {
-  border-color: var(--accent);
-}
-
-.border-theme-accent-20 {
-  border-color: rgba(var(--accent-rgb), 0.2);
-}
-
-.hover\:border-theme-accent:hover,
-.hover\:border-theme-accent:focus-visible {
-  border-color: var(--accent);
-}
-
-.ring-theme-accent {
-  --tw-ring-color: var(--accent);
-}
-
-.shadow-theme-accent-25 {
-  box-shadow: 0 25px 50px -12px rgba(var(--accent-rgb), 0.25);
-}
-
-.site-footer {
-  background-color: var(--footer-bg);
-  color: var(--footer-text);
-}
-
-.site-footer h3 {
-  color: var(--footer-heading);
-  font-size: 1.5rem;
-}
-
-.site-footer .text-muted {
-  color: var(--footer-muted);
-}
-
-.site-footer .footer-border {
-  border-color: var(--footer-border);
-}
-
-.site-footer a {
-  color: inherit;
-}
-
-.site-footer a:hover,
-.site-footer a:focus-visible {
-  color: var(--header-text);
-}
-
-.footer-icon:hover,
-.footer-icon:focus-visible {
-  border-color: var(--header-text);
-  background-color: var(--accent);
-  color: white;
 }
 
 * {
@@ -144,46 +21,23 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(
-      circle at top left,
-      rgba(37, 99, 235, 0.18),
-      transparent 34rem
-    ),
-    radial-gradient(
-      circle at top right,
-      rgba(14, 165, 233, 0.11),
-      transparent 32rem
-    ),
-    var(--background);
+  margin: 0;
+  background: var(--background);
   color: var(--foreground);
+  font-family: "Inter", sans-serif;
 }
 
 ::selection {
-  background: rgba(37, 99, 235, 0.5);
-  color: #ffffff;
+  background: var(--accent);
+  color: var(--background);
 }
 
-.bg-grid {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
-  background-size: 44px 44px;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent 75%);
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.mesh-gradient {
-  background:
-    radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.4), transparent 30%),
-    radial-gradient(
-      circle at 80% 0%,
-      rgba(59, 130, 246, 0.22),
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at 50% 70%,
-      rgba(14, 165, 233, 0.16),
-      transparent 32%
-    );
-  filter: blur(8px);
+img {
+  display: block;
+  max-width: 100%;
 }

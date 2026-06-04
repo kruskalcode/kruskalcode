@@ -1,24 +1,53 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { Box, Button, Card, CardContent, Typography } from "@mui/material";
+import NextLink from "next/link";
 import { getServiceHref } from "@/data/site";
+import ServiceIcon from "@/components/ServiceIcon";
 
-export default function ServiceCard({ service }) {
-  const Icon = service.icon;
-
+export default function ServiceCard({ service, large = false }) {
   return (
-    <Link
-      href={getServiceHref(service)}
-      className="group flex h-full flex-col rounded-3xl border border-white/10 bg-white/[0.06] p-6 shadow-2xl shadow-theme-accent-25 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-theme-accent hover:bg-white/[0.09]"
+    <Card
+      sx={{
+        height: "100%",
+        transition: "transform 220ms ease, border-color 220ms ease, background 220ms ease",
+        "&:hover": {
+          transform: "translateY(-6px)",
+          borderColor: "primary.main",
+          background: "rgba(255,255,255,0.07)",
+        },
+      }}
     >
-      <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-theme-accent-15 text-theme-accent ring-1 ring-theme-accent">
-        <Icon className="h-6 w-6" aria-hidden="true" />
-      </div>
-      <h3 className="font-heading text-xl font-semibold text-white">{service.title}</h3>
-      <p className="mt-3 flex-1 text-sm leading-6 text-slate-300">{service.description}</p>
-      <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-theme-accent-200">
-        Learn more
-        <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" aria-hidden="true" />
-      </span>
-    </Link>
+      <CardContent sx={{ display: "flex", minHeight: large ? 310 : 280, flexDirection: "column", p: 3 }}>
+        <Box
+          sx={{
+            mb: 3,
+            display: "grid",
+            height: 58,
+            width: 58,
+            placeItems: "center",
+            borderRadius: 3,
+            color: "primary.main",
+            backgroundColor: "rgba(252,181,30,0.12)",
+            border: "1px solid rgba(252,181,30,0.28)",
+          }}
+        >
+          <ServiceIcon name={service.icon} fontSize="medium" />
+        </Box>
+        <Typography variant={large ? "h5" : "h6"} component="h3" gutterBottom>
+          {service.title}
+        </Typography>
+        <Typography color="text.secondary" sx={{ flex: 1, lineHeight: 1.75 }}>
+          {large ? service.longDescription : service.description}
+        </Typography>
+        <Button
+          component={NextLink}
+          href={getServiceHref(service)}
+          endIcon={<ArrowForwardIcon />}
+          sx={{ alignSelf: "flex-start", mt: 3, color: "primary.main" }}
+        >
+          Learn More
+        </Button>
+      </CardContent>
+    </Card>
   );
 }

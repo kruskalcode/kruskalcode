@@ -9,7 +9,7 @@ export default function PageTransition({ children }) {
   return (
     <motion.main
       key={pathname}
-      className="flex-1"
+      style={{ flex: 1 }}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, ease: "easeOut" }}

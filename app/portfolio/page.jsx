@@ -1,4 +1,6 @@
-import MotionSection from "@/components/MotionSection";
+import HomeIcon from "@mui/icons-material/Home";
+import { Box, Breadcrumbs, Container, Link as MuiLink, Typography } from "@mui/material";
+import NextLink from "next/link";
 import PortfolioGrid from "@/components/PortfolioGrid";
 
 export const metadata = {
@@ -10,27 +12,29 @@ export const metadata = {
 export default function PortfolioPage() {
   return (
     <>
-      <section className="relative overflow-hidden px-5 pb-16 pt-36 lg:px-8 lg:pt-44">
-        <div className="bg-grid absolute inset-0 -z-10" />
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.3em] text-theme-accent">
-            Portfolio
-          </p>
-          <h1 className="mt-5 font-heading text-5xl font-bold tracking-tight text-white sm:text-6xl">
-            Selected Product Concepts
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+      <Box component="section" sx={{ bgcolor: "background.default", py: { xs: 9, md: 12 } }}>
+        <Container maxWidth="lg">
+          <Breadcrumbs sx={{ mb: 4, color: "text.secondary" }}>
+            <MuiLink component={NextLink} href="/" sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+              <HomeIcon fontSize="small" /> Home
+            </MuiLink>
+            <Typography color="primary">Portfolio</Typography>
+          </Breadcrumbs>
+          <Typography variant="h1" sx={{ fontSize: { xs: 44, md: 68 } }}>
+            Our Portfolio
+          </Typography>
+          <Typography variant="h6" color="text.secondary" sx={{ mt: 3, maxWidth: 780, lineHeight: 1.8 }}>
             Browse representative project cards that show the kind of web,
             mobile, AI, and cloud experiences KruskalCode can design and build.
-          </p>
-        </div>
-      </section>
+          </Typography>
+        </Container>
+      </Box>
 
-      <MotionSection className="px-5 pb-24 pt-10 lg:px-8">
-        <div className="mx-auto max-w-7xl">
+      <Box component="section" sx={{ bgcolor: "background.default", pb: { xs: 10, md: 13 } }}>
+        <Container maxWidth="lg">
           <PortfolioGrid />
-        </div>
-      </MotionSection>
+        </Container>
+      </Box>
     </>
   );
 }

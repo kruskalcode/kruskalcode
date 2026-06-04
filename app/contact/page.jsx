@@ -1,5 +1,28 @@
-import { Calendar, Mail, MapPin, Phone } from "lucide-react";
-import MotionSection from "@/components/MotionSection";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import EmailIcon from "@mui/icons-material/Email";
+import HomeIcon from "@mui/icons-material/Home";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import PhoneIcon from "@mui/icons-material/Phone";
+import SendIcon from "@mui/icons-material/Send";
+import {
+  Box,
+  Breadcrumbs,
+  Button,
+  Card,
+  CardContent,
+  Container,
+  FormControl,
+  Grid,
+  InputLabel,
+  Link as MuiLink,
+  MenuItem,
+  Paper,
+  Select,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
+import NextLink from "next/link";
 import { company, services } from "@/data/site";
 
 export const metadata = {
@@ -13,164 +36,178 @@ const contactCards = [
     label: "Address",
     value: company.location,
     href: "https://maps.google.com/?q=Plot%2081%20St%204%20Sector%20I-10%2F3%20Islamabad%2C%20Pakistan",
-    icon: MapPin,
+    icon: LocationOnIcon,
   },
   {
     label: "Email",
     value: company.email,
     href: `mailto:${company.email}`,
-    icon: Mail,
+    icon: EmailIcon,
   },
   {
     label: "Phone",
     value: company.phone,
     href: `tel:${company.phone}`,
-    icon: Phone,
+    icon: PhoneIcon,
   },
 ];
 
 export default function ContactPage() {
   return (
     <>
-      <section className="relative overflow-hidden px-5 pb-16 pt-36 lg:px-8 lg:pt-44">
-        <div className="bg-grid absolute inset-0 -z-10" />
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.3em] text-theme-accent">Contact</p>
-          <h1 className="mt-5 font-heading text-5xl font-bold tracking-tight text-white sm:text-6xl">
-            Tell us what you want to build.
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+      <Box component="section" sx={{ bgcolor: "background.default", py: { xs: 9, md: 12 } }}>
+        <Container maxWidth="lg">
+          <Breadcrumbs sx={{ mb: 4, color: "text.secondary" }}>
+            <MuiLink component={NextLink} href="/" sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+              <HomeIcon fontSize="small" /> Home
+            </MuiLink>
+            <Typography color="primary">Contact</Typography>
+          </Breadcrumbs>
+          <Typography variant="h1" sx={{ fontSize: { xs: 44, md: 68 } }}>
+            Contact Us
+          </Typography>
+          <Typography variant="h6" color="text.secondary" sx={{ mt: 3, maxWidth: 760, lineHeight: 1.8 }}>
             Share a few details and KruskalCode will help you choose the right path for your
             product, platform, or technical team.
-          </p>
-        </div>
-      </section>
+          </Typography>
+        </Container>
+      </Box>
 
-      <MotionSection className="px-5 pb-24 pt-10 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <form
-            action={`mailto:${company.email}`}
-            method="post"
-            encType="text/plain"
-            className="rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 shadow-2xl shadow-blue-950/20 backdrop-blur md:p-8"
-          >
-            <h2 className="font-heading text-3xl font-bold text-white">Start a conversation</h2>
-            <p className="mt-3 text-slate-300">
-              This static form opens your email client with the submitted details.
-            </p>
+      <Box component="section" sx={{ bgcolor: "background.default", pb: { xs: 10, md: 13 } }}>
+        <Container maxWidth="lg">
+          <Grid container spacing={4}>
+            <Grid item xs={12} lg={7}>
+              <Paper
+                component="form"
+                action={`mailto:${company.email}`}
+                method="post"
+                encType="text/plain"
+                sx={{ p: { xs: 3, md: 4 } }}
+              >
+                <Typography variant="h3">Start a conversation</Typography>
+                <Typography color="text.secondary" sx={{ mt: 1.5 }}>
+                  This static form opens your email client with the submitted details.
+                </Typography>
 
-            <div className="mt-8 grid gap-5 md:grid-cols-2">
-              <label className="block">
-                <span className="mb-2 block text-sm font-semibold text-slate-200">Name</span>
-                <input
+                <Grid container spacing={2.5} sx={{ mt: 3 }}>
+                  <Grid item xs={12} md={6}>
+                    <TextField
+                      fullWidth
+                      label="Name"
                   name="Name"
                   required
-                  className="w-full rounded-2xl border border-white/10 bg-[#0A0F1E]/70 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-theme-accent"
-                  placeholder="Your name"
-                />
-              </label>
-              <label className="block">
-                <span className="mb-2 block text-sm font-semibold text-slate-200">Email</span>
-                <input
-                  type="email"
-                  name="Email"
-                  required
-                  className="w-full rounded-2xl border border-white/10 bg-[#0A0F1E]/70 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-theme-accent"
-                  placeholder="you@example.com"
-                />
-              </label>
-              <label className="block">
-                <span className="mb-2 block text-sm font-semibold text-slate-200">Phone</span>
-                <input
-                  name="Phone"
-                  className="w-full rounded-2xl border border-white/10 bg-[#0A0F1E]/70 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-theme-accent"
-                  placeholder="+92..."
-                />
-              </label>
-              <label className="block">
-                <span className="mb-2 block text-sm font-semibold text-slate-200">Service</span>
-                <select
-                  name="Service"
-                  className="w-full rounded-2xl border border-white/10 bg-[#0A0F1E]/70 px-4 py-3 text-white outline-none transition focus:border-theme-accent"
-                  defaultValue=""
-                >
-                  <option value="" disabled>
-                    Select a service
-                  </option>
-                  {services.map((service) => (
-                    <option key={service.slug} value={service.title}>
-                      {service.title}
-                    </option>
-                  ))}
-                </select>
-              </label>
-            </div>
+                      placeholder="Your name"
+                    />
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                    <TextField
+                      fullWidth
+                      type="email"
+                      label="Email"
+                      name="Email"
+                      required
+                      placeholder="you@example.com"
+                    />
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                    <TextField fullWidth label="Phone" name="Phone" placeholder="+92..." />
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                    <FormControl fullWidth>
+                      <InputLabel id="service-label">Service</InputLabel>
+                      <Select labelId="service-label" label="Service" name="Service" defaultValue="">
+                        {services.map((service) => (
+                          <MenuItem key={service.slug} value={service.title}>
+                            {service.title}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </FormControl>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      fullWidth
+                      multiline
+                      minRows={6}
+                      label="Message"
+                      name="Message"
+                      required
+                      placeholder="Tell us about your project, timeline, and goals."
+                    />
+                  </Grid>
+                </Grid>
 
-            <label className="mt-5 block">
-              <span className="mb-2 block text-sm font-semibold text-slate-200">Message</span>
-              <textarea
-                name="Message"
-                required
-                rows={6}
-                className="w-full rounded-2xl border border-white/10 bg-[#0A0F1E]/70 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-theme-accent"
-                placeholder="Tell us about your project, timeline, and goals."
-              />
-            </label>
-
-            <button
+                <Button
               type="submit"
-              className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-theme-accent px-7 py-4 text-sm font-bold text-white shadow-xl shadow-theme-accent-25 transition hover:-translate-y-0.5 hover:bg-theme-accent-hover sm:w-auto"
-            >
-              Submit Message
-            </button>
-          </form>
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  endIcon={<SendIcon />}
+                  sx={{ mt: 3, color: "#0a0f1e" }}
+                >
+                  Send Message
+                </Button>
+              </Paper>
+            </Grid>
 
-          <div className="space-y-5">
+            <Grid item xs={12} lg={5}>
+              <Stack spacing={2.5}>
             {contactCards.map((card) => {
               const Icon = card.icon;
               return (
-                <a
+                    <Card
                   key={card.label}
+                      component="a"
                   href={card.href}
                   target={card.label === "Address" ? "_blank" : undefined}
                   rel={card.label === "Address" ? "noreferrer" : undefined}
-                  className="flex gap-4 rounded-3xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur transition hover:border-theme-accent hover:bg-white/[0.09]"
+                      sx={{ color: "inherit", transition: "transform 180ms ease", "&:hover": { transform: "translateY(-4px)" } }}
                 >
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-theme-accent-15 text-theme-accent">
-                    <Icon className="h-5 w-5" aria-hidden="true" />
-                  </span>
-                  <span>
-                    <span className="block text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
-                      {card.label}
-                    </span>
-                    <span className="mt-2 block font-semibold text-white">{card.value}</span>
-                  </span>
-                </a>
+                      <CardContent>
+                        <Stack direction="row" spacing={2} alignItems="center">
+                          <Box sx={{ display: "grid", placeItems: "center", width: 52, height: 52, borderRadius: 2, bgcolor: "rgba(252,181,30,0.12)" }}>
+                            <Icon color="primary" />
+                          </Box>
+                          <Box>
+                            <Typography color="text.secondary" sx={{ textTransform: "uppercase", letterSpacing: 1.5, fontSize: 12 }}>
+                              {card.label}
+                            </Typography>
+                            <Typography sx={{ fontWeight: 700 }}>{card.value}</Typography>
+                          </Box>
+                        </Stack>
+                      </CardContent>
+                    </Card>
               );
             })}
 
-            <a
+                <Button
               href={company.scheduleUrl}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center justify-center gap-2 rounded-full bg-theme-accent px-6 py-4 text-sm font-bold text-white transition hover:bg-theme-accent-hover"
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  startIcon={<CalendarMonthIcon />}
+                  sx={{ color: "#0a0f1e" }}
             >
-              <Calendar className="h-4 w-4" aria-hidden="true" />
               Schedule Free Call
-            </a>
+                </Button>
 
-            <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.06]">
-              <iframe
+                <Box sx={{ overflow: "hidden", borderRadius: 4, border: "1px solid rgba(255,255,255,0.08)" }}>
+                  <Box
+                    component="iframe"
                 title="KruskalCode Islamabad I-10/3 map"
                 src="https://www.google.com/maps?q=Plot%2081%20St%204%20Sector%20I-10%2F3%20Islamabad%2C%20Pakistan&output=embed"
-                className="h-80 w-full border-0"
+                    sx={{ display: "block", width: "100%", height: 320, border: 0 }}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
-            </div>
-          </div>
-        </div>
-      </MotionSection>
+                </Box>
+              </Stack>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
     </>
   );
 }

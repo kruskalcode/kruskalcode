@@ -1,197 +1,111 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Chip,
+  Grid,
+  Stack,
+  ToggleButton,
+  ToggleButtonGroup,
+  Typography,
+} from "@mui/material";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { portfolioProjects } from "@/data/site";
 
-const filters = ["All", "CRM", "Mobile Application", "SAAS", "Websites"];
-
-const projects = [
-  {
-    title: "Tunzie",
-    category: "Web",
-    image: "/assets/mockups/tunzie-tobwq-Mockup.jpg",
-    tags: ["CRM", "SAAS", "Websites"],
-    description:
-      "A clean web dashboard concept for fintech onboarding, features, and analytics presentation.",
-  },
-  {
-    title: "Toolkitlaw",
-    category: "Web",
-    image: "/assets/mockups/Toolkitlaw-Mockup-scaled.jpg",
-    tags: ["CRM", "SAAS", "Websites"],
-    link: "https://www.toolkit.law",
-    description:
-      "A polished legal tech landing page and product showcase for modern law firm services.",
-  },
-  {
-    title: "Seeyougo",
-    category: "Web",
-    image: "/assets/mockups/seeyougo-Mockup-scaled.jpg",
-    tags: ["Websites"],
-    link: "https://seeyougo.fr",
-    description:
-      "A travel platform concept focused on destination discovery, hotel booking, and trip planning.",
-  },
-  {
-    title: "ProMathTools",
-    category: "Web",
-    image: "/assets/mockups/ProMathTools_Mockup-scaled.jpg",
-    tags: ["SAAS", "Websites"],
-    link: "https://promathtools.com",
-    description:
-      "A math tools portal with data visualization, calculators, and resource discovery experiences.",
-  },
-  {
-    title: "Healthcareed",
-    category: "Mobile",
-    image: "/assets/mockups/Healthcareed-Mockup-scaled.jpg",
-    tags: ["Mobile Application", "SAAS", "Websites"],
-    link: "https://www.healthcareed.com",
-    description:
-      "A healthcare mobile experience for appointments, patient journeys, and telehealth access.",
-  },
-  {
-    title: "Explore Walletopia",
-    category: "Mobile",
-    image: "/assets/mockups/explore-walletopia-Mockup-scaled.jpg",
-    tags: ["Mobile Application", "Websites"],
-    link: "https://explore.walletopia.info",
-    description:
-      "A mobile wallet interface designed for secure payments, balances, and digital finance tools.",
-  },
-  {
-    title: "EvolventaLux",
-    category: "Web",
-    image: "/assets/mockups/evolventalux_Mockup-scaled.jpg",
-    tags: ["Websites"],
-    link: "https://evolventalux.com",
-    description:
-      "A premium brand site concept built for a luxury service provider with elegant visual design.",
-  },
-  {
-    title: "CompsUSA",
-    category: "Web",
-    image: "/assets/mockups/compsusa-Mockup-scaled.jpg",
-    tags: ["CRM", "Websites"],
-    link: "https://compsusa.com",
-    description:
-      "A platform experience tailored for cloud operations, analytics, and enterprise workflows.",
-  },
-  {
-    title: "CaClimate Investments",
-    category: "Web",
-    image: "/assets/mockups/caclimateinvestments-Mockup-scaled.jpg",
-    tags: ["Websites"],
-    description:
-      "An investment dashboard concept focused on climate portfolio performance and insights.",
-  },
-  {
-    title: "Building Consulting",
-    category: "Web",
-    image: "/assets/mockups/buildingconsulting-Mockup-scaled.jpg",
-    tags: ["Websites"],
-    link: "https://buildingconsulting.ie",
-    description:
-      "A consulting agency website concept featuring case studies, expertise, and service packages.",
-  },
-  {
-    title: "Breeze Insurance",
-    category: "Mobile",
-    image: "/assets/mockups/breezeinsurance-Mockup-scaled.jpg",
-    tags: ["Mobile Application", "Websites"],
-    link: "http://breezeinsurance.ie",
-    description:
-      "A mobile insurance experience built for policy management, claims, and customer support.",
-  },
-  {
-    title: "Bitcoin Magazine",
-    category: "Web",
-    image: "/assets/mockups/Bitcoin-Magzine-Mockup-scaled.jpg",
-    tags: ["Websites"],
-    link: "https://bitcoin-magazin-login.net",
-    description:
-      "A digital magazine concept for crypto news, market insights, and editorial storytelling.",
-  },
-];
+const filters = ["All", "Web", "Mobile", "AI", "Cloud"];
+const MotionCard = motion(Card);
 
 export default function PortfolioGrid() {
   const [activeFilter, setActiveFilter] = useState("All");
   const visibleProjects = useMemo(
     () =>
       activeFilter === "All"
-        ? projects
-        : projects.filter((project) => project.tags.includes(activeFilter)),
+        ? portfolioProjects
+        : portfolioProjects.filter((project) => project.category === activeFilter),
     [activeFilter],
   );
 
   return (
-    <div>
-      <div className="mb-10 flex flex-wrap justify-center gap-3">
+    <Box>
+      <ToggleButtonGroup
+        exclusive
+        value={activeFilter}
+        onChange={(_, value) => value && setActiveFilter(value)}
+        sx={{
+          mb: 5,
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: 1,
+          "& .MuiToggleButton-root": {
+            border: "1px solid rgba(255,255,255,0.14)",
+            borderRadius: "999px !important",
+            color: "text.secondary",
+            px: 3,
+          },
+          "& .Mui-selected": {
+            bgcolor: "#fcb51e !important",
+            color: "#0a0f1e !important",
+          },
+        }}
+      >
         {filters.map((filter) => (
-          <button
-            key={filter}
-            type="button"
-            onClick={() => setActiveFilter(filter)}
-            className={`rounded-full border px-5 py-2 text-sm font-semibold transition ${
-              activeFilter === filter
-                ? "border-theme-accent bg-theme-accent text-white shadow-lg shadow-theme-accent-25"
-                : "border-white/10 bg-white/5 text-slate-300 hover:border-theme-accent hover:text-white"
-            }`}
-          >
+          <ToggleButton key={filter} value={filter}>
             {filter}
-          </button>
+          </ToggleButton>
         ))}
-      </div>
+      </ToggleButtonGroup>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <Grid container spacing={3}>
         {visibleProjects.map((project, index) => (
-          <motion.article
-            key={project.title}
-            className="overflow-hidden rounded-3xl border border-white/10 bg-white/6 shadow-2xl shadow-theme-accent-25 backdrop-blur"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35, delay: index * 0.05 }}
-          >
-            <div className="overflow-hidden">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="h-64 w-full"
-              />
-            </div>
-            <div className="p-6">
-              <div className="mb-4 flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full bg-theme-accent-10 px-3 py-1 text-xs font-semibold text-theme-accent-200"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <h3 className="font-heading text-xl font-semibold text-white">
-                {project.title}
-              </h3>
-              <p className="mt-3 text-sm leading-6 text-slate-300">
-                {project.description}
-              </p>
-              {project.link && (
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-theme-accent hover:bg-theme-accent"
+          <Grid item xs={12} md={6} lg={4} key={project.title}>
+            <MotionCard
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35, delay: index * 0.06 }}
+              sx={{ height: "100%", overflow: "hidden" }}
+            >
+              <Box
+                sx={{
+                  height: 210,
+                  display: "grid",
+                  placeItems: "center",
+                  background: project.color,
+                }}
+              >
+                <Typography variant="h4" sx={{ color: "#ffffff", textAlign: "center", px: 3 }}>
+                  {project.category}
+                </Typography>
+              </Box>
+              <CardContent sx={{ p: 3 }}>
+                <Stack direction="row" flexWrap="wrap" gap={1} sx={{ mb: 2 }}>
+                  {project.technologies.map((tech) => (
+                    <Chip key={tech} label={tech} color="primary" size="small" />
+                  ))}
+                </Stack>
+                <Typography variant="h5" component="h3">
+                  {project.title}
+                </Typography>
+                <Typography color="text.secondary" sx={{ mt: 1.5, lineHeight: 1.7 }}>
+                  {project.description}
+                </Typography>
+                <Button
+                  variant="outlined"
+                  endIcon={<ArrowForwardIcon />}
+                  sx={{ mt: 3, borderColor: "primary.main", color: "primary.main" }}
                 >
                   View Project
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </a>
-              )}
-            </div>
-          </motion.article>
+                </Button>
+              </CardContent>
+            </MotionCard>
+          </Grid>
         ))}
-      </div>
-    </div>
+      </Grid>
+    </Box>
   );
 }

@@ -1,4 +1,7 @@
-import MotionSection from "@/components/MotionSection";
+import HomeIcon from "@mui/icons-material/Home";
+import { Box, Breadcrumbs, Container, Grid, Link as MuiLink, Typography } from "@mui/material";
+import NextLink from "next/link";
+import MotionBox, { fadeUp, staggerContainer } from "@/components/MotionBox";
 import ServiceCard from "@/components/ServiceCard";
 import { services } from "@/data/site";
 
@@ -11,27 +14,45 @@ export const metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <section className="relative overflow-hidden px-5 pb-16 pt-36 lg:px-8 lg:pt-44">
-        <div className="bg-grid absolute inset-0 -z-10" />
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.3em] text-theme-accent">Services</p>
-          <h1 className="mt-5 font-heading text-5xl font-bold tracking-tight text-white sm:text-6xl">
+      <Box component="section" sx={{ bgcolor: "background.default", py: { xs: 9, md: 12 } }}>
+        <Container maxWidth="lg">
+          <Breadcrumbs sx={{ mb: 4, color: "text.secondary" }}>
+            <MuiLink component={NextLink} href="/" sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+              <HomeIcon fontSize="small" /> Home
+            </MuiLink>
+            <Typography color="primary">Services</Typography>
+          </Breadcrumbs>
+          <Typography variant="h1" sx={{ fontSize: { xs: 44, md: 68 } }}>
             Our Services
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+          </Typography>
+          <Typography variant="h6" color="text.secondary" sx={{ mt: 3, maxWidth: 780, lineHeight: 1.8 }}>
             Choose a focused service or combine multiple capabilities into a full product delivery
             team for your next web, mobile, cloud, or AI initiative.
-          </p>
-        </div>
-      </section>
+          </Typography>
+        </Container>
+      </Box>
 
-      <MotionSection className="px-5 pb-24 pt-10 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <Box component="section" sx={{ bgcolor: "background.default", pb: { xs: 10, md: 13 } }}>
+        <Container maxWidth="lg">
+          <MotionBox
+            component={Grid}
+            container
+            spacing={3}
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.12 }}
+          >
           {services.map((service) => (
-            <ServiceCard key={service.slug} service={service} />
+            <Grid item xs={12} md={6} lg={4} key={service.slug}>
+              <MotionBox variants={fadeUp} sx={{ height: "100%" }}>
+                <ServiceCard service={service} large />
+              </MotionBox>
+            </Grid>
           ))}
-        </div>
-      </MotionSection>
+          </MotionBox>
+        </Container>
+      </Box>
     </>
   );
 }

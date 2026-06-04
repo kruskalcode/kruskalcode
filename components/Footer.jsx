@@ -1,138 +1,147 @@
-import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
+import EmailIcon from "@mui/icons-material/Email";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import PhoneIcon from "@mui/icons-material/Phone";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import { Box, Container, Grid, IconButton, Link as MuiLink, Stack, Typography } from "@mui/material";
+import NextLink from "next/link";
 import { company, services } from "@/data/site";
 
 const quickLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/contact", label: "Contact" },
+  { href: "/about/", label: "About" },
+  { href: "/services/", label: "Services" },
+  { href: "/portfolio/", label: "Portfolio" },
+  { href: "/contact/", label: "Contact" },
 ];
 
 const socialIcons = {
-  Facebook: "/assets/social_icons/facebook.svg",
-  Instagram: "/assets/social_icons/instagram.svg",
-  LinkedIn: "/assets/social_icons/linkedin.svg",
-  Twitter: "/assets/social_icons/twitter.svg",
-  YouTube: "/assets/social_icons/youtube.svg",
+  Facebook: FacebookIcon,
+  Instagram: InstagramIcon,
+  LinkedIn: LinkedInIcon,
+  Twitter: TwitterIcon,
+  YouTube: YouTubeIcon,
 };
 
 export default function Footer() {
   return (
-    <footer className="site-footer border-t footer-border">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
-        <div>
-          <Link href="/" className="inline-flex items-center gap-3">
-            <img
-              src={company.logo}
-              alt={`${company.name} logo`}
-              className="h-11 w-auto"
-            />
-          </Link>
-          <p className="mt-4 max-w-sm text-sm leading-6 text-muted">
-            {company.tagline}
-          </p>
-          <div className="mt-6 flex gap-2">
+    <Box component="footer" sx={{ bgcolor: "#fef0d2", color: "#000000", borderTop: "1px solid rgba(15,23,42,0.16)" }}>
+      <Container maxWidth="lg" sx={{ py: 7 }}>
+        <Grid container spacing={5}>
+          <Grid item xs={12} md={6} lg={3}>
+            <Box
+              component={NextLink}
+              href="/"
+              sx={{ display: "inline-flex", alignItems: "center" }}
+            >
+              <Box
+                component="img"
+                src={company.logo}
+                alt={`${company.name} logo`}
+                sx={{ maxHeight: 58, width: "auto" }}
+              />
+            </Box>
+            <Typography sx={{ mt: 2, color: "#1f2937", lineHeight: 1.7 }}>{company.tagline}</Typography>
+            <Stack direction="row" spacing={1} sx={{ mt: 3 }}>
             {company.socials.map((social) => {
-              const iconSrc = socialIcons[social.name];
+              const Icon = socialIcons[social.name];
               return (
-                <a
+                <IconButton
                   key={social.name}
                   href={social.href}
                   target="_blank"
                   rel="noreferrer"
                   aria-label={social.name}
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 transition hover:-translate-y-0.5"
-                  style={{
-                    borderColor: "rgba(255, 255, 255, 0.12)",
+                  sx={{
+                    color: "#0f172a",
+                    border: "1px solid rgba(15,23,42,0.22)",
+                    transition: "transform 180ms ease, background 180ms ease",
+                    "&:hover": { bgcolor: "#fcb51e", transform: "translateY(-3px)" },
                   }}
                 >
-                  {iconSrc ? (
-                    <img
-                      src={iconSrc}
-                      alt={`${social.name} icon`}
-                      className="h-7 w-7"
-                    />
-                  ) : null}
-                </a>
+                  {Icon ? <Icon /> : null}
+                </IconButton>
               );
             })}
-          </div>
-        </div>
+            </Stack>
+          </Grid>
 
-        <div>
-          <h3 className="font-heading text-lg font-bold">Quick Links</h3>
-          <ul className="mt-5 space-y-3">
+          <Grid item xs={12} sm={6} lg={3}>
+            <Typography variant="h6" sx={{ color: "#fcb51e", mb: 2 }}>
+              Quick Links
+            </Typography>
+            <Stack spacing={1.2}>
             {quickLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  className="text-sm text-muted transition hover:text-white"
-                  href={link.href}
-                >
+              <MuiLink key={link.href} component={NextLink} href={link.href} sx={{ color: "#1f2937" }}>
                   {link.label}
-                </Link>
-              </li>
+              </MuiLink>
             ))}
-          </ul>
-        </div>
+            </Stack>
+          </Grid>
 
-        <div>
-          <h3 className="font-heading text-lg font-bold">Services</h3>
-          <ul className="mt-5 space-y-3">
-            {services.slice(0, 6).map((service) => (
-              <li key={service.slug}>
-                <Link
-                  className="text-sm text-muted transition hover:text-white"
-                  href={`/services/${service.slug}`}
-                >
+          <Grid item xs={12} sm={6} lg={3}>
+            <Typography variant="h6" sx={{ color: "#fcb51e", mb: 2 }}>
+              Our Services
+            </Typography>
+            <Stack spacing={1.1}>
+            {services.map((service) => (
+              <MuiLink key={service.slug} component={NextLink} href={`/services/${service.slug}/`} sx={{ color: "#1f2937" }}>
                   {service.title}
-                </Link>
-              </li>
+              </MuiLink>
             ))}
-          </ul>
-        </div>
+            </Stack>
+          </Grid>
 
-        <div>
-          <h3 className="font-heading text-lg font-bold">Contact</h3>
-          <ul className="mt-5 space-y-4 text-sm text-muted">
-            <li className="flex gap-3">
-              <MapPin
-                className="mt-1 h-4 w-4 shrink-0 text-accent"
-                aria-hidden="true"
-              />
-              <span>{company.location}</span>
-            </li>
-            <li className="flex gap-3">
-              <Mail
-                className="mt-1 h-4 w-4 shrink-0 text-accent"
-                aria-hidden="true"
-              />
-              <a
-                href={`mailto:${company.email}`}
-                className="transition hover:text-white"
-              >
+          <Grid item xs={12} lg={3}>
+            <Typography variant="h6" sx={{ color: "#fcb51e", mb: 2 }}>
+              Get in Touch
+            </Typography>
+            <Stack spacing={2} sx={{ color: "#1f2937" }}>
+              <Stack direction="row" spacing={1.5}>
+                <LocationOnIcon sx={{ color: "#fcb51e" }} />
+                <Typography variant="body2">{company.location}</Typography>
+              </Stack>
+              <Stack direction="row" spacing={1.5}>
+                <EmailIcon sx={{ color: "#fcb51e" }} />
+                <MuiLink href={`mailto:${company.email}`} sx={{ color: "#1f2937" }}>
                 {company.email}
-              </a>
-            </li>
-            <li className="flex gap-3">
-              <Phone
-                className="mt-1 h-4 w-4 shrink-0 text-accent"
-                aria-hidden="true"
-              />
-              <a
-                href={`tel:${company.phone}`}
-                className="transition hover:text-white"
-              >
+                </MuiLink>
+              </Stack>
+              <Stack direction="row" spacing={1.5}>
+                <PhoneIcon sx={{ color: "#fcb51e" }} />
+                <MuiLink href={`tel:${company.phone}`} sx={{ color: "#1f2937" }}>
                 {company.phone}
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="border-t footer-border px-5 py-6 text-center text-sm text-muted">
-        &copy; {new Date().getFullYear()} {company.name}. All rights reserved.
-      </div>
-    </footer>
+                </MuiLink>
+              </Stack>
+            </Stack>
+          </Grid>
+        </Grid>
+      </Container>
+      <Box sx={{ borderTop: "1px solid rgba(15,23,42,0.16)", py: 2.5 }}>
+        <Container
+          maxWidth="lg"
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            gap: 1,
+            justifyContent: "space-between",
+            alignItems: "center",
+            color: "#1f2937",
+          }}
+        >
+          <Typography variant="body2">Copyright © 2024–2025 | Powered by KruskalCode</Typography>
+          <Stack direction="row" spacing={2}>
+            <MuiLink href={company.termsUrl} sx={{ color: "#1f2937" }}>
+              Terms and Condition
+            </MuiLink>
+            <MuiLink href={company.privacyUrl} sx={{ color: "#1f2937" }}>
+              Privacy Policy
+            </MuiLink>
+          </Stack>
+        </Container>
+      </Box>
+    </Box>
   );
 }
