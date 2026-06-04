@@ -1,7 +1,6 @@
-import HomeIcon from "@mui/icons-material/Home";
-import { Box, Breadcrumbs, Container, Grid, Link as MuiLink, Typography } from "@mui/material";
-import NextLink from "next/link";
+import { Box, Container, Grid } from "@mui/material";
 import MotionBox, { fadeUp, staggerContainer } from "@/components/MotionBox";
+import PageHero from "@/components/PageHero";
 import ServiceCard from "@/components/ServiceCard";
 import { services } from "@/data/site";
 
@@ -14,25 +13,14 @@ export const metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <Box component="section" sx={{ bgcolor: "background.default", py: { xs: 9, md: 12 } }}>
-        <Container maxWidth="lg">
-          <Breadcrumbs sx={{ mb: 4, color: "text.secondary" }}>
-            <MuiLink component={NextLink} href="/" sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-              <HomeIcon fontSize="small" /> Home
-            </MuiLink>
-            <Typography color="primary">Services</Typography>
-          </Breadcrumbs>
-          <Typography variant="h1" sx={{ fontSize: { xs: 44, md: 68 } }}>
-            Our Services
-          </Typography>
-          <Typography variant="h6" color="text.secondary" sx={{ mt: 3, maxWidth: 780, lineHeight: 1.8 }}>
-            Choose a focused service or combine multiple capabilities into a full product delivery
-            team for your next web, mobile, cloud, or AI initiative.
-          </Typography>
-        </Container>
-      </Box>
+      <PageHero
+        current="Services"
+        eyebrow="Our Services"
+        title="Full-stack capabilities for modern product teams."
+        subtitle="Choose a focused service or combine multiple capabilities into a full product delivery team for your next web, mobile, cloud, or AI initiative."
+      />
 
-      <Box component="section" sx={{ bgcolor: "background.default", pb: { xs: 10, md: 13 } }}>
+      <Box component="section" sx={{ bgcolor: "background.default", pb: { xs: 10, md: 13 }, px: { xs: 2, md: 3 } }}>
         <Container maxWidth="lg">
           <MotionBox
             component={Grid}

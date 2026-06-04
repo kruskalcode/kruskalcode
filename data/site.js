@@ -6,8 +6,8 @@ export const company = {
   email: "info@kruskalcode.com",
   phone: "+923314442274",
   scheduleUrl: "https://cal.com/kruskalcode",
-  termsUrl: "https://kruskalcode.com/terms-and-condition/",
-  privacyUrl: "https://kruskalcode.com/privacy-policy/",
+  termsUrl: "/terms-and-condition/",
+  privacyUrl: "/privacy-policy/",
   socials: [
     { name: "Facebook", href: "https://www.facebook.com/kruskalcode" },
     { name: "Instagram", href: "https://www.instagram.com/kruskalcode/" },

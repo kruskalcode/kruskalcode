@@ -25,7 +25,19 @@ const socialIcons = {
   YouTube: YouTubeIcon,
 };
 
+const footerLinkSx = {
+  color: "#1f2937",
+  textDecoration: "none",
+  transition: "color 180ms ease",
+  "&:hover": {
+    color: "#0a0f1e",
+    textDecoration: "none",
+  },
+};
+
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <Box component="footer" sx={{ bgcolor: "#fef0d2", color: "#000000", borderTop: "1px solid rgba(15,23,42,0.16)" }}>
       <Container maxWidth="lg" sx={{ py: 7 }}>
@@ -74,7 +86,7 @@ export default function Footer() {
             </Typography>
             <Stack spacing={1.2}>
             {quickLinks.map((link) => (
-              <MuiLink key={link.href} component={NextLink} href={link.href} sx={{ color: "#1f2937" }}>
+              <MuiLink key={link.href} component={NextLink} href={link.href} sx={footerLinkSx}>
                   {link.label}
               </MuiLink>
             ))}
@@ -87,7 +99,7 @@ export default function Footer() {
             </Typography>
             <Stack spacing={1.1}>
             {services.map((service) => (
-              <MuiLink key={service.slug} component={NextLink} href={`/services/${service.slug}/`} sx={{ color: "#1f2937" }}>
+              <MuiLink key={service.slug} component={NextLink} href={`/services/${service.slug}/`} sx={footerLinkSx}>
                   {service.title}
               </MuiLink>
             ))}
@@ -105,13 +117,13 @@ export default function Footer() {
               </Stack>
               <Stack direction="row" spacing={1.5}>
                 <EmailIcon sx={{ color: "#fcb51e" }} />
-                <MuiLink href={`mailto:${company.email}`} sx={{ color: "#1f2937" }}>
+                <MuiLink href={`mailto:${company.email}`} sx={footerLinkSx}>
                 {company.email}
                 </MuiLink>
               </Stack>
               <Stack direction="row" spacing={1.5}>
                 <PhoneIcon sx={{ color: "#fcb51e" }} />
-                <MuiLink href={`tel:${company.phone}`} sx={{ color: "#1f2937" }}>
+                <MuiLink href={`tel:${company.phone}`} sx={footerLinkSx}>
                 {company.phone}
                 </MuiLink>
               </Stack>
@@ -131,12 +143,14 @@ export default function Footer() {
             color: "#1f2937",
           }}
         >
-          <Typography variant="body2">Copyright © 2024–2025 | Powered by KruskalCode</Typography>
+          <Typography variant="body2">
+            Copyright © 2024-{currentYear} | Powered by KruskalCode
+          </Typography>
           <Stack direction="row" spacing={2}>
-            <MuiLink href={company.termsUrl} sx={{ color: "#1f2937" }}>
+            <MuiLink component={NextLink} href={company.termsUrl} sx={footerLinkSx}>
               Terms and Condition
             </MuiLink>
-            <MuiLink href={company.privacyUrl} sx={{ color: "#1f2937" }}>
+            <MuiLink component={NextLink} href={company.privacyUrl} sx={footerLinkSx}>
               Privacy Policy
             </MuiLink>
           </Stack>

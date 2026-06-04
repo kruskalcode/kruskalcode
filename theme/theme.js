@@ -86,10 +86,21 @@ const theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          background: "rgba(255,255,255,0.04)",
-          backdropFilter: "blur(10px)",
+          background: "#0f172a",
           border: "1px solid rgba(255,255,255,0.08)",
-          borderRadius: 16,
+          borderRadius: 18,
+          boxShadow: "0 18px 45px rgba(0,0,0,0.18)",
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          backgroundImage: "none",
+          backgroundColor: "#0f172a",
+          border: "1px solid rgba(255,255,255,0.08)",
+          borderRadius: 18,
+          boxShadow: "0 18px 45px rgba(0,0,0,0.18)",
         },
       },
     },

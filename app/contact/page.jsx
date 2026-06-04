@@ -1,12 +1,10 @@
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import EmailIcon from "@mui/icons-material/Email";
-import HomeIcon from "@mui/icons-material/Home";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PhoneIcon from "@mui/icons-material/Phone";
 import SendIcon from "@mui/icons-material/Send";
 import {
   Box,
-  Breadcrumbs,
   Button,
   Card,
   CardContent,
@@ -14,7 +12,6 @@ import {
   FormControl,
   Grid,
   InputLabel,
-  Link as MuiLink,
   MenuItem,
   Paper,
   Select,
@@ -22,7 +19,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import NextLink from "next/link";
+import PageHero from "@/components/PageHero";
 import { company, services } from "@/data/site";
 
 export const metadata = {
@@ -55,25 +52,14 @@ const contactCards = [
 export default function ContactPage() {
   return (
     <>
-      <Box component="section" sx={{ bgcolor: "background.default", py: { xs: 9, md: 12 } }}>
-        <Container maxWidth="lg">
-          <Breadcrumbs sx={{ mb: 4, color: "text.secondary" }}>
-            <MuiLink component={NextLink} href="/" sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-              <HomeIcon fontSize="small" /> Home
-            </MuiLink>
-            <Typography color="primary">Contact</Typography>
-          </Breadcrumbs>
-          <Typography variant="h1" sx={{ fontSize: { xs: 44, md: 68 } }}>
-            Contact Us
-          </Typography>
-          <Typography variant="h6" color="text.secondary" sx={{ mt: 3, maxWidth: 760, lineHeight: 1.8 }}>
-            Share a few details and KruskalCode will help you choose the right path for your
-            product, platform, or technical team.
-          </Typography>
-        </Container>
-      </Box>
+      <PageHero
+        current="Contact"
+        eyebrow="Start a Conversation"
+        title="Tell us what you want to build."
+        subtitle="Share a few details and KruskalCode will help you choose the right path for your product, platform, or technical team."
+      />
 
-      <Box component="section" sx={{ bgcolor: "background.default", pb: { xs: 10, md: 13 } }}>
+      <Box component="section" sx={{ bgcolor: "background.default", pb: { xs: 10, md: 13 }, px: { xs: 2, md: 3 } }}>
         <Container maxWidth="lg">
           <Grid container spacing={4}>
             <Grid item xs={12} lg={7}>

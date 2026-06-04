@@ -13,6 +13,11 @@ export const metadata = {
   },
   description:
     "KruskalCode is an Islamabad software agency building scalable web, mobile, cloud, AI, and DevOps solutions.",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({ children }) {

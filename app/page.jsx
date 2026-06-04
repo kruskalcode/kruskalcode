@@ -77,25 +77,27 @@ export default function HomePage() {
             }}
           />
         ))}
-        <Container maxWidth="lg" sx={{ position: "relative" }}>
-          <MotionBox variants={staggerContainer} initial="hidden" animate="visible" sx={{ maxWidth: 900 }}>
+        <Container maxWidth="lg" sx={{ position: "relative", textAlign: "center" }}>
+          <MotionBox variants={staggerContainer} initial="hidden" animate="visible" sx={{ mx: "auto", maxWidth: 930 }}>
             <MotionBox variants={fadeUp}>
-              <Typography sx={{ mb: 2, color: "primary.main", fontWeight: 800, letterSpacing: 2 }}>
-                {company.tagline}
+              <Typography sx={{ mb: 1.5, color: "primary.main", fontWeight: 800, letterSpacing: 2.4, textTransform: "uppercase" }}>
+                It&apos;s All about
               </Typography>
             </MotionBox>
             <MotionBox variants={fadeUp}>
-              <Typography variant="h1" sx={{ fontSize: { xs: 44, md: 72 }, lineHeight: 1.04 }}>
-              We Build Digital Products That Scale
+              <Typography variant="h1" sx={{ fontSize: { xs: 58, sm: 76, md: 112 }, lineHeight: 0.95 }}>
+                KruskalCode
               </Typography>
             </MotionBox>
             <MotionBox variants={fadeUp}>
-              <Typography variant="h5" color="text.secondary" sx={{ mt: 3, maxWidth: 740, lineHeight: 1.7 }}>
-                Custom web, mobile & cloud solutions for startups and growing businesses — based in Islamabad.
+              <Typography color="text.secondary" sx={{ mx: "auto", mt: 4, maxWidth: 850, fontSize: { xs: 17, md: 20 }, lineHeight: 1.9 }}>
+                At KruskalCode, we are passionate about transforming ideas into digital experiences
+                that drive success. We bring together creativity, technology, and strategy to deliver
+                solutions that meet the unique needs of each client.
               </Typography>
             </MotionBox>
             <MotionBox variants={fadeUp}>
-              <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ mt: 5 }}>
+              <Stack direction={{ xs: "column", sm: "row" }} spacing={2} justifyContent="center" sx={{ mt: 5 }}>
                 <Button
                   component={NextLink}
                   href="/contact/"
@@ -104,17 +106,17 @@ export default function HomePage() {
                   size="large"
                   endIcon={<ArrowForwardIcon />}
                   sx={{ color: "#0a0f1e", px: 4, py: 1.5 }}
-              >
-                Start a Project
+                >
+                  Start a Project
                 </Button>
                 <Button
                   component={NextLink}
-                  href="/portfolio/"
+                  href="/services/"
                   variant="outlined"
                   size="large"
                   sx={{ borderColor: "primary.main", color: "primary.main", px: 4, py: 1.5 }}
                 >
-                View Our Work
+                  What We Offer
                 </Button>
               </Stack>
             </MotionBox>
@@ -141,7 +143,11 @@ export default function HomePage() {
 
       <Box component="section" sx={{ bgcolor: "background.default", py: { xs: 10, md: 13 } }}>
         <Container maxWidth="lg">
-          <SectionHeading title="What We Do" />
+          <SectionHeading
+            eyebrow="Support and Guidance"
+            title="What We Offer"
+            subtitle="At KruskalCode, we offer a full spectrum of development services designed to elevate your online presence and drive business growth."
+          />
           <MotionBox
             component={Grid}
             container
@@ -166,16 +172,19 @@ export default function HomePage() {
         <Container maxWidth="lg">
           <Grid container spacing={6} alignItems="center">
             <Grid item xs={12} md={6}>
+              <Typography sx={{ mb: 1.5, color: "primary.main", fontWeight: 800, letterSpacing: 1.8, textTransform: "uppercase" }}>
+                Why Choose Us?
+              </Typography>
               <Typography variant="h2" sx={{ mb: 3, fontSize: { xs: 36, md: 48 } }}>
                 Why Choose KruskalCode?
               </Typography>
               <Typography color="text.secondary" sx={{ lineHeight: 1.8, mb: 2 }}>
-                We combine product thinking, UI craft, backend engineering, and cloud experience so your
-                project moves from idea to launch without unnecessary handoffs.
+                KruskalCode is a software development company focused on creating high-quality,
+                innovative solutions that align with your business goals.
               </Typography>
               <Typography color="text.secondary" sx={{ lineHeight: 1.8 }}>
-                Our Islamabad-based team works with clear milestones, transparent communication, and
-                scalable technical decisions that support long-term growth.
+                We collaborate closely with clients and use flexible delivery methods so each project
+                can move quickly while staying scalable, secure, and easy to improve.
               </Typography>
             </Grid>
             <Grid item xs={12} md={6}>
@@ -196,7 +205,10 @@ export default function HomePage() {
 
       <Box component="section" sx={{ bgcolor: "background.default", py: { xs: 10, md: 13 } }}>
         <Container maxWidth="lg">
-          <SectionHeading title="What People Say" />
+          <SectionHeading
+            title="What People Say"
+            subtitle="Discover how KruskalCode has made a difference for clients through reliable delivery, strong communication, and ongoing support."
+          />
           <Grid container spacing={3}>
             {testimonials.map((testimonial) => (
               <Grid item xs={12} md={4} key={testimonial.name}>
@@ -220,10 +232,10 @@ export default function HomePage() {
       <Box component="section" sx={{ bgcolor: "#fcb51e", color: "#0a0f1e", py: { xs: 8, md: 10 } }}>
         <Container maxWidth="md" sx={{ textAlign: "center" }}>
           <Typography variant="h2" sx={{ fontSize: { xs: 36, md: 52 } }}>
-            Ready to Build Something Great?
+            Would you like to start with us?
           </Typography>
           <Typography variant="h6" sx={{ mt: 2 }}>
-            Let&apos;s discuss your project and turn your ideas into reality.
+            Let&apos;s discuss how we can help your agency or business grow with the right digital solution.
           </Typography>
           <Button
             href={company.scheduleUrl}
@@ -232,7 +244,7 @@ export default function HomePage() {
             variant="contained"
             sx={{ mt: 4, background: "#0a0f1e", color: "#fcb51e", "&:hover": { background: "#0f172a" } }}
           >
-            Schedule a Free Call
+            Want to start Now
           </Button>
         </Container>
       </Box>
@@ -240,13 +252,23 @@ export default function HomePage() {
   );
 }
 
-function SectionHeading({ title }) {
+function SectionHeading({ eyebrow, title, subtitle }) {
   return (
     <Box sx={{ mb: 7, textAlign: "center" }}>
+      {eyebrow ? (
+        <Typography sx={{ mb: 1, color: "primary.main", fontWeight: 800, letterSpacing: 1.8, textTransform: "uppercase" }}>
+          {eyebrow}
+        </Typography>
+      ) : null}
       <Typography variant="h2" sx={{ fontSize: { xs: 36, md: 50 } }}>
         {title}
       </Typography>
       <Box sx={{ mx: "auto", mt: 2, height: 4, width: 76, borderRadius: 999, bgcolor: "primary.main" }} />
+      {subtitle ? (
+        <Typography color="text.secondary" sx={{ mx: "auto", mt: 3, maxWidth: 760, lineHeight: 1.8 }}>
+          {subtitle}
+        </Typography>
+      ) : null}
     </Box>
   );
 }

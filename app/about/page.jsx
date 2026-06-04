@@ -1,21 +1,18 @@
 import Diversity3Icon from "@mui/icons-material/Diversity3";
 import EmojiObjectsIcon from "@mui/icons-material/EmojiObjects";
 import FlagIcon from "@mui/icons-material/Flag";
-import HomeIcon from "@mui/icons-material/Home";
 import {
   Avatar,
   Box,
-  Breadcrumbs,
   Card,
   CardContent,
   Container,
   Grid,
-  Link as MuiLink,
   Stack,
   Typography,
 } from "@mui/material";
-import NextLink from "next/link";
 import MotionBox, { fadeUp, staggerContainer } from "@/components/MotionBox";
+import PageHero from "@/components/PageHero";
 
 export const metadata = {
   title: "About",
@@ -68,23 +65,12 @@ const valueCards = [
 export default function AboutPage() {
   return (
     <>
-      <Box component="section" sx={{ bgcolor: "background.default", py: { xs: 9, md: 12 } }}>
-        <Container maxWidth="lg">
-          <Breadcrumbs sx={{ mb: 4, color: "text.secondary" }}>
-            <MuiLink component={NextLink} href="/" sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-              <HomeIcon fontSize="small" /> Home
-            </MuiLink>
-            <Typography color="primary">About</Typography>
-          </Breadcrumbs>
-          <Typography variant="h1" sx={{ maxWidth: 900, fontSize: { xs: 42, md: 64 } }}>
-            Software delivery shaped by strategy, craft, and care.
-          </Typography>
-          <Typography variant="h6" color="text.secondary" sx={{ mt: 3, maxWidth: 760, lineHeight: 1.8 }}>
-            KruskalCode is a software agency based in Islamabad, Pakistan, helping companies build,
-            modernize, and scale digital products across web, mobile, cloud, and AI.
-          </Typography>
-        </Container>
-      </Box>
+      <PageHero
+        current="About"
+        eyebrow="About KruskalCode"
+        title="Software delivery shaped by strategy, craft, and care."
+        subtitle="KruskalCode is a software agency based in Islamabad, Pakistan, helping companies build, modernize, and scale digital products across web, mobile, cloud, and AI."
+      />
 
       <Box component="section" sx={{ py: { xs: 9, md: 12 }, bgcolor: "background.default" }}>
         <Container maxWidth="lg">

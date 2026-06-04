@@ -25,6 +25,36 @@ import NextLink from "next/link";
 import { useState } from "react";
 import { company, getServiceHref, navLinks, services } from "@/data/site";
 
+const navButtonSx = {
+  position: "relative",
+  color: "#1f2937",
+  px: 1.4,
+  py: 1,
+  fontSize: 15,
+  fontWeight: 700,
+  "&:hover": {
+    bgcolor: "transparent",
+    color: "#0a0f1e",
+  },
+  "&:after": {
+    content: '""',
+    position: "absolute",
+    left: 12,
+    right: 12,
+    bottom: 5,
+    height: 2,
+    borderRadius: 999,
+    bgcolor: "#fcb51e",
+    opacity: 0,
+    transform: "scaleX(0.4)",
+    transition: "opacity 180ms ease, transform 180ms ease",
+  },
+  "&:hover:after": {
+    opacity: 1,
+    transform: "scaleX(1)",
+  },
+};
+
 export default function Navbar() {
   const scrolled = useScrollTrigger({ disableHysteresis: true, threshold: 8 });
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -37,31 +67,61 @@ export default function Navbar() {
   return (
     <AppBar
       position="sticky"
-      elevation={scrolled ? 8 : 0}
+      elevation={0}
       sx={{
         top: 0,
-        borderBottom: "1px solid rgba(15, 23, 42, 0.08)",
+        bgcolor: "#ffffff",
+        borderBottom: scrolled ? "1px solid rgba(15, 23, 42, 0.12)" : "1px solid rgba(15, 23, 42, 0.06)",
+        boxShadow: scrolled ? "0 12px 30px rgba(15, 23, 42, 0.08)" : "none",
         transition: "box-shadow 220ms ease",
         zIndex: (theme) => theme.zIndex.drawer + 1,
       }}
     >
-      <Toolbar sx={{ mx: "auto", width: "100%", maxWidth: 1240, gap: 2, px: { xs: 2, md: 3 } }}>
-        <Box component={NextLink} href="/" sx={{ display: "flex", alignItems: "center", minWidth: 190 }}>
+      <Toolbar
+        sx={{
+          mx: "auto",
+          width: "100%",
+          maxWidth: 1240,
+          minHeight: { xs: 76, md: 86 },
+          gap: 2,
+          px: { xs: 2, md: 3 },
+        }}
+      >
+        <Box component={NextLink} href="/" sx={{ display: "flex", alignItems: "center", minWidth: 220 }}>
           {!logoFailed ? (
             <Box
               component="img"
               src={company.logo}
               alt={`${company.name} logo`}
               onError={() => setLogoFailed(true)}
-              sx={{ maxHeight: 52, width: "auto" }}
+              sx={{ maxHeight: 58, width: "auto" }}
             />
           ) : (
-            <Typography
-              variant="h5"
-              sx={{ color: "#0a0f1e", fontFamily: "'Sora', sans-serif", fontWeight: 800 }}
-            >
-              KruskalCode
-            </Typography>
+            <Stack direction="row" spacing={1.2} alignItems="center">
+              <Box
+                sx={{
+                  display: "grid",
+                  width: 42,
+                  height: 42,
+                  placeItems: "center",
+                  borderRadius: 2,
+                  bgcolor: "#fcb51e",
+                  color: "#0a0f1e",
+                  fontFamily: "'Sora', sans-serif",
+                  fontWeight: 900,
+                }}
+              >
+                K
+              </Box>
+              <Box>
+                <Typography sx={{ color: "#0a0f1e", fontFamily: "'Sora', sans-serif", fontSize: 22, fontWeight: 800, lineHeight: 1 }}>
+                  KruskalCode
+                </Typography>
+                <Typography sx={{ mt: 0.4, color: "#64748b", fontSize: 11, fontWeight: 700, letterSpacing: 0.4 }}>
+                  Software Agency
+                </Typography>
+              </Box>
+            </Stack>
           )}
         </Box>
 
@@ -79,12 +139,12 @@ export default function Navbar() {
                 href={link.href}
                 onMouseEnter={openServices}
                 endIcon={<ExpandMoreIcon />}
-                sx={{ color: "#1f2937" }}
+                sx={navButtonSx}
               >
                 {link.label}
               </Button>
             ) : (
-              <Button key={link.href} component={NextLink} href={link.href} sx={{ color: "#1f2937" }}>
+              <Button key={link.href} component={NextLink} href={link.href} sx={navButtonSx}>
                 {link.label}
               </Button>
             ),
@@ -98,7 +158,15 @@ export default function Navbar() {
           variant="contained"
           color="primary"
           startIcon={<CalendarMonthIcon />}
-          sx={{ display: { xs: "none", lg: "inline-flex" }, color: "#0a0f1e", px: 2.5, py: 1.2 }}
+          sx={{
+            display: { xs: "none", lg: "inline-flex" },
+            borderRadius: 999,
+            color: "#0a0f1e",
+            px: 2.8,
+            py: 1.25,
+            boxShadow: "0 10px 24px rgba(252,181,30,0.28)",
+            "&:hover": { bgcolor: "#e6a018" },
+          }}
         >
           Schedule Free Call
         </Button>

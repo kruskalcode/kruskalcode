@@ -1,14 +1,11 @@
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import HomeIcon from "@mui/icons-material/Home";
 import {
   Box,
-  Breadcrumbs,
   Button,
   Chip,
   Container,
   Grid,
-  Link as MuiLink,
   List,
   ListItem,
   ListItemIcon,
@@ -20,8 +17,8 @@ import {
   Stepper,
   Typography,
 } from "@mui/material";
-import NextLink from "next/link";
 import { notFound } from "next/navigation";
+import PageHero from "@/components/PageHero";
 import ServiceIcon from "@/components/ServiceIcon";
 import { company, engagementProcess, getServiceBySlug, services } from "@/data/site";
 
@@ -53,45 +50,37 @@ export default function ServiceDetailPage({ params }) {
 
   return (
     <>
-      <Box component="section" sx={{ bgcolor: "background.default", py: { xs: 9, md: 12 } }}>
-        <Container maxWidth="lg">
-          <Breadcrumbs sx={{ mb: 4, color: "text.secondary" }}>
-            <MuiLink component={NextLink} href="/" sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-              <HomeIcon fontSize="small" /> Home
-            </MuiLink>
-            <MuiLink component={NextLink} href="/services/">
-              Services
-            </MuiLink>
-            <Typography color="primary">{service.title}</Typography>
-          </Breadcrumbs>
-          <Stack direction={{ xs: "column", md: "row" }} spacing={3} alignItems={{ xs: "flex-start", md: "center" }}>
+      <PageHero
+        current={service.title}
+        eyebrow="Service"
+        title={service.title}
+        subtitle={service.description}
+      >
+        <Stack direction={{ xs: "column", sm: "row" }} spacing={2} alignItems={{ xs: "flex-start", sm: "center" }}>
             <Box
               sx={{
                 display: "grid",
-                width: 86,
-                height: 86,
+                width: 72,
+                height: 72,
                 placeItems: "center",
-                borderRadius: 4,
+                borderRadius: 3,
                 bgcolor: "rgba(252,181,30,0.12)",
                 border: "1px solid rgba(252,181,30,0.3)",
                 color: "primary.main",
               }}
             >
-              <ServiceIcon name={service.icon} sx={{ fontSize: 44 }} />
+              <ServiceIcon name={service.icon} sx={{ fontSize: 38 }} />
             </Box>
             <Box>
-              <Typography variant="h1" sx={{ fontSize: { xs: 40, md: 64 } }}>
-                {service.title}
+              <Typography sx={{ color: "primary.main", fontWeight: 800 }}>
+                Built for scalable delivery
               </Typography>
-              <Typography variant="h6" color="text.secondary" sx={{ mt: 2, maxWidth: 860, lineHeight: 1.8 }}>
-                {service.description}
-              </Typography>
+              <Typography color="text.secondary">Clear planning, modern implementation, and support after launch.</Typography>
             </Box>
           </Stack>
-        </Container>
-      </Box>
+      </PageHero>
 
-      <Box component="section" sx={{ bgcolor: "background.default", pb: { xs: 9, md: 12 } }}>
+      <Box component="section" sx={{ bgcolor: "background.default", px: { xs: 2, md: 3 }, pb: { xs: 9, md: 12 } }}>
         <Container maxWidth="lg">
           <Grid container spacing={4}>
             <Grid item xs={12} md={7}>
