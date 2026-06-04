@@ -28,14 +28,6 @@ export const metadata = {
     "KruskalCode builds scalable web, mobile, cloud, AI, DevOps, and software consulting solutions for growing teams.",
 };
 
-const particles = Array.from({ length: 18 }, (_, index) => ({
-  id: index,
-  size: 4 + (index % 4) * 2,
-  left: `${(index * 17) % 100}%`,
-  top: `${(index * 29) % 100}%`,
-  delay: index * 0.25,
-}));
-
 export default function HomePage() {
   return (
     <>
@@ -44,11 +36,11 @@ export default function HomePage() {
         sx={{
           position: "relative",
           display: "flex",
-          minHeight: "calc(100vh - 64px)",
+          minHeight: { xs: "auto", md: "calc(100vh - 86px)" },
           alignItems: "center",
           overflow: "hidden",
           bgcolor: "background.default",
-          py: { xs: 12, md: 16 },
+          py: { xs: 8, md: 12 },
         }}
       >
         <Box
@@ -56,80 +48,95 @@ export default function HomePage() {
             position: "absolute",
             inset: 0,
             background:
-              "radial-gradient(circle at 20% 20%, rgba(252,181,30,0.26), transparent 28rem), radial-gradient(circle at 80% 10%, rgba(252,181,30,0.16), transparent 24rem)",
+              "radial-gradient(circle at 10% 15%, rgba(252,181,30,0.16), transparent 24rem), radial-gradient(circle at 88% 18%, rgba(252,181,30,0.12), transparent 24rem)",
           }}
         />
-        {particles.map((particle) => (
-          <MotionBox
-            key={particle.id}
-            aria-hidden="true"
-            animate={{ y: [0, -22, 0], opacity: [0.2, 0.75, 0.2] }}
-            transition={{ duration: 5, delay: particle.delay, repeat: Infinity, ease: "easeInOut" }}
-            sx={{
-              position: "absolute",
-              left: particle.left,
-              top: particle.top,
-              width: particle.size,
-              height: particle.size,
-              borderRadius: "50%",
-              bgcolor: "primary.main",
-              boxShadow: "0 0 24px rgba(252,181,30,0.75)",
-            }}
-          />
-        ))}
-        <Container maxWidth="lg" sx={{ position: "relative", textAlign: "center" }}>
-          <MotionBox variants={staggerContainer} initial="hidden" animate="visible" sx={{ mx: "auto", maxWidth: 930 }}>
-            <MotionBox variants={fadeUp}>
-              <Typography sx={{ mb: 1.5, color: "primary.main", fontWeight: 800, letterSpacing: 2.4, textTransform: "uppercase" }}>
-                It&apos;s All about
-              </Typography>
-            </MotionBox>
-            <MotionBox variants={fadeUp}>
-              <Typography variant="h1" sx={{ fontSize: { xs: 58, sm: 76, md: 112 }, lineHeight: 0.95 }}>
-                KruskalCode
-              </Typography>
-            </MotionBox>
-            <MotionBox variants={fadeUp}>
-              <Typography color="text.secondary" sx={{ mx: "auto", mt: 4, maxWidth: 850, fontSize: { xs: 17, md: 20 }, lineHeight: 1.9 }}>
-                At KruskalCode, we are passionate about transforming ideas into digital experiences
-                that drive success. We bring together creativity, technology, and strategy to deliver
-                solutions that meet the unique needs of each client.
-              </Typography>
-            </MotionBox>
-            <MotionBox variants={fadeUp}>
-              <Stack direction={{ xs: "column", sm: "row" }} spacing={2} justifyContent="center" sx={{ mt: 5 }}>
-                <Button
-                  component={NextLink}
-                  href="/contact/"
-                  variant="contained"
-                  color="primary"
-                  size="large"
-                  endIcon={<ArrowForwardIcon />}
-                  sx={{ color: "#0a0f1e", px: 4, py: 1.5 }}
-                >
-                  Start a Project
-                </Button>
-                <Button
-                  component={NextLink}
-                  href="/services/"
-                  variant="outlined"
-                  size="large"
-                  sx={{ borderColor: "primary.main", color: "primary.main", px: 4, py: 1.5 }}
-                >
-                  What We Offer
-                </Button>
-              </Stack>
-            </MotionBox>
-          </MotionBox>
+        <Container maxWidth="lg" sx={{ position: "relative" }}>
+          <Grid container spacing={{ xs: 5, md: 7 }} alignItems="center">
+            <Grid item xs={12} md={7}>
+              <MotionBox variants={staggerContainer} initial="hidden" animate="visible">
+                <MotionBox variants={fadeUp}>
+                  <Typography sx={{ mb: 1.5, color: "primary.main", fontWeight: 800, letterSpacing: 2.2, textTransform: "uppercase" }}>
+                    It&apos;s All about
+                  </Typography>
+                </MotionBox>
+                <MotionBox variants={fadeUp}>
+                  <Typography variant="h1" sx={{ maxWidth: 760, fontSize: { xs: 48, sm: 64, md: 88 }, lineHeight: 0.98 }}>
+                    KruskalCode
+                  </Typography>
+                </MotionBox>
+                <MotionBox variants={fadeUp}>
+                  <Typography color="text.secondary" sx={{ mt: 4, maxWidth: 690, fontSize: { xs: 16, md: 19 }, lineHeight: 1.9 }}>
+                    At KruskalCode, we are passionate about transforming ideas into digital experiences
+                    that drive success. We bring together creativity, technology, and strategy to deliver
+                    solutions that meet the unique needs of each client.
+                  </Typography>
+                </MotionBox>
+                <MotionBox variants={fadeUp}>
+                  <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ mt: 5 }}>
+                    <Button
+                      component={NextLink}
+                      href="/contact/"
+                      variant="contained"
+                      color="primary"
+                      size="large"
+                      endIcon={<ArrowForwardIcon />}
+                      sx={{ borderRadius: 999, color: "#0a0f1e", px: 4, py: 1.5 }}
+                    >
+                      Start a Project
+                    </Button>
+                    <Button
+                      component={NextLink}
+                      href="/services/"
+                      variant="outlined"
+                      size="large"
+                      sx={{ borderRadius: 999, borderColor: "primary.main", color: "primary.main", px: 4, py: 1.5 }}
+                    >
+                      What We Offer
+                    </Button>
+                  </Stack>
+                </MotionBox>
+              </MotionBox>
+            </Grid>
+            <Grid item xs={12} md={5}>
+              <Paper
+                sx={{
+                  position: "relative",
+                  overflow: "hidden",
+                  p: { xs: 3, md: 4 },
+                  borderTop: "5px solid #fcb51e",
+                }}
+              >
+                <Typography sx={{ color: "primary.main", fontWeight: 800, letterSpacing: 1.5, textTransform: "uppercase" }}>
+                  {company.tagline}
+                </Typography>
+                <Typography variant="h4" sx={{ mt: 2 }}>
+                  Web, mobile, AI and cloud delivery for growing teams.
+                </Typography>
+                <Typography color="text.secondary" sx={{ mt: 2, lineHeight: 1.8 }}>
+                  Whether you&apos;re launching a new project or improving an existing product,
+                  KruskalCode helps turn your vision into a reliable digital experience.
+                </Typography>
+                <Stack spacing={1.5} sx={{ mt: 3 }}>
+                  {["Custom website development", "Responsive product interfaces", "Cloud-ready systems"].map((item) => (
+                    <Stack key={item} direction="row" spacing={1.5} alignItems="center">
+                      <CheckCircleIcon color="primary" />
+                      <Typography sx={{ fontWeight: 700 }}>{item}</Typography>
+                    </Stack>
+                  ))}
+                </Stack>
+              </Paper>
+            </Grid>
+          </Grid>
         </Container>
       </Box>
 
-      <Container maxWidth="lg" sx={{ mt: { xs: -5, md: -7 }, position: "relative", zIndex: 2 }}>
-        <Paper sx={{ bgcolor: "background.paper", borderTop: "4px solid #fcb51e", p: { xs: 3, md: 4 } }}>
+      <Container maxWidth="lg" sx={{ mt: { xs: -2, md: -5 }, position: "relative", zIndex: 2 }}>
+        <Paper sx={{ bgcolor: "background.paper", borderTop: "4px solid #fcb51e", p: { xs: 2.5, md: 3.5 } }}>
           <Grid container spacing={3}>
           {stats.map((stat) => (
             <Grid item xs={6} md={3} key={stat.label}>
-              <Typography variant="h3" color="primary" textAlign="center">
+              <Typography variant="h3" color="primary" textAlign="center" sx={{ fontSize: { xs: 34, md: 44 } }}>
                 {stat.value}
               </Typography>
               <Typography color="text.secondary" textAlign="center" sx={{ mt: 1 }}>
@@ -141,7 +148,7 @@ export default function HomePage() {
         </Paper>
       </Container>
 
-      <Box component="section" sx={{ bgcolor: "background.default", py: { xs: 10, md: 13 } }}>
+      <Box component="section" sx={{ bgcolor: "background.default", py: { xs: 8, md: 11 } }}>
         <Container maxWidth="lg">
           <SectionHeading
             eyebrow="Support and Guidance"
@@ -168,7 +175,7 @@ export default function HomePage() {
         </Container>
       </Box>
 
-      <Box component="section" sx={{ bgcolor: "background.paper", py: { xs: 10, md: 13 } }}>
+      <Box component="section" sx={{ bgcolor: "background.paper", py: { xs: 8, md: 11 } }}>
         <Container maxWidth="lg">
           <Grid container spacing={6} alignItems="center">
             <Grid item xs={12} md={6}>
@@ -190,7 +197,7 @@ export default function HomePage() {
             <Grid item xs={12} md={6}>
               <List>
                 {whyChooseUs.map((item) => (
-                  <ListItem key={item} sx={{ mb: 1.5, bgcolor: "rgba(255,255,255,0.04)", borderRadius: 2 }}>
+                  <ListItem key={item} sx={{ mb: 1.5, bgcolor: "#0a0f1e", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 2 }}>
                     <ListItemIcon>
                       <CheckCircleIcon color="primary" />
                     </ListItemIcon>
@@ -203,7 +210,7 @@ export default function HomePage() {
         </Container>
       </Box>
 
-      <Box component="section" sx={{ bgcolor: "background.default", py: { xs: 10, md: 13 } }}>
+      <Box component="section" sx={{ bgcolor: "background.default", py: { xs: 8, md: 11 } }}>
         <Container maxWidth="lg">
           <SectionHeading
             title="What People Say"

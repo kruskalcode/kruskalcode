@@ -9,25 +9,24 @@ export default function ServiceCard({ service, large = false }) {
     <Card
       sx={{
         height: "100%",
-        transition: "transform 220ms ease, border-color 220ms ease, background 220ms ease",
+        transition: "transform 220ms ease, border-color 220ms ease",
         "&:hover": {
           transform: "translateY(-6px)",
           borderColor: "primary.main",
-          background: "rgba(255,255,255,0.07)",
         },
       }}
     >
-      <CardContent sx={{ display: "flex", minHeight: large ? 360 : 300, flexDirection: "column", p: 3.5 }}>
+      <CardContent sx={{ display: "flex", minHeight: large ? 340 : 280, flexDirection: "column", p: 3 }}>
         <Box
           sx={{
             mb: 3,
             display: "grid",
-            height: 58,
-            width: 58,
+            height: 54,
+            width: 54,
             placeItems: "center",
-            borderRadius: 3,
+            borderRadius: "50%",
             color: "primary.main",
-            backgroundColor: "rgba(252,181,30,0.12)",
+            backgroundColor: "#0a0f1e",
             border: "1px solid rgba(252,181,30,0.28)",
           }}
         >
@@ -36,7 +35,7 @@ export default function ServiceCard({ service, large = false }) {
         <Typography variant={large ? "h5" : "h6"} component="h3" gutterBottom>
           {service.title}
         </Typography>
-        <Typography color="text.secondary" sx={{ lineHeight: 1.75 }}>
+        <Typography color="text.secondary" sx={{ lineHeight: 1.7 }}>
           {service.description}
         </Typography>
         {large ? (
