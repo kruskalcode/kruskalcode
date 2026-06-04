@@ -4,6 +4,7 @@
   --background: #0a0f1e;
   --foreground: #ffffff;
   --accent: #fcb51e;
+  --accent-rgb: 252, 181, 30;
   --accent-hover: #fcb51e;
   --header-bg: #ffffff;
   --header-text: #0f172a;
@@ -51,11 +52,11 @@
 }
 
 .text-theme-accent-100 {
-  color: rgba(253, 195, 30, 0.15);
+  color: rgba(var(--accent-rgb), 0.15);
 }
 
 .text-theme-accent-200 {
-  color: rgba(253, 195, 30, 0.6);
+  color: rgba(var(--accent-rgb), 0.6);
 }
 
 .bg-theme-accent {
@@ -68,19 +69,23 @@
 }
 
 .bg-theme-accent-10 {
-  background-color: rgba(253, 195, 30, 0.1);
+  background-color: rgba(var(--accent-rgb), 0.1);
 }
 
 .bg-theme-accent-15 {
-  background-color: rgba(253, 195, 30, 0.15);
+  background-color: rgba(var(--accent-rgb), 0.15);
 }
 
 .bg-theme-accent-05 {
-  background-color: rgba(253, 195, 30, 0.05);
+  background-color: rgba(var(--accent-rgb), 0.05);
 }
 
 .border-theme-accent {
   border-color: var(--accent);
+}
+
+.border-theme-accent-20 {
+  border-color: rgba(var(--accent-rgb), 0.2);
 }
 
 .hover\:border-theme-accent:hover,
@@ -88,8 +93,12 @@
   border-color: var(--accent);
 }
 
+.ring-theme-accent {
+  --tw-ring-color: var(--accent);
+}
+
 .shadow-theme-accent-25 {
-  box-shadow: 0 25px 50px -12px rgba(253, 195, 30, 0.25);
+  box-shadow: 0 25px 50px -12px rgba(var(--accent-rgb), 0.25);
 }
 
 .site-footer {
