@@ -28,10 +28,10 @@ export const navLinks = [
 export const services = [
   {
     slug: "artificial-intelligence",
-    title: "Artificial Intelligence",
+    title: "Artificial\nIntelligence",
     icon: "Psychology",
     description:
-      "Practical AI systems, automation, and intelligent workflows for measurable business value.",
+      "KruskalCode Artificial Intelligence (AI) services leverage advanced machine learning and data analytics to help businesses automate processes and enhance decision-making. We develop custom AI solutions that improve operational efficiency and drive innovation.",
     longDescription:
       "KruskalCode helps teams identify, design, and ship AI capabilities that fit real operations. We build assistants, retrieval workflows, recommendation tools, classification pipelines, and internal automation that connect cleanly with existing products while keeping security, observability, and maintainability in view.",
     features: [
@@ -45,10 +45,10 @@ export const services = [
   },
   {
     slug: "cloud-storage",
-    title: "Cloud Storage",
+    title: "Cloud\nStorage",
     icon: "Cloud",
     description:
-      "Secure, scalable storage architectures for apps, media, backups, and business data.",
+      "KruskalCode offers secure, scalable cloud storage services tailored to your business. Our solutions provide easy access, seamless integration, and strong security to keep your data safe and available anytime. Let KruskalCode optimize storage for growth.",
     longDescription:
       "We design storage systems that keep data accessible, protected, and cost efficient. Our team plans migrations, structures access controls, sets lifecycle rules, connects media delivery, and builds reliable upload, backup, and recovery flows for modern applications.",
     features: [
@@ -62,10 +62,10 @@ export const services = [
   },
   {
     slug: "devops-services",
-    title: "DevOps Services",
+    title: "DevOps\nServices",
     icon: "DeveloperMode",
     description:
-      "CI/CD, infrastructure automation, observability, and release workflows for faster delivery.",
+      "KruskalCode offers CI/CD automation and Infrastructure as Code (IaC) for efficient, reliable software delivery and scalable infrastructure management. We also provide real-time monitoring to optimize performance and ensure system reliability.",
     longDescription:
       "Our DevOps services help product teams ship confidently. We automate deployments, harden cloud environments, improve observability, and create repeatable infrastructure so releases become faster, safer, and easier to operate across staging and production environments.",
     features: [
@@ -79,10 +79,10 @@ export const services = [
   },
   {
     slug: "digital-marketing",
-    title: "Digital Marketing",
+    title: "Digital\nMarketing",
     icon: "TrendingUp",
     description:
-      "Growth-focused digital strategy, landing pages, SEO foundations, and analytics implementation.",
+      "KruskalCode delivers targeted digital marketing strategies, leveraging data-driven insights to boost online presence and drive engagement. Our services include SEO, content marketing, and social media management to maximize your brand’s reach and impact.",
     longDescription:
       "KruskalCode connects product engineering with marketing execution. We build fast campaign pages, improve technical SEO, set up analytics, and support digital funnels that help brands attract, convert, and retain customers with measurable data.",
     features: [
@@ -96,10 +96,10 @@ export const services = [
   },
   {
     slug: "innovation-product-development-consulting",
-    title: "Innovation & Product Development Consulting",
+    title: "Innovation & Product\nDevelopment Consulting",
     icon: "Lightbulb",
     description:
-      "Product strategy, MVP planning, technical discovery, and launch roadmaps for new ideas.",
+      "At KruskalCode, we offer a full spectrum of web development services designed to elevate your online presence and drive business growth. Our goal is to deliver innovative, high-quality web solutions that help your business succeed online.",
     longDescription:
       "We help founders and business teams turn early ideas into practical product plans. Our consulting covers discovery, feature prioritization, prototype planning, architecture choices, validation loops, and release strategy so teams can move from concept to market with clarity.",
     features: [
@@ -113,10 +113,10 @@ export const services = [
   },
   {
     slug: "it-software-architecture-consulting",
-    title: "IT & Software Architecture Consulting",
+    title: "IT & Software\nArchitecture Consulting",
     icon: "Architecture",
     description:
-      "Architecture reviews, modernization plans, and scalable system design for growing teams.",
+      "At KruskalCode, we offer a full spectrum of web development services designed to elevate your online presence and drive business growth. Our goal is to deliver innovative, high-quality web solutions that help your business succeed online.",
     longDescription:
       "KruskalCode provides architecture guidance for teams that need scalable, maintainable systems. We review existing platforms, identify risks, design modernization plans, and support technical decisions around APIs, databases, cloud services, integrations, and team workflows.",
     features: [
@@ -136,10 +136,10 @@ export const services = [
   },
   {
     slug: "mobile-application-development",
-    title: "Mobile Application Development",
+    title: "Mobile Application\nDevelopment",
     icon: "PhoneIphone",
     description:
-      "Cross-platform mobile apps with polished experiences, secure APIs, and reliable releases.",
+      "At KruskalCode, we offer a full spectrum of web development services designed to elevate your online presence and drive business growth. Our goal is to deliver innovative, high-quality web solutions that help your business succeed online.",
     longDescription:
       "We build mobile applications for startups and businesses that need dependable user experiences. Our team covers product flows, UI implementation, API integration, authentication, testing, analytics, and store-ready release support for iOS and Android.",
     features: [
@@ -159,10 +159,10 @@ export const services = [
   },
   {
     slug: "staffing-services",
-    title: "Staffing Services",
+    title: "Staffing\nServices",
     icon: "Groups",
     description:
-      "Flexible technical staffing for engineering, product, design, QA, and operations needs.",
+      "At KruskalCode, we offer a full spectrum of web development services designed to elevate your online presence and drive business growth. Our goal is to deliver innovative, high-quality web solutions that help your business succeed online.",
     longDescription:
       "KruskalCode supports companies that need trusted technical talent without slowing down delivery. We help assemble capable engineers, designers, QA specialists, DevOps resources, and support staff who can plug into existing workflows or operate as a dedicated delivery team.",
     features: [
@@ -176,10 +176,10 @@ export const services = [
   },
   {
     slug: "web-design-development",
-    title: "Web Design & Development",
+    title: "Web Design &\nDevelopment",
     icon: "Web",
     description:
-      "Fast, conversion-ready websites and web applications built with modern engineering practices.",
+      "At KruskalCode, we offer a full spectrum of web development services designed to elevate your online presence and drive business growth. Our goal is to deliver innovative, high-quality web solutions that help your business succeed online.",
     longDescription:
       "We design and develop modern websites and web applications that are fast, responsive, accessible, and easy to maintain. From company sites to dashboards and SaaS platforms, KruskalCode delivers web experiences that look sharp and perform reliably.",
     features: [

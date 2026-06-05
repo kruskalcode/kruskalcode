@@ -1,69 +1,75 @@
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { Box, Button, Card, CardContent, Chip, Stack, Typography } from "@mui/material";
-import NextLink from "next/link";
-import { getServiceHref } from "@/data/site";
+import { Box, Card, CardContent, Typography } from "@mui/material";
 import ServiceIcon from "@/components/ServiceIcon";
 
 export default function ServiceCard({ service, large = false }) {
   return (
     <Card
+      elevation={0}
       sx={{
-        height: "100%",
-        transition: "transform 220ms ease, border-color 220ms ease",
+        width: "100%",
+        aspectRatio: "1 / 1",
+        background: "#ffffff !important",
+        border: "1px solid #e2e8f0 !important",
+        borderRadius: "0 !important",
+        mt: 0,
+        mx: "auto",
+        boxShadow: "0 8px 30px rgba(0,0,0,0.06)",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "flex-start",
+        textAlign: "center",
+        transition: "transform 300ms ease, box-shadow 300ms ease",
         "&:hover": {
-          transform: "translateY(-6px)",
-          borderColor: "primary.main",
+          transform: "translateY(-10px)",
+          boxShadow: "0 20px 40px rgba(0,0,0,0.12)",
         },
+        gap: 0.2,
       }}
     >
-      <CardContent sx={{ display: "flex", minHeight: large ? 340 : 280, flexDirection: "column", p: 3 }}>
+      <CardContent
+        sx={{
+          p: { xs: 3, md: 4 },
+          flexGrow: 1,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "flex-start",
+          height: "100%",
+        }}
+      >
         <Box
           sx={{
-            mb: 3,
-            display: "grid",
-            height: 54,
-            width: 54,
-            placeItems: "center",
-            borderRadius: "50%",
-            color: "primary.main",
-            backgroundColor: "#0a0f1e",
-            border: "1px solid rgba(252,181,30,0.28)",
+            mb: 1.5,
+            color: "#fcb51e",
+            display: "inline-flex",
           }}
         >
-          <ServiceIcon name={service.icon} fontSize="medium" />
+          <ServiceIcon name={service.icon} sx={{ fontSize: 56 }} />
         </Box>
-        <Typography variant={large ? "h5" : "h6"} component="h3" gutterBottom>
+        <Typography
+          variant={large ? "h5" : "h6"}
+          component="h3"
+          sx={{ 
+            fontWeight: 800, 
+            color: "#0f172a", 
+            mb: 2,
+            width: "100%",
+            minHeight: "2.6em",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            lineHeight: 1.3,
+            fontSize: "1.1rem",
+            px: 1,
+            whiteSpace: "pre-line",
+          }}
+        >
           {service.title}
         </Typography>
-        <Typography color="text.secondary" sx={{ lineHeight: 1.7 }}>
+        <Typography sx={{ lineHeight: 1.8, fontSize: 14, color: "#475569" }}>
           {service.description}
         </Typography>
-        {large ? (
-          <Stack direction="row" flexWrap="wrap" gap={1} sx={{ mt: 3 }}>
-            {service.features.slice(0, 3).map((feature) => (
-              <Chip
-                key={feature}
-                label={feature}
-                size="small"
-                sx={{
-                  maxWidth: "100%",
-                  bgcolor: "rgba(252,181,30,0.1)",
-                  color: "primary.main",
-                  border: "1px solid rgba(252,181,30,0.2)",
-                }}
-              />
-            ))}
-          </Stack>
-        ) : null}
-        <Box sx={{ flex: 1 }} />
-        <Button
-          component={NextLink}
-          href={getServiceHref(service)}
-          endIcon={<ArrowForwardIcon />}
-          sx={{ alignSelf: "flex-start", mt: 3, color: "primary.main" }}
-        >
-          Learn More
-        </Button>
       </CardContent>
     </Card>
   );

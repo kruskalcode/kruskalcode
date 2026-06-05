@@ -67,11 +67,13 @@ export default function Navbar() {
   return (
     <AppBar
       position="sticky"
-      elevation={0}
       sx={{
         top: 0,
         bgcolor: "#ffffff",
-        borderBottom: scrolled ? "1px solid rgba(15, 23, 42, 0.12)" : "1px solid rgba(15, 23, 42, 0.06)",
+        borderRadius: 0,
+        borderBottom: scrolled
+          ? "1px solid rgba(15, 23, 42, 0.12)"
+          : "1px solid rgba(15, 23, 42, 0.06)",
         boxShadow: scrolled ? "0 12px 30px rgba(15, 23, 42, 0.08)" : "none",
         transition: "box-shadow 220ms ease",
         zIndex: (theme) => theme.zIndex.drawer + 1,
@@ -87,7 +89,11 @@ export default function Navbar() {
           px: { xs: 2, md: 3 },
         }}
       >
-        <Box component={NextLink} href="/" sx={{ display: "flex", alignItems: "center", minWidth: 220 }}>
+        <Box
+          component={NextLink}
+          href="/"
+          sx={{ display: "flex", alignItems: "center", minWidth: 220 }}
+        >
           {!logoFailed ? (
             <Box
               component="img"
@@ -114,10 +120,26 @@ export default function Navbar() {
                 K
               </Box>
               <Box>
-                <Typography sx={{ color: "#0a0f1e", fontFamily: "'Sora', sans-serif", fontSize: 22, fontWeight: 800, lineHeight: 1 }}>
+                <Typography
+                  sx={{
+                    color: "#0a0f1e",
+                    fontFamily: "'Sora', sans-serif",
+                    fontSize: 22,
+                    fontWeight: 800,
+                    lineHeight: 1,
+                  }}
+                >
                   KruskalCode
                 </Typography>
-                <Typography sx={{ mt: 0.4, color: "#64748b", fontSize: 11, fontWeight: 700, letterSpacing: 0.4 }}>
+                <Typography
+                  sx={{
+                    mt: 0.4,
+                    color: "#64748b",
+                    fontSize: 11,
+                    fontWeight: 700,
+                    letterSpacing: 0.4,
+                  }}
+                >
                   Software Agency
                 </Typography>
               </Box>
@@ -129,7 +151,11 @@ export default function Navbar() {
           component="nav"
           direction="row"
           spacing={1}
-          sx={{ display: { xs: "none", lg: "flex" }, flex: 1, justifyContent: "center" }}
+          sx={{
+            display: { xs: "none", lg: "flex" },
+            flex: 1,
+            justifyContent: "center",
+          }}
         >
           {navLinks.map((link) =>
             link.label === "Services" ? (
@@ -144,7 +170,12 @@ export default function Navbar() {
                 {link.label}
               </Button>
             ) : (
-              <Button key={link.href} component={NextLink} href={link.href} sx={navButtonSx}>
+              <Button
+                key={link.href}
+                component={NextLink}
+                href={link.href}
+                sx={navButtonSx}
+              >
                 {link.label}
               </Button>
             ),
@@ -174,7 +205,11 @@ export default function Navbar() {
         <IconButton
           aria-label="Open navigation menu"
           onClick={() => setDrawerOpen(true)}
-          sx={{ display: { xs: "inline-flex", lg: "none" }, ml: "auto", color: "#0f172a" }}
+          sx={{
+            display: { xs: "inline-flex", lg: "none" },
+            ml: "auto",
+            color: "#0f172a",
+          }}
         >
           <MenuIcon />
         </IconButton>
@@ -185,7 +220,11 @@ export default function Navbar() {
         open={Boolean(servicesAnchor)}
         onClose={closeServices}
         MenuListProps={{ onMouseLeave: closeServices }}
-        slotProps={{ paper: { sx: { mt: 1, minWidth: 320, bgcolor: "#ffffff", color: "#0f172a" } } }}
+        slotProps={{
+          paper: {
+            sx: { mt: 1, minWidth: 320, bgcolor: "#ffffff", color: "#0f172a" },
+          },
+        }}
       >
         {services.map((service) => (
           <MenuItem
@@ -200,11 +239,30 @@ export default function Navbar() {
         ))}
       </Menu>
 
-      <Drawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-        <Box sx={{ width: 320, bgcolor: "background.default", minHeight: "100%", p: 2 }}>
-          <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ mb: 1 }}>
+      <Drawer
+        anchor="right"
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+      >
+        <Box
+          sx={{
+            width: 320,
+            bgcolor: "background.default",
+            minHeight: "100%",
+            p: 2,
+          }}
+        >
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="space-between"
+            sx={{ mb: 1 }}
+          >
             <Typography variant="h6">Menu</Typography>
-            <IconButton onClick={() => setDrawerOpen(false)} sx={{ color: "text.primary" }}>
+            <IconButton
+              onClick={() => setDrawerOpen(false)}
+              sx={{ color: "text.primary" }}
+            >
               <CloseIcon />
             </IconButton>
           </Stack>
@@ -223,7 +281,9 @@ export default function Navbar() {
             ))}
           </List>
           <Divider sx={{ borderColor: "rgba(255,255,255,0.12)", my: 1 }} />
-          <Typography sx={{ px: 2, py: 1, color: "primary.main", fontWeight: 700 }}>
+          <Typography
+            sx={{ px: 2, py: 1, color: "primary.main", fontWeight: 700 }}
+          >
             Services
           </Typography>
           <List dense>
