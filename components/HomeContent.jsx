@@ -25,6 +25,8 @@ import MotionBox, {
 import ServiceCard from "@/components/ServiceCard";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import { company, services, whyChooseUs, testimonials } from "@/data/site";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import StartWithUsCTA from "@/components/StartWithUsCTA";
 
 function SectionHeading({ eyebrow, title, subtitle, dark = false }) {
   return (
@@ -263,95 +265,7 @@ export default function HomeContent() {
       </Box>
 
       {/* Why Choose Us Section */}
-      <Box
-        component="section"
-        sx={{ bgcolor: "#ffffff", py: { xs: 8, md: 12 } }}
-      >
-        <Container maxWidth="lg">
-          <Grid container spacing={8} alignItems="center">
-            <Grid item xs={12} md={6} sx={{ order: { xs: 1, md: 2 } }}>
-              <MotionBox
-                variants={slideInRight}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
-                <Box
-                  component="img"
-                  src="/assets/choose-us.jpg"
-                  alt="Why Choose Us"
-                  sx={{
-                    width: "100%",
-                    height: "auto",
-                    borderRadius: 4,
-                  }}
-                />
-              </MotionBox>
-            </Grid>
-            <Grid item xs={12} md={6} sx={{ order: { xs: 1, md: 1 } }}>
-              <MotionBox
-                variants={slideInLeft}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-              >
-                <MotionBox variants={fadeUp}>
-                  <Typography
-                    variant="h2"
-                    sx={{
-                      mb: 3,
-                      fontSize: { xs: 36, md: 48 },
-                      fontWeight: 800,
-                      color: "#0f172a",
-                    }}
-                  >
-                    Why Choose Us?
-                  </Typography>
-                </MotionBox>
-                <MotionBox variants={fadeUp}>
-                  <Typography
-                    sx={{
-                      mt: 1,
-                      lineHeight: 1.8,
-                      fontSize: 16,
-                      fontStyle: "italic",
-                      color: "#475569",
-                    }}
-                  >
-                    KruskalCode is a leading software development company known
-                    for its expertise in creating high-quality, innovative
-                    solutions. They prioritize customer satisfaction by
-                    collaborating closely with clients and employing agile
-                    methodologies for flexibility and rapid iteration. With a
-                    proven track record and a focus on cutting-edge
-                    technologies, KruskalCode ensures scalable and effective
-                    software that aligns with your business goals.
-                  </Typography>
-                </MotionBox>
-                <MotionBox variants={fadeUp}>
-                  <List>
-                    {whyChooseUs.map((item) => (
-                      <ListItem key={item} sx={{ px: 0, py: 1 }}>
-                        <ListItemIcon sx={{ minWidth: 40 }}>
-                          <CheckCircleIcon sx={{ color: "#fcb51e" }} />
-                        </ListItemIcon>
-                        <ListItemText
-                          primary={item}
-                          primaryTypographyProps={{
-                            fontWeight: 700,
-                            fontSize: 17,
-                            color: "#0f172a",
-                          }}
-                        />
-                      </ListItem>
-                    ))}
-                  </List>
-                </MotionBox>
-              </MotionBox>
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
+      <WhyChooseUs />
 
       {/* Testimonials Section */}
       <Box
@@ -398,78 +312,7 @@ export default function HomeContent() {
       </Box>
 
       {/* CTA Section */}
-      <Box
-        component="section"
-        sx={{
-          bgcolor: "#ffffff",
-          py: { xs: 8, md: 12 },
-        }}
-      >
-        <Container maxWidth="lg">
-          <Box
-            sx={{
-              background: "#ffffff",
-              boxShadow: "0 10px 40px rgba(15, 23, 42, 0.7)",
-              borderRadius: 1,
-              p: { xs: 4, md: 6 },
-              display: "flex",
-              flexDirection: { xs: "column", md: "row" },
-              alignItems: "center",
-              justifyContent: "space-between",
-              gap: 4,
-            }}
-          >
-            <Box sx={{ flex: 1, textAlign: { xs: "center", md: "left" } }}>
-              <Typography
-                variant="h3"
-                sx={{
-                  fontSize: { xs: 24, md: 28 },
-                  fontWeight: 700,
-                  color: "#fcb51e",
-                  textTransform: "uppercase",
-                  mb: 2,
-                }}
-              >
-                Would you like to start with us?
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: { xs: 15, md: 16 },
-                  lineHeight: 1.6,
-                  color: "#0f172a",
-                  fontWeight: 500,
-                  maxWidth: 700,
-                }}
-              >
-                Let&apos;s discuss how we can help your agency grow to
-                KruskalCode. We explore what you&apos;re doing now, and what it
-                takes to move your digital marketing agency from 6 to 7 figures.
-              </Typography>
-            </Box>
-            <Button
-              href={company.scheduleUrl || "/contact"}
-              target="_blank"
-              rel="noreferrer"
-              variant="contained"
-              size="large"
-              sx={{
-                background: "#fcb51e",
-                color: "#0f172a",
-                "&:hover": { background: "#eab308" },
-                px: 5,
-                py: 1.5,
-                fontSize: 16,
-                fontWeight: 700,
-                borderRadius: 999,
-                whiteSpace: "nowrap",
-                boxShadow: "none",
-              }}
-            >
-              Want To Start Now
-            </Button>
-          </Box>
-        </Container>
-      </Box>
+      <StartWithUsCTA />
     </>
   );
 }

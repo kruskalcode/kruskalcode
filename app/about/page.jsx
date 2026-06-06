@@ -1,179 +1,524 @@
-import Diversity3Icon from "@mui/icons-material/Diversity3";
-import EmojiObjectsIcon from "@mui/icons-material/EmojiObjects";
-import FlagIcon from "@mui/icons-material/Flag";
+"use client";
+
+import CheckIcon from "@mui/icons-material/Check";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import StartWithUsCTA from "@/components/StartWithUsCTA";
 import {
-  Avatar,
   Box,
-  Card,
-  CardContent,
+  Button,
   Container,
   Grid,
-  Stack,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
   Typography,
 } from "@mui/material";
-import MotionBox, { fadeUp, staggerContainer } from "@/components/MotionBox";
-import PageHero from "@/components/PageHero";
+import { motion, useInView } from "framer-motion";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
-export const metadata = {
-  title: "About",
-  description:
-    "Learn about KruskalCode, an Islamabad software agency focused on scalable web, mobile, cloud, and AI product development.",
+/* ─── Fade-in animation ─── */
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12 } },
 };
 
-const values = [
-  "Build reliable technology that supports real business outcomes.",
-  "Communicate clearly from discovery through launch and support.",
-  "Use modern engineering practices without unnecessary complexity.",
+/* ─── Animated number counter ─── */
+function Counter({ end, label }) {
+  const [val, setVal] = useState(0);
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (!inView) return;
+    let n = 0;
+    const target = parseInt(end, 10);
+    const step = Math.max(1, Math.ceil(1500 / target));
+    const timer = setInterval(() => {
+      n += 1;
+      setVal(n);
+      if (n >= target) clearInterval(timer);
+    }, step);
+    return () => clearInterval(timer);
+  }, [inView, end]);
+
+  return (
+    <Box ref={ref} sx={{ textAlign: "center", py: { xs: 4, md: 7 } }}>
+      <Typography
+        sx={{
+          fontSize: { xs: "3rem", md: "4rem" },
+          fontWeight: 900,
+          color: "#fcb51e",
+          lineHeight: 1,
+          fontFamily: "'Sora', sans-serif",
+        }}
+      >
+        {val}+
+      </Typography>
+      <Typography
+        sx={{ fontSize: "1rem", fontWeight: 600, color: "#fff", mt: 1 }}
+      >
+        {label}
+      </Typography>
+    </Box>
+  );
+}
+
+/* ─── Development process data ─── */
+const LEFT_STEPS = [
+  {
+    num: "1",
+    title: "Discover",
+    body: "In this initial phase, the team identifies the project goals, stakeholders, and requirements through research, interviews, and analysis to lay the groundwork for the development process.",
+  },
+  {
+    num: "3",
+    title: "Design",
+    body: "Our design team creates wireframes, mockups, and prototypes, focusing on user experience and visual aesthetics. This phase turns ideas into tangible designs that meet the project's requirements.",
+  },
+  {
+    num: "5",
+    title: "Deploy",
+    body: "After thorough testing, we deploy the project to the production environment. This stage includes setting up hosting, databases, and ensuring everything is configured correctly for launch.",
+  },
+];
+const RIGHT_STEPS = [
+  {
+    num: "2",
+    title: "Define",
+    body: "We clarify the project's scope, objectives, and deliverables. This stage involves creating detailed documentation, setting timelines, and establishing clear expectations to ensure everyone is aligned.",
+  },
+  {
+    num: "4",
+    title: "Develop",
+    body: "The development phase involves coding and building the project based on the design specifications. Our developers use best practices and the latest technologies to ensure a robust and scalable solution.",
+  },
+  {
+    num: "6",
+    title: "Deliver",
+    body: "The final phase involves handing over the completed project to the client, along with any necessary documentation, training, and support to ensure a smooth transition and successful implementation.",
+  },
 ];
 
-const team = [
-  {
-    name: "KruskalCode Lead",
-    role: "Product & Engineering",
-    bio: "Guides product strategy, delivery planning, and full-stack execution for client projects.",
-  },
-  {
-    name: "Solutions Architect",
-    role: "Cloud & Architecture",
-    bio: "Designs scalable infrastructure, APIs, integrations, and deployment workflows.",
-  },
-  {
-    name: "Delivery Specialist",
-    role: "Design, QA & Support",
-    bio: "Keeps user experience, testing, communication, and launch readiness moving together.",
-  },
+/* ─── Single process step ─── */
+function Step({ num, title, body }) {
+  return (
+    <Box
+      component={motion.div}
+      variants={fadeUp}
+      sx={{ position: "relative", zIndex: 1 }}
+    >
+      {/* Circle + heading on same row */}
+      <Box
+        sx={{ display: "flex", alignItems: "center", gap: "20px", mb: "14px" }}
+      >
+        <Box
+          sx={{
+            width: 50,
+            height: 50,
+            borderRadius: "50%",
+            bgcolor: "#fcb51e",
+            color: "#fff",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexShrink: 0,
+            fontWeight: 800,
+            fontSize: "1.1rem",
+            fontFamily: "'Sora', sans-serif",
+            boxShadow: "0 4px 14px rgba(252,181,30,0.4)",
+          }}
+        >
+          {num}
+        </Box>
+        <Typography
+          sx={{
+            fontSize: "1.7rem",
+            fontWeight: 700,
+            color: "#1C244B",
+            fontFamily: "'Sora', sans-serif",
+            lineHeight: 1.2,
+          }}
+        >
+          {title}
+        </Typography>
+      </Box>
+      {/* Description indented under heading (50px circle + 20px gap = 70px) */}
+      <Box sx={{ pl: "70px" }}>
+        <Typography sx={{ fontSize: "1rem", color: "black", lineHeight: 1.8 }}>
+          {body}
+        </Typography>
+      </Box>
+    </Box>
+  );
+}
+
+/* ─── Why Choose Us checklist ─── */
+const WHY_LIST = [
+  "Comprehensive Reporting and Analytics",
+  "Cost Effective Construction",
+  "Qualified and Expert Team",
+  "Maximize Product Efficiency",
+  "Top-Notch Customer Support",
 ];
 
-const valueCards = [
-  {
-    icon: FlagIcon,
-    title: "Mission",
-    text: "Help founders, agencies, and growing businesses launch useful, scalable, secure products.",
-  },
-  {
-    icon: EmojiObjectsIcon,
-    title: "Innovation",
-    text: "Apply modern technology with practical judgment, clear scope, and measurable outcomes.",
-  },
-  {
-    icon: Diversity3Icon,
-    title: "Partnership",
-    text: "Communicate clearly, report progress honestly, and stay invested after launch.",
-  },
+/* ─── Our Services list ─── */
+const SERVICES = [
+  "Artificial Intelligence",
+  "DevOps Services",
+  "Digital Marketing",
+  "Mobile Application Development",
+  "Web Design & Development",
 ];
 
+/* ═══════════════════════════════════════════
+   PAGE
+═══════════════════════════════════════════ */
 export default function AboutPage() {
   return (
-    <>
-      <PageHero
-        current="About"
-        eyebrow="About KruskalCode"
-        title="Software delivery shaped by strategy, craft, and care."
-        subtitle="KruskalCode is a software agency based in Islamabad, Pakistan, helping companies build, modernize, and scale digital products across web, mobile, cloud, and AI."
-      />
+    <Box sx={{ bgcolor: "#fff" }}>
+      {/* ── 1. ABOUT US Banner ── */}
+      <Box sx={{ lineHeight: 0, width: "100%" }}>
+        <Box
+          component="img"
+          src="/assets/about_banner.jpg"
+          alt="About KruskalCode"
+          sx={{ width: "100%", height: "auto", display: "block" }}
+        />
+      </Box>
 
-      <Box component="section" sx={{ py: { xs: 9, md: 12 }, bgcolor: "background.default" }}>
+      {/* ── 2. Three Cards (overlapping banner) ── */}
+      <Box component="section" sx={{ pb: { xs: 8, md: 10 } }}>
         <Container maxWidth="lg">
-          <Grid container spacing={5} alignItems="center">
-            <Grid item xs={12} md={6}>
-              <Typography variant="h2" sx={{ mb: 3 }}>Our Story</Typography>
-              <Typography color="text.secondary" sx={{ lineHeight: 1.85 }}>
-              KruskalCode was created for teams that need dependable software partners, not just
-              code output. We bring together product planning, modern UI development, backend
-              engineering, cloud infrastructure, and ongoing support to help clients move from idea
-              to reliable launch.
-              </Typography>
-              <Typography color="text.secondary" sx={{ mt: 2.5, lineHeight: 1.85 }}>
-              From our base in Islamabad, we work with clients across markets to deliver websites,
-              mobile apps, AI-powered workflows, DevOps systems, and technical consulting with a
-              focus on clarity, quality, and long-term maintainability.
-              </Typography>
-            </Grid>
-            <Grid item xs={12} md={6}>
+          <Grid
+            container
+            spacing={3}
+            sx={{
+              mt: { xs: "24px", md: "-80px" },
+              position: "relative",
+              zIndex: 5,
+            }}
+          >
+            {/* Card — Our Mission */}
+            <Grid item xs={12} md={4}>
               <Box
+                component={motion.div}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
                 sx={{
-                  minHeight: 380,
-                  borderRadius: 4,
-                  border: "1px solid rgba(252,181,30,0.24)",
-                  background:
-                    "linear-gradient(135deg, rgba(252,181,30,0.32), rgba(15,23,42,0.92)), radial-gradient(circle at 70% 20%, rgba(252,181,30,0.38), transparent 14rem)",
-                  display: "grid",
-                  placeItems: "center",
-                  textAlign: "center",
-                  p: 4,
+                  bgcolor: "#fff",
+                  boxShadow: "0 8px 40px rgba(0,0,0,0.10)",
+                  p: { xs: 3.5, md: 4 },
+                  height: "100%",
+                  minHeight: { md: 300 },
+                  display: "flex",
+                  flexDirection: "column",
                 }}
               >
-                <Typography variant="h3">Islamabad Built. Globally Ready.</Typography>
+                <Box
+                  sx={{ width: 60, height: 10, bgcolor: "#fcb51e", mb: 2 }}
+                />
+                <Typography
+                  sx={{
+                    fontSize: "1.7rem",
+                    fontWeight: 700,
+                    color: "#fcb51e",
+                    mb: 2,
+                    fontFamily: "'Sora', sans-serif",
+                  }}
+                >
+                  Our Mission
+                </Typography>
+                <Typography
+                  sx={{ fontSize: "1rem", color: "black", lineHeight: 1.85 }}
+                >
+                  At KruskalCode, we strive to empower businesses with
+                  innovative digital solutions that drive growth and success,
+                  creating impactful online experiences tailored to your goals.
+                </Typography>
+              </Box>
+            </Grid>
+
+            {/* Card — Who Are We */}
+            <Grid item xs={12} md={4}>
+              <Box
+                component={motion.div}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                sx={{
+                  bgcolor: "#fff",
+                  boxShadow: "0 8px 40px rgba(0,0,0,0.10)",
+                  p: { xs: 3.5, md: 4 },
+                  height: "100%",
+                  minHeight: { md: 300 },
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Box
+                  sx={{ width: 60, height: 10, bgcolor: "#fcb51e", mb: 2 }}
+                />
+                <Typography
+                  sx={{
+                    fontSize: "1.7rem",
+                    fontWeight: 700,
+                    color: "#fcb51e",
+                    mb: 2,
+                    fontFamily: "'Sora', sans-serif",
+                  }}
+                >
+                  Who Are We
+                </Typography>
+                <Typography
+                  sx={{ fontSize: "1rem", color: "black", lineHeight: 1.85 }}
+                >
+                  KruskalCode is a team of skilled professionals specializing in
+                  web development and design. We&apos;re dedicated to creating
+                  innovative digital solutions that elevate your business and
+                  drive online success.
+                </Typography>
+              </Box>
+            </Grid>
+
+            {/* Card — Our Services */}
+            <Grid item xs={12} md={4}>
+              <Box
+                component={motion.div}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                sx={{
+                  bgcolor: "#fff",
+                  boxShadow: "0 8px 40px rgba(0,0,0,0.10)",
+                  p: { xs: 3.5, md: 4 },
+                  height: "100%",
+                  minHeight: { md: 300 },
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Box
+                  sx={{ width: 60, height: 10, bgcolor: "#fcb51e", mb: 2 }}
+                />
+                <Typography
+                  sx={{
+                    fontSize: "1.7rem",
+                    fontWeight: 700,
+                    color: "#fcb51e",
+                    mb: 2,
+                    fontFamily: "'Sora', sans-serif",
+                  }}
+                >
+                  Our Services
+                </Typography>
+                <List disablePadding sx={{ mb: 1.5 }}>
+                  {SERVICES.map((s) => (
+                    <ListItem key={s} disablePadding sx={{ py: "3px" }}>
+                      <ListItemIcon sx={{ minWidth: 18 }}>
+                        <Typography
+                          sx={{
+                            color: "#fcb51e",
+                            fontWeight: 700,
+                            fontSize: "1rem",
+                            lineHeight: 1,
+                          }}
+                        >
+                          ›
+                        </Typography>
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={s}
+                        primaryTypographyProps={{
+                          fontSize: "1",
+                          color: "black",
+                        }}
+                      />
+                    </ListItem>
+                  ))}
+                </List>
+                <Button
+                  href="/services/"
+                  disableRipple
+                  sx={{
+                    p: 0,
+                    minWidth: 0,
+                    textTransform: "none",
+                    color: "#3b82f6",
+                    fontWeight: 600,
+                    fontSize: "13.5px",
+                    justifyContent: "flex-start",
+                    "&:hover": {
+                      bgcolor: "transparent",
+                      textDecoration: "underline",
+                    },
+                  }}
+                >
+                  More...
+                </Button>
               </Box>
             </Grid>
           </Grid>
         </Container>
       </Box>
 
-      <Box component="section" sx={{ bgcolor: "background.paper", py: { xs: 9, md: 12 } }}>
-        <Container maxWidth="lg">
-          <MotionBox component={Grid} container spacing={3} variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            {valueCards.map((card) => {
-              const Icon = card.icon;
-              return (
-                <Grid item xs={12} md={4} key={card.title}>
-                  <MotionBox variants={fadeUp} sx={{ height: "100%" }}>
-                    <Card sx={{ height: "100%" }}>
-                      <CardContent sx={{ p: 3 }}>
-                        <Icon color="primary" sx={{ fontSize: 44 }} />
-                        <Typography variant="h5" color="primary" sx={{ mt: 2 }}>{card.title}</Typography>
-                        <Typography color="text.secondary" sx={{ mt: 1.5, lineHeight: 1.7 }}>{card.text}</Typography>
-                      </CardContent>
-                    </Card>
-                  </MotionBox>
-                </Grid>
-              );
-            })}
-          </MotionBox>
-          <Stack spacing={1.5} sx={{ mt: 5 }}>
-            {values.map((value) => (
-              <Typography key={value} color="text.secondary">
-                - {value}
-              </Typography>
-            ))}
-          </Stack>
+      {/* ── 3. Our Development Process ── */}
+      <Box
+        component="section"
+        sx={{ py: { xs: 8, md: 10 }, bgcolor: "rgb(244, 247, 255)" }}
+      >
+        <Container maxWidth="xl">
+          {/* Heading */}
+          <Box sx={{ textAlign: "center", mb: 7 }}>
+            <Typography
+              variant="h2"
+              sx={{
+                fontSize: { xs: "1.9rem", md: "2.4rem" },
+                fontWeight: 700,
+                color: "primary.main",
+                fontFamily: "'Sora', sans-serif",
+                mb: 1.5,
+              }}
+            >
+              Our Development Process
+            </Typography>
+          </Box>
+
+          {/* Grid without center divider */}
+          <Box sx={{ position: "relative" }}>
+
+            <Grid container>
+              {/* Left column — 1, 3, 5 */}
+              <Grid item xs={12} md={6}>
+                <Box
+                  component={motion.div}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={stagger}
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 5,
+                    pr: { md: 7 },
+                    position: "relative",
+                  }}
+                >
+                  {/* Dashed line connecting circles */}
+                  <Box
+                    aria-hidden
+                    sx={{
+                      display: { xs: "none", md: "block" },
+                      position: "absolute",
+                      left: 24,
+                      top: 50,
+                      bottom: 50,
+                      borderLeft: "2px dashed #fcb51e",
+                      zIndex: 0,
+                    }}
+                  />
+                  {LEFT_STEPS.map((s) => (
+                    <Step key={s.num} {...s} />
+                  ))}
+                </Box>
+              </Grid>
+
+              {/* Right column — 2, 4, 6 */}
+              <Grid item xs={12} md={6}>
+                <Box
+                  component={motion.div}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={stagger}
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 5,
+                    pl: { md: 7 },
+                    mt: { xs: 5, md: 0 },
+                    position: "relative",
+                  }}
+                >
+                  {/* left = pl:7 (56px) + half circle 50px (24px) = 80px */}
+                  <Box
+                    aria-hidden
+                    sx={{
+                      display: { xs: "none", md: "block" },
+                      position: "absolute",
+                      left: { md: "80px" },
+                      top: 50,
+                      bottom: 50,
+                      borderLeft: "2px dashed #fcb51e",
+                      zIndex: 0,
+                    }}
+                  />
+                  {RIGHT_STEPS.map((s) => (
+                    <Step key={s.num} {...s} />
+                  ))}
+                </Box>
+              </Grid>
+            </Grid>
+          </Box>
         </Container>
       </Box>
 
-      <Box component="section" sx={{ bgcolor: "background.default", py: { xs: 9, md: 12 } }}>
-        <Container maxWidth="lg">
-          <Box sx={{ mb: 6, textAlign: "center" }}>
-            <Typography variant="h2">A focused delivery team for ambitious products.</Typography>
-          </Box>
-          <Grid container spacing={3}>
-            {team.map((member) => (
-              <Grid item xs={12} md={4} key={member.name}>
-                <Card sx={{ height: "100%", textAlign: "center" }}>
-                  <CardContent sx={{ p: 3 }}>
-                    <Avatar
-                      sx={{
-                        mx: "auto",
-                        width: 96,
-                        height: 96,
-                        bgcolor: "primary.main",
-                        color: "#0a0f1e",
-                        fontFamily: "'Sora', sans-serif",
-                        fontSize: 32,
-                        fontWeight: 800,
-                      }}
-                    >
-                      {member.name.split(" ").map((part) => part[0]).join("").slice(0, 2)}
-                    </Avatar>
-                    <Typography variant="h5" sx={{ mt: 3 }}>{member.name}</Typography>
-                    <Typography color="primary" sx={{ mt: 0.5, fontWeight: 700 }}>{member.role}</Typography>
-                    <Typography color="text.secondary" sx={{ mt: 2, lineHeight: 1.7 }}>{member.bio}</Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
+      {/* ── 4. Why Choose Us ── */}
+      <WhyChooseUs />
+
+      {/* ── 5. Stats Counter ── */}
+      <Box
+        component="section"
+        sx={{ position: "relative", overflow: "hidden", py: { xs: 4, md: 2 } }}
+      >
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: "url('/assets/about_handshake.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            zIndex: 0,
+          }}
+        />
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            bgcolor: "rgba(15,23,42,0.80)",
+            zIndex: 1,
+          }}
+        />
+        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
+          <Grid container>
+            <Grid item xs={12} sm={4}>
+              <Counter end="100" label="Projects Completed" />
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <Counter end="50" label="Satisfied Clients" />
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <Counter end="15" label="Experienced Staff" />
+            </Grid>
           </Grid>
         </Container>
       </Box>
-    </>
+
+      {/* ── 6. CTA Section ── */}
+      <StartWithUsCTA />
+    </Box>
   );
 }
