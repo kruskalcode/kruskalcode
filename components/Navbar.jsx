@@ -1,6 +1,5 @@
 "use client";
 
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import CloseIcon from "@mui/icons-material/Close";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -22,40 +21,26 @@ import {
   useScrollTrigger,
 } from "@mui/material";
 import NextLink from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { company, getServiceHref, navLinks, services } from "@/data/site";
 
-const navButtonSx = {
-  position: "relative",
-  color: "#1f2937",
-  px: 1.4,
-  py: 1,
-  fontSize: 15,
-  fontWeight: 700,
-  "&:hover": {
-    bgcolor: "transparent",
-    color: "#0a0f1e",
-  },
-  "&:after": {
-    content: '""',
-    position: "absolute",
-    left: 12,
-    right: 12,
-    bottom: 5,
-    height: 2,
-    borderRadius: 999,
-    bgcolor: "#fcb51e",
-    opacity: 0,
-    transform: "scaleX(0.4)",
-    transition: "opacity 180ms ease, transform 180ms ease",
-  },
-  "&:hover:after": {
-    opacity: 1,
-    transform: "scaleX(1)",
-  },
-};
+function isNavActive(pathname, href) {
+  const normalizedPath = pathname.replace(/\/$/, "") || "/";
+  const normalizedHref = href.replace(/\/$/, "") || "/";
+
+  if (normalizedHref === "/") {
+    return normalizedPath === "/";
+  }
+
+  return (
+    normalizedPath === normalizedHref ||
+    normalizedPath.startsWith(`${normalizedHref}/`)
+  );
+}
 
 export default function Navbar() {
+  const pathname = usePathname();
   const scrolled = useScrollTrigger({ disableHysteresis: true, threshold: 8 });
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [servicesAnchor, setServicesAnchor] = useState(null);
@@ -63,6 +48,25 @@ export default function Navbar() {
 
   const openServices = (event) => setServicesAnchor(event.currentTarget);
   const closeServices = () => setServicesAnchor(null);
+
+  const navButtonSx = (href) => {
+    const active = isNavActive(pathname, href);
+
+    return {
+      color: active ? "#fcb51e" : "#1a1a1a",
+      px: 2,
+      py: 1,
+      fontSize: 15,
+      fontWeight: 600,
+      textTransform: "none",
+      minWidth: "auto",
+      lineHeight: 1.4,
+      "&:hover": {
+        bgcolor: "transparent",
+        color: "#fcb51e",
+      },
+    };
+  };
 
   return (
     <AppBar
@@ -72,27 +76,36 @@ export default function Navbar() {
         bgcolor: "#ffffff",
         borderRadius: 0,
         borderBottom: scrolled
-          ? "1px solid rgba(15, 23, 42, 0.12)"
+          ? "1px solid rgba(15, 23, 42, 0.10)"
           : "1px solid rgba(15, 23, 42, 0.06)",
-        boxShadow: scrolled ? "0 12px 30px rgba(15, 23, 42, 0.08)" : "none",
-        transition: "box-shadow 220ms ease",
+        boxShadow: scrolled ? "0 8px 24px rgba(15, 23, 42, 0.06)" : "none",
+        transition: "box-shadow 220ms ease, border-color 220ms ease",
         zIndex: (theme) => theme.zIndex.drawer + 1,
       }}
     >
       <Toolbar
+        disableGutters
         sx={{
           mx: "auto",
           width: "100%",
-          maxWidth: 1240,
-          minHeight: { xs: 76, md: 86 },
+          maxWidth: 1320,
+          minHeight: { xs: 72, md: 88 },
+          px: { xs: 2, sm: 3, md: 4 },
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
           gap: 2,
-          px: { xs: 2, md: 3 },
         }}
       >
         <Box
           component={NextLink}
           href="/"
-          sx={{ display: "flex", alignItems: "center", minWidth: 220 }}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            flexShrink: 0,
+            mr: { lg: 4 },
+          }}
         >
           {!logoFailed ? (
             <Box
@@ -100,7 +113,11 @@ export default function Navbar() {
               src={company.logo}
               alt={`${company.name} logo`}
               onError={() => setLogoFailed(true)}
-              sx={{ maxHeight: 58, width: "auto" }}
+              sx={{
+                height: { xs: 52, md: 64 },
+                width: "auto",
+                display: "block",
+              }}
             />
           ) : (
             <Stack direction="row" spacing={1.2} alignItems="center">
@@ -111,7 +128,8 @@ export default function Navbar() {
                   height: 42,
                   placeItems: "center",
                   borderRadius: 2,
-                  bgcolor: "#fcb51e",
+                  border: "2px solid #fcb51e",
+                  bgcolor: "#fff",
                   color: "#0a0f1e",
                   fontFamily: "'Sora', sans-serif",
                   fontWeight: 900,
@@ -122,25 +140,25 @@ export default function Navbar() {
               <Box>
                 <Typography
                   sx={{
-                    color: "#0a0f1e",
+                    color: "#1a2a5e",
                     fontFamily: "'Sora', sans-serif",
-                    fontSize: 22,
+                    fontSize: 20,
                     fontWeight: 800,
                     lineHeight: 1,
+                    letterSpacing: "0.04em",
                   }}
                 >
-                  KruskalCode
+                  KRUSKAL CODE
                 </Typography>
                 <Typography
                   sx={{
                     mt: 0.4,
-                    color: "#64748b",
-                    fontSize: 11,
+                    color: "#fcb51e",
+                    fontSize: 10,
                     fontWeight: 700,
-                    letterSpacing: 0.4,
                   }}
                 >
-                  Software Agency
+                  {company.tagline}
                 </Typography>
               </Box>
             </Stack>
@@ -150,11 +168,11 @@ export default function Navbar() {
         <Stack
           component="nav"
           direction="row"
-          spacing={1}
+          alignItems="center"
           sx={{
             display: { xs: "none", lg: "flex" },
-            flex: 1,
-            justifyContent: "center",
+            ml: "auto",
+            gap: 0.25,
           }}
         >
           {navLinks.map((link) =>
@@ -164,8 +182,17 @@ export default function Navbar() {
                 component={NextLink}
                 href={link.href}
                 onMouseEnter={openServices}
-                endIcon={<ExpandMoreIcon />}
-                sx={navButtonSx}
+                endIcon={
+                  <ExpandMoreIcon
+                    sx={{
+                      fontSize: 18,
+                      color: isNavActive(pathname, link.href)
+                        ? "#fcb51e"
+                        : "#1a1a1a",
+                    }}
+                  />
+                }
+                sx={navButtonSx(link.href)}
               >
                 {link.label}
               </Button>
@@ -174,33 +201,36 @@ export default function Navbar() {
                 key={link.href}
                 component={NextLink}
                 href={link.href}
-                sx={navButtonSx}
+                sx={navButtonSx(link.href)}
               >
                 {link.label}
               </Button>
             ),
           )}
-        </Stack>
 
-        <Button
-          href={company.scheduleUrl}
-          target="_blank"
-          rel="noreferrer"
-          variant="contained"
-          color="primary"
-          startIcon={<CalendarMonthIcon />}
-          sx={{
-            display: { xs: "none", lg: "inline-flex" },
-            borderRadius: 999,
-            color: "#0a0f1e",
-            px: 2.8,
-            py: 1.25,
-            boxShadow: "0 10px 24px rgba(252,181,30,0.28)",
-            "&:hover": { bgcolor: "#e6a018" },
-          }}
-        >
-          Schedule Free Call
-        </Button>
+          <Button
+            href={company.scheduleUrl}
+            target="_blank"
+            rel="noreferrer"
+            variant="contained"
+            sx={{
+              ml: 2.5,
+              borderRadius: 999,
+              bgcolor: "#fcb51e",
+              color: "#1a1a1a",
+              fontWeight: 700,
+              fontSize: 14,
+              px: 3,
+              py: 1.1,
+              boxShadow: "none",
+              textTransform: "none",
+              whiteSpace: "nowrap",
+              "&:hover": { bgcolor: "#e09f16", boxShadow: "none" },
+            }}
+          >
+            Schedule Free Call
+          </Button>
+        </Stack>
 
         <IconButton
           aria-label="Open navigation menu"
@@ -222,7 +252,13 @@ export default function Navbar() {
         MenuListProps={{ onMouseLeave: closeServices }}
         slotProps={{
           paper: {
-            sx: { mt: 1, minWidth: 320, bgcolor: "#ffffff", color: "#0f172a" },
+            sx: {
+              mt: 1,
+              minWidth: 320,
+              bgcolor: "#ffffff",
+              color: "#0f172a",
+              boxShadow: "0 12px 40px rgba(0,0,0,0.12)",
+            },
           },
         }}
       >
@@ -234,7 +270,7 @@ export default function Navbar() {
             onClick={closeServices}
             sx={{ whiteSpace: "normal", py: 1.2 }}
           >
-            {service.title}
+            {service.title.replace(/\n/g, " ")}
           </MenuItem>
         ))}
       </Menu>
@@ -244,14 +280,7 @@ export default function Navbar() {
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
       >
-        <Box
-          sx={{
-            width: 320,
-            bgcolor: "background.default",
-            minHeight: "100%",
-            p: 2,
-          }}
-        >
+        <Box sx={{ width: 320, bgcolor: "#fff", minHeight: "100%", p: 2 }}>
           <Stack
             direction="row"
             alignItems="center"
@@ -259,14 +288,11 @@ export default function Navbar() {
             sx={{ mb: 1 }}
           >
             <Typography variant="h6">Menu</Typography>
-            <IconButton
-              onClick={() => setDrawerOpen(false)}
-              sx={{ color: "text.primary" }}
-            >
+            <IconButton onClick={() => setDrawerOpen(false)}>
               <CloseIcon />
             </IconButton>
           </Stack>
-          <Divider sx={{ borderColor: "rgba(255,255,255,0.12)", mb: 1 }} />
+          <Divider sx={{ mb: 1 }} />
           <List>
             {navLinks.map((link) => (
               <ListItemButton
@@ -274,16 +300,19 @@ export default function Navbar() {
                 component={NextLink}
                 href={link.href}
                 onClick={() => setDrawerOpen(false)}
-                sx={{ borderRadius: 2 }}
+                sx={{
+                  borderRadius: 2,
+                  color: isNavActive(pathname, link.href)
+                    ? "#fcb51e"
+                    : "#1a1a1a",
+                }}
               >
                 <ListItemText primary={link.label} />
               </ListItemButton>
             ))}
           </List>
-          <Divider sx={{ borderColor: "rgba(255,255,255,0.12)", my: 1 }} />
-          <Typography
-            sx={{ px: 2, py: 1, color: "primary.main", fontWeight: 700 }}
-          >
+          <Divider sx={{ my: 1 }} />
+          <Typography sx={{ px: 2, py: 1, color: "#fcb51e", fontWeight: 700 }}>
             Services
           </Typography>
           <List dense>
@@ -295,7 +324,7 @@ export default function Navbar() {
                 onClick={() => setDrawerOpen(false)}
                 sx={{ borderRadius: 2 }}
               >
-                <ListItemText primary={service.title} />
+                <ListItemText primary={service.title.replace(/\n/g, " ")} />
               </ListItemButton>
             ))}
           </List>
@@ -305,9 +334,15 @@ export default function Navbar() {
             target="_blank"
             rel="noreferrer"
             variant="contained"
-            color="primary"
-            startIcon={<CalendarMonthIcon />}
-            sx={{ mt: 2, color: "#0a0f1e" }}
+            sx={{
+              mt: 2,
+              bgcolor: "#fcb51e",
+              color: "#1a1a1a",
+              fontWeight: 700,
+              textTransform: "none",
+              borderRadius: 999,
+              "&:hover": { bgcolor: "#e09f16" },
+            }}
           >
             Schedule Free Call
           </Button>

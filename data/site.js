@@ -1,7 +1,7 @@
 export const company = {
   name: "KruskalCode",
   logo: "/assets/logo.png",
-  tagline: "Web, Mobile & Cloud Development Experts",
+  tagline: "Engineering Your Vision into Reality",
   location: "Plot 81 St 4 Sector I-10/3 Islamabad, Pakistan",
   email: "info@kruskalcode.com",
   phone: "+923314442274",
@@ -294,3 +294,135 @@ export function getServiceBySlug(slug) {
 export function getServiceHref(service) {
   return `/services/${service.slug}/`;
 }
+
+export const servicesPageSummaries = {
+  "artificial-intelligence":
+    "KruskalCode Artificial Intelligence (AI) services leverage advanced machine learning and data analytics to help businesses automate processes, enhance decision-making, and unlock new insights. We develop custom AI solutions that improve operational efficiency and drive innovation.",
+  "cloud-storage":
+    "KruskalCode offers secure, scalable cloud storage services tailored to your business. Our solutions provide easy access, seamless integration, and strong security to keep your data safe and available anytime. Let KruskalCode optimize storage for growth.",
+  "devops-services":
+    "KruskalCode DevOps Services streamline software development by integrating development and operations for seamless collaboration. We focus on automating workflows, continuous integration, and continuous delivery to accelerate software releases.",
+  "digital-marketing":
+    "KruskalCode Digital Marketing Services empower businesses to enhance their online presence and grow organically. We specialize in SEO, content marketing, and social media strategies designed to engage your target audience and boost brand visibility.",
+  "innovation-product-development-consulting":
+    "KruskalCode offers innovation and product development consulting to help businesses transform ideas into market-leading products. We provide insights and solutions to drive innovation and create products.",
+  "it-software-architecture-consulting":
+    "KruskalCode offers IT and software architecture consulting to design scalable systems tailored to your business needs. We provide guidance and solutions to optimize performance, security, and scalability.",
+  "mobile-application-development":
+    "KruskalCode delivers cutting-edge app development, creating custom mobile and web applications tailored to your unique business needs and goals. We help businesses turn ideas into successful, high-performing apps that engage users and drive growth.",
+  "staffing-services":
+    "KruskalCode Staffing Services offer tailored recruitment solutions to help businesses efficiently find, attract, and manage top talent. Utilizing a vast network and advanced screening methods, we match candidates to roles based on skills, experience, and company culture.",
+  "web-design-development":
+    "KruskalCode Web Design and Development services focus on crafting visually stunning, user-friendly websites that cater to the unique needs of businesses and individuals. Our goal is to build websites that not only look great but also perform flawlessly across all devices.",
+};
+
+export const technologyStack = [
+  {
+    name: "HTML5",
+    label: "HTML5",
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+  },
+  {
+    name: "CSS3",
+    label: "CSS3",
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+  },
+  {
+    name: "Bootstrap",
+    label: "Bootstrap",
+    labelColor: "#7952b3",
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
+  },
+  {
+    name: "JavaScript",
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+  },
+  {
+    name: "React",
+    label: "React JS",
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  },
+  {
+    name: "Angular",
+    label: "Angular",
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg",
+  },
+  {
+    name: "WordPress",
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg",
+  },
+  {
+    name: "PHP",
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+  },
+  {
+    name: "Laravel",
+    label: "Laravel",
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
+  },
+  {
+    name: "CodeIgniter",
+    label: "CodeIgniter",
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg",
+  },
+  {
+    name: "Node.js",
+    label: "Node.js",
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+  },
+  {
+    name: "MySQL",
+    label: "MySQL",
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+  },
+];
+
+export const servicesFaq = [
+  {
+    question: "What is included in your web development services?",
+    answer:
+      "Our web development services include custom website creation, responsive design, CMS integration, and back-end functionality. We tailor each project to your specific business needs, ensuring a robust and scalable solution.",
+  },
+  {
+    question: "Do you offer ongoing support and maintenance for websites?",
+    answer:
+      "Yes, we provide ongoing support and maintenance to keep your website up-to-date, secure, and performing optimally. Our services include regular updates, bug fixes, and technical support.",
+  },
+  {
+    question: "What is your approach to web design?",
+    answer:
+      "We focus on creating visually appealing and user-friendly designs that reflect your brand's identity and enhance user engagement. Our design process involves understanding your goals, creating prototypes, and refining the design based on feedback.",
+  },
+  {
+    question: "How can SEO marketing benefit my business?",
+    answer:
+      "SEO marketing improves your website's visibility on search engines, driving more organic traffic and increasing your online presence. Our strategies focus on optimizing content, keywords, and technical aspects to boost your search rankings.",
+  },
+  {
+    question: "What types of e-commerce solutions do you provide?",
+    answer:
+      "We offer secure and scalable e-commerce platforms that manage products, process transactions, and enhance the shopping experience. Our solutions are designed to grow with your business and streamline your online sales process.",
+  },
+  {
+    question: "What is involved in your app development services?",
+    answer:
+      "Our app development services include designing and building mobile and web applications tailored to your specific needs. We ensure that your app is high-performing, user-centric, and aligns with your business objectives.",
+  },
+  {
+    question: "Do you provide graphic design services?",
+    answer:
+      "We create compelling graphic designs that communicate your brand's message effectively and engage your audience. Our process involves understanding your vision, designing impactful visuals, and ensuring they align with your overall brand strategy.",
+  },
+];
