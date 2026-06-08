@@ -235,7 +235,7 @@ export const portfolioProjects = [
     technologies: ["Next.js", "MUI", "Stripe"],
     description:
       "A responsive SaaS marketing site and customer portal for onboarding, billing, and analytics.",
-    color: "linear-gradient(135deg, #fcb51e, #0f172a)",
+    color: "linear-gradient(135deg,rgb(22, 22, 21), #0f172a)",
   },
   {
     title: "Healthcare Mobile Companion",

@@ -1,199 +1,317 @@
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+"use client";
+
+import ContactHero from "@/components/ContactHero";
 import EmailIcon from "@mui/icons-material/Email";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PhoneIcon from "@mui/icons-material/Phone";
-import SendIcon from "@mui/icons-material/Send";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import YouTubeIcon from "@mui/icons-material/YouTube";
 import {
   Box,
   Button,
-  Card,
-  CardContent,
   Container,
-  FormControl,
   Grid,
-  InputLabel,
-  MenuItem,
-  Paper,
-  Select,
+  IconButton,
   Stack,
   TextField,
   Typography,
 } from "@mui/material";
-import PageHero from "@/components/PageHero";
-import { company, services } from "@/data/site";
+import { motion } from "framer-motion";
+import { company } from "@/data/site";
+import { fadeUp } from "@/components/MotionBox";
 
-export const metadata = {
-  title: "Contact",
-  description:
-    "Contact KruskalCode in Islamabad for web, mobile, cloud, AI, DevOps, staffing, and software consulting projects.",
+const socialIcons = {
+  Facebook: FacebookIcon,
+  Instagram: InstagramIcon,
+  LinkedIn: LinkedInIcon,
+  Twitter: TwitterIcon,
+  YouTube: YouTubeIcon,
 };
 
-const contactCards = [
-  {
-    label: "Address",
-    value: company.location,
-    href: "https://maps.google.com/?q=Plot%2081%20St%204%20Sector%20I-10%2F3%20Islamabad%2C%20Pakistan",
-    icon: LocationOnIcon,
+const socialColors = {
+  Facebook: "#3b5998",
+  Instagram: "#262626",
+  LinkedIn: "#0077b5",
+  Twitter: "#1da1f2",
+  YouTube: "#cd201f",
+};
+
+const fieldSx = {
+  "& .MuiOutlinedInput-root": {
+    borderRadius: "4px",
+    bgcolor: "#f0f0f0",
+    fontSize: "14px",
+    "& fieldset": { borderColor: "#e0e0e0" },
+    "&:hover fieldset": { borderColor: "#fcb51e" },
+    "&.Mui-focused fieldset": { borderColor: "#fcb51e" },
   },
-  {
-    label: "Email",
-    value: company.email,
-    href: `mailto:${company.email}`,
-    icon: EmailIcon,
+  "& .MuiInputLabel-root": {
+    fontSize: "14px",
+    color: "#666",
   },
-  {
-    label: "Phone",
-    value: company.phone,
-    href: `tel:${company.phone}`,
-    icon: PhoneIcon,
-  },
-];
+  "& .MuiInputLabel-root.Mui-focused": { color: "#fcb51e" },
+};
 
 export default function ContactPage() {
   return (
-    <>
-      <PageHero
-        current="Contact"
-        eyebrow="Start a Conversation"
-        title="Tell us what you want to build."
-        subtitle="Share a few details and KruskalCode will help you choose the right path for your product, platform, or technical team."
-      />
+    <Box sx={{ bgcolor: "#fff" }}>
+      <ContactHero />
 
-      <Box component="section" sx={{ bgcolor: "background.default", pb: { xs: 10, md: 13 }, px: { xs: 2, md: 3 } }}>
-        <Container maxWidth="lg">
-          <Grid container spacing={4}>
-            <Grid item xs={12} lg={7}>
-              <Paper
-                component="form"
-                action={`mailto:${company.email}`}
-                method="post"
-                encType="text/plain"
-                sx={{ p: { xs: 3, md: 4 } }}
+      <Box
+        sx={{
+          position: "relative",
+          bgcolor: "#fff",
+          px:0
+        }}
+      >
+        
+          <Grid container spacing={0}>
+            <Grid item xs={12} md={8}>
+              <Box
+                component={motion.div}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                sx={{
+                  py: { xs: 4, md: 6 },
+                  px: 5,
+                  bgcolor: "#fff",
+                  backgroundImage: "url('/assets/backgound.jpg')",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "right center",
+                  backgroundSize: { xs: "cover", md: "auto 100%" },
+                }}
               >
-                <Typography variant="h3">Start a conversation</Typography>
-                <Typography color="text.secondary" sx={{ mt: 1.5 }}>
-                  This static form opens your email client with the submitted details.
+                <Typography
+                  sx={{
+                    fontSize: { xs: "1.6rem", md: "1.9rem" },
+                    fontWeight: 700,
+                    color: "#fcb51e",
+                    fontFamily: "'Sora', sans-serif",
+                    mb: 1.5,
+                  }}
+                >
+                  Request a call back
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: "14px",
+                    color: "#555",
+                    lineHeight: 1.8,
+                    mb: 3,
+                    maxWidth: 520,
+                  }}
+                >
+                  Got any questions? Looking for some help? Please fill out
+                  quick form and will try to get back asap.
                 </Typography>
 
-                <Grid container spacing={2.5} sx={{ mt: 3 }}>
-                  <Grid item xs={12} md={6}>
+                <Box
+                  component="form"
+                  action={`mailto:${company.email}`}
+                  method="post"
+                  encType="text/plain"
+                >
+                  <Stack spacing={2.5}>
                     <TextField
                       fullWidth
-                      label="Name"
-                  name="Name"
-                  required
-                      placeholder="Your name"
+                      label="Full Name *"
+                      name="Name"
+                      required
+                      sx={fieldSx}
                     />
-                  </Grid>
-                  <Grid item xs={12} md={6}>
+                    <TextField
+                      fullWidth
+                      label="Phone Number"
+                      name="Phone"
+                      sx={fieldSx}
+                    />
                     <TextField
                       fullWidth
                       type="email"
-                      label="Email"
+                      label="Email *"
                       name="Email"
                       required
-                      placeholder="you@example.com"
+                      sx={fieldSx}
                     />
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                    <TextField fullWidth label="Phone" name="Phone" placeholder="+92..." />
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                    <FormControl fullWidth>
-                      <InputLabel id="service-label">Service</InputLabel>
-                      <Select labelId="service-label" label="Service" name="Service" defaultValue="">
-                        {services.map((service) => (
-                          <MenuItem key={service.slug} value={service.title}>
-                            {service.title}
-                          </MenuItem>
-                        ))}
-                      </Select>
-                    </FormControl>
-                  </Grid>
-                  <Grid item xs={12}>
                     <TextField
                       fullWidth
                       multiline
-                      minRows={6}
-                      label="Message"
+                      minRows={5}
+                      label="How can we help?"
                       name="Message"
-                      required
-                      placeholder="Tell us about your project, timeline, and goals."
+                      sx={fieldSx}
                     />
-                  </Grid>
-                </Grid>
-
-                <Button
-              type="submit"
-                  variant="contained"
-                  color="primary"
-                  size="large"
-                  endIcon={<SendIcon />}
-                  sx={{ mt: 3, color: "#0a0f1e" }}
-                >
-                  Send Message
-                </Button>
-              </Paper>
+                    <Box>
+                      <Button
+                        type="submit"
+                        variant="contained"
+                        sx={{
+                          bgcolor: "#fcb51e",
+                          color: "#0f172a",
+                          fontWeight: 700,
+                          fontSize: "14px",
+                          px: 4,
+                          py: 1.2,
+                          borderRadius: "4px",
+                          textTransform: "none",
+                          boxShadow: "none",
+                          "&:hover": { bgcolor: "#e09f16", boxShadow: "none" },
+                        }}
+                      >
+                        Submit
+                      </Button>
+                    </Box>
+                  </Stack>
+                </Box>
+              </Box>
             </Grid>
 
-            <Grid item xs={12} lg={5}>
-              <Stack spacing={2.5}>
-            {contactCards.map((card) => {
-              const Icon = card.icon;
-              return (
-                    <Card
-                  key={card.label}
-                      component="a"
-                  href={card.href}
-                  target={card.label === "Address" ? "_blank" : undefined}
-                  rel={card.label === "Address" ? "noreferrer" : undefined}
-                      sx={{ color: "inherit", transition: "transform 180ms ease", "&:hover": { transform: "translateY(-4px)" } }}
+            <Grid item xs={12} md={4}>
+              <Box
+                component={motion.div}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                sx={{
+                  bgcolor: "#f4f7ff",
+                  height: "100%",
+                  py: { xs: 5, md: 6 },
+                  px: { xs: 3, md: 4 },
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: { xs: "1.6rem", md: "1.9rem" },
+                    fontWeight: 700,
+                    color: "#fcb51e",
+                    fontFamily: "'Sora', sans-serif",
+                    mb: 1.5,
+                  }}
                 >
-                      <CardContent>
-                        <Stack direction="row" spacing={2} alignItems="center">
-                          <Box sx={{ display: "grid", placeItems: "center", width: 52, height: 52, borderRadius: 2, bgcolor: "rgba(252,181,30,0.12)" }}>
-                            <Icon color="primary" />
-                          </Box>
-                          <Box>
-                            <Typography color="text.secondary" sx={{ textTransform: "uppercase", letterSpacing: 1.5, fontSize: 12 }}>
-                              {card.label}
-                            </Typography>
-                            <Typography sx={{ fontWeight: 700 }}>{card.value}</Typography>
-                          </Box>
-                        </Stack>
-                      </CardContent>
-                    </Card>
-              );
-            })}
+                  Get In Touch
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: "14px",
+                    color: "#555",
+                    lineHeight: 1.8,
+                    mb: 3,
+                    maxWidth: 480,
+                  }}
+                >
+                  We aim to respond to all inquiries within 24 hours. Reach out
+                  to us through any of the channels below.
+                </Typography>
 
-                <Button
-              href={company.scheduleUrl}
-              target="_blank"
-              rel="noreferrer"
-                  variant="contained"
-                  color="primary"
-                  size="large"
-                  startIcon={<CalendarMonthIcon />}
-                  sx={{ color: "#0a0f1e" }}
-            >
-              Schedule Free Call
-                </Button>
+                <Stack spacing={2.5} sx={{ mb: 4 }}>
+                  <Stack direction="row" spacing={2} alignItems="flex-start">
+                    <LocationOnIcon
+                      sx={{ color: "#fcb51e", mt: 0.2, fontSize: 22 }}
+                    />
+                    <Typography
+                      sx={{ fontSize: "14px", color: "#333", lineHeight: 1.7 }}
+                    >
+                      Plot 81 St 4 Sector I-10/3 Islamabad
+                    </Typography>
+                  </Stack>
+                  <Stack direction="row" spacing={2} alignItems="center">
+                    <EmailIcon sx={{ color: "#fcb51e", fontSize: 22 }} />
+                    <Box
+                      component="a"
+                      href={`mailto:${company.email}`}
+                      sx={{
+                        fontSize: "14px",
+                        color: "#333",
+                        textDecoration: "none",
+                        "&:hover": { color: "#fcb51e" },
+                      }}
+                    >
+                      {company.email}
+                    </Box>
+                  </Stack>
+                  <Stack direction="row" spacing={2} alignItems="center">
+                    <PhoneIcon sx={{ color: "#fcb51e", fontSize: 22 }} />
+                    <Box
+                      component="a"
+                      href={`tel:${company.phone}`}
+                      sx={{
+                        fontSize: "14px",
+                        color: "#333",
+                        textDecoration: "none",
+                        "&:hover": { color: "#fcb51e" },
+                      }}
+                    >
+                      {company.phone}
+                    </Box>
+                  </Stack>
+                </Stack>
 
-                <Box sx={{ overflow: "hidden", borderRadius: 4, border: "1px solid rgba(255,255,255,0.08)" }}>
-                  <Box
-                    component="iframe"
-                title="KruskalCode Islamabad I-10/3 map"
-                src="https://www.google.com/maps?q=Plot%2081%20St%204%20Sector%20I-10%2F3%20Islamabad%2C%20Pakistan&output=embed"
-                    sx={{ display: "block", width: "100%", height: 320, border: 0 }}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-                </Box>
-              </Stack>
+                <Typography
+                  sx={{
+                    fontSize: { xs: "1.6rem", md: "1.9rem" },
+                    fontWeight: 700,
+                    color: "#fcb51e",
+                    fontFamily: "'Sora', sans-serif",
+                    mb: 2,
+                  }}
+                >
+                  Follow us
+                </Typography>
+                <Stack direction="row" spacing={1.5}>
+                  {company.socials.map((social) => {
+                    const Icon = socialIcons[social.name];
+                    return (
+                      <IconButton
+                        key={social.name}
+                        href={social.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={social.name}
+                        sx={{
+                          color: "#ffffff",
+                          bgcolor: socialColors[social.name] || "#64748b",
+                          width: 40,
+                          height: 40,
+                          transition:
+                            "opacity 180ms ease, transform 180ms ease",
+                          "&:hover": {
+                            bgcolor: socialColors[social.name] || "#64748b",
+                            opacity: 0.85,
+                            transform: "translateY(-2px)",
+                          },
+                        }}
+                      >
+                        {Icon ? <Icon fontSize="small" /> : null}
+                      </IconButton>
+                    );
+                  })}
+                </Stack>
+              </Box>
             </Grid>
           </Grid>
-        </Container>
       </Box>
-    </>
+
+      <Box component="section" sx={{ lineHeight: 0 }}>
+        <Box
+          component="iframe"
+          title="KruskalCode Islamabad I-10/3 map"
+          src="https://www.google.com/maps?q=Plot%2081%20St%204%20Sector%20I-10%2F3%20Islamabad%2C%20Pakistan&output=embed"
+          sx={{
+            display: "block",
+            width: "100%",
+            height: { xs: 320, md: 450 },
+            border: 0,
+          }}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </Box>
+    </Box>
   );
 }
