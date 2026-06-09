@@ -1,4 +1,4 @@
-import ServicesContent from "@/components/ServicesContent";
+import ServicesContent from "@/components/service/ServicesContent";
 import { Box } from "@mui/material";
 
 export const metadata = {

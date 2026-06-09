@@ -22,7 +22,7 @@ import MotionBox, {
   slideInLeft,
   slideInRight,
 } from "@/components/MotionBox";
-import ServiceCard from "@/components/ServiceCard";
+import ServiceCard from "@/components/service/ServiceCard";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import { company, services, whyChooseUs, testimonials } from "@/data/site";
 import WhyChooseUs from "@/components/WhyChooseUs";

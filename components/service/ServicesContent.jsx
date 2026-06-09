@@ -14,8 +14,8 @@ import {
 } from "@mui/material";
 import NextLink from "next/link";
 import MotionBox, { fadeUp, staggerContainer } from "@/components/MotionBox";
-import ServiceIcon from "@/components/ServiceIcon";
-import TechnologiesCarousel from "@/components/TechnologiesCarousel";
+import ServiceIcon from "./ServiceIcon";
+import TechnologiesCarousel from "./TechnologiesCarousel";
 import {
   getServiceHref,
   services,

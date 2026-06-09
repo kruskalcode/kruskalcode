@@ -58,7 +58,13 @@ export const services = [
       "Media storage and delivery optimization",
       "Cost monitoring, retention, and lifecycle policies",
     ],
-    technologies: ["AWS S3", "Google Cloud Storage", "Azure Blob", "Cloudflare R2", "CDN"],
+    technologies: [
+      "AWS S3",
+      "Google Cloud Storage",
+      "Azure Blob",
+      "Cloudflare R2",
+      "CDN",
+    ],
   },
   {
     slug: "devops-services",
@@ -75,7 +81,13 @@ export const services = [
       "Monitoring, logging, and alerting implementation",
       "Release management and cloud cost improvements",
     ],
-    technologies: ["Docker", "GitHub Actions", "AWS", "Terraform", "Kubernetes"],
+    technologies: [
+      "Docker",
+      "GitHub Actions",
+      "AWS",
+      "Terraform",
+      "Kubernetes",
+    ],
   },
   {
     slug: "digital-marketing",
@@ -92,7 +104,13 @@ export const services = [
       "Campaign tracking and marketing automation setup",
       "Content and product growth consulting",
     ],
-    technologies: ["Google Analytics", "Meta Pixel", "Search Console", "Next.js", "HubSpot"],
+    technologies: [
+      "Google Analytics",
+      "Meta Pixel",
+      "Search Console",
+      "Next.js",
+      "HubSpot",
+    ],
   },
   {
     slug: "innovation-product-development-consulting",
@@ -293,6 +311,295 @@ export function getServiceBySlug(slug) {
 
 export function getServiceHref(service) {
   return `/services/${service.slug}/`;
+}
+
+export const serviceWhyUsCards = [
+  {
+    title: "Comprehensive Reporting and Analytics",
+    icon: "Analytics",
+    description:
+      "We provide detailed reports and analytics, allowing for data-driven decisions and clear visibility into project progress and outcomes.",
+  },
+  {
+    title: "Cost Effective Construction",
+    icon: "Savings",
+    description:
+      "Our approach to construction prioritizes cost-efficiency without compromising on quality, delivering high-value results within budget.",
+  },
+  {
+    title: "Qualified and Expert Team",
+    icon: "Groups",
+    description:
+      "Our staff is composed of certified and qualified experts who bring specialized skills to every project, ensuring top-tier service and outcomes.",
+  },
+  {
+    title: "Maximize Product Effieciency",
+    icon: "Speed",
+    description:
+      "We optimize processes and resource management to achieve maximum efficiency and effectiveness, ensuring projects are completed on time and to the highest standards.",
+  },
+];
+
+export const serviceStats = [
+  { end: 100, label: "Projects Completed" },
+  { end: 50, label: "Satisfied Clients" },
+  { end: 15, label: "Experienced Staff" },
+];
+
+// Per-service images: set folder (optional) + hero/intro filenames with any extension.
+// Files live in public/assets/services/{folder or slug}/
+export const serviceImageConfig = {
+  "artificial-intelligence": {
+    folder: "AI",
+    hero: "AI.jpg",
+    intro: "mockup.jpg",
+  },
+  "cloud-storage": {
+    folder: "cloud-storage",
+    hero: "cloud-storage.png",
+    intro: "mockup.png",
+  },
+  "devops-services": {
+    folder: "cloud-storage",
+    hero: "devops.jpg",
+    intro: "mockup.png",
+  },
+  "digital-marketing": {
+    folder: "cloud-storage",
+    hero: "digital-marketing.jpg",
+    intro: "mockup.png",
+  },
+  "mobile-application-development": {
+    folder: "cloud-storage",
+
+    hero: "mobile-application.jpg",
+    intro: "mockup.png",
+  },
+  "staffing-services": {
+    folder: "cloud-storage",
+    hero: "staffing.jpg",
+    intro: "mockup.png",
+  },
+};
+
+export const sharedTitleHeroBackground =
+  "/assets/services/service-title-hero-bg.png";
+
+export const sharedTitleHeroSlugs = [
+  "cloud-storage",
+  "innovation-product-development-consulting",
+  "it-software-architecture-consulting",
+  "web-design-development",
+];
+
+export function usesSharedTitleHero(slug) {
+  return sharedTitleHeroSlugs.includes(slug);
+}
+
+export function getServiceImages(slug) {
+  const config = serviceImageConfig[slug] || {};
+  const folder = config.folder || slug;
+  const base = `/assets/services/${folder}`;
+
+  return {
+    heroImage: config.heroImage ?? `${base}/${config.hero ?? "hero.jpg"}`,
+    introImage: config.introImage ?? `${base}/${config.intro ?? "mockup.jpg"}`,
+    usesTitleHero: usesSharedTitleHero(slug),
+    titleHeroBackground: sharedTitleHeroBackground,
+  };
+}
+
+export const servicePageContent = {
+  "artificial-intelligence": {
+    duplicateTitle: false,
+    intro: [
+      "KruskalCode Artificial Intelligence (AI) services leverage advanced machine learning and data analytics to help businesses automate processes, enhance decision-making, and unlock new insights. Our AI solutions are tailored to meet specific business needs, driving innovation and delivering measurable results.",
+      "We aim to empower organizations with cutting-edge AI technology to stay competitive in the ever-evolving market.",
+    ],
+    offeringsTitle: "What We Offer In AI?",
+    offerings: [
+      "AI-powered data analytics and insights",
+      "Machine learning model development",
+      "Natural language processing (NLP)",
+      "Predictive analytics and forecasting",
+      "Automation of business processes",
+      "Computer vision solutions",
+      "Chatbot and virtual assistant development",
+      "Intelligent automation for customer support",
+    ],
+  },
+  "cloud-storage": {
+    duplicateTitle: true,
+    intro: [
+      "KruskalCode offers secure and scalable cloud storage solutions designed to meet the diverse needs of businesses. Our cloud storage services ensure seamless access to your data from anywhere, at any time, with top-notch security features that protect your valuable information. We provide flexible storage options, allowing you to scale as your business grows, and integrate effortlessly with your existing infrastructure.",
+      "Whether you need to store large files, manage backups, or share documents securely, KruskalCode ensures that your data is always available and safe, optimizing your storage efficiency for business growth.",
+    ],
+    offeringsTitle: "What We Offer In Cloud Storage?",
+    offerings: [
+      "Secure Storage",
+      "Scalable Solutions",
+      "Easy Integration",
+      "Automatic Backups",
+      "Anytime Access",
+      "Fast Retrieval",
+      "Cost-effective",
+      "Strong Security",
+      "Easy Sharing",
+      "Proactive Monitoring",
+    ],
+  },
+  "devops-services": {
+    duplicateTitle: false,
+    intro: [
+      "KruskalCode DevOps Services streamline software development by integrating development and operations for seamless collaboration. We focus on automating workflows, continuous integration, and continuous delivery to accelerate software releases and ensure reliability. Our services enhance system performance, scalability, and reduce downtime, helping businesses innovate faster. By optimizing processes and providing real-time monitoring, we ensure your infrastructure is always running efficiently, allowing your team to focus on growth and innovation.",
+    ],
+    offeringsTitle: "What We Offer In DevOps Services?",
+    offerings: [
+      "Continuous Integration and Delivery (CI/CD)",
+      "Infrastructure as Code (IaC)",
+      "Automated Testing",
+      "Configuration Management",
+      "Monitoring and Logging",
+      "Incident Management",
+      "Performance Optimization",
+      "Cloud Services Management",
+    ],
+  },
+  "digital-marketing": {
+    duplicateTitle: false,
+    intro: [
+      "KruskalCode Digital Marketing Services empower businesses to enhance their online presence and grow organically. We specialize in SEO, content marketing, and social media strategies designed to engage your target audience and boost brand visibility. Our team creates personalized content that resonates with your audience, while email marketing nurtures leads and strengthens customer relationships. By leveraging data analytics and continuous optimization, we ensure your marketing efforts drive meaningful results and long-term business success.",
+    ],
+    offeringsTitle: "What We Offer In Digital Marketing?",
+    offerings: [
+      "Search Engine Optimization (SEO)",
+      "Pay-Per-Click Advertising (PPC)",
+      "Social Media Marketing",
+      "Content Marketing",
+      "Email Marketing",
+      "Influencer Marketing",
+      "Affiliate Marketing",
+      "Analytics and Reporting",
+      "Conversion Rate Optimization (CRO)",
+      "Online Reputation Management",
+    ],
+  },
+  "innovation-product-development-consulting": {
+    duplicateTitle: true,
+    intro: [
+      "KruskalCode specializes in innovation and product development consulting, helping businesses turn their ideas into successful, market-leading products. Our experienced consultants work closely with you to provide strategic insights and advanced technological solutions that drive innovation and enhance product development. From concept to execution, we assist in designing products that are not only functional but also scalable, ensuring they meet market demands.",
+      "With KruskalCode's expertise, you can navigate the complexities of product development, optimize your processes, and bring transformative products to market that align with your business goals.",
+    ],
+    offeringsTitle:
+      "What We Offer In Innovation & Product Development Consulting ?",
+    offerings: [
+      "Full Lifecycle Guidance",
+      "Market Research",
+      "Custom Strategies",
+      "Prototyping & MVP",
+      "Agile Methodologies",
+      "Cross-functional Collaboration",
+      "UX Design",
+      "Technology Selection",
+      "Risk Management",
+      "Post-launch Support",
+    ],
+  },
+  "it-software-architecture-consulting": {
+    duplicateTitle: false,
+    intro: [
+      "KruskalCode offers expert IT and software architecture consulting services to build robust and scalable systems tailored to your specific business needs. Our team of architects and engineers provide strategic guidance to design and implement secure, high-performance solutions that meet your organizational requirements. Whether you're developing a new application or optimizing an existing one, we ensure your software architecture is scalable, secure, and future-proof.",
+      "KruskalCode helps you create systems that improve operational efficiency, reduce costs, and enhance scalability, providing long-term value as your business evolves.",
+    ],
+    offeringsTitle: "What We Offer In IT & Software Architecture Consulting?",
+    offerings: [
+      "Infrastructure Assessment",
+      "Custom Architecture",
+      "Scalable Systems",
+      "Emerging Technologies",
+      "Secure Design",
+      "System Optimization",
+      "Cloud Migration",
+      "Performance Tuning",
+      "Ongoing Support",
+      "Disaster Recovery",
+    ],
+  },
+  "mobile-application-development": {
+    duplicateTitle: false,
+    intro: [
+      "KruskalCode excels in delivering cutting-edge app development services, creating custom mobile and web applications tailored to your business needs. Their team of experienced developers focuses on building intuitive, high-performance apps that provide a seamless user experience across all devices. Whether it's a native, hybrid, or cross-platform app, Kruskal Code leverages the latest technologies to ensure your app is scalable, secure, and aligned with your business goals. With a commitment to innovation and user-centric design, Kruskal Code helps businesses turn ideas into functional, successful apps that engage users and drive growth.",
+    ],
+    offeringsTitle: "What We Offer In Mobile Application Development?",
+    offerings: [
+      "Custom Mobile App Development",
+      "Cross-Platform App Development",
+      "Native App Development (iOS & Android)",
+      "UI/UX Design",
+      "App Prototyping & Wireframing",
+      "API Integration",
+      "App Testing & QA",
+      "App Maintenance & Support",
+      "App Store Deployment & Optimization",
+    ],
+  },
+  "staffing-services": {
+    duplicateTitle: false,
+    intro: [
+      "KruskalCode Staffing Services offer tailored recruitment solutions to help businesses efficiently find, attract, and manage top talent. Utilizing a vast network and advanced screening methods, we match candidates to roles based on skills, experience, and company culture. From temporary placements to executive-level searches, our services ensure that your organization has the right talent to drive growth.",
+      "We also provide comprehensive support in onboarding, payroll management, and workforce planning, simplifying the hiring process and enhancing operational efficiency.",
+    ],
+    offeringsTitle: "What We Offer In Staffing Services ?",
+    offerings: [
+      "Recruitment and Placement",
+      "Talent Sourcing",
+      "Candidate Screening",
+      "Job Matching",
+      "Onboarding Support",
+      "Temporary Staffing",
+      "Executive Search",
+      "Payroll Services",
+      "Workforce Planning",
+      "Employee Retention Strategies",
+    ],
+  },
+  "web-design-development": {
+    duplicateTitle: true,
+    intro: [
+      "KruskalCode Web Design and Development services focus on crafting visually stunning, user-friendly websites that cater to the unique needs of businesses and individuals. By blending creative design with robust technical functionality, we ensure your website delivers a seamless, engaging online experience.",
+      "Our goal is to build websites that not only look great but also perform flawlessly across all devices, driving user engagement and business growth.",
+    ],
+    offeringsTitle: "What We Offer In Web Design & Development?",
+    offerings: [
+      "Custom Web Design",
+      "Responsive Design",
+      "Front-End Development",
+      "Back-End Development",
+      "E-Commerce Solutions",
+      "Content Management Systems (CMS)",
+      "SEO Optimization",
+      "Website Maintenance",
+      "Web Analytics",
+      "UI/UX Design",
+    ],
+  },
+};
+
+export function getServicePageContent(slug) {
+  const page = servicePageContent[slug] || {};
+  const images = getServiceImages(slug);
+
+  return {
+    intro: [],
+    offeringsTitle: "What We Offer?",
+    offerings: [],
+    ...images,
+    ...page,
+    heroImage: page.heroImage || images.heroImage,
+    introImage: page.introImage || images.introImage,
+    usesTitleHero: images.usesTitleHero,
+    titleHeroBackground: images.titleHeroBackground,
+  };
 }
 
 export const servicesPageSummaries = {

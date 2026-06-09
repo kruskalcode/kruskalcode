@@ -1,5 +1,5 @@
 import { Box, Card, CardContent, Typography } from "@mui/material";
-import ServiceIcon from "@/components/ServiceIcon";
+import ServiceIcon from "./ServiceIcon";
 
 export default function ServiceCard({ service, large = false }) {
   return (
