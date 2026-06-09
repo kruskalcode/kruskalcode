@@ -115,6 +115,7 @@ export default function Footer() {
                   key={link.href}
                   component={NextLink}
                   href={link.href}
+                  prefetch
                   sx={footerLinkSx}
                 >
                   {link.label}
@@ -141,6 +142,7 @@ export default function Footer() {
                   key={service.slug}
                   component={NextLink}
                   href={`/services/${service.slug}/`}
+                  prefetch
                   sx={footerLinkSx}
                 >
                   {service.title}
@@ -149,6 +151,7 @@ export default function Footer() {
               <MuiLink
                 component={NextLink}
                 href="/portfolio/"
+                prefetch
                 sx={footerLinkSx}
               >
                 Portfolio
@@ -247,6 +250,7 @@ export default function Footer() {
             <MuiLink
               component={NextLink}
               href={company.termsUrl}
+              prefetch
               sx={{
                 color: "#000000",
                 textDecoration: "none",
@@ -259,6 +263,7 @@ export default function Footer() {
             <MuiLink
               component={NextLink}
               href={company.privacyUrl}
+              prefetch
               sx={{
                 color: "#000000",
                 textDecoration: "none",

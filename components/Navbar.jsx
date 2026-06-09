@@ -100,6 +100,7 @@ export default function Navbar() {
         <Box
           component={NextLink}
           href="/"
+          prefetch
           sx={{
             display: "flex",
             alignItems: "center",
@@ -181,6 +182,7 @@ export default function Navbar() {
                 key={link.href}
                 component={NextLink}
                 href={link.href}
+                prefetch
                 onMouseEnter={openServices}
                 endIcon={
                   <ExpandMoreIcon
@@ -201,6 +203,7 @@ export default function Navbar() {
                 key={link.href}
                 component={NextLink}
                 href={link.href}
+                prefetch
                 sx={navButtonSx(link.href)}
               >
                 {link.label}
@@ -267,6 +270,7 @@ export default function Navbar() {
             key={service.slug}
             component={NextLink}
             href={getServiceHref(service)}
+            prefetch
             onClick={closeServices}
             sx={{ whiteSpace: "normal", py: 1.2 }}
           >
@@ -299,6 +303,7 @@ export default function Navbar() {
                 key={link.href}
                 component={NextLink}
                 href={link.href}
+                prefetch
                 onClick={() => setDrawerOpen(false)}
                 sx={{
                   borderRadius: 2,
@@ -321,6 +326,7 @@ export default function Navbar() {
                 key={service.slug}
                 component={NextLink}
                 href={getServiceHref(service)}
+                prefetch
                 onClick={() => setDrawerOpen(false)}
                 sx={{ borderRadius: 2 }}
               >
