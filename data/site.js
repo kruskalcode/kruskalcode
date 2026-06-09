@@ -21,6 +21,7 @@ export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about/", label: "About" },
   { href: "/services/", label: "Services" },
+  { href: "/blog/", label: "Blog" },
   { href: "/portfolio/", label: "Portfolio" },
   { href: "/contact/", label: "Contact" },
 ];
@@ -296,6 +297,92 @@ export const portfolioProjects = [
     color: "linear-gradient(135deg, #f97316, #0f172a)",
   },
 ];
+
+export const blogPosts = [
+  {
+    slug: "ai-automation-trends",
+    title: "AI Automation Trends Every Business Should Know",
+    category: "AI",
+    author: "KruskalCode Insights",
+    date: "June 1, 2026",
+    excerpt:
+      "Discover the latest AI automation trends that are reshaping operational efficiency, customer experience, and product innovation.",
+    image: "/assets/contact-banner.jpg",
+    content: [
+      "AI automation is transforming how companies handle routine workflows, freeing teams to focus on higher-value work.",
+      "From intelligent assistants to predictive analytics, the right AI layer can help businesses reduce costs and improve accuracy.",
+      "This article explores the practical AI use cases that companies can implement with existing tools and modern architecture.",
+    ],
+  },
+  {
+    slug: "cloud-strategy-for-modern-teams",
+    title: "Cloud Strategy for Modern Teams",
+    category: "Cloud",
+    author: "KruskalCode Insights",
+    date: "June 4, 2026",
+    excerpt:
+      "Learn how modern teams can use cloud strategy to improve collaboration, scalability, and secure delivery without unnecessary complexity.",
+    image: "/assets/service-background.png",
+    content: [
+      "A strong cloud strategy is more than choosing a provider — it is about building repeatable, secure patterns for how teams operate.",
+      "This article covers the key decisions around infrastructure, observability, and cost management that help businesses scale reliably.",
+      "We also highlight practical steps for migrating workloads and adopting a cloud-first mindset.",
+    ],
+  },
+  {
+    slug: "building-modern-web-products",
+    title: "Building Modern Web Products with Performance in Mind",
+    category: "Web",
+    author: "KruskalCode Insights",
+    date: "June 7, 2026",
+    excerpt:
+      "Performance matters today more than ever. Learn the modern web practices that deliver fast, accessible, and memorable digital experiences.",
+    image: "/assets/choose-us.jpg",
+    content: [
+      "Modern web products need to balance speed, accessibility, and reliability across desktop and mobile experiences.",
+      "This article walks through design decisions, frontend architecture, and tooling approaches that reduce friction for users.",
+      "We also review how to scope performance improvements for immediate impact without slowing delivery.",
+    ],
+  },
+  {
+    slug: "productivity-habits-for-remote-teams",
+    title: "Productivity Habits for Remote Teams",
+    category: "Productivity",
+    author: "KruskalCode Insights",
+    date: "June 10, 2026",
+    excerpt:
+      "Practical productivity practices for remote teams, focusing on communication, process, and the right digital tooling.",
+    image: "/assets/home-banner.png",
+    content: [
+      "Remote teams succeed when they combine clear communication with repeatable process and supportive tooling.",
+      "This post explains how distributed teams can stay aligned and productive without adding wasted overhead.",
+      "We share tips for running better meetings, managing priorities, and keeping delivery flowing.",
+    ],
+  },
+];
+
+export function getBlogCategories() {
+  const counts = blogPosts.reduce((acc, post) => {
+    acc[post.category] = (acc[post.category] || 0) + 1;
+    return acc;
+  }, {});
+
+  return Object.entries(counts).map(([title, count]) => ({
+    title,
+    slug: title.toLowerCase(),
+    count,
+  }));
+}
+
+export function getBlogPostBySlug(slug) {
+  return blogPosts.find((post) => post.slug === slug);
+}
+
+export function getBlogRelatedPosts(slug, category) {
+  return blogPosts.filter(
+    (post) => post.category === category && post.slug !== slug,
+  );
+}
 
 export const whyChooseUs = [
   "Comprehensive Reporting & Analytics",
