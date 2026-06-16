@@ -17,7 +17,9 @@ export default function BlogCard({ post }) {
     >
       <Box sx={{ position: "relative", width: "100%", height: 280 }}>
         <Image
-          src={post.image || "/assets/choose-us.jpg"}
+          src={
+            post.optimizedImage || post.image || "/assets/optimized/choose-us-564.webp"
+          }
           alt={post.title}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

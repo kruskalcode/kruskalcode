@@ -47,10 +47,10 @@ export default function WhyChooseUs({ reverse = false }) {
               viewport={{ once: true }}
             >
               <Image
-                src="/assets/choose-us.jpg"
+                src="/assets/optimized/choose-us-564.webp"
                 alt="KruskalCode software development team collaboration"
-                width={600}
-                height={400}
+                width={564}
+                height={564}
                 style={{
                   width: "100%",
                   height: "auto",

@@ -35,7 +35,7 @@ export default function ContactHero() {
         }}
       >
         <Image
-          src="/assets/contact-banner.jpg"
+          src="/assets/optimized/contact-banner-1536.webp"
           alt="KruskalCode Islamabad software agency contact banner"
           fill
           priority

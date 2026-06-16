@@ -7,6 +7,28 @@ const TOPICS_PATH = path.join(ROOT_DIR, "content", "topics.json");
 const BLOG_DIR = path.join(ROOT_DIR, "content", "blog");
 const BANNED_PHRASES_PATH = path.join(__dirname, "banned-phrases.json");
 const DEFAULT_MODEL = "gemini-2.5-flash";
+const DEFAULT_FALLBACK_MODELS = ["gemini-3.5-flash", "gemini-2.5-flash-lite"];
+const BLOG_RESPONSE_SCHEMA = {
+  type: "object",
+  properties: {
+    title: { type: "string" },
+    description: { type: "string" },
+    slug: { type: "string" },
+    body: { type: "string" },
+    faq: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          question: { type: "string" },
+          answer: { type: "string" },
+        },
+        required: ["question", "answer"],
+      },
+    },
+  },
+  required: ["title", "description", "slug", "body", "faq"],
+};
 
 const serviceLabels = {
   "artificial-intelligence": "AI automation",
@@ -41,6 +63,78 @@ function readJson(filePath, fallback) {
 
 function writeJson(filePath, value) {
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`);
+}
+
+function loadEnvFiles() {
+  [".env", ".env.local"].forEach((fileName) => {
+    const filePath = path.join(ROOT_DIR, fileName);
+
+    if (!fs.existsSync(filePath)) {
+      return;
+    }
+
+    fs.readFileSync(filePath, "utf8")
+      .replace(/^\uFEFF/, "")
+      .split(/\r?\n/)
+      .forEach((line) => {
+        const trimmed = line.trim();
+
+        if (!trimmed || trimmed.startsWith("#")) {
+          return;
+        }
+
+        const separatorIndex = trimmed.indexOf("=");
+
+        if (separatorIndex === -1) {
+          return;
+        }
+
+        const key = trimmed.slice(0, separatorIndex).trim();
+        let value = trimmed.slice(separatorIndex + 1).trim();
+
+        if (
+          (value.startsWith('"') && value.endsWith('"')) ||
+          (value.startsWith("'") && value.endsWith("'"))
+        ) {
+          value = value.slice(1, -1);
+        }
+
+        if (key && process.env[key] === undefined) {
+          process.env[key] = value;
+        }
+      });
+  });
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+
+class GeminiApiError extends Error {
+  constructor(status, body) {
+    super(`Gemini API request failed (${status}): ${body}`);
+    this.status = status;
+    this.body = body;
+  }
+}
+
+function isRetryableGeminiError(error) {
+  return (
+    error instanceof GeminiApiError &&
+    [429, 500, 502, 503, 504].includes(error.status)
+  );
+}
+
+function getModelCandidates(primaryModel) {
+  const configuredFallbacks = process.env.GEMINI_FALLBACK_MODELS
+    ? process.env.GEMINI_FALLBACK_MODELS.split(",")
+    : DEFAULT_FALLBACK_MODELS;
+
+  return [...new Set([primaryModel, ...configuredFallbacks].map((model) => model.trim()))]
+    .filter(Boolean)
+    .map((model) => model.replace(/^models\//, ""));
 }
 
 function parseArgs(argv) {
@@ -220,16 +314,15 @@ async function callGemini(prompt, apiKey, model) {
       ],
       generationConfig: {
         temperature: 0.72,
-        maxOutputTokens: 8192,
+        maxOutputTokens: 16384,
         responseMimeType: "application/json",
+        responseSchema: BLOG_RESPONSE_SCHEMA,
       },
     }),
   });
 
   if (!response.ok) {
-    throw new Error(
-      `Gemini API request failed (${response.status}): ${await response.text()}`,
-    );
+    throw new GeminiApiError(response.status, await response.text());
   }
 
   const payload = await response.json();
@@ -244,6 +337,56 @@ async function callGemini(prompt, apiKey, model) {
   }
 
   return text;
+}
+
+async function callGeminiWithRetries(prompt, apiKey, model) {
+  const delays = [0, 1500, 4500];
+  let lastError;
+
+  for (let attempt = 0; attempt < delays.length; attempt += 1) {
+    if (delays[attempt] > 0) {
+      await sleep(delays[attempt]);
+    }
+
+    try {
+      return await callGemini(prompt, apiKey, model);
+    } catch (error) {
+      lastError = error;
+
+      if (!isRetryableGeminiError(error) || attempt === delays.length - 1) {
+        throw error;
+      }
+
+      console.warn(
+        `Gemini ${model} returned ${error.status}; retrying attempt ${attempt + 2}/${delays.length}.`,
+      );
+    }
+  }
+
+  throw lastError;
+}
+
+async function callGeminiWithFallback(prompt, apiKey, modelCandidates) {
+  let lastError;
+
+  for (const model of modelCandidates) {
+    try {
+      const text = await callGeminiWithRetries(prompt, apiKey, model);
+      return { text, model };
+    } catch (error) {
+      lastError = error;
+
+      if (!isRetryableGeminiError(error)) {
+        throw error;
+      }
+
+      console.warn(
+        `Gemini ${model} is unavailable (${error.status}); trying next fallback model.`,
+      );
+    }
+  }
+
+  throw lastError;
 }
 
 function parseStructuredResponse(text) {
@@ -263,6 +406,39 @@ function parseStructuredResponse(text) {
     }
 
     return JSON.parse(stripped.slice(start, end + 1));
+  }
+}
+
+async function parseStructuredResponseWithRepair(text, apiKey, modelCandidates) {
+  try {
+    return parseStructuredResponse(text);
+  } catch (error) {
+    const repairPrompt = `The following model output was supposed to be valid JSON but could not be parsed.
+
+Return valid JSON only with this exact shape:
+{
+  "title": "50-60 character SEO title",
+  "description": "140-160 character SEO meta description",
+  "slug": "url-safe-slug",
+  "body": "Full Markdown body, H2/H3 only, no H1",
+  "faq": [
+    { "question": "Question?", "answer": "Answer." }
+  ]
+}
+
+Do not include markdown fences or commentary. Preserve the post content as much as possible while making the JSON parseable.
+
+Original parse error: ${error.message}
+
+Output to repair:
+${text}`;
+    const response = await callGeminiWithFallback(
+      repairPrompt,
+      apiKey,
+      modelCandidates,
+    );
+
+    return parseStructuredResponse(response.text);
   }
 }
 
@@ -468,12 +644,29 @@ function serializePost(post, topic, today) {
   return frontmatter.join("\n");
 }
 
-async function generateStructuredPost(topic, apiKey, model) {
-  const firstText = await callGemini(getPrompt(topic), apiKey, model);
-  return parseStructuredResponse(firstText);
+async function generateStructuredPost(topic, apiKey, modelCandidates) {
+  const response = await callGeminiWithFallback(
+    getPrompt(topic),
+    apiKey,
+    modelCandidates,
+  );
+
+  return {
+    post: await parseStructuredResponseWithRepair(
+      response.text,
+      apiKey,
+      [response.model, ...modelCandidates],
+    ),
+    model: response.model,
+  };
 }
 
-async function rewriteForBannedPhrases(post, flaggedPhrases, apiKey, model) {
+async function rewriteForBannedPhrases(
+  post,
+  flaggedPhrases,
+  apiKey,
+  modelCandidates,
+) {
   const rewritePrompt = `Rewrite the following structured blog JSON removing these flagged phrases and generally making it sound more like a specific person's writing, not generic AI copy: ${flaggedPhrases.join(", ")}.
 
 Return the same JSON shape with title, description, slug, body, and faq. Keep the topic, service link, FAQ, [NEEDS HUMAN INPUT: ...] markers, and 1200-1800 word target intact.
@@ -481,8 +674,54 @@ Return the same JSON shape with title, description, slug, body, and faq. Keep th
 Here is the post JSON:
 ${JSON.stringify(post, null, 2)}`;
 
-  const text = await callGemini(rewritePrompt, apiKey, model);
-  return parseStructuredResponse(text);
+  const response = await callGeminiWithFallback(
+    rewritePrompt,
+    apiKey,
+    modelCandidates,
+  );
+
+  return {
+    post: await parseStructuredResponseWithRepair(
+      response.text,
+      apiKey,
+      [response.model, ...modelCandidates],
+    ),
+    model: response.model,
+  };
+}
+
+async function reviseForValidationErrors(post, validationErrors, apiKey, modelCandidates) {
+  const revisePrompt = `Revise the following structured blog JSON so it passes these validation errors exactly:
+${validationErrors.map((error) => `- ${error}`).join("\n")}
+
+Return the same JSON shape with title, description, slug, body, and faq.
+
+Hard requirements:
+- title must be 50-60 characters.
+- description must be 140-160 characters.
+- body must be 1200-1800 words.
+- body must use Markdown H2/H3 headings only, no H1.
+- body must include a 4-6 question FAQ section at the end.
+- preserve the internal service link and any [NEEDS HUMAN INPUT: ...] markers.
+- do not add banned generic AI phrases.
+
+Here is the post JSON:
+${JSON.stringify(post, null, 2)}`;
+
+  const response = await callGeminiWithFallback(
+    revisePrompt,
+    apiKey,
+    modelCandidates,
+  );
+
+  return {
+    post: await parseStructuredResponseWithRepair(
+      response.text,
+      apiKey,
+      [response.model, ...modelCandidates],
+    ),
+    model: response.model,
+  };
 }
 
 function buildSummary({
@@ -548,9 +787,12 @@ function runBuildIfRequested() {
 }
 
 async function main() {
+  loadEnvFiles();
+
   const args = parseArgs(process.argv.slice(2));
   const apiKey = process.env.GEMINI_API_KEY;
-  const model = process.env.GEMINI_MODEL || DEFAULT_MODEL;
+  const primaryModel = process.env.GEMINI_MODEL || DEFAULT_MODEL;
+  const modelCandidates = getModelCandidates(primaryModel);
   const topics = readJson(TOPICS_PATH, []);
   const bannedPhrases = readJson(BANNED_PHRASES_PATH, []);
   const warnings = [];
@@ -567,14 +809,23 @@ async function main() {
 
   fs.mkdirSync(BLOG_DIR, { recursive: true });
 
-  let rawPost = await generateStructuredPost(topic, apiKey, model);
+  let generated = await generateStructuredPost(topic, apiKey, modelCandidates);
+  let model = generated.model;
+  let rawPost = generated.post;
   let post = normalizePost(rawPost, topic, warnings);
   post.body = ensureFaqSection(ensureInternalLink(post.body, topic), post.faq);
 
   let flaggedPhrases = findBannedPhrases(post.body, bannedPhrases);
 
   if (flaggedPhrases.length > 0) {
-    rawPost = await rewriteForBannedPhrases(post, flaggedPhrases, apiKey, model);
+    generated = await rewriteForBannedPhrases(
+      post,
+      flaggedPhrases,
+      apiKey,
+      [model, ...modelCandidates],
+    );
+    model = generated.model;
+    rawPost = generated.post;
     post = normalizePost(rawPost, topic, warnings);
     post.body = ensureFaqSection(ensureInternalLink(post.body, topic), post.faq);
     flaggedPhrases = findBannedPhrases(post.body, bannedPhrases);
@@ -586,10 +837,32 @@ async function main() {
     );
   }
 
-  const validation = validatePost(post);
+  let validation = validatePost(post);
 
   if (validation.errors.length > 0) {
-    throw new Error(`Generated post failed validation:\n- ${validation.errors.join("\n- ")}`);
+    generated = await reviseForValidationErrors(
+      post,
+      validation.errors,
+      apiKey,
+      [model, ...modelCandidates],
+    );
+    model = generated.model;
+    rawPost = generated.post;
+    post = normalizePost(rawPost, topic, warnings);
+    post.body = ensureFaqSection(ensureInternalLink(post.body, topic), post.faq);
+    flaggedPhrases = findBannedPhrases(post.body, bannedPhrases);
+
+    if (flaggedPhrases.length > 0) {
+      throw new Error(
+        `Banned phrases found after validation repair: ${flaggedPhrases.join(", ")}`,
+      );
+    }
+
+    validation = validatePost(post);
+  }
+
+  if (validation.errors.length > 0) {
+    throw new Error(`Generated post failed validation after repair:\n- ${validation.errors.join("\n- ")}`);
   }
 
   warnings.push(...analyzeStyle(post.body));

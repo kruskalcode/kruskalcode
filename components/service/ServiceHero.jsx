@@ -21,7 +21,7 @@ export default function ServiceHero({ title, heroImage }) {
           position: "absolute",
           inset: 0,
           backgroundImage:
-            "linear-gradient(135deg, rgba(21,32,87,0.92) 0%, rgba(26,42,110,0.88) 55%, rgba(22,33,92,0.92) 100%), url('/assets/service-background.png')",
+            "linear-gradient(135deg, rgba(21,32,87,0.92) 0%, rgba(26,42,110,0.88) 55%, rgba(22,33,92,0.92) 100%), url('/assets/optimized/service-background-998.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

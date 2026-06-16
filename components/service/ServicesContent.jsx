@@ -25,7 +25,8 @@ import {
 import dynamic from "next/dynamic";
 
 const TechnologiesCarousel = dynamic(() => import("./TechnologiesCarousel"), {
-  loading: () => null,
+  ssr: false,
+  loading: () => <Box sx={{ minHeight: { xs: 170, md: 210 } }} />,
 });
 
 function ServicePageCard({ service }) {

@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/optimize-images.mjs",
     "build": "next build",
+    "optimize:images": "node scripts/optimize-images.mjs",
     "start": "next start",
     "lint": "next lint",
     "generate:blog": "node scripts/generate-blog-post.js"
@@ -22,6 +24,7 @@
   },
   "devDependencies": {
     "eslint": "^8.57.1",
-    "eslint-config-next": "^14.2.35"
+    "eslint-config-next": "^14.2.35",
+    "sharp": "^0.35.1"
   }
 }

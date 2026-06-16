@@ -79,7 +79,7 @@ export default function ContactPage() {
                 py: { xs: 4, md: 6 },
                 px: 5,
                 bgcolor: "#fff",
-                backgroundImage: "url('/assets/backgound.jpg')",
+                backgroundImage: "url('/assets/optimized/backgound-300.webp')",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "right center",
                 backgroundSize: { xs: "cover", md: "auto 100%" },

@@ -45,10 +45,10 @@ export default function ServicesPage() {
         }}
       >
         <Image
-          src="/assets/services-banner.jpg"
+          src="/assets/optimized/services-banner-1536.webp"
           alt="KruskalCode software development services in Islamabad"
-          width={1920}
-          height={450}
+          width={1536}
+          height={576}
           priority
           style={{
             width: "100%",

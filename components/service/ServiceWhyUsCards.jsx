@@ -7,10 +7,10 @@ import ServiceSectionHeading from "./ServiceSectionHeading";
 import { serviceWhyUsCards } from "@/data/site";
 
 const whyUsIcons = {
-  Analytics: "/assets/services/analytics.webp",
-  Savings: "/assets/services/cost-effective.webp",
-  Groups: "/assets/services/team-work.png",
-  Speed: "/assets/services/productivity.png",
+  Analytics: "/assets/optimized/services/analytics-256.webp",
+  Savings: "/assets/optimized/services/cost-effective-256.webp",
+  Groups: "/assets/optimized/services/team-work-208.webp",
+  Speed: "/assets/optimized/services/productivity-208.webp",
 };
 
 export default function ServiceWhyUsCards() {

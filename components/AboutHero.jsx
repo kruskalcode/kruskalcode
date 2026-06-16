@@ -157,7 +157,7 @@ export default function AboutHero() {
               }}
             >
               <Image
-                src="/assets/about_handshake.png"
+                src="/assets/optimized/about_handshake-640.webp"
                 alt="KruskalCode software team business handshake"
                 fill
                 sizes="(max-width: 900px) 220px, 280px"

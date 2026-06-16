@@ -190,7 +190,7 @@ export default function BlogDetailPage({ params }) {
                   }}
                 >
                   <Image
-                    src={post.image}
+                    src={post.optimizedImage || post.image}
                     alt={post.title}
                     fill
                     priority

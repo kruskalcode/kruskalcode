@@ -47,7 +47,7 @@ export default function ServiceOfferingsGrid({ title, offerings }) {
                     }}
                   >
                     <Image
-                      src={"/assets/services/why-us.webp"}
+                      src="/assets/optimized/services/why-us-256.webp"
                       alt={`${offering} service offering icon`}
                       width={44}
                       height={44}

@@ -1,6 +1,6 @@
 export const company = {
   name: "KruskalCode",
-  logo: "/assets/logo.png",
+  logo: "/assets/optimized/logo-640.webp",
   tagline: "Engineering Your Vision into Reality",
   location: "Plot 81 St 4 Sector I-10/3 Islamabad, Pakistan",
   email: "info@kruskalcode.com",
@@ -352,39 +352,38 @@ export const serviceStats = [
 export const serviceImageConfig = {
   "artificial-intelligence": {
     folder: "AI",
-    hero: "AI.jpg",
-    intro: "mockup.jpg",
+    heroImage: "/assets/optimized/services/AI/AI-1536.webp",
+    introImage: "/assets/optimized/services/AI/mockup-768.webp",
   },
   "cloud-storage": {
     folder: "cloud-storage",
-    hero: "cloud-storage.png",
-    intro: "mockup.png",
+    heroImage: "/assets/optimized/services/cloud-storage/cloud-storage-1600.webp",
+    introImage: "/assets/optimized/services/cloud-storage/mockup-768.webp",
   },
   "devops-services": {
     folder: "cloud-storage",
-    hero: "devops.jpg",
-    intro: "mockup.png",
+    heroImage: "/assets/optimized/services/cloud-storage/devops-1536.webp",
+    introImage: "/assets/optimized/services/cloud-storage/mockup-768.webp",
   },
   "digital-marketing": {
     folder: "cloud-storage",
-    hero: "digital-marketing.jpg",
-    intro: "mockup.png",
+    heroImage: "/assets/optimized/services/cloud-storage/digital-marketing-1536.webp",
+    introImage: "/assets/optimized/services/cloud-storage/mockup-768.webp",
   },
   "mobile-application-development": {
     folder: "cloud-storage",
-
-    hero: "mobile-application.jpg",
-    intro: "mockup.png",
+    heroImage: "/assets/optimized/services/cloud-storage/mobile-application-1536.webp",
+    introImage: "/assets/optimized/services/cloud-storage/mockup-768.webp",
   },
   "staffing-services": {
     folder: "cloud-storage",
-    hero: "staffing.jpg",
-    intro: "mockup.png",
+    heroImage: "/assets/optimized/services/cloud-storage/staffing-1536.webp",
+    introImage: "/assets/optimized/services/cloud-storage/mockup-768.webp",
   },
 };
 
 export const sharedTitleHeroBackground =
-  "/assets/services/service-title-hero-bg.png";
+  "/assets/optimized/services/service-title-hero-bg-1024.webp";
 
 export const sharedTitleHeroSlugs = [
   "cloud-storage",

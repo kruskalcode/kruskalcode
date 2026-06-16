@@ -120,10 +120,9 @@ export default function Navbar() {
               <Image
                 src={company.logo}
                 alt={`${company.name} software development agency logo`}
-                width={260}
-                height={100}
+                width={640}
+                height={174}
                 onError={() => setLogoFailed(true)}
-                priority
                 style={{ height: "100%", width: "auto", display: "block" }}
               />
             </Box>

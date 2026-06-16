@@ -1,0 +1,830 @@
+{
+  "/assets/about_banner.jpg": {
+    "width": 1024,
+    "height": 384,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/about_banner-320.avif",
+        "480": "/assets/optimized/about_banner-480.avif",
+        "640": "/assets/optimized/about_banner-640.avif",
+        "768": "/assets/optimized/about_banner-768.avif",
+        "1024": "/assets/optimized/about_banner-1024.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/about_banner-320.webp",
+        "480": "/assets/optimized/about_banner-480.webp",
+        "640": "/assets/optimized/about_banner-640.webp",
+        "768": "/assets/optimized/about_banner-768.webp",
+        "1024": "/assets/optimized/about_banner-1024.webp"
+      }
+    }
+  },
+  "/assets/about_handshake.png": {
+    "width": 1024,
+    "height": 1024,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/about_handshake-320.avif",
+        "480": "/assets/optimized/about_handshake-480.avif",
+        "640": "/assets/optimized/about_handshake-640.avif",
+        "768": "/assets/optimized/about_handshake-768.avif",
+        "1024": "/assets/optimized/about_handshake-1024.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/about_handshake-320.webp",
+        "480": "/assets/optimized/about_handshake-480.webp",
+        "640": "/assets/optimized/about_handshake-640.webp",
+        "768": "/assets/optimized/about_handshake-768.webp",
+        "1024": "/assets/optimized/about_handshake-1024.webp"
+      }
+    }
+  },
+  "/assets/backgound.jpg": {
+    "width": 300,
+    "height": 200,
+    "variants": {
+      "avif": {
+        "300": "/assets/optimized/backgound-300.avif"
+      },
+      "webp": {
+        "300": "/assets/optimized/backgound-300.webp"
+      }
+    }
+  },
+  "/assets/choose-us.jpg": {
+    "width": 564,
+    "height": 564,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/choose-us-320.avif",
+        "480": "/assets/optimized/choose-us-480.avif",
+        "564": "/assets/optimized/choose-us-564.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/choose-us-320.webp",
+        "480": "/assets/optimized/choose-us-480.webp",
+        "564": "/assets/optimized/choose-us-564.webp"
+      }
+    }
+  },
+  "/assets/contact_banner.png": {
+    "width": 1911,
+    "height": 678,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/contact_banner-320.avif",
+        "480": "/assets/optimized/contact_banner-480.avif",
+        "640": "/assets/optimized/contact_banner-640.avif",
+        "768": "/assets/optimized/contact_banner-768.avif",
+        "1024": "/assets/optimized/contact_banner-1024.avif",
+        "1280": "/assets/optimized/contact_banner-1280.avif",
+        "1600": "/assets/optimized/contact_banner-1600.avif",
+        "1911": "/assets/optimized/contact_banner-1911.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/contact_banner-320.webp",
+        "480": "/assets/optimized/contact_banner-480.webp",
+        "640": "/assets/optimized/contact_banner-640.webp",
+        "768": "/assets/optimized/contact_banner-768.webp",
+        "1024": "/assets/optimized/contact_banner-1024.webp",
+        "1280": "/assets/optimized/contact_banner-1280.webp",
+        "1600": "/assets/optimized/contact_banner-1600.webp",
+        "1911": "/assets/optimized/contact_banner-1911.webp"
+      }
+    }
+  },
+  "/assets/contact-banner.jpg": {
+    "width": 1536,
+    "height": 576,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/contact-banner-320.avif",
+        "480": "/assets/optimized/contact-banner-480.avif",
+        "640": "/assets/optimized/contact-banner-640.avif",
+        "768": "/assets/optimized/contact-banner-768.avif",
+        "1024": "/assets/optimized/contact-banner-1024.avif",
+        "1280": "/assets/optimized/contact-banner-1280.avif",
+        "1536": "/assets/optimized/contact-banner-1536.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/contact-banner-320.webp",
+        "480": "/assets/optimized/contact-banner-480.webp",
+        "640": "/assets/optimized/contact-banner-640.webp",
+        "768": "/assets/optimized/contact-banner-768.webp",
+        "1024": "/assets/optimized/contact-banner-1024.webp",
+        "1280": "/assets/optimized/contact-banner-1280.webp",
+        "1536": "/assets/optimized/contact-banner-1536.webp"
+      }
+    }
+  },
+  "/assets/home-banner.png": {
+    "width": 1911,
+    "height": 678,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/home-banner-320.avif",
+        "480": "/assets/optimized/home-banner-480.avif",
+        "640": "/assets/optimized/home-banner-640.avif",
+        "768": "/assets/optimized/home-banner-768.avif",
+        "1024": "/assets/optimized/home-banner-1024.avif",
+        "1280": "/assets/optimized/home-banner-1280.avif",
+        "1600": "/assets/optimized/home-banner-1600.avif",
+        "1911": "/assets/optimized/home-banner-1911.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/home-banner-320.webp",
+        "480": "/assets/optimized/home-banner-480.webp",
+        "640": "/assets/optimized/home-banner-640.webp",
+        "768": "/assets/optimized/home-banner-768.webp",
+        "1024": "/assets/optimized/home-banner-1024.webp",
+        "1280": "/assets/optimized/home-banner-1280.webp",
+        "1600": "/assets/optimized/home-banner-1600.webp",
+        "1911": "/assets/optimized/home-banner-1911.webp"
+      }
+    }
+  },
+  "/assets/logo.png": {
+    "width": 1500,
+    "height": 408,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/logo-320.avif",
+        "480": "/assets/optimized/logo-480.avif",
+        "640": "/assets/optimized/logo-640.avif",
+        "768": "/assets/optimized/logo-768.avif",
+        "1024": "/assets/optimized/logo-1024.avif",
+        "1280": "/assets/optimized/logo-1280.avif",
+        "1500": "/assets/optimized/logo-1500.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/logo-320.webp",
+        "480": "/assets/optimized/logo-480.webp",
+        "640": "/assets/optimized/logo-640.webp",
+        "768": "/assets/optimized/logo-768.webp",
+        "1024": "/assets/optimized/logo-1024.webp",
+        "1280": "/assets/optimized/logo-1280.webp",
+        "1500": "/assets/optimized/logo-1500.webp"
+      }
+    }
+  },
+  "/assets/mockups/Bitcoin-Magzine-Mockup-scaled.jpg": {
+    "width": 2560,
+    "height": 2048,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/mockups/Bitcoin-Magzine-Mockup-scaled-320.avif",
+        "480": "/assets/optimized/mockups/Bitcoin-Magzine-Mockup-scaled-480.avif",
+        "640": "/assets/optimized/mockups/Bitcoin-Magzine-Mockup-scaled-640.avif",
+        "768": "/assets/optimized/mockups/Bitcoin-Magzine-Mockup-scaled-768.avif",
+        "1024": "/assets/optimized/mockups/Bitcoin-Magzine-Mockup-scaled-1024.avif",
+        "1280": "/assets/optimized/mockups/Bitcoin-Magzine-Mockup-scaled-1280.avif",
+        "1600": "/assets/optimized/mockups/Bitcoin-Magzine-Mockup-scaled-1600.avif",
+        "1920": "/assets/optimized/mockups/Bitcoin-Magzine-Mockup-scaled-1920.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/mockups/Bitcoin-Magzine-Mockup-scaled-320.webp",
+        "480": "/assets/optimized/mockups/Bitcoin-Magzine-Mockup-scaled-480.webp",
+        "640": "/assets/optimized/mockups/Bitcoin-Magzine-Mockup-scaled-640.webp",
+        "768": "/assets/optimized/mockups/Bitcoin-Magzine-Mockup-scaled-768.webp",
+        "1024": "/assets/optimized/mockups/Bitcoin-Magzine-Mockup-scaled-1024.webp",
+        "1280": "/assets/optimized/mockups/Bitcoin-Magzine-Mockup-scaled-1280.webp",
+        "1600": "/assets/optimized/mockups/Bitcoin-Magzine-Mockup-scaled-1600.webp",
+        "1920": "/assets/optimized/mockups/Bitcoin-Magzine-Mockup-scaled-1920.webp"
+      }
+    }
+  },
+  "/assets/mockups/breezeinsurance-Mockup-scaled.jpg": {
+    "width": 2560,
+    "height": 2048,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/mockups/breezeinsurance-Mockup-scaled-320.avif",
+        "480": "/assets/optimized/mockups/breezeinsurance-Mockup-scaled-480.avif",
+        "640": "/assets/optimized/mockups/breezeinsurance-Mockup-scaled-640.avif",
+        "768": "/assets/optimized/mockups/breezeinsurance-Mockup-scaled-768.avif",
+        "1024": "/assets/optimized/mockups/breezeinsurance-Mockup-scaled-1024.avif",
+        "1280": "/assets/optimized/mockups/breezeinsurance-Mockup-scaled-1280.avif",
+        "1600": "/assets/optimized/mockups/breezeinsurance-Mockup-scaled-1600.avif",
+        "1920": "/assets/optimized/mockups/breezeinsurance-Mockup-scaled-1920.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/mockups/breezeinsurance-Mockup-scaled-320.webp",
+        "480": "/assets/optimized/mockups/breezeinsurance-Mockup-scaled-480.webp",
+        "640": "/assets/optimized/mockups/breezeinsurance-Mockup-scaled-640.webp",
+        "768": "/assets/optimized/mockups/breezeinsurance-Mockup-scaled-768.webp",
+        "1024": "/assets/optimized/mockups/breezeinsurance-Mockup-scaled-1024.webp",
+        "1280": "/assets/optimized/mockups/breezeinsurance-Mockup-scaled-1280.webp",
+        "1600": "/assets/optimized/mockups/breezeinsurance-Mockup-scaled-1600.webp",
+        "1920": "/assets/optimized/mockups/breezeinsurance-Mockup-scaled-1920.webp"
+      }
+    }
+  },
+  "/assets/mockups/buildingconsulting-Mockup-scaled.jpg": {
+    "width": 2560,
+    "height": 2048,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/mockups/buildingconsulting-Mockup-scaled-320.avif",
+        "480": "/assets/optimized/mockups/buildingconsulting-Mockup-scaled-480.avif",
+        "640": "/assets/optimized/mockups/buildingconsulting-Mockup-scaled-640.avif",
+        "768": "/assets/optimized/mockups/buildingconsulting-Mockup-scaled-768.avif",
+        "1024": "/assets/optimized/mockups/buildingconsulting-Mockup-scaled-1024.avif",
+        "1280": "/assets/optimized/mockups/buildingconsulting-Mockup-scaled-1280.avif",
+        "1600": "/assets/optimized/mockups/buildingconsulting-Mockup-scaled-1600.avif",
+        "1920": "/assets/optimized/mockups/buildingconsulting-Mockup-scaled-1920.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/mockups/buildingconsulting-Mockup-scaled-320.webp",
+        "480": "/assets/optimized/mockups/buildingconsulting-Mockup-scaled-480.webp",
+        "640": "/assets/optimized/mockups/buildingconsulting-Mockup-scaled-640.webp",
+        "768": "/assets/optimized/mockups/buildingconsulting-Mockup-scaled-768.webp",
+        "1024": "/assets/optimized/mockups/buildingconsulting-Mockup-scaled-1024.webp",
+        "1280": "/assets/optimized/mockups/buildingconsulting-Mockup-scaled-1280.webp",
+        "1600": "/assets/optimized/mockups/buildingconsulting-Mockup-scaled-1600.webp",
+        "1920": "/assets/optimized/mockups/buildingconsulting-Mockup-scaled-1920.webp"
+      }
+    }
+  },
+  "/assets/mockups/caclimateinvestments-Mockup-scaled.jpg": {
+    "width": 2560,
+    "height": 2048,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/mockups/caclimateinvestments-Mockup-scaled-320.avif",
+        "480": "/assets/optimized/mockups/caclimateinvestments-Mockup-scaled-480.avif",
+        "640": "/assets/optimized/mockups/caclimateinvestments-Mockup-scaled-640.avif",
+        "768": "/assets/optimized/mockups/caclimateinvestments-Mockup-scaled-768.avif",
+        "1024": "/assets/optimized/mockups/caclimateinvestments-Mockup-scaled-1024.avif",
+        "1280": "/assets/optimized/mockups/caclimateinvestments-Mockup-scaled-1280.avif",
+        "1600": "/assets/optimized/mockups/caclimateinvestments-Mockup-scaled-1600.avif",
+        "1920": "/assets/optimized/mockups/caclimateinvestments-Mockup-scaled-1920.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/mockups/caclimateinvestments-Mockup-scaled-320.webp",
+        "480": "/assets/optimized/mockups/caclimateinvestments-Mockup-scaled-480.webp",
+        "640": "/assets/optimized/mockups/caclimateinvestments-Mockup-scaled-640.webp",
+        "768": "/assets/optimized/mockups/caclimateinvestments-Mockup-scaled-768.webp",
+        "1024": "/assets/optimized/mockups/caclimateinvestments-Mockup-scaled-1024.webp",
+        "1280": "/assets/optimized/mockups/caclimateinvestments-Mockup-scaled-1280.webp",
+        "1600": "/assets/optimized/mockups/caclimateinvestments-Mockup-scaled-1600.webp",
+        "1920": "/assets/optimized/mockups/caclimateinvestments-Mockup-scaled-1920.webp"
+      }
+    }
+  },
+  "/assets/mockups/compsusa-Mockup-scaled.jpg": {
+    "width": 2560,
+    "height": 2048,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/mockups/compsusa-Mockup-scaled-320.avif",
+        "480": "/assets/optimized/mockups/compsusa-Mockup-scaled-480.avif",
+        "640": "/assets/optimized/mockups/compsusa-Mockup-scaled-640.avif",
+        "768": "/assets/optimized/mockups/compsusa-Mockup-scaled-768.avif",
+        "1024": "/assets/optimized/mockups/compsusa-Mockup-scaled-1024.avif",
+        "1280": "/assets/optimized/mockups/compsusa-Mockup-scaled-1280.avif",
+        "1600": "/assets/optimized/mockups/compsusa-Mockup-scaled-1600.avif",
+        "1920": "/assets/optimized/mockups/compsusa-Mockup-scaled-1920.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/mockups/compsusa-Mockup-scaled-320.webp",
+        "480": "/assets/optimized/mockups/compsusa-Mockup-scaled-480.webp",
+        "640": "/assets/optimized/mockups/compsusa-Mockup-scaled-640.webp",
+        "768": "/assets/optimized/mockups/compsusa-Mockup-scaled-768.webp",
+        "1024": "/assets/optimized/mockups/compsusa-Mockup-scaled-1024.webp",
+        "1280": "/assets/optimized/mockups/compsusa-Mockup-scaled-1280.webp",
+        "1600": "/assets/optimized/mockups/compsusa-Mockup-scaled-1600.webp",
+        "1920": "/assets/optimized/mockups/compsusa-Mockup-scaled-1920.webp"
+      }
+    }
+  },
+  "/assets/mockups/evolventalux_Mockup-scaled.jpg": {
+    "width": 2560,
+    "height": 2048,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/mockups/evolventalux_Mockup-scaled-320.avif",
+        "480": "/assets/optimized/mockups/evolventalux_Mockup-scaled-480.avif",
+        "640": "/assets/optimized/mockups/evolventalux_Mockup-scaled-640.avif",
+        "768": "/assets/optimized/mockups/evolventalux_Mockup-scaled-768.avif",
+        "1024": "/assets/optimized/mockups/evolventalux_Mockup-scaled-1024.avif",
+        "1280": "/assets/optimized/mockups/evolventalux_Mockup-scaled-1280.avif",
+        "1600": "/assets/optimized/mockups/evolventalux_Mockup-scaled-1600.avif",
+        "1920": "/assets/optimized/mockups/evolventalux_Mockup-scaled-1920.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/mockups/evolventalux_Mockup-scaled-320.webp",
+        "480": "/assets/optimized/mockups/evolventalux_Mockup-scaled-480.webp",
+        "640": "/assets/optimized/mockups/evolventalux_Mockup-scaled-640.webp",
+        "768": "/assets/optimized/mockups/evolventalux_Mockup-scaled-768.webp",
+        "1024": "/assets/optimized/mockups/evolventalux_Mockup-scaled-1024.webp",
+        "1280": "/assets/optimized/mockups/evolventalux_Mockup-scaled-1280.webp",
+        "1600": "/assets/optimized/mockups/evolventalux_Mockup-scaled-1600.webp",
+        "1920": "/assets/optimized/mockups/evolventalux_Mockup-scaled-1920.webp"
+      }
+    }
+  },
+  "/assets/mockups/explore-walletopia-Mockup-scaled.jpg": {
+    "width": 2560,
+    "height": 2048,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/mockups/explore-walletopia-Mockup-scaled-320.avif",
+        "480": "/assets/optimized/mockups/explore-walletopia-Mockup-scaled-480.avif",
+        "640": "/assets/optimized/mockups/explore-walletopia-Mockup-scaled-640.avif",
+        "768": "/assets/optimized/mockups/explore-walletopia-Mockup-scaled-768.avif",
+        "1024": "/assets/optimized/mockups/explore-walletopia-Mockup-scaled-1024.avif",
+        "1280": "/assets/optimized/mockups/explore-walletopia-Mockup-scaled-1280.avif",
+        "1600": "/assets/optimized/mockups/explore-walletopia-Mockup-scaled-1600.avif",
+        "1920": "/assets/optimized/mockups/explore-walletopia-Mockup-scaled-1920.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/mockups/explore-walletopia-Mockup-scaled-320.webp",
+        "480": "/assets/optimized/mockups/explore-walletopia-Mockup-scaled-480.webp",
+        "640": "/assets/optimized/mockups/explore-walletopia-Mockup-scaled-640.webp",
+        "768": "/assets/optimized/mockups/explore-walletopia-Mockup-scaled-768.webp",
+        "1024": "/assets/optimized/mockups/explore-walletopia-Mockup-scaled-1024.webp",
+        "1280": "/assets/optimized/mockups/explore-walletopia-Mockup-scaled-1280.webp",
+        "1600": "/assets/optimized/mockups/explore-walletopia-Mockup-scaled-1600.webp",
+        "1920": "/assets/optimized/mockups/explore-walletopia-Mockup-scaled-1920.webp"
+      }
+    }
+  },
+  "/assets/mockups/healthcareed-Mockup-scaled.jpg": {
+    "width": 2560,
+    "height": 2048,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/mockups/healthcareed-Mockup-scaled-320.avif",
+        "480": "/assets/optimized/mockups/healthcareed-Mockup-scaled-480.avif",
+        "640": "/assets/optimized/mockups/healthcareed-Mockup-scaled-640.avif",
+        "768": "/assets/optimized/mockups/healthcareed-Mockup-scaled-768.avif",
+        "1024": "/assets/optimized/mockups/healthcareed-Mockup-scaled-1024.avif",
+        "1280": "/assets/optimized/mockups/healthcareed-Mockup-scaled-1280.avif",
+        "1600": "/assets/optimized/mockups/healthcareed-Mockup-scaled-1600.avif",
+        "1920": "/assets/optimized/mockups/healthcareed-Mockup-scaled-1920.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/mockups/healthcareed-Mockup-scaled-320.webp",
+        "480": "/assets/optimized/mockups/healthcareed-Mockup-scaled-480.webp",
+        "640": "/assets/optimized/mockups/healthcareed-Mockup-scaled-640.webp",
+        "768": "/assets/optimized/mockups/healthcareed-Mockup-scaled-768.webp",
+        "1024": "/assets/optimized/mockups/healthcareed-Mockup-scaled-1024.webp",
+        "1280": "/assets/optimized/mockups/healthcareed-Mockup-scaled-1280.webp",
+        "1600": "/assets/optimized/mockups/healthcareed-Mockup-scaled-1600.webp",
+        "1920": "/assets/optimized/mockups/healthcareed-Mockup-scaled-1920.webp"
+      }
+    }
+  },
+  "/assets/mockups/ProMathTools_Mockup-scaled.jpg": {
+    "width": 2560,
+    "height": 2048,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/mockups/ProMathTools_Mockup-scaled-320.avif",
+        "480": "/assets/optimized/mockups/ProMathTools_Mockup-scaled-480.avif",
+        "640": "/assets/optimized/mockups/ProMathTools_Mockup-scaled-640.avif",
+        "768": "/assets/optimized/mockups/ProMathTools_Mockup-scaled-768.avif",
+        "1024": "/assets/optimized/mockups/ProMathTools_Mockup-scaled-1024.avif",
+        "1280": "/assets/optimized/mockups/ProMathTools_Mockup-scaled-1280.avif",
+        "1600": "/assets/optimized/mockups/ProMathTools_Mockup-scaled-1600.avif",
+        "1920": "/assets/optimized/mockups/ProMathTools_Mockup-scaled-1920.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/mockups/ProMathTools_Mockup-scaled-320.webp",
+        "480": "/assets/optimized/mockups/ProMathTools_Mockup-scaled-480.webp",
+        "640": "/assets/optimized/mockups/ProMathTools_Mockup-scaled-640.webp",
+        "768": "/assets/optimized/mockups/ProMathTools_Mockup-scaled-768.webp",
+        "1024": "/assets/optimized/mockups/ProMathTools_Mockup-scaled-1024.webp",
+        "1280": "/assets/optimized/mockups/ProMathTools_Mockup-scaled-1280.webp",
+        "1600": "/assets/optimized/mockups/ProMathTools_Mockup-scaled-1600.webp",
+        "1920": "/assets/optimized/mockups/ProMathTools_Mockup-scaled-1920.webp"
+      }
+    }
+  },
+  "/assets/mockups/seeyougo-Mockup-scaled.jpg": {
+    "width": 2560,
+    "height": 2048,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/mockups/seeyougo-Mockup-scaled-320.avif",
+        "480": "/assets/optimized/mockups/seeyougo-Mockup-scaled-480.avif",
+        "640": "/assets/optimized/mockups/seeyougo-Mockup-scaled-640.avif",
+        "768": "/assets/optimized/mockups/seeyougo-Mockup-scaled-768.avif",
+        "1024": "/assets/optimized/mockups/seeyougo-Mockup-scaled-1024.avif",
+        "1280": "/assets/optimized/mockups/seeyougo-Mockup-scaled-1280.avif",
+        "1600": "/assets/optimized/mockups/seeyougo-Mockup-scaled-1600.avif",
+        "1920": "/assets/optimized/mockups/seeyougo-Mockup-scaled-1920.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/mockups/seeyougo-Mockup-scaled-320.webp",
+        "480": "/assets/optimized/mockups/seeyougo-Mockup-scaled-480.webp",
+        "640": "/assets/optimized/mockups/seeyougo-Mockup-scaled-640.webp",
+        "768": "/assets/optimized/mockups/seeyougo-Mockup-scaled-768.webp",
+        "1024": "/assets/optimized/mockups/seeyougo-Mockup-scaled-1024.webp",
+        "1280": "/assets/optimized/mockups/seeyougo-Mockup-scaled-1280.webp",
+        "1600": "/assets/optimized/mockups/seeyougo-Mockup-scaled-1600.webp",
+        "1920": "/assets/optimized/mockups/seeyougo-Mockup-scaled-1920.webp"
+      }
+    }
+  },
+  "/assets/mockups/Toolkitlaw-Mockup-scaled.jpg": {
+    "width": 2560,
+    "height": 2048,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-320.avif",
+        "480": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-480.avif",
+        "640": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-640.avif",
+        "768": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-768.avif",
+        "1024": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-1024.avif",
+        "1280": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-1280.avif",
+        "1600": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-1600.avif",
+        "1920": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-1920.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-320.webp",
+        "480": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-480.webp",
+        "640": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-640.webp",
+        "768": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-768.webp",
+        "1024": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-1024.webp",
+        "1280": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-1280.webp",
+        "1600": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-1600.webp",
+        "1920": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-1920.webp"
+      }
+    }
+  },
+  "/assets/mockups/tunzie-tobwq-Mockup.jpg": {
+    "width": 2500,
+    "height": 2000,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/mockups/tunzie-tobwq-Mockup-320.avif",
+        "480": "/assets/optimized/mockups/tunzie-tobwq-Mockup-480.avif",
+        "640": "/assets/optimized/mockups/tunzie-tobwq-Mockup-640.avif",
+        "768": "/assets/optimized/mockups/tunzie-tobwq-Mockup-768.avif",
+        "1024": "/assets/optimized/mockups/tunzie-tobwq-Mockup-1024.avif",
+        "1280": "/assets/optimized/mockups/tunzie-tobwq-Mockup-1280.avif",
+        "1600": "/assets/optimized/mockups/tunzie-tobwq-Mockup-1600.avif",
+        "1920": "/assets/optimized/mockups/tunzie-tobwq-Mockup-1920.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/mockups/tunzie-tobwq-Mockup-320.webp",
+        "480": "/assets/optimized/mockups/tunzie-tobwq-Mockup-480.webp",
+        "640": "/assets/optimized/mockups/tunzie-tobwq-Mockup-640.webp",
+        "768": "/assets/optimized/mockups/tunzie-tobwq-Mockup-768.webp",
+        "1024": "/assets/optimized/mockups/tunzie-tobwq-Mockup-1024.webp",
+        "1280": "/assets/optimized/mockups/tunzie-tobwq-Mockup-1280.webp",
+        "1600": "/assets/optimized/mockups/tunzie-tobwq-Mockup-1600.webp",
+        "1920": "/assets/optimized/mockups/tunzie-tobwq-Mockup-1920.webp"
+      }
+    }
+  },
+  "/assets/service-background.png": {
+    "width": 998,
+    "height": 722,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/service-background-320.avif",
+        "480": "/assets/optimized/service-background-480.avif",
+        "640": "/assets/optimized/service-background-640.avif",
+        "768": "/assets/optimized/service-background-768.avif",
+        "998": "/assets/optimized/service-background-998.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/service-background-320.webp",
+        "480": "/assets/optimized/service-background-480.webp",
+        "640": "/assets/optimized/service-background-640.webp",
+        "768": "/assets/optimized/service-background-768.webp",
+        "998": "/assets/optimized/service-background-998.webp"
+      }
+    }
+  },
+  "/assets/services-banner.jpg": {
+    "width": 1536,
+    "height": 576,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/services-banner-320.avif",
+        "480": "/assets/optimized/services-banner-480.avif",
+        "640": "/assets/optimized/services-banner-640.avif",
+        "768": "/assets/optimized/services-banner-768.avif",
+        "1024": "/assets/optimized/services-banner-1024.avif",
+        "1280": "/assets/optimized/services-banner-1280.avif",
+        "1536": "/assets/optimized/services-banner-1536.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/services-banner-320.webp",
+        "480": "/assets/optimized/services-banner-480.webp",
+        "640": "/assets/optimized/services-banner-640.webp",
+        "768": "/assets/optimized/services-banner-768.webp",
+        "1024": "/assets/optimized/services-banner-1024.webp",
+        "1280": "/assets/optimized/services-banner-1280.webp",
+        "1536": "/assets/optimized/services-banner-1536.webp"
+      }
+    }
+  },
+  "/assets/services/AI/AI.jpg": {
+    "width": 1536,
+    "height": 576,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/services/AI/AI-320.avif",
+        "480": "/assets/optimized/services/AI/AI-480.avif",
+        "640": "/assets/optimized/services/AI/AI-640.avif",
+        "768": "/assets/optimized/services/AI/AI-768.avif",
+        "1024": "/assets/optimized/services/AI/AI-1024.avif",
+        "1280": "/assets/optimized/services/AI/AI-1280.avif",
+        "1536": "/assets/optimized/services/AI/AI-1536.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/services/AI/AI-320.webp",
+        "480": "/assets/optimized/services/AI/AI-480.webp",
+        "640": "/assets/optimized/services/AI/AI-640.webp",
+        "768": "/assets/optimized/services/AI/AI-768.webp",
+        "1024": "/assets/optimized/services/AI/AI-1024.webp",
+        "1280": "/assets/optimized/services/AI/AI-1280.webp",
+        "1536": "/assets/optimized/services/AI/AI-1536.webp"
+      }
+    }
+  },
+  "/assets/services/AI/mockup.jpg": {
+    "width": 768,
+    "height": 768,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/services/AI/mockup-320.avif",
+        "480": "/assets/optimized/services/AI/mockup-480.avif",
+        "640": "/assets/optimized/services/AI/mockup-640.avif",
+        "768": "/assets/optimized/services/AI/mockup-768.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/services/AI/mockup-320.webp",
+        "480": "/assets/optimized/services/AI/mockup-480.webp",
+        "640": "/assets/optimized/services/AI/mockup-640.webp",
+        "768": "/assets/optimized/services/AI/mockup-768.webp"
+      }
+    }
+  },
+  "/assets/services/analytics.webp": {
+    "width": 256,
+    "height": 256,
+    "variants": {
+      "avif": {
+        "256": "/assets/optimized/services/analytics-256.avif"
+      },
+      "webp": {
+        "256": "/assets/optimized/services/analytics-256.webp"
+      }
+    }
+  },
+  "/assets/services/cloud-storage/cloud-storage.png": {
+    "width": 1680,
+    "height": 638,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/services/cloud-storage/cloud-storage-320.avif",
+        "480": "/assets/optimized/services/cloud-storage/cloud-storage-480.avif",
+        "640": "/assets/optimized/services/cloud-storage/cloud-storage-640.avif",
+        "768": "/assets/optimized/services/cloud-storage/cloud-storage-768.avif",
+        "1024": "/assets/optimized/services/cloud-storage/cloud-storage-1024.avif",
+        "1280": "/assets/optimized/services/cloud-storage/cloud-storage-1280.avif",
+        "1600": "/assets/optimized/services/cloud-storage/cloud-storage-1600.avif",
+        "1680": "/assets/optimized/services/cloud-storage/cloud-storage-1680.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/services/cloud-storage/cloud-storage-320.webp",
+        "480": "/assets/optimized/services/cloud-storage/cloud-storage-480.webp",
+        "640": "/assets/optimized/services/cloud-storage/cloud-storage-640.webp",
+        "768": "/assets/optimized/services/cloud-storage/cloud-storage-768.webp",
+        "1024": "/assets/optimized/services/cloud-storage/cloud-storage-1024.webp",
+        "1280": "/assets/optimized/services/cloud-storage/cloud-storage-1280.webp",
+        "1600": "/assets/optimized/services/cloud-storage/cloud-storage-1600.webp",
+        "1680": "/assets/optimized/services/cloud-storage/cloud-storage-1680.webp"
+      }
+    }
+  },
+  "/assets/services/cloud-storage/devops.jpg": {
+    "width": 1536,
+    "height": 576,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/services/cloud-storage/devops-320.avif",
+        "480": "/assets/optimized/services/cloud-storage/devops-480.avif",
+        "640": "/assets/optimized/services/cloud-storage/devops-640.avif",
+        "768": "/assets/optimized/services/cloud-storage/devops-768.avif",
+        "1024": "/assets/optimized/services/cloud-storage/devops-1024.avif",
+        "1280": "/assets/optimized/services/cloud-storage/devops-1280.avif",
+        "1536": "/assets/optimized/services/cloud-storage/devops-1536.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/services/cloud-storage/devops-320.webp",
+        "480": "/assets/optimized/services/cloud-storage/devops-480.webp",
+        "640": "/assets/optimized/services/cloud-storage/devops-640.webp",
+        "768": "/assets/optimized/services/cloud-storage/devops-768.webp",
+        "1024": "/assets/optimized/services/cloud-storage/devops-1024.webp",
+        "1280": "/assets/optimized/services/cloud-storage/devops-1280.webp",
+        "1536": "/assets/optimized/services/cloud-storage/devops-1536.webp"
+      }
+    }
+  },
+  "/assets/services/cloud-storage/digital-marketing.jpg": {
+    "width": 1536,
+    "height": 576,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/services/cloud-storage/digital-marketing-320.avif",
+        "480": "/assets/optimized/services/cloud-storage/digital-marketing-480.avif",
+        "640": "/assets/optimized/services/cloud-storage/digital-marketing-640.avif",
+        "768": "/assets/optimized/services/cloud-storage/digital-marketing-768.avif",
+        "1024": "/assets/optimized/services/cloud-storage/digital-marketing-1024.avif",
+        "1280": "/assets/optimized/services/cloud-storage/digital-marketing-1280.avif",
+        "1536": "/assets/optimized/services/cloud-storage/digital-marketing-1536.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/services/cloud-storage/digital-marketing-320.webp",
+        "480": "/assets/optimized/services/cloud-storage/digital-marketing-480.webp",
+        "640": "/assets/optimized/services/cloud-storage/digital-marketing-640.webp",
+        "768": "/assets/optimized/services/cloud-storage/digital-marketing-768.webp",
+        "1024": "/assets/optimized/services/cloud-storage/digital-marketing-1024.webp",
+        "1280": "/assets/optimized/services/cloud-storage/digital-marketing-1280.webp",
+        "1536": "/assets/optimized/services/cloud-storage/digital-marketing-1536.webp"
+      }
+    }
+  },
+  "/assets/services/cloud-storage/mobile-application.jpg": {
+    "width": 1536,
+    "height": 576,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/services/cloud-storage/mobile-application-320.avif",
+        "480": "/assets/optimized/services/cloud-storage/mobile-application-480.avif",
+        "640": "/assets/optimized/services/cloud-storage/mobile-application-640.avif",
+        "768": "/assets/optimized/services/cloud-storage/mobile-application-768.avif",
+        "1024": "/assets/optimized/services/cloud-storage/mobile-application-1024.avif",
+        "1280": "/assets/optimized/services/cloud-storage/mobile-application-1280.avif",
+        "1536": "/assets/optimized/services/cloud-storage/mobile-application-1536.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/services/cloud-storage/mobile-application-320.webp",
+        "480": "/assets/optimized/services/cloud-storage/mobile-application-480.webp",
+        "640": "/assets/optimized/services/cloud-storage/mobile-application-640.webp",
+        "768": "/assets/optimized/services/cloud-storage/mobile-application-768.webp",
+        "1024": "/assets/optimized/services/cloud-storage/mobile-application-1024.webp",
+        "1280": "/assets/optimized/services/cloud-storage/mobile-application-1280.webp",
+        "1536": "/assets/optimized/services/cloud-storage/mobile-application-1536.webp"
+      }
+    }
+  },
+  "/assets/services/cloud-storage/mockup.png": {
+    "width": 768,
+    "height": 633,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/services/cloud-storage/mockup-320.avif",
+        "480": "/assets/optimized/services/cloud-storage/mockup-480.avif",
+        "640": "/assets/optimized/services/cloud-storage/mockup-640.avif",
+        "768": "/assets/optimized/services/cloud-storage/mockup-768.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/services/cloud-storage/mockup-320.webp",
+        "480": "/assets/optimized/services/cloud-storage/mockup-480.webp",
+        "640": "/assets/optimized/services/cloud-storage/mockup-640.webp",
+        "768": "/assets/optimized/services/cloud-storage/mockup-768.webp"
+      }
+    }
+  },
+  "/assets/services/cloud-storage/staffing.jpg": {
+    "width": 1536,
+    "height": 576,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/services/cloud-storage/staffing-320.avif",
+        "480": "/assets/optimized/services/cloud-storage/staffing-480.avif",
+        "640": "/assets/optimized/services/cloud-storage/staffing-640.avif",
+        "768": "/assets/optimized/services/cloud-storage/staffing-768.avif",
+        "1024": "/assets/optimized/services/cloud-storage/staffing-1024.avif",
+        "1280": "/assets/optimized/services/cloud-storage/staffing-1280.avif",
+        "1536": "/assets/optimized/services/cloud-storage/staffing-1536.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/services/cloud-storage/staffing-320.webp",
+        "480": "/assets/optimized/services/cloud-storage/staffing-480.webp",
+        "640": "/assets/optimized/services/cloud-storage/staffing-640.webp",
+        "768": "/assets/optimized/services/cloud-storage/staffing-768.webp",
+        "1024": "/assets/optimized/services/cloud-storage/staffing-1024.webp",
+        "1280": "/assets/optimized/services/cloud-storage/staffing-1280.webp",
+        "1536": "/assets/optimized/services/cloud-storage/staffing-1536.webp"
+      }
+    }
+  },
+  "/assets/services/cost-effective.webp": {
+    "width": 256,
+    "height": 256,
+    "variants": {
+      "avif": {
+        "256": "/assets/optimized/services/cost-effective-256.avif"
+      },
+      "webp": {
+        "256": "/assets/optimized/services/cost-effective-256.webp"
+      }
+    }
+  },
+  "/assets/services/productivity.png": {
+    "width": 208,
+    "height": 213,
+    "variants": {
+      "avif": {
+        "208": "/assets/optimized/services/productivity-208.avif"
+      },
+      "webp": {
+        "208": "/assets/optimized/services/productivity-208.webp"
+      }
+    }
+  },
+  "/assets/services/service-title-hero-bg.png": {
+    "width": 1024,
+    "height": 389,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/services/service-title-hero-bg-320.avif",
+        "480": "/assets/optimized/services/service-title-hero-bg-480.avif",
+        "640": "/assets/optimized/services/service-title-hero-bg-640.avif",
+        "768": "/assets/optimized/services/service-title-hero-bg-768.avif",
+        "1024": "/assets/optimized/services/service-title-hero-bg-1024.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/services/service-title-hero-bg-320.webp",
+        "480": "/assets/optimized/services/service-title-hero-bg-480.webp",
+        "640": "/assets/optimized/services/service-title-hero-bg-640.webp",
+        "768": "/assets/optimized/services/service-title-hero-bg-768.webp",
+        "1024": "/assets/optimized/services/service-title-hero-bg-1024.webp"
+      }
+    }
+  },
+  "/assets/services/team-work.png": {
+    "width": 208,
+    "height": 213,
+    "variants": {
+      "avif": {
+        "208": "/assets/optimized/services/team-work-208.avif"
+      },
+      "webp": {
+        "208": "/assets/optimized/services/team-work-208.webp"
+      }
+    }
+  },
+  "/assets/services/why-us.webp": {
+    "width": 256,
+    "height": 256,
+    "variants": {
+      "avif": {
+        "256": "/assets/optimized/services/why-us-256.avif"
+      },
+      "webp": {
+        "256": "/assets/optimized/services/why-us-256.webp"
+      }
+    }
+  },
+  "/assets/testinomial-background.png": {
+    "width": 1680,
+    "height": 840,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/testinomial-background-320.avif",
+        "480": "/assets/optimized/testinomial-background-480.avif",
+        "640": "/assets/optimized/testinomial-background-640.avif",
+        "768": "/assets/optimized/testinomial-background-768.avif",
+        "1024": "/assets/optimized/testinomial-background-1024.avif",
+        "1280": "/assets/optimized/testinomial-background-1280.avif",
+        "1600": "/assets/optimized/testinomial-background-1600.avif",
+        "1680": "/assets/optimized/testinomial-background-1680.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/testinomial-background-320.webp",
+        "480": "/assets/optimized/testinomial-background-480.webp",
+        "640": "/assets/optimized/testinomial-background-640.webp",
+        "768": "/assets/optimized/testinomial-background-768.webp",
+        "1024": "/assets/optimized/testinomial-background-1024.webp",
+        "1280": "/assets/optimized/testinomial-background-1280.webp",
+        "1600": "/assets/optimized/testinomial-background-1600.webp",
+        "1680": "/assets/optimized/testinomial-background-1680.webp"
+      }
+    }
+  },
+  "/assets/why_choose_us.jpg": {
+    "width": 564,
+    "height": 564,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/why_choose_us-320.avif",
+        "480": "/assets/optimized/why_choose_us-480.avif",
+        "564": "/assets/optimized/why_choose_us-564.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/why_choose_us-320.webp",
+        "480": "/assets/optimized/why_choose_us-480.webp",
+        "564": "/assets/optimized/why_choose_us-564.webp"
+      }
+    }
+  }
+}

@@ -188,8 +188,8 @@ export default function ServiceDetailContent({ service, relatedBlogLinks = [] })
                   <Image
                     src={pageContent.introImage}
                     alt={`${displayTitle} service illustration`}
-                    width={500}
-                    height={420}
+                    width={768}
+                    height={633}
                     style={{
                       width: "100%",
                       height: "auto",

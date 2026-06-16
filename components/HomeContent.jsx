@@ -31,7 +31,10 @@ import StartWithUsCTA from "@/components/StartWithUsCTA";
 
 const TestimonialCarousel = dynamic(
   () => import("@/components/TestimonialCarousel"),
-  { loading: () => null },
+  {
+    ssr: false,
+    loading: () => <Box sx={{ height: { xs: 400, md: 300 } }} />,
+  },
 );
 
 const visuallyHiddenH1 = {
@@ -115,10 +118,10 @@ export default function HomeContent() {
         }}
       >
         <Image
-          src="/assets/home-banner.png"
+          src="/assets/optimized/home-banner-1911.webp"
           alt="KruskalCode software development agency hero banner"
-          width={1920}
-          height={850}
+          width={1911}
+          height={678}
           priority
           style={{
             width: "100%",
@@ -151,10 +154,10 @@ export default function HomeContent() {
               >
                 <Box sx={{ maxWidth: 500, mx: "auto" }}>
                   <Image
-                    src="/assets/choose-us.jpg"
+                    src="/assets/optimized/choose-us-564.webp"
                     alt="KruskalCode web and software development team"
-                    width={500}
-                    height={360}
+                    width={564}
+                    height={564}
                     style={{
                       width: "100%",
                       height: "auto",
@@ -254,7 +257,7 @@ export default function HomeContent() {
         sx={{
           py: { xs: 8, md: 12 },
           backgroundImage:
-            "linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.55)), url('/assets/service-background.png')",
+            "linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.55)), url('/assets/optimized/service-background-998.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -297,7 +300,7 @@ export default function HomeContent() {
         sx={{
           py: { xs: 8, md: 12 },
           background:
-            "linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('/assets/testinomial-background.png')",
+            "linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('/assets/optimized/testinomial-background-1680.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",

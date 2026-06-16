@@ -57,7 +57,7 @@ export default function StatsCounter() {
         sx={{
           position: "absolute",
           inset: 0,
-          backgroundImage: "url('/assets/about_handshake.png')",
+          backgroundImage: "url('/assets/optimized/about_handshake-1024.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           zIndex: 0,

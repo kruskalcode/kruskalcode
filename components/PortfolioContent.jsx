@@ -8,62 +8,62 @@ const PROJECTS = [
   {
     title: "Tunzie",
     category: "CRM SAAS Websites",
-    image: "/assets/mockups/tunzie-tobwq-Mockup.jpg",
+    image: "/assets/optimized/mockups/tunzie-tobwq-Mockup-640.webp",
   },
   {
     title: "ProMathTools",
     category: "Websites",
-    image: "/assets/mockups/ProMathTools_Mockup-scaled.jpg",
+    image: "/assets/optimized/mockups/ProMathTools_Mockup-scaled-640.webp",
   },
   {
     title: "Toolkit Law",
     category: "CRM Mobile Application SAAS Websites",
-    image: "/assets/mockups/Toolkitlaw-Mockup-scaled.jpg",
+    image: "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-640.webp",
   },
   {
     title: "Breeze Insurance",
     category: "Websites",
-    image: "/assets/mockups/breezeinsurance-Mockup-scaled.jpg",
+    image: "/assets/optimized/mockups/breezeinsurance-Mockup-scaled-640.webp",
   },
   {
     title: "Building Consulting",
     category: "Websites",
-    image: "/assets/mockups/buildingconsulting-Mockup-scaled.jpg",
+    image: "/assets/optimized/mockups/buildingconsulting-Mockup-scaled-640.webp",
   },
   {
     title: "Caclimate Investments",
     category: "Websites",
-    image: "/assets/mockups/caclimateinvestments-Mockup-scaled.jpg",
+    image: "/assets/optimized/mockups/caclimateinvestments-Mockup-scaled-640.webp",
   },
   {
     title: "Compsusa",
     category: "CRM",
-    image: "/assets/mockups/compsusa-Mockup-scaled.jpg",
+    image: "/assets/optimized/mockups/compsusa-Mockup-scaled-640.webp",
   },
   {
     title: "Evolventalux",
     category: "Websites",
-    image: "/assets/mockups/evolventalux_Mockup-scaled.jpg",
+    image: "/assets/optimized/mockups/evolventalux_Mockup-scaled-640.webp",
   },
   {
     title: "Explore Walletopia",
     category: "CRM Websites",
-    image: "/assets/mockups/explore-walletopia-Mockup-scaled.jpg",
+    image: "/assets/optimized/mockups/explore-walletopia-Mockup-scaled-640.webp",
   },
   {
     title: "HealthCare Ed",
     category: "CRM SAAS Websites",
-    image: "/assets/mockups/healthcareed-Mockup-scaled.jpg",
+    image: "/assets/optimized/mockups/healthcareed-Mockup-scaled-640.webp",
   },
   {
     title: "Seeyougo",
     category: "Websites",
-    image: "/assets/mockups/seeyougo-Mockup-scaled.jpg",
+    image: "/assets/optimized/mockups/seeyougo-Mockup-scaled-640.webp",
   },
   {
     title: "Bitcoin-Magzine",
     category: "CRM",
-    image: "/assets/mockups/Bitcoin-Magzine-Mockup-scaled.jpg",
+    image: "/assets/optimized/mockups/Bitcoin-Magzine-Mockup-scaled-640.webp",
   },
 ];
 
@@ -179,7 +179,7 @@ export default function PortfolioContent() {
                     src={project.image}
                     alt={`${project.title} ${formatCategories(project.category)} project mockup`}
                     width={640}
-                    height={480}
+                    height={512}
                     style={{
                       width: "100%",
                       height: "auto",

@@ -204,10 +204,10 @@ export default function AboutPage() {
           About KruskalCode Software Development Team
         </Box>
         <Image
-          src="/assets/about_banner.jpg"
+          src="/assets/optimized/about_banner-1024.webp"
           alt="About KruskalCode software development team in Islamabad"
-          width={1920}
-          height={600}
+          width={1024}
+          height={384}
           priority
           style={{ width: "100%", height: "auto", display: "block" }}
         />
@@ -505,7 +505,7 @@ export default function AboutPage() {
           sx={{
             position: "absolute",
             inset: 0,
-            backgroundImage: "url('/assets/about_handshake.png')",
+            backgroundImage: "url('/assets/optimized/about_handshake-1024.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             zIndex: 0,
