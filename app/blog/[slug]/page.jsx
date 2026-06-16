@@ -29,8 +29,6 @@ import {
   getFaqSchema,
 } from "@/lib/seo";
 
-export const dynamicParams = false;
-
 export function generateStaticParams() {
   const posts = getAllBlogPosts();
 

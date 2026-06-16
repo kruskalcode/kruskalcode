@@ -278,7 +278,7 @@ Return JSON only with this exact shape:
   "title": "50-60 character SEO title",
   "description": "140-160 character SEO meta description",
   "slug": "url-safe-slug",
-  "body": "Full Markdown body, 1200-1800 words, H2/H3 only, no H1, includes a 4-6 question FAQ section at the end",
+  "body": "Full Markdown body, aim for 1300-1600 words, absolute 1200-1800 words, H2/H3 only, no H1, includes a 4-6 question FAQ section at the end",
   "faq": [
     { "question": "Question?", "answer": "Answer." }
   ]
@@ -529,6 +529,88 @@ function ensureFaqSection(body, faq) {
   return `${body.trim()}\n\n## FAQ\n\n${faqMarkdown}`;
 }
 
+function normalizeMarkdownBody(body) {
+  return body
+    .replace(/\r\n/g, "\n")
+    .replace(/\r/g, "\n")
+    .replace(/^(\s*)#(?!#)\s*/gm, "$1## ")
+    .replace(/([^\n])(?=#{2,4}\s)/g, "$1\n\n")
+    .replace(/^(#{2,4}\s+[^\n]*[?!:])(?=\S)/gm, "$1\n")
+    .split("\n")
+    .map((line) => {
+      if (!/^#{2,4}\s/.test(line) || line.length <= 80) {
+        return line;
+      }
+
+      return line.replace(
+        /^(#{2,4}\s+(?:\d+\.\s+)?.+?[a-z)])(?=[A-Z][a-z])/,
+        "$1\n",
+      );
+    })
+    .join("\n")
+    .replace(/^#{2,4}\s*$/gm, "")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+function preparePostBody(body, topic, faq) {
+  const normalized = normalizeMarkdownBody(body);
+
+  return normalizeMarkdownBody(
+    ensureFaqSection(ensureInternalLink(normalized, topic), faq),
+  );
+}
+
+function trimToMaxLength(value, maxLength) {
+  if (value.length <= maxLength) {
+    return value;
+  }
+
+  const trimmed = value.slice(0, maxLength + 1);
+  const lastSpace = trimmed.lastIndexOf(" ");
+  return `${trimmed
+    .slice(0, lastSpace > 40 ? lastSpace : maxLength)
+    .trim()
+    .replace(/\b(with|and|or|for|to|of|in|at|by|from)$/i, "")
+    .trim()}.`;
+}
+
+function coerceSeoFields(post, topic) {
+  let title = post.title.replace(/\s+[-|:]\s*KruskalCode.*$/i, "").trim();
+
+  if (title.length < 50 || title.length > 60) {
+    const baseTopic = topic.title
+      .replace(/^How Much Does an?\s+/i, "")
+      .replace(/\?$/g, "")
+      .replace(/\s+in\s+2026$/i, " 2026");
+    const candidates = [
+      `${baseTopic} Pricing Guide`,
+      `${baseTopic} Cost and Timeline Guide`,
+      post.title,
+    ];
+    title =
+      candidates.find((candidate) => candidate.length >= 50 && candidate.length <= 60) ||
+      trimToMaxLength(candidates.find((candidate) => candidate.length > 60) || post.title, 59);
+  }
+
+  let description = post.description.trim();
+
+  if (description.length > 160) {
+    description = trimToMaxLength(description, 159);
+  }
+
+  if (description.length < 140) {
+    description = `${description.replace(/[.?!]?$/, ".")} Learn what affects pricing, scope, timelines, and delivery.`;
+    description = trimToMaxLength(description, 159);
+  }
+
+  return {
+    ...post,
+    title,
+    description,
+  };
+}
+
 function validatePost(post) {
   const errors = [];
   const wordCount = countWords(post.body);
@@ -553,8 +635,12 @@ function validatePost(post) {
     errors.push(`Body must be 1200-1800 words; received ${wordCount}.`);
   }
 
-  if (/^#\s+/m.test(post.body)) {
-    errors.push("Body must not contain an H1 heading.");
+  if (/[^\n]#{2,4}\s/.test(post.body)) {
+    errors.push("Markdown headings must start on their own line.");
+  }
+
+  if (/^#{2,4}\s*$/m.test(post.body)) {
+    errors.push("Markdown body must not contain empty headings.");
   }
 
   if (!/^##\s+FAQs?\s*$/im.test(post.body)) {
@@ -699,7 +785,7 @@ Return the same JSON shape with title, description, slug, body, and faq.
 Hard requirements:
 - title must be 50-60 characters.
 - description must be 140-160 characters.
-- body must be 1200-1800 words.
+- body must be 1200-1800 words, and should ideally land near 1400-1600 words. If it is currently over 1800 words, cut sections and tighten paragraphs instead of adding more.
 - body must use Markdown H2/H3 headings only, no H1.
 - body must include a 4-6 question FAQ section at the end.
 - preserve the internal service link and any [NEEDS HUMAN INPUT: ...] markers.
@@ -813,7 +899,8 @@ async function main() {
   let model = generated.model;
   let rawPost = generated.post;
   let post = normalizePost(rawPost, topic, warnings);
-  post.body = ensureFaqSection(ensureInternalLink(post.body, topic), post.faq);
+  post.body = preparePostBody(post.body, topic, post.faq);
+  post = coerceSeoFields(post, topic);
 
   let flaggedPhrases = findBannedPhrases(post.body, bannedPhrases);
 
@@ -827,7 +914,8 @@ async function main() {
     model = generated.model;
     rawPost = generated.post;
     post = normalizePost(rawPost, topic, warnings);
-    post.body = ensureFaqSection(ensureInternalLink(post.body, topic), post.faq);
+    post.body = preparePostBody(post.body, topic, post.faq);
+    post = coerceSeoFields(post, topic);
     flaggedPhrases = findBannedPhrases(post.body, bannedPhrases);
   }
 
@@ -839,7 +927,11 @@ async function main() {
 
   let validation = validatePost(post);
 
-  if (validation.errors.length > 0) {
+  for (
+    let repairAttempt = 0;
+    validation.errors.length > 0 && repairAttempt < 3;
+    repairAttempt += 1
+  ) {
     generated = await reviseForValidationErrors(
       post,
       validation.errors,
@@ -849,13 +941,29 @@ async function main() {
     model = generated.model;
     rawPost = generated.post;
     post = normalizePost(rawPost, topic, warnings);
-    post.body = ensureFaqSection(ensureInternalLink(post.body, topic), post.faq);
+    post.body = preparePostBody(post.body, topic, post.faq);
+    post = coerceSeoFields(post, topic);
     flaggedPhrases = findBannedPhrases(post.body, bannedPhrases);
 
     if (flaggedPhrases.length > 0) {
-      throw new Error(
-        `Banned phrases found after validation repair: ${flaggedPhrases.join(", ")}`,
+      generated = await rewriteForBannedPhrases(
+        post,
+        flaggedPhrases,
+        apiKey,
+        [model, ...modelCandidates],
       );
+      model = generated.model;
+      rawPost = generated.post;
+      post = normalizePost(rawPost, topic, warnings);
+      post.body = preparePostBody(post.body, topic, post.faq);
+      post = coerceSeoFields(post, topic);
+      flaggedPhrases = findBannedPhrases(post.body, bannedPhrases);
+
+      if (flaggedPhrases.length > 0) {
+        throw new Error(
+          `Banned phrases still found after validation repair rewrite: ${flaggedPhrases.join(", ")}`,
+        );
+      }
     }
 
     validation = validatePost(post);
