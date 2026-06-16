@@ -33,14 +33,14 @@ jobs:
           if [ -f public/robots.txt ]; then cp public/robots.txt out/robots.txt; fi
           if [ -f public/sitemap.xml ]; then cp public/sitemap.xml out/sitemap.xml; fi
 
-      - name: Deploy to FTP root
+      - name: Deploy to public_html
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./out/
-          server-dir: /
+          server-dir: /public_html/
           exclude: |
             **/.git*
             **/.git*/**
