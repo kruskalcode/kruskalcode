@@ -65,7 +65,7 @@ export default function ServiceTitleHero({ title, backgroundImage }) {
                 lg: "2rem",
               },
               color: "#fcb51e",
-              fontFamily: "'Sora', sans-serif",
+              fontFamily: "var(--font-sora), 'Sora', sans-serif",
               letterSpacing: "0.06em",
               textTransform: "uppercase",
               lineHeight: 1.15,

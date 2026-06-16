@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
+import Image from "next/image";
 
 const PROJECTS = [
   {
@@ -174,11 +175,12 @@ export default function PortfolioContent() {
                     lineHeight: 0,
                   }}
                 >
-                  <Box
-                    component="img"
+                  <Image
                     src={project.image}
-                    alt={project.title}
-                    sx={{
+                    alt={`${project.title} ${formatCategories(project.category)} project mockup`}
+                    width={640}
+                    height={480}
+                    style={{
                       width: "100%",
                       height: "auto",
                       display: "block",

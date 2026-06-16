@@ -20,8 +20,11 @@ export default function BlogList({ posts, categories }) {
     <>
       <ServiceSectionHeading
         title={
-          selectedCategory ? `${selectedCategory} Articles` : "Insights & Articles"
+          selectedCategory
+            ? `${selectedCategory} Articles`
+            : "Software Development Blog"
         }
+        component="h1"
         align="center"
         sx={{ mb: 3 }}
       />

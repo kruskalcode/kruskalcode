@@ -15,7 +15,6 @@ import {
 import NextLink from "next/link";
 import MotionBox, { fadeUp, staggerContainer } from "@/components/MotionBox";
 import ServiceIcon from "./ServiceIcon";
-import TechnologiesCarousel from "./TechnologiesCarousel";
 import {
   getServiceHref,
   services,
@@ -23,6 +22,11 @@ import {
   servicesPageSummaries,
   technologyStack,
 } from "@/data/site";
+import dynamic from "next/dynamic";
+
+const TechnologiesCarousel = dynamic(() => import("./TechnologiesCarousel"), {
+  loading: () => null,
+});
 
 function ServicePageCard({ service }) {
   const summary =
@@ -148,7 +152,7 @@ export default function ServicesContent() {
                 fontSize: { xs: "1.75rem", md: "2.25rem" },
                 fontWeight: 800,
                 color: "#fcb51e",
-                fontFamily: "'Sora', sans-serif",
+                fontFamily: "var(--font-sora), 'Sora', sans-serif",
                 mb: { xs: 4, md: 5 },
               }}
             >
@@ -182,7 +186,7 @@ export default function ServicesContent() {
                 fontSize: { xs: "2rem", md: "2.5rem" },
                 fontWeight: 800,
                 color: "#1a1a1a",
-                fontFamily: "'Sora', sans-serif",
+                fontFamily: "var(--font-sora), 'Sora', sans-serif",
                 mb: { xs: 4, md: 5 },
               }}
             >

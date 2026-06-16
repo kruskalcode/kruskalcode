@@ -59,7 +59,7 @@ function Counter({ end, label }) {
           fontWeight: 900,
           color: "#fcb51e",
           lineHeight: 1,
-          fontFamily: "'Sora', sans-serif",
+          fontFamily: "var(--font-sora), 'Sora', sans-serif",
         }}
       >
         {val}+
@@ -134,7 +134,7 @@ function Step({ num, title, body }) {
             flexShrink: 0,
             fontWeight: 800,
             fontSize: "1.1rem",
-            fontFamily: "'Sora', sans-serif",
+            fontFamily: "var(--font-sora), 'Sora', sans-serif",
             boxShadow: "0 4px 14px rgba(252,181,30,0.4)",
           }}
         >
@@ -145,7 +145,7 @@ function Step({ num, title, body }) {
             fontSize: "1.7rem",
             fontWeight: 700,
             color: "#1C244B",
-            fontFamily: "'Sora', sans-serif",
+            fontFamily: "var(--font-sora), 'Sora', sans-serif",
             lineHeight: 1.2,
           }}
         >
@@ -165,7 +165,7 @@ function Step({ num, title, body }) {
 /* ─── Why Choose Us checklist ─── */
 const WHY_LIST = [
   "Comprehensive Reporting and Analytics",
-  "Cost Effective Construction",
+  "Cost-Effective Software Delivery",
   "Qualified and Expert Team",
   "Maximize Product Efficiency",
   "Top-Notch Customer Support",
@@ -180,6 +180,18 @@ const SERVICES = [
   "Web Design & Development",
 ];
 
+const visuallyHiddenH1 = {
+  position: "absolute",
+  width: 1,
+  height: 1,
+  p: 0,
+  m: -1,
+  overflow: "hidden",
+  clip: "rect(0 0 0 0)",
+  whiteSpace: "nowrap",
+  border: 0,
+};
+
 /* ═══════════════════════════════════════════
    PAGE
 ═══════════════════════════════════════════ */
@@ -188,11 +200,16 @@ export default function AboutPage() {
     <Box sx={{ bgcolor: "#fff" }}>
       {/* ── 1. ABOUT US Banner ── */}
       <Box sx={{ lineHeight: 0, width: "100%" }}>
-        <Box
-          component="img"
+        <Box component="h1" sx={visuallyHiddenH1}>
+          About KruskalCode Software Development Team
+        </Box>
+        <Image
           src="/assets/about_banner.jpg"
-          alt="About KruskalCode"
-          sx={{ width: "100%", height: "auto", display: "block" }}
+          alt="About KruskalCode software development team in Islamabad"
+          width={1920}
+          height={600}
+          priority
+          style={{ width: "100%", height: "auto", display: "block" }}
         />
       </Box>
 
@@ -235,7 +252,7 @@ export default function AboutPage() {
                     fontWeight: 700,
                     color: "#fcb51e",
                     mb: 2,
-                    fontFamily: "'Sora', sans-serif",
+                    fontFamily: "var(--font-sora), 'Sora', sans-serif",
                   }}
                 >
                   Our Mission
@@ -277,7 +294,7 @@ export default function AboutPage() {
                     fontWeight: 700,
                     color: "#fcb51e",
                     mb: 2,
-                    fontFamily: "'Sora', sans-serif",
+                    fontFamily: "var(--font-sora), 'Sora', sans-serif",
                   }}
                 >
                   Who Are We
@@ -320,7 +337,7 @@ export default function AboutPage() {
                     fontWeight: 700,
                     color: "#fcb51e",
                     mb: 2,
-                    fontFamily: "'Sora', sans-serif",
+                    fontFamily: "var(--font-sora), 'Sora', sans-serif",
                   }}
                 >
                   Our Services
@@ -389,7 +406,7 @@ export default function AboutPage() {
                 fontSize: { xs: "1.9rem", md: "2.4rem" },
                 fontWeight: 700,
                 color: "primary.main",
-                fontFamily: "'Sora', sans-serif",
+                fontFamily: "var(--font-sora), 'Sora', sans-serif",
                 mb: 1.5,
               }}
             >

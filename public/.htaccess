@@ -2,6 +2,31 @@ Options -MultiViews
 RewriteEngine On
 RewriteBase /
 
+# Canonical production URL: https://kruskalcode.com/ with trailing slashes.
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\.kruskalcode\.com$ [NC]
+RewriteRule ^ https://kruskalcode.com%{REQUEST_URI} [R=301,L]
+
+# Collapse exported index files to their canonical route URLs.
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
+RewriteRule ^(.*/)?index\.html$ /$1 [R=301,L]
+
+# Preserve indexed legacy service URLs from the previous root-level structure.
+RewriteRule ^artificial-intelligence/?$ /services/artificial-intelligence/ [R=301,L]
+RewriteRule ^cloud-storage/?$ /services/cloud-storage/ [R=301,L]
+RewriteRule ^devops-services/?$ /services/devops-services/ [R=301,L]
+RewriteRule ^digital-marketing/?$ /services/digital-marketing/ [R=301,L]
+RewriteRule ^innovation-product-development-consulting/?$ /services/innovation-product-development-consulting/ [R=301,L]
+RewriteRule ^it-software-architecture-consulting/?$ /services/it-software-architecture-consulting/ [R=301,L]
+RewriteRule ^mobile-application-development/?$ /services/mobile-application-development/ [R=301,L]
+RewriteRule ^staffing-services/?$ /services/staffing-services/ [R=301,L]
+RewriteRule ^web-design-development/?$ /services/web-design-development/ [R=301,L]
+
+# Redirect extensionless public routes to the trailing-slash convention.
+RewriteCond %{REQUEST_URI} !/$
+RewriteCond %{REQUEST_URI} !\.[^/]+$
+RewriteRule ^(.+)$ /$1/ [R=301,L]
+
 # Serve existing files and directories directly.
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d

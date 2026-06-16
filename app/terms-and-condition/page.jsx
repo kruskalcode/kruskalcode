@@ -1,11 +1,10 @@
 import { Box, Container, Paper, Stack, Typography } from "@mui/material";
+import JsonLd from "@/components/JsonLd";
 import PageHero from "@/components/PageHero";
 import { company } from "@/data/site";
+import { createMetadata, getBreadcrumbSchema, pageSeo } from "@/lib/seo";
 
-export const metadata = {
-  title: "Terms and Condition",
-  description: "Terms and conditions for using KruskalCode services and website.",
-};
+export const metadata = createMetadata(pageSeo.terms);
 
 const sections = [
   {
@@ -37,6 +36,12 @@ const sections = [
 export default function TermsAndConditionPage() {
   return (
     <>
+      <JsonLd
+        data={getBreadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Terms and Conditions", path: pageSeo.terms.path },
+        ])}
+      />
       <PageHero
         current="Terms and Condition"
         eyebrow="Legal"

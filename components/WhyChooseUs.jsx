@@ -48,7 +48,7 @@ export default function WhyChooseUs({ reverse = false }) {
             >
               <Image
                 src="/assets/choose-us.jpg"
-                alt="Why Choose Us"
+                alt="KruskalCode software development team collaboration"
                 width={600}
                 height={400}
                 style={{

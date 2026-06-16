@@ -1,9 +1,18 @@
-export const metadata = {
-  title: "Contact | KruskalCode",
-  description:
-    "Get in touch with KruskalCode. Request a call back or visit us in Islamabad.",
-};
+import JsonLd from "@/components/JsonLd";
+import { createMetadata, getBreadcrumbSchema, pageSeo } from "@/lib/seo";
+
+export const metadata = createMetadata(pageSeo.contact);
 
 export default function ContactLayout({ children }) {
-  return children;
+  return (
+    <>
+      <JsonLd
+        data={getBreadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Contact", path: pageSeo.contact.path },
+        ])}
+      />
+      {children}
+    </>
+  );
 }

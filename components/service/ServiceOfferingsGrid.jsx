@@ -1,7 +1,7 @@
 "use client";
 
-import HandymanOutlinedIcon from "@mui/icons-material/HandymanOutlined";
 import { Box, Container, Grid, Typography } from "@mui/material";
+import Image from "next/image";
 import MotionBox, { fadeUp, staggerContainer } from "@/components/MotionBox";
 import ServiceSectionHeading from "./ServiceSectionHeading";
 
@@ -46,11 +46,12 @@ export default function ServiceOfferingsGrid({ title, offerings }) {
                       minHeight: 56,
                     }}
                   >
-                    <Box
-                      component={"img"}
+                    <Image
                       src={"/assets/services/why-us.webp"}
-                      alt={offering.title}
-                      sx={{
+                      alt={`${offering} service offering icon`}
+                      width={44}
+                      height={44}
+                      style={{
                         width: 44,
                         height: 44,
                       }}

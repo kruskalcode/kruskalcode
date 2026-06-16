@@ -15,6 +15,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import Image from "next/image";
 import NextLink from "next/link";
 import { company, services } from "@/data/site";
 
@@ -83,11 +84,16 @@ export default function Footer() {
               sx={{ display: "inline-flex", alignItems: "center" }}
             >
               <Box
-                component="img"
-                src={company.logo}
-                alt={`${company.name} logo`}
-                sx={{ maxHeight: 58, width: "auto" }}
-              />
+                sx={{ height: 58, width: "auto" }}
+              >
+                <Image
+                  src={company.logo}
+                  alt={`${company.name} software development agency logo`}
+                  width={260}
+                  height={100}
+                  style={{ height: "100%", width: "auto", display: "block" }}
+                />
+              </Box>
             </Box>
             <Typography
               sx={{

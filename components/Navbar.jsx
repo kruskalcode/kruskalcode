@@ -20,6 +20,7 @@ import {
   Typography,
   useScrollTrigger,
 } from "@mui/material";
+import Image from "next/image";
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -110,16 +111,22 @@ export default function Navbar() {
         >
           {!logoFailed ? (
             <Box
-              component="img"
-              src={company.logo}
-              alt={`${company.name} logo`}
-              onError={() => setLogoFailed(true)}
               sx={{
                 height: { xs: 52, md: 64 },
                 width: "auto",
                 display: "block",
               }}
-            />
+            >
+              <Image
+                src={company.logo}
+                alt={`${company.name} software development agency logo`}
+                width={260}
+                height={100}
+                onError={() => setLogoFailed(true)}
+                priority
+                style={{ height: "100%", width: "auto", display: "block" }}
+              />
+            </Box>
           ) : (
             <Stack direction="row" spacing={1.2} alignItems="center">
               <Box
@@ -132,7 +139,7 @@ export default function Navbar() {
                   border: "2px solid #fcb51e",
                   bgcolor: "#fff",
                   color: "#0a0f1e",
-                  fontFamily: "'Sora', sans-serif",
+                  fontFamily: "var(--font-sora), 'Sora', sans-serif",
                   fontWeight: 900,
                 }}
               >
@@ -142,7 +149,7 @@ export default function Navbar() {
                 <Typography
                   sx={{
                     color: "#1a2a5e",
-                    fontFamily: "'Sora', sans-serif",
+                    fontFamily: "var(--font-sora), 'Sora', sans-serif",
                     fontSize: 20,
                     fontWeight: 800,
                     lineHeight: 1,

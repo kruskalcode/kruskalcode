@@ -16,6 +16,8 @@ import {
   Rating,
   Typography,
 } from "@mui/material";
+import dynamic from "next/dynamic";
+import Image from "next/image";
 import MotionBox, {
   fadeUp,
   staggerContainer,
@@ -23,10 +25,26 @@ import MotionBox, {
   slideInRight,
 } from "@/components/MotionBox";
 import ServiceCard from "@/components/service/ServiceCard";
-import TestimonialCarousel from "@/components/TestimonialCarousel";
 import { company, services, whyChooseUs, testimonials } from "@/data/site";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import StartWithUsCTA from "@/components/StartWithUsCTA";
+
+const TestimonialCarousel = dynamic(
+  () => import("@/components/TestimonialCarousel"),
+  { loading: () => null },
+);
+
+const visuallyHiddenH1 = {
+  position: "absolute",
+  width: 1,
+  height: 1,
+  p: 0,
+  m: -1,
+  overflow: "hidden",
+  clip: "rect(0 0 0 0)",
+  whiteSpace: "nowrap",
+  border: 0,
+};
 
 function SectionHeading({ eyebrow, title, subtitle, dark = false }) {
   return (
@@ -85,6 +103,9 @@ function SectionHeading({ eyebrow, title, subtitle, dark = false }) {
 export default function HomeContent() {
   return (
     <>
+      <Box component="h1" sx={visuallyHiddenH1}>
+        KruskalCode Software Development Agency Islamabad
+      </Box>
       {/* Top Banner Section */}
       <Box
         component="section"
@@ -93,11 +114,13 @@ export default function HomeContent() {
           bgcolor: "#1a2c4e",
         }}
       >
-        <Box
-          component="img"
+        <Image
           src="/assets/home-banner.png"
-          alt="Your Vision Into A Stunning Website"
-          sx={{
+          alt="KruskalCode software development agency hero banner"
+          width={1920}
+          height={850}
+          priority
+          style={{
             width: "100%",
             height: "auto",
             display: "block",
@@ -126,18 +149,19 @@ export default function HomeContent() {
                 whileInView="visible"
                 viewport={{ once: true }}
               >
-                <Box
-                  component="img"
-                  src="/assets/choose-us.jpg"
-                  alt="About KruskalCode"
-                  sx={{
-                    width: "100%",
-                    height: "auto",
-                    maxWidth: 500,
-                    display: "block",
-                    mx: "auto",
-                  }}
-                />
+                <Box sx={{ maxWidth: 500, mx: "auto" }}>
+                  <Image
+                    src="/assets/choose-us.jpg"
+                    alt="KruskalCode web and software development team"
+                    width={500}
+                    height={360}
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      display: "block",
+                    }}
+                  />
+                </Box>
               </MotionBox>
             </Grid>
 
@@ -242,7 +266,7 @@ export default function HomeContent() {
             dark={true}
             eyebrow="SUPPORT AND GUIDANCE"
             title="What We Offer"
-            subtitle="At KruskalCode, we offer a full spectrum of web development services designed to elevate your online presence and drive business growth. Our goal is to deliver innovative, high-quality web solutions that help your business succeed online."
+            subtitle="At KruskalCode, we deliver web, mobile, AI, cloud, DevOps, marketing, consulting, and staffing services that help teams launch, scale, and improve digital products."
           />
           <MotionBox
             component={Grid}

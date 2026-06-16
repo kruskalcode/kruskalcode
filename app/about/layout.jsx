@@ -1,9 +1,18 @@
-export const metadata = {
-  title: "About KruskalCode – Our Mission & Team of Digital Experts",
-  description:
-    "Learn more about KruskalCode — a dedicated team of developers, designers and strategists committed to turning your vision into reality. Discover our values, our approach and why clients choose us for digital transformation.",
-};
+import JsonLd from "@/components/JsonLd";
+import { createMetadata, getBreadcrumbSchema, pageSeo } from "@/lib/seo";
+
+export const metadata = createMetadata(pageSeo.about);
 
 export default function AboutLayout({ children }) {
-  return children;
+  return (
+    <>
+      <JsonLd
+        data={getBreadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "About", path: pageSeo.about.path },
+        ])}
+      />
+      {children}
+    </>
+  );
 }

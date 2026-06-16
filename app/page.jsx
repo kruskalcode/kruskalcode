@@ -1,10 +1,7 @@
 import HomeContent from "@/components/HomeContent";
+import { createMetadata, pageSeo } from "@/lib/seo";
 
-export const metadata = {
-  title: "KruskalCode | Web, Mobile & Cloud Development Experts",
-  description:
-    "We build custom web, mobile and cloud solutions for startups and enterprises. Based in Islamabad, KruskalCode delivers innovative, scalable digital products.",
-};
+export const metadata = createMetadata(pageSeo.home);
 
 export default function HomePage() {
   return <HomeContent />;

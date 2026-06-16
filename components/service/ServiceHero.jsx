@@ -54,7 +54,7 @@ export default function ServiceHero({ title, heroImage }) {
                   fontSize: { xs: "2rem", sm: "2.5rem", md: "3.25rem" },
                   fontWeight: 900,
                   color: "#fcb51e",
-                  fontFamily: "'Sora', sans-serif",
+                  fontFamily: "var(--font-sora), 'Sora', sans-serif",
                   letterSpacing: "0.06em",
                   textTransform: "uppercase",
                   lineHeight: 1.15,

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import NextLink from "next/link";
 import { notFound } from "next/navigation";
+import JsonLd from "@/components/JsonLd";
 import {
   Box,
   Breadcrumbs,
@@ -18,9 +19,34 @@ import {
   getBlogPostBySlug,
   getBlogRelatedPosts,
 } from "@/data/site";
+import {
+  createMetadata,
+  getArticleSchema,
+  getBlogPostSeo,
+  getBreadcrumbSchema,
+} from "@/lib/seo";
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
+}
+
+export function generateMetadata({ params }) {
+  const post = getBlogPostBySlug(params.slug);
+
+  if (!post) {
+    return {
+      title: {
+        absolute: "Blog Post Not Found | KruskalCode",
+      },
+    };
+  }
+
+  return createMetadata({
+    ...getBlogPostSeo(post),
+    type: "article",
+    publishedTime: post.date,
+    modifiedTime: post.date,
+  });
 }
 
 export default function BlogDetailPage({ params }) {
@@ -32,9 +58,18 @@ export default function BlogDetailPage({ params }) {
 
   const categories = getBlogCategories();
   const relatedPosts = getBlogRelatedPosts(post.slug, post.category);
+  const postSeo = getBlogPostSeo(post);
 
   return (
     <Box component="main" sx={{ bgcolor: "#f8fafc", py: { xs: 2, md: 2 } }}>
+      <JsonLd
+        data={getBreadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Blog", path: "/blog/" },
+          { name: post.title, path: postSeo.path },
+        ])}
+      />
+      <JsonLd data={getArticleSchema(post)} />
       <Container maxWidth="xl">
         <Grid container spacing={4}>
           <Grid item xs={12} md={8}>
@@ -69,7 +104,7 @@ export default function BlogDetailPage({ params }) {
                     </Link>
                     <Link
                       component={NextLink}
-                      href="/blog"
+                      href="/blog/"
                       underline="hover"
                       sx={{ color: "#64748b", fontWeight: 600 }}
                     >

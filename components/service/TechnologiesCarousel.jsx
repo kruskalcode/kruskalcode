@@ -4,6 +4,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { Box, IconButton, Typography } from "@mui/material";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 function getItemsPerView(width) {
@@ -115,18 +116,22 @@ export default function TechnologiesCarousel({ technologies }) {
                 minHeight: { xs: 110, md: 130 },
               }}
             >
-              <Box
-                component="img"
-                src={tech.image}
-                alt={tech.label || tech.name}
-                sx={{
-                  height: { xs: 52, md: 64 },
-                  width: "auto",
-                  maxWidth: "100%",
-                  objectFit: "contain",
-                  display: "block",
-                }}
-              />
+              <Box sx={{ height: { xs: 52, md: 64 }, maxWidth: "100%" }}>
+                <Image
+                  src={tech.image}
+                  alt={`${tech.label || tech.name} technology logo`}
+                  width={64}
+                  height={64}
+                  unoptimized
+                  style={{
+                    height: "100%",
+                    width: "auto",
+                    maxWidth: "100%",
+                    objectFit: "contain",
+                    display: "block",
+                  }}
+                />
+              </Box>
               {tech.label ? (
                 <Typography
                   sx={{

@@ -42,7 +42,7 @@ export default function StartWithUsCTA() {
                 color: "#fcb51e",
                 textTransform: "uppercase",
                 mb: 2,
-                fontFamily: "'Sora', sans-serif",
+                fontFamily: "var(--font-sora), 'Sora', sans-serif",
                 letterSpacing: "0.02em",
               }}
             >

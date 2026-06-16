@@ -1,11 +1,10 @@
 import { Box, Container, Paper, Stack, Typography } from "@mui/material";
+import JsonLd from "@/components/JsonLd";
 import PageHero from "@/components/PageHero";
 import { company } from "@/data/site";
+import { createMetadata, getBreadcrumbSchema, pageSeo } from "@/lib/seo";
 
-export const metadata = {
-  title: "Privacy Policy",
-  description: "Privacy policy for KruskalCode website visitors, leads, and clients.",
-};
+export const metadata = createMetadata(pageSeo.privacy);
 
 const sections = [
   {
@@ -37,6 +36,12 @@ const sections = [
 export default function PrivacyPolicyPage() {
   return (
     <>
+      <JsonLd
+        data={getBreadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Privacy Policy", path: pageSeo.privacy.path },
+        ])}
+      />
       <PageHero
         current="Privacy Policy"
         eyebrow="Privacy"

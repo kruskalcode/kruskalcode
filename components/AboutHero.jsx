@@ -2,6 +2,7 @@
 
 import { Box, Container, Typography } from "@mui/material";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function AboutHero() {
   return (
@@ -90,7 +91,8 @@ export default function AboutHero() {
                 lineHeight: 1,
                 letterSpacing: "0.04em",
                 textTransform: "uppercase",
-                fontFamily: "'Sora', 'Inter', sans-serif",
+                fontFamily:
+                  "var(--font-sora), 'Sora', var(--font-inter), 'Inter', sans-serif",
               }}
             >
               ABOUT US
@@ -143,9 +145,6 @@ export default function AboutHero() {
             />
             {/* Handshake image clipped inside blob */}
             <Box
-              component="img"
-              src="/assets/about_handshake.png"
-              alt="Business handshake"
               sx={{
                 position: "relative",
                 zIndex: 2,
@@ -154,8 +153,17 @@ export default function AboutHero() {
                 objectFit: "cover",
                 borderRadius: "60% 40% 70% 30% / 50% 60% 40% 70%",
                 display: "block",
+                overflow: "hidden",
               }}
-            />
+            >
+              <Image
+                src="/assets/about_handshake.png"
+                alt="KruskalCode software team business handshake"
+                fill
+                sizes="(max-width: 900px) 220px, 280px"
+                style={{ objectFit: "cover" }}
+              />
+            </Box>
           </Box>
         </Box>
       </Container>

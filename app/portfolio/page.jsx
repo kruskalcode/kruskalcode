@@ -1,15 +1,19 @@
+import JsonLd from "@/components/JsonLd";
 import PortfolioContent from "@/components/PortfolioContent";
 import { Box, Container, Typography } from "@mui/material";
+import { createMetadata, getBreadcrumbSchema, pageSeo } from "@/lib/seo";
 
-export const metadata = {
-  title: "Portfolio | KruskalCode",
-  description:
-    "Explore KruskalCode's portfolio of websites, mobile apps, CRM, and SaaS solutions.",
-};
+export const metadata = createMetadata(pageSeo.portfolio);
 
 export default function PortfolioPage() {
   return (
     <Box sx={{ bgcolor: "#fff" }}>
+      <JsonLd
+        data={getBreadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Portfolio", path: pageSeo.portfolio.path },
+        ])}
+      />
       <Box
         component="section"
         sx={{ bgcolor: "#fff", pt: { xs: 5, md: 7 }, pb: { xs: 3, md: 4 } }}
@@ -24,7 +28,7 @@ export default function PortfolioPage() {
               color: "#fcb51e",
               letterSpacing: "0.08em",
               textTransform: "uppercase",
-              fontFamily: "'Sora', sans-serif",
+              fontFamily: "var(--font-sora), 'Sora', sans-serif",
               mb: 1.5,
             }}
           >

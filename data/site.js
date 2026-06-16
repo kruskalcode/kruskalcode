@@ -118,7 +118,7 @@ export const services = [
     title: "Innovation & Product\nDevelopment Consulting",
     icon: "Lightbulb",
     description:
-      "At KruskalCode, we offer a full spectrum of web development services designed to elevate your online presence and drive business growth. Our goal is to deliver innovative, high-quality web solutions that help your business succeed online.",
+      "KruskalCode offers innovation and product development consulting to help teams validate ideas, define MVP scope, plan roadmaps, and make confident technical decisions.",
     longDescription:
       "We help founders and business teams turn early ideas into practical product plans. Our consulting covers discovery, feature prioritization, prototype planning, architecture choices, validation loops, and release strategy so teams can move from concept to market with clarity.",
     features: [
@@ -135,7 +135,7 @@ export const services = [
     title: "IT & Software\nArchitecture Consulting",
     icon: "Architecture",
     description:
-      "At KruskalCode, we offer a full spectrum of web development services designed to elevate your online presence and drive business growth. Our goal is to deliver innovative, high-quality web solutions that help your business succeed online.",
+      "KruskalCode provides IT and software architecture consulting for scalable platforms, secure APIs, reliable cloud systems, integrations, and modernization planning.",
     longDescription:
       "KruskalCode provides architecture guidance for teams that need scalable, maintainable systems. We review existing platforms, identify risks, design modernization plans, and support technical decisions around APIs, databases, cloud services, integrations, and team workflows.",
     features: [
@@ -158,7 +158,7 @@ export const services = [
     title: "Mobile Application\nDevelopment",
     icon: "PhoneIphone",
     description:
-      "At KruskalCode, we offer a full spectrum of web development services designed to elevate your online presence and drive business growth. Our goal is to deliver innovative, high-quality web solutions that help your business succeed online.",
+      "KruskalCode mobile application development services cover iOS, Android, cross-platform builds, API integration, testing, analytics, and release support.",
     longDescription:
       "We build mobile applications for startups and businesses that need dependable user experiences. Our team covers product flows, UI implementation, API integration, authentication, testing, analytics, and store-ready release support for iOS and Android.",
     features: [
@@ -181,7 +181,7 @@ export const services = [
     title: "Staffing\nServices",
     icon: "Groups",
     description:
-      "At KruskalCode, we offer a full spectrum of web development services designed to elevate your online presence and drive business growth. Our goal is to deliver innovative, high-quality web solutions that help your business succeed online.",
+      "KruskalCode staffing services help businesses add developers, designers, QA, DevOps, and support talent for short-term projects or long-term team extension.",
     longDescription:
       "KruskalCode supports companies that need trusted technical talent without slowing down delivery. We help assemble capable engineers, designers, QA specialists, DevOps resources, and support staff who can plug into existing workflows or operate as a dedicated delivery team.",
     features: [
@@ -198,7 +198,7 @@ export const services = [
     title: "Web Design &\nDevelopment",
     icon: "Web",
     description:
-      "At KruskalCode, we offer a full spectrum of web development services designed to elevate your online presence and drive business growth. Our goal is to deliver innovative, high-quality web solutions that help your business succeed online.",
+      "KruskalCode web design and development services create responsive websites, web applications, CMS builds, dashboards, APIs, and SEO-ready digital products.",
     longDescription:
       "We design and develop modern websites and web applications that are fast, responsive, accessible, and easy to maintain. From company sites to dashboards and SaaS platforms, KruskalCode delivers web experiences that look sharp and perform reliably.",
     features: [
@@ -408,10 +408,10 @@ export const serviceWhyUsCards = [
       "We provide detailed reports and analytics, allowing for data-driven decisions and clear visibility into project progress and outcomes.",
   },
   {
-    title: "Cost Effective Construction",
+    title: "Cost-Effective Software Delivery",
     icon: "Savings",
     description:
-      "Our approach to construction prioritizes cost-efficiency without compromising on quality, delivering high-value results within budget.",
+      "We scope and build software with practical architecture choices, clear priorities, and delivery practices that protect quality while respecting budget.",
   },
   {
     title: "Qualified and Expert Team",
@@ -420,10 +420,10 @@ export const serviceWhyUsCards = [
       "Our staff is composed of certified and qualified experts who bring specialized skills to every project, ensuring top-tier service and outcomes.",
   },
   {
-    title: "Maximize Product Effieciency",
+    title: "Maximize Product Efficiency",
     icon: "Speed",
     description:
-      "We optimize processes and resource management to achieve maximum efficiency and effectiveness, ensuring projects are completed on time and to the highest standards.",
+      "We improve workflows, performance, automation, and maintainability so digital products stay efficient for users, teams, and long-term operations.",
   },
 ];
 

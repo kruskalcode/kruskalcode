@@ -1,7 +1,7 @@
 import { createTheme } from "@mui/material/styles";
 
-const headingFont = "'Sora', sans-serif";
-const bodyFont = "'Inter', sans-serif";
+const headingFont = "var(--font-sora), 'Sora', sans-serif";
+const bodyFont = "var(--font-inter), 'Inter', sans-serif";
 
 const theme = createTheme({
   palette: {

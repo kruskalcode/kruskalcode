@@ -1,6 +1,7 @@
 "use client";
 
 import { Box, Container, Grid, Typography } from "@mui/material";
+import Image from "next/image";
 import MotionBox, { fadeUp, staggerContainer } from "@/components/MotionBox";
 import ServiceSectionHeading from "./ServiceSectionHeading";
 import { serviceWhyUsCards } from "@/data/site";
@@ -75,7 +76,17 @@ export default function ServiceWhyUsCards() {
                         alignSelf: "center",
                       }}
                     >
-                      <Box component={"img"} src={Icon} alt={card.icon} />
+                      <Image
+                        src={Icon}
+                        alt={`${card.title} software service icon`}
+                        width={88}
+                        height={88}
+                        style={{
+                          width: "100%",
+                          height: "auto",
+                          display: "block",
+                        }}
+                      />
                     </Box>
 
                     <Box sx={{ pt: 0.5 }}>

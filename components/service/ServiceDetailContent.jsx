@@ -28,9 +28,76 @@ const pillButtonSx = {
   "&:hover": { bgcolor: "#e09f16", boxShadow: "none" },
 };
 
+const relatedLinks = {
+  "artificial-intelligence": [
+    { href: "/services/devops-services/", label: "DevOps services" },
+    { href: "/blog/ai-automation-trends/", label: "AI automation trends" },
+  ],
+  "cloud-storage": [
+    { href: "/services/devops-services/", label: "DevOps services" },
+    {
+      href: "/blog/cloud-strategy-for-modern-teams/",
+      label: "cloud strategy guide",
+    },
+  ],
+  "devops-services": [
+    { href: "/services/cloud-storage/", label: "cloud storage solutions" },
+    {
+      href: "/blog/cloud-strategy-for-modern-teams/",
+      label: "cloud strategy guide",
+    },
+  ],
+  "digital-marketing": [
+    { href: "/services/web-design-development/", label: "web development" },
+    {
+      href: "/blog/building-modern-web-products/",
+      label: "modern web product insights",
+    },
+  ],
+  "innovation-product-development-consulting": [
+    {
+      href: "/services/it-software-architecture-consulting/",
+      label: "software architecture consulting",
+    },
+    {
+      href: "/blog/building-modern-web-products/",
+      label: "modern web product insights",
+    },
+  ],
+  "it-software-architecture-consulting": [
+    { href: "/services/devops-services/", label: "DevOps services" },
+    {
+      href: "/blog/cloud-strategy-for-modern-teams/",
+      label: "cloud strategy guide",
+    },
+  ],
+  "mobile-application-development": [
+    { href: "/services/web-design-development/", label: "web development" },
+    {
+      href: "/blog/productivity-habits-for-remote-teams/",
+      label: "remote team productivity insights",
+    },
+  ],
+  "staffing-services": [
+    { href: "/services/devops-services/", label: "DevOps services" },
+    {
+      href: "/blog/productivity-habits-for-remote-teams/",
+      label: "remote team productivity insights",
+    },
+  ],
+  "web-design-development": [
+    { href: "/services/digital-marketing/", label: "digital marketing" },
+    {
+      href: "/blog/building-modern-web-products/",
+      label: "modern web product insights",
+    },
+  ],
+};
+
 export default function ServiceDetailContent({ service }) {
   const pageContent = getServicePageContent(service.slug);
   const displayTitle = service.title.replace(/\n/g, " ");
+  const links = relatedLinks[service.slug] || [];
   const intro =
     pageContent.intro.length > 0
       ? pageContent.intro
@@ -48,24 +115,23 @@ export default function ServiceDetailContent({ service }) {
           backgroundImage={pageContent.titleHeroBackground}
         />
       ) : (
-        <Box
-          component="section"
-          sx={{
-            width: "100%",
-            bgcolor: "#1a2c4e",
-          }}
-        >
+        <Box component="section" sx={{ width: "100%", bgcolor: "#1a2c4e" }}>
           <Box
-            component="img"
-            src={pageContent.heroImage}
-            alt={displayTitle}
             sx={{
+              position: "relative",
               width: "100%",
               height: { xs: 280, sm: 360, md: 450 },
-              display: "block",
-              objectFit: "cover",
             }}
-          />
+          >
+            <Image
+              src={pageContent.heroImage}
+              alt={`${displayTitle} service hero image`}
+              fill
+              priority
+              sizes="100vw"
+              style={{ display: "block", objectFit: "cover" }}
+            />
+          </Box>
         </Box>
       )}
 
@@ -80,12 +146,12 @@ export default function ServiceDetailContent({ service }) {
                 variants={slideInLeft}
               >
                 <Typography
-                  component="h2"
+                  component={pageContent.usesTitleHero ? "h2" : "h1"}
                   sx={{
                     fontSize: { xs: "1.5rem", md: "1.7rem" },
                     fontWeight: 700,
                     color: "#fcb51e",
-                    fontFamily: "'Sora', sans-serif",
+                    fontFamily: "var(--font-sora), 'Sora', sans-serif",
                     mb: 3,
                   }}
                 >
@@ -105,6 +171,30 @@ export default function ServiceDetailContent({ service }) {
                     {paragraph}
                   </Typography>
                 ))}
+
+                {links.length > 0 ? (
+                  <Typography
+                    sx={{
+                      fontSize: { xs: "15px", md: "16px" },
+                      color: "#444",
+                      lineHeight: 1.9,
+                      mb: 2.5,
+                    }}
+                  >
+                    Explore related{" "}
+                    <NextLink href={links[0].href}>{links[0].label}</NextLink>
+                    {links[1] ? (
+                      <>
+                        {" "}
+                        and our{" "}
+                        <NextLink href={links[1].href}>
+                          {links[1].label}
+                        </NextLink>
+                      </>
+                    ) : null}
+                    .
+                  </Typography>
+                ) : null}
 
                 <Stack
                   direction={{ xs: "column", sm: "row" }}
@@ -151,7 +241,7 @@ export default function ServiceDetailContent({ service }) {
                 >
                   <Image
                     src={pageContent.introImage}
-                    alt={displayTitle}
+                    alt={`${displayTitle} service illustration`}
                     width={500}
                     height={420}
                     style={{

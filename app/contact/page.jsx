@@ -90,7 +90,7 @@ export default function ContactPage() {
                   fontSize: { xs: "1.6rem", md: "1.9rem" },
                   fontWeight: 700,
                   color: "#fcb51e",
-                  fontFamily: "'Sora', sans-serif",
+                  fontFamily: "var(--font-sora), 'Sora', sans-serif",
                   mb: 1.5,
                 }}
               >
@@ -189,7 +189,7 @@ export default function ContactPage() {
                   fontSize: { xs: "1.6rem", md: "1.9rem" },
                   fontWeight: 700,
                   color: "#fcb51e",
-                  fontFamily: "'Sora', sans-serif",
+                  fontFamily: "var(--font-sora), 'Sora', sans-serif",
                   mb: 1.5,
                 }}
               >
@@ -256,7 +256,7 @@ export default function ContactPage() {
                   fontSize: { xs: "1.6rem", md: "1.9rem" },
                   fontWeight: 700,
                   color: "#fcb51e",
-                  fontFamily: "'Sora', sans-serif",
+                  fontFamily: "var(--font-sora), 'Sora', sans-serif",
                   mb: 2,
                 }}
               >

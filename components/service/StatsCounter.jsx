@@ -33,7 +33,7 @@ function Counter({ end, label }) {
           fontWeight: 900,
           color: "#fcb51e",
           lineHeight: 1,
-          fontFamily: "'Sora', sans-serif",
+          fontFamily: "var(--font-sora), 'Sora', sans-serif",
         }}
       >
         {val}+
