@@ -1,0 +1,48 @@
+name: Deploy to FTP
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.10.0"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static Next.js app
+        run: npm run build
+
+      - name: Ensure Apache files are included
+        run: |
+          if [ -f public/.htaccess ]; then cp public/.htaccess out/.htaccess; fi
+          if [ -f public/ads.txt ]; then cp public/ads.txt out/ads.txt; fi
+          if [ -f public/robots.txt ]; then cp public/robots.txt out/robots.txt; fi
+          if [ -f public/sitemap.xml ]; then cp public/sitemap.xml out/sitemap.xml; fi
+
+      - name: Deploy to FTP root
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./out/
+          server-dir: /
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/*.log
