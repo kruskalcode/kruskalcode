@@ -3,6 +3,7 @@ import ServiceDetailContent from "@/components/service/ServiceDetailContent";
 import { Box } from "@mui/material";
 import { notFound } from "next/navigation";
 import { getServiceBySlug, services } from "@/data/site";
+import { getRelatedBlogLinksForService } from "@/lib/blog";
 import {
   createMetadata,
   getBreadcrumbSchema,
@@ -39,6 +40,7 @@ export default function ServiceDetailPage({ params }) {
 
   const serviceSeo = getServiceSeo(service);
   const displayTitle = service.title.replace(/\n/g, " ");
+  const relatedBlogLinks = getRelatedBlogLinksForService(service.slug, 1);
 
   return (
     <Box sx={{ bgcolor: "#fff" }}>
@@ -51,7 +53,10 @@ export default function ServiceDetailPage({ params }) {
       />
       <JsonLd data={getServiceSchema(service)} />
       <JsonLd data={getFaqSchema(serviceFaqs[service.slug] || [])} />
-      <ServiceDetailContent service={service} />
+      <ServiceDetailContent
+        service={service}
+        relatedBlogLinks={relatedBlogLinks}
+      />
     </Box>
   );
 }

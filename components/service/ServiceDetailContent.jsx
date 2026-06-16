@@ -28,76 +28,22 @@ const pillButtonSx = {
   "&:hover": { bgcolor: "#e09f16", boxShadow: "none" },
 };
 
-const relatedLinks = {
-  "artificial-intelligence": [
-    { href: "/services/devops-services/", label: "DevOps services" },
-    { href: "/blog/ai-automation-trends/", label: "AI automation trends" },
-  ],
-  "cloud-storage": [
-    { href: "/services/devops-services/", label: "DevOps services" },
-    {
-      href: "/blog/cloud-strategy-for-modern-teams/",
-      label: "cloud strategy guide",
-    },
-  ],
-  "devops-services": [
-    { href: "/services/cloud-storage/", label: "cloud storage solutions" },
-    {
-      href: "/blog/cloud-strategy-for-modern-teams/",
-      label: "cloud strategy guide",
-    },
-  ],
-  "digital-marketing": [
-    { href: "/services/web-design-development/", label: "web development" },
-    {
-      href: "/blog/building-modern-web-products/",
-      label: "modern web product insights",
-    },
-  ],
-  "innovation-product-development-consulting": [
-    {
-      href: "/services/it-software-architecture-consulting/",
-      label: "software architecture consulting",
-    },
-    {
-      href: "/blog/building-modern-web-products/",
-      label: "modern web product insights",
-    },
-  ],
-  "it-software-architecture-consulting": [
-    { href: "/services/devops-services/", label: "DevOps services" },
-    {
-      href: "/blog/cloud-strategy-for-modern-teams/",
-      label: "cloud strategy guide",
-    },
-  ],
-  "mobile-application-development": [
-    { href: "/services/web-design-development/", label: "web development" },
-    {
-      href: "/blog/productivity-habits-for-remote-teams/",
-      label: "remote team productivity insights",
-    },
-  ],
-  "staffing-services": [
-    { href: "/services/devops-services/", label: "DevOps services" },
-    {
-      href: "/blog/productivity-habits-for-remote-teams/",
-      label: "remote team productivity insights",
-    },
-  ],
-  "web-design-development": [
-    { href: "/services/digital-marketing/", label: "digital marketing" },
-    {
-      href: "/blog/building-modern-web-products/",
-      label: "modern web product insights",
-    },
-  ],
-};
-
-export default function ServiceDetailContent({ service }) {
+export default function ServiceDetailContent({ service, relatedBlogLinks = [] }) {
   const pageContent = getServicePageContent(service.slug);
   const displayTitle = service.title.replace(/\n/g, " ");
-  const links = relatedLinks[service.slug] || [];
+  const serviceLinks = [
+    {
+      href:
+        service.slug === "devops-services"
+          ? "/services/cloud-storage/"
+          : "/services/devops-services/",
+      label:
+        service.slug === "devops-services"
+          ? "cloud storage solutions"
+          : "DevOps services",
+    },
+  ];
+  const links = [...serviceLinks, ...relatedBlogLinks].slice(0, 2);
   const intro =
     pageContent.intro.length > 0
       ? pageContent.intro

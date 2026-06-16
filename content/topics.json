@@ -1,0 +1,212 @@
+[
+  {
+    "id": "web-app-cost-pakistan-2026",
+    "title": "How Much Does a Custom Web App Cost in Pakistan in 2026?",
+    "targetService": "web-design-development",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "website-redesign-budget-guide",
+    "title": "Website Redesign Budget Guide for Growing Service Businesses",
+    "targetService": "web-design-development",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "nextjs-vs-wordpress-business-site",
+    "title": "Next.js vs WordPress: Which Is Better for a Business Website?",
+    "targetService": "web-design-development",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "choose-web-development-partner",
+    "title": "How to Choose a Web Development Partner Without Getting Burned",
+    "targetService": "web-design-development",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "mobile-app-cost-mvp",
+    "title": "What Does a Mobile App MVP Really Cost to Build?",
+    "targetService": "mobile-application-development",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "react-native-vs-flutter-startup",
+    "title": "React Native vs Flutter for Startup Apps: Our Practical Take",
+    "targetService": "mobile-application-development",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "mobile-app-agency-red-flags",
+    "title": "Mobile App Development Red Flags to Spot Before You Sign",
+    "targetService": "mobile-application-development",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "app-store-launch-process",
+    "title": "What Actually Happens Between App Idea and App Store Launch?",
+    "targetService": "mobile-application-development",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "ai-automation-cost-guide",
+    "title": "AI Automation Cost Guide for Small and Mid-Sized Businesses",
+    "targetService": "artificial-intelligence",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "choose-ai-use-case",
+    "title": "How to Pick the First AI Use Case That Is Actually Worth Building",
+    "targetService": "artificial-intelligence",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "custom-ai-chatbot-vs-off-shelf",
+    "title": "Custom AI Chatbot vs Off-the-Shelf Tool: Which Should You Choose?",
+    "targetService": "artificial-intelligence",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "ai-project-red-flags",
+    "title": "AI Project Red Flags That Usually Mean the Scope Is Not Ready",
+    "targetService": "artificial-intelligence",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "devops-cost-for-growing-product",
+    "title": "How Much DevOps Support Does a Growing Product Actually Need?",
+    "targetService": "devops-services",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "github-actions-vs-gitlab-ci",
+    "title": "GitHub Actions vs GitLab CI for a Small Product Team",
+    "targetService": "devops-services",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "choose-devops-partner",
+    "title": "How to Evaluate a DevOps Partner Before They Touch Production",
+    "targetService": "devops-services",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "cloud-storage-cost-mistakes",
+    "title": "Cloud Storage Cost Mistakes That Quietly Inflate Your Bill",
+    "targetService": "cloud-storage",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "aws-s3-vs-cloudflare-r2",
+    "title": "AWS S3 vs Cloudflare R2 for Media-Heavy Web Products",
+    "targetService": "cloud-storage",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "cloud-storage-migration-process",
+    "title": "What a Safe Cloud Storage Migration Looks Like From Start to Finish",
+    "targetService": "cloud-storage",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "technical-seo-cost-guide",
+    "title": "Technical SEO Cost Guide for Websites That Need More Leads",
+    "targetService": "digital-marketing",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "landing-page-vs-full-website",
+    "title": "Landing Page vs Full Website: What Should You Build First?",
+    "targetService": "digital-marketing",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "choose-digital-marketing-technical-partner",
+    "title": "How to Choose a Digital Marketing Partner Who Understands Tech",
+    "targetService": "digital-marketing",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "software-architecture-review-cost",
+    "title": "What Does a Software Architecture Review Cost and What Do You Get?",
+    "targetService": "it-software-architecture-consulting",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "monolith-vs-microservices-decision",
+    "title": "Monolith vs Microservices: The Decision Most Teams Should Not Rush",
+    "targetService": "it-software-architecture-consulting",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "legacy-system-modernization-red-flags",
+    "title": "Legacy System Modernization Red Flags Before You Start Rebuilding",
+    "targetService": "it-software-architecture-consulting",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "mvp-scoping-workshop-process",
+    "title": "What Happens in an MVP Scoping Workshop With KruskalCode?",
+    "targetService": "innovation-product-development-consulting",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "prototype-vs-mvp",
+    "title": "Prototype vs MVP: What Should You Pay For First?",
+    "targetService": "innovation-product-development-consulting",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "choose-product-development-consultant",
+    "title": "How to Choose a Product Development Consultant for a New Idea",
+    "targetService": "innovation-product-development-consulting",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "dedicated-developer-cost-pakistan",
+    "title": "Dedicated Developer Cost Guide for Hiring from Pakistan",
+    "targetService": "staffing-services",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "staff-augmentation-vs-project-team",
+    "title": "Staff Augmentation vs Project Team: Which Model Fits Your Work?",
+    "targetService": "staffing-services",
+    "status": "pending",
+    "publishedAt": null
+  },
+  {
+    "id": "case-study-devops-release-dashboard",
+    "title": "Case Study Framework: Turning Manual Releases Into a Dashboard",
+    "targetService": "devops-services",
+    "status": "pending",
+    "publishedAt": null
+  }
+]

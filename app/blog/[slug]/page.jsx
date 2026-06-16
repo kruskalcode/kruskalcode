@@ -13,21 +13,30 @@ import {
   Typography,
 } from "@mui/material";
 import BlogSidebar from "@/components/BlogSidebar";
+import MarkdownContent from "@/components/MarkdownContent";
 import {
-  blogPosts,
+  estimateReadingTime,
+  getAllBlogPosts,
   getBlogCategories,
   getBlogPostBySlug,
   getBlogRelatedPosts,
-} from "@/data/site";
+} from "@/lib/blog";
 import {
   createMetadata,
   getArticleSchema,
   getBlogPostSeo,
   getBreadcrumbSchema,
+  getFaqSchema,
 } from "@/lib/seo";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
+  const posts = getAllBlogPosts();
+
+  return posts.length > 0
+    ? posts.map((post) => ({ slug: post.slug }))
+    : [{ slug: "_empty-blog" }];
 }
 
 export function generateMetadata({ params }) {
@@ -57,8 +66,13 @@ export default function BlogDetailPage({ params }) {
   }
 
   const categories = getBlogCategories();
-  const relatedPosts = getBlogRelatedPosts(post.slug, post.category);
+  const relatedPosts = getBlogRelatedPosts(
+    post.slug,
+    post.category,
+    post.targetService,
+  );
   const postSeo = getBlogPostSeo(post);
+  const readingTime = estimateReadingTime(post.body);
 
   return (
     <Box component="main" sx={{ bgcolor: "#f8fafc", py: { xs: 2, md: 2 } }}>
@@ -70,6 +84,7 @@ export default function BlogDetailPage({ params }) {
         ])}
       />
       <JsonLd data={getArticleSchema(post)} />
+      {post.faq.length > 0 ? <JsonLd data={getFaqSchema(post.faq)} /> : null}
       <Container maxWidth="xl">
         <Grid container spacing={4}>
           <Grid item xs={12} md={8}>
@@ -209,23 +224,11 @@ export default function BlogDetailPage({ params }) {
                       fontSize: 13,
                     }}
                   >
-                    8 min read • Expert insights
+                    {readingTime} min read • Expert insights
                   </Typography>
                 </Stack>
 
-                {post.content.map((paragraph, index) => (
-                  <Typography
-                    key={index}
-                    sx={{
-                      color: "#334155",
-                      fontSize: "16px",
-                      lineHeight: 1.9,
-                      mb: 3,
-                    }}
-                  >
-                    {paragraph}
-                  </Typography>
-                ))}
+                <MarkdownContent markdown={post.body} />
 
                 <Button
                   component={NextLink}

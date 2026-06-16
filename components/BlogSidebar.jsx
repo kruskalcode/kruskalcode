@@ -124,28 +124,34 @@ export default function BlogSidebar({
         </Typography>
 
         <Stack spacing={2}>
-          {relatedPosts.map((post) => (
-            <Box key={post.slug}>
-              <Button
-                component={NextLink}
-                href={`/blog/${post.slug}/`}
-                sx={{
-                  justifyContent: "flex-start",
-                  textTransform: "none",
-                  color: "#0f172a",
-                  fontWeight: 700,
-                  px: 1,
-                  py: 0.75,
-                  minHeight: 0,
-                }}
-              >
-                {post.title}
-              </Button>
-              <Typography sx={{ fontSize: 13, color: "#64748b" }}>
-                {post.category} • {post.date}
-              </Typography>
-            </Box>
-          ))}
+          {relatedPosts.length > 0 ? (
+            relatedPosts.map((post) => (
+              <Box key={post.slug}>
+                <Button
+                  component={NextLink}
+                  href={`/blog/${post.slug}/`}
+                  sx={{
+                    justifyContent: "flex-start",
+                    textTransform: "none",
+                    color: "#0f172a",
+                    fontWeight: 700,
+                    px: 1,
+                    py: 0.75,
+                    minHeight: 0,
+                  }}
+                >
+                  {post.title}
+                </Button>
+                <Typography sx={{ fontSize: 13, color: "#64748b" }}>
+                  {post.category} • {post.date}
+                </Typography>
+              </Box>
+            ))
+          ) : (
+            <Typography sx={{ fontSize: 14, color: "#64748b" }}>
+              Related articles will appear as the blog library grows.
+            </Typography>
+          )}
         </Stack>
       </Box>
     </Box>

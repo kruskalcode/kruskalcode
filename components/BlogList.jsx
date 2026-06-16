@@ -1,20 +1,28 @@
 "use client";
 
+import { useEffect, useMemo, useState } from "react";
 import NextLink from "next/link";
-import { useSearchParams } from "next/navigation";
-import { Box, Button, Grid } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import ServiceSectionHeading from "@/components/service/ServiceSectionHeading";
 import BlogCard from "@/components/BlogCard";
 
 export default function BlogList({ posts, categories }) {
-  const searchParams = useSearchParams();
-  const selectedCategory = searchParams.get("category") || "";
-  const filteredPosts = selectedCategory
-    ? posts.filter(
-        (post) =>
-          post.category.toLowerCase() === selectedCategory.toLowerCase(),
-      )
-    : posts;
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const filteredPosts = useMemo(
+    () =>
+      selectedCategory
+        ? posts.filter(
+            (post) =>
+              post.category.toLowerCase() === selectedCategory.toLowerCase(),
+          )
+        : posts,
+    [posts, selectedCategory],
+  );
+
+  useEffect(() => {
+    const category = new URLSearchParams(window.location.search).get("category");
+    setSelectedCategory(category || "");
+  }, []);
 
   return (
     <>
@@ -98,11 +106,29 @@ export default function BlogList({ posts, categories }) {
       </Box>
 
       <Grid container spacing={4}>
-        {filteredPosts.map((post) => (
-          <Grid item xs={12} sm={6} lg={4} key={post.slug}>
-            <BlogCard post={post} />
+        {filteredPosts.length > 0 ? (
+          filteredPosts.map((post) => (
+            <Grid item xs={12} sm={6} lg={4} key={post.slug}>
+              <BlogCard post={post} />
+            </Grid>
+          ))
+        ) : (
+          <Grid item xs={12}>
+            <Box
+              sx={{
+                bgcolor: "#ffffff",
+                border: "1px solid rgba(15, 23, 42, 0.08)",
+                borderRadius: 3,
+                p: { xs: 3, md: 5 },
+                textAlign: "center",
+              }}
+            >
+              <Typography sx={{ color: "#475569", fontSize: "16px" }}>
+                New KruskalCode articles are being prepared for review.
+              </Typography>
+            </Box>
           </Grid>
-        ))}
+        )}
       </Grid>
     </>
   );
