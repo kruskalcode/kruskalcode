@@ -615,7 +615,7 @@ export const servicePageContent = {
   "mobile-application-development": {
     duplicateTitle: false,
     intro: [
-      "KruskalCode excels in delivering cutting-edge app development services, creating custom mobile and web applications tailored to your business needs. Their team of experienced developers focuses on building intuitive, high-performance apps that provide a seamless user experience across all devices. Whether it's a native, hybrid, or cross-platform app, Kruskal Code leverages the latest technologies to ensure your app is scalable, secure, and aligned with your business goals. With a commitment to innovation and user-centric design, Kruskal Code helps businesses turn ideas into functional, successful apps that engage users and drive growth.",
+      "KruskalCode excels in delivering cutting-edge app development services, creating custom mobile and web applications tailored to your business needs. Their team of experienced developers focuses on building intuitive, high-performance apps that provide a seamless user experience across all devices. Whether it's a native, hybrid, or cross-platform app, KruskalCode leverages the latest technologies to ensure your app is scalable, secure, and aligned with your business goals. With a commitment to innovation and user-centric design, KruskalCode helps businesses turn ideas into functional, successful apps that engage users and drive growth.",
     ],
     offeringsTitle: "What We Offer In Mobile Application Development?",
     offerings: [

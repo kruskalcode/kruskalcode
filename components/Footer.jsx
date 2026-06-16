@@ -41,6 +41,8 @@ const socialColors = {
   YouTube: "#cd201f",
 };
 
+const COPYRIGHT_START_YEAR = 2024;
+
 const footerLinkSx = {
   color: "#000000",
   textDecoration: "none",
@@ -54,6 +56,12 @@ const footerLinkSx = {
 };
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+  const copyrightYears =
+    currentYear > COPYRIGHT_START_YEAR
+      ? `${COPYRIGHT_START_YEAR} - ${currentYear}`
+      : `${COPYRIGHT_START_YEAR}`;
+
   return (
     <Box
       component="footer"
@@ -274,7 +282,7 @@ export default function Footer() {
             </MuiLink>
           </Stack>
           <Typography variant="body2" sx={{ color: "#000000" }}>
-            Copyright © 2024 - 2025 | Powered by Kruskal Code
+            Copyright © {copyrightYears} | Powered by KruskalCode
           </Typography>
         </Container>
       </Box>
