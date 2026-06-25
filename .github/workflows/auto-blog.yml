@@ -90,5 +90,26 @@ jobs:
             echo "No blog changes to commit."
             exit 0
           fi
-          git commit -m "Add generated blog post: ${{ steps.blog_meta.outputs.title }}"
+          git commit -m "Add generated blog post: ${{ steps.blog_meta.outputs.title }} [skip ci]"
           git push origin HEAD:main
+
+      - name: Ensure Apache files are included
+        run: |
+          if [ -f public/.htaccess ]; then cp public/.htaccess out/.htaccess; fi
+          if [ -f public/ads.txt ]; then cp public/ads.txt out/ads.txt; fi
+          if [ -f public/robots.txt ]; then cp public/robots.txt out/robots.txt; fi
+          if [ -f public/sitemap.xml ]; then cp public/sitemap.xml out/sitemap.xml; fi
+
+      - name: Deploy to public_html
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./out/
+          server-dir: /public_html/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/*.log
