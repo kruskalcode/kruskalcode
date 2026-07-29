@@ -80,8 +80,8 @@
     "id": "ai-project-red-flags",
     "title": "AI Project Red Flags That Usually Mean the Scope Is Not Ready",
     "targetService": "artificial-intelligence",
-    "status": "pending",
-    "publishedAt": null
+    "status": "published",
+    "publishedAt": "2026-07-29"
   },
   {
     "id": "devops-cost-for-growing-product",
