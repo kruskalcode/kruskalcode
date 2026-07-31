@@ -87,8 +87,8 @@
     "id": "devops-cost-for-growing-product",
     "title": "How Much DevOps Support Does a Growing Product Actually Need?",
     "targetService": "devops-services",
-    "status": "pending",
-    "publishedAt": null
+    "status": "published",
+    "publishedAt": "2026-07-31"
   },
   {
     "id": "github-actions-vs-gitlab-ci",
