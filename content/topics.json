@@ -101,8 +101,8 @@
     "id": "choose-devops-partner",
     "title": "How to Evaluate a DevOps Partner Before They Touch Production",
     "targetService": "devops-services",
-    "status": "pending",
-    "publishedAt": null
+    "status": "published",
+    "publishedAt": "2026-08-07"
   },
   {
     "id": "cloud-storage-cost-mistakes",
