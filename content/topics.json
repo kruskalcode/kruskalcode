@@ -115,8 +115,8 @@
     "id": "aws-s3-vs-cloudflare-r2",
     "title": "AWS S3 vs Cloudflare R2 for Media-Heavy Web Products",
     "targetService": "cloud-storage",
-    "status": "pending",
-    "publishedAt": null
+    "status": "published",
+    "publishedAt": "2026-08-12"
   },
   {
     "id": "cloud-storage-migration-process",
