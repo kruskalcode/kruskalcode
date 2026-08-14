@@ -122,8 +122,8 @@
     "id": "cloud-storage-migration-process",
     "title": "What a Safe Cloud Storage Migration Looks Like From Start to Finish",
     "targetService": "cloud-storage",
-    "status": "pending",
-    "publishedAt": null
+    "status": "published",
+    "publishedAt": "2026-08-14"
   },
   {
     "id": "technical-seo-cost-guide",
