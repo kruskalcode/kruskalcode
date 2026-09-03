@@ -28,12 +28,22 @@ const fieldSx = {
     borderRadius: "6px",
     bgcolor: "#f8fafc",
     fontSize: "15px",
+    color: "#0f172a",
     "& fieldset": { borderColor: "#e2e8f0" },
     "&:hover fieldset": { borderColor: "#fcb51e" },
     "&.Mui-focused fieldset": { borderColor: "#fcb51e" },
   },
+  "& .MuiOutlinedInput-input": {
+    color: "#0f172a",
+    WebkitTextFillColor: "#0f172a",
+    caretColor: "#0f172a",
+  },
+  "& .MuiSelect-select": {
+    color: "#0f172a",
+  },
   "& .MuiInputLabel-root": { fontSize: "14px", color: "#64748b" },
   "& .MuiInputLabel-root.Mui-focused": { color: "#fcb51e" },
+  "& .MuiSvgIcon-root": { color: "#64748b" },
 };
 
 const initialState = {
@@ -194,7 +204,7 @@ export default function LeadQualificationForm({
           <TextField
             fullWidth
             required
-            label="Name *"
+            label="Name"
             name="name"
             value={values.name}
             onChange={update("name")}
@@ -205,7 +215,7 @@ export default function LeadQualificationForm({
           <TextField
             fullWidth
             required
-            label="Business / Company *"
+            label="Business / Company"
             name="company"
             value={values.company}
             onChange={update("company")}
@@ -217,7 +227,7 @@ export default function LeadQualificationForm({
             fullWidth
             required
             type="email"
-            label="Email *"
+            label="Email"
             name="email"
             value={values.email}
             onChange={update("email")}
@@ -238,7 +248,7 @@ export default function LeadQualificationForm({
           <TextField
             fullWidth
             required
-            label="What do you want to build? *"
+            label="What do you want to build?"
             name="wantToBuild"
             value={values.wantToBuild}
             onChange={update("wantToBuild")}
@@ -247,10 +257,10 @@ export default function LeadQualificationForm({
         </Grid>
         <Grid item xs={12} sm={4}>
           <FormControl fullWidth required sx={fieldSx}>
-            <InputLabel id={`${id}-project-type`}>Project type *</InputLabel>
+            <InputLabel id={`${id}-project-type`}>Project type</InputLabel>
             <Select
               labelId={`${id}-project-type`}
-              label="Project type *"
+              label="Project type"
               name="projectType"
               value={values.projectType}
               onChange={update("projectType")}
@@ -265,10 +275,10 @@ export default function LeadQualificationForm({
         </Grid>
         <Grid item xs={12} sm={4}>
           <FormControl fullWidth required sx={fieldSx}>
-            <InputLabel id={`${id}-budget`}>Estimated budget *</InputLabel>
+            <InputLabel id={`${id}-budget`}>Estimated budget</InputLabel>
             <Select
               labelId={`${id}-budget`}
-              label="Estimated budget *"
+              label="Estimated budget"
               name="budget"
               value={values.budget}
               onChange={update("budget")}
@@ -283,10 +293,10 @@ export default function LeadQualificationForm({
         </Grid>
         <Grid item xs={12} sm={4}>
           <FormControl fullWidth required sx={fieldSx}>
-            <InputLabel id={`${id}-timeline`}>Timeline *</InputLabel>
+            <InputLabel id={`${id}-timeline`}>Timeline</InputLabel>
             <Select
               labelId={`${id}-timeline`}
-              label="Timeline *"
+              label="Timeline"
               name="timeline"
               value={values.timeline}
               onChange={update("timeline")}
