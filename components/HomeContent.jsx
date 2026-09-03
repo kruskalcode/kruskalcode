@@ -20,7 +20,7 @@ export default function HomeContent() {
         primaryCta={homepageHero.primaryCta}
         secondaryCta={homepageHero.secondaryCta}
       />
-      <TrustCredibilitySection />
+      <TrustCredibilitySection showLandingLink />
       <WhatWeBuildSection />
       <FeaturedWorkSection />
       <WhyKruskalCodeSection />

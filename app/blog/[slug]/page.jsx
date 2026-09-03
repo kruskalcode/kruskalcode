@@ -228,6 +228,57 @@ export default function BlogDetailPage({ params }) {
 
                 <MarkdownContent markdown={post.body} />
 
+                <Box
+                  sx={{
+                    mt: 4,
+                    mb: 3,
+                    p: { xs: 2.5, md: 3 },
+                    border: "1px solid #e2e8f0",
+                    borderRadius: 2,
+                    bgcolor: "#fff",
+                  }}
+                >
+                  <Typography sx={{ fontWeight: 800, color: "#0f172a", mb: 1, fontSize: 18 }}>
+                    Have a software project in mind?
+                  </Typography>
+                  <Typography sx={{ color: "#64748b", fontSize: 15, lineHeight: 1.7, mb: 2 }}>
+                    Tell us what you&apos;re building and we&apos;ll discuss the best technical
+                    approach.
+                  </Typography>
+                  <Stack direction={{ xs: "column", sm: "row" }} spacing={1.2}>
+                    <Button
+                      component={NextLink}
+                      href="/contact/"
+                      variant="contained"
+                      sx={{
+                        bgcolor: "#fcb51e",
+                        color: "#0f172a",
+                        textTransform: "none",
+                        fontWeight: 800,
+                        boxShadow: "none",
+                        borderRadius: 999,
+                        px: 2.5,
+                        "&:hover": { bgcolor: "#e09f16", boxShadow: "none" },
+                      }}
+                    >
+                      Discuss Your Project
+                    </Button>
+                    <Button
+                      component={NextLink}
+                      href="/custom-software-development/"
+                      sx={{
+                        color: "#0f172a",
+                        textTransform: "none",
+                        fontWeight: 700,
+                        borderRadius: 999,
+                        px: 2.5,
+                      }}
+                    >
+                      View Custom Software
+                    </Button>
+                  </Stack>
+                </Box>
+
                 <Button
                   component={NextLink}
                   href="/blog/"

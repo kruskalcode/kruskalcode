@@ -1,8 +1,10 @@
-import React from "react";
+"use client";
+
 import { Box, Button, Container, Typography } from "@mui/material";
 import NextLink from "next/link";
 import { motion } from "framer-motion";
 import { fadeUp } from "@/components/MotionBox";
+import { serviceCtaCopy } from "@/data/conversion";
 
 export default function StartWithUsCTA() {
   return (
@@ -45,7 +47,7 @@ export default function StartWithUsCTA() {
                 letterSpacing: "0.02em",
               }}
             >
-              Let&apos;s Discuss Your Project
+              {serviceCtaCopy.heading}
             </Typography>
             <Typography
               sx={{
@@ -56,14 +58,12 @@ export default function StartWithUsCTA() {
                 maxWidth: 750,
               }}
             >
-              Tell us what you want to build. We&apos;ll review your goals, scope, and
-              constraints — then outline a practical path forward for custom software,
-              SaaS, or business systems.
+              {serviceCtaCopy.body}
             </Typography>
           </Box>
           <Button
             component={NextLink}
-            href="/contact/"
+            href={serviceCtaCopy.primaryCta.href}
             variant="contained"
             size="large"
             sx={{
@@ -80,7 +80,7 @@ export default function StartWithUsCTA() {
               boxShadow: "none",
             }}
           >
-            Discuss Your Project
+            {serviceCtaCopy.primaryCta.label}
           </Button>
         </Box>
       </Container>

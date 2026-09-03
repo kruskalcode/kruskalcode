@@ -149,19 +149,19 @@ export default function ServiceDetailContent({ service, relatedBlogLinks = [] })
                 >
                   <Button
                     component={NextLink}
-                    href="/services/"
-                    variant="contained"
-                    sx={pillButtonSx}
-                  >
-                    Our Services
-                  </Button>
-                  <Button
-                    component={NextLink}
                     href="/contact/"
                     variant="contained"
                     sx={pillButtonSx}
                   >
-                    Contact Us
+                    Discuss Your Project
+                  </Button>
+                  <Button
+                    component={NextLink}
+                    href="/custom-software-development/"
+                    variant="contained"
+                    sx={pillButtonSx}
+                  >
+                    View Custom Software
                   </Button>
                 </Stack>
               </MotionBox>

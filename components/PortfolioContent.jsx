@@ -15,16 +15,16 @@ import NextLink from "next/link";
 
 const PROJECTS = [
   {
-    title: "LawWiz",
+    title: "Legal Technology SaaS Platform",
     categories: ["CRM", "Mobile Application", "SAAS", "Websites", "Chrome Extension"],
     image: "/assets/optimized/mockups/LawWiz-mockup-640.webp",
     url: "/portfolio/legal-technology-saas-platform/",
     internal: true,
     description:
-      "Legal technology product formerly Toolkit Law. We built the mobile app, web application, browser extensions, and add-ons.",
+      "KruskalCode is engineering the LawWiz legal technology platform across web, mobile, browser extension, and add-on surfaces.",
     problem: "Legal professionals needed consolidated tools across devices and browsers.",
-    built: "Mobile app, web application, extensions, and add-ons for LawWiz.",
-    technologies: ["Mobile", "Web", "SaaS", "Extensions", "Add-ons"],
+    built: "Web application, mobile application, browser extensions, and add-ons for LawWiz.",
+    technologies: [],
     outcome: null,
   },
   {

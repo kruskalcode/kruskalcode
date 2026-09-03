@@ -14,13 +14,15 @@ export const homepageHero = {
 export const landingHero = {
   h1: "Custom Software Development for Your Business",
   supporting:
-    "From business automation to SaaS platforms and enterprise applications, KruskalCode builds custom software around the way your business actually works.",
+    "We build SaaS platforms, web applications, business automation systems, AI-powered applications, and custom software designed around your business needs.",
   primaryCta: { label: "Discuss Your Project", href: "#project-form" },
-  secondaryCta: { label: "See Our Work", href: "/portfolio/" },
+  secondaryCta: { label: "View Our Work", href: "/portfolio/" },
 };
 
 export const trustSection = {
-  heading: "Engineering Software That Businesses Can Rely On",
+  heading: "Engineering Partner for Growing Businesses",
+  subtitle:
+    "KruskalCode works with businesses and teams that need reliable software engineering, from initial product development through ongoing improvement and scale.",
   points: [
     {
       title: "Experienced software engineering team",
@@ -38,6 +40,11 @@ export const trustSection = {
         "Real products used in operations — not prototypes left unfinished.",
     },
     {
+      title: "US and international delivery experience",
+      description:
+        "Experience working with US and international businesses, with English-language communication throughout the engagement.",
+    },
+    {
       title: "Modern cloud and API integrations",
       description:
         "Connect payments, authentication, third-party tools, and internal systems.",
@@ -47,11 +54,6 @@ export const trustSection = {
       description:
         "Continued improvements, support, and feature work after launch.",
     },
-    {
-      title: "International business experience",
-      description:
-        "Delivery experience working with businesses beyond a single local market.",
-    },
   ],
 };
 
@@ -60,43 +62,43 @@ export const whatWeBuild = [
     title: "Custom Software",
     description:
       "Business software designed around your unique workflows and requirements.",
-    href: "/services/web-design-development/",
-    cta: "Explore Service",
+    href: "/custom-software-development/",
+    cta: "View Custom Software",
   },
   {
     title: "SaaS Development",
     description:
       "Scalable SaaS products from architecture and MVP through production.",
     href: "/services/web-design-development/",
-    cta: "Explore Service",
+    cta: "View Web Development",
   },
   {
     title: "Web Applications",
     description:
       "Modern, secure web applications built for real-world business use.",
     href: "/services/web-design-development/",
-    cta: "Explore Service",
+    cta: "View Web Development",
   },
   {
     title: "Business Automation",
     description:
       "Automate repetitive workflows, integrations, and operational processes.",
     href: "/services/artificial-intelligence/",
-    cta: "Explore Service",
+    cta: "View AI Services",
   },
   {
     title: "AI Applications",
     description:
       "AI-powered applications and intelligent workflows integrated into business systems.",
     href: "/services/artificial-intelligence/",
-    cta: "Explore Service",
+    cta: "View AI Services",
   },
   {
     title: "Enterprise Systems",
     description:
       "CRM, ERP, portals, dashboards, and internal business platforms.",
     href: "/services/it-software-architecture-consulting/",
-    cta: "Explore Service",
+    cta: "View Architecture Consulting",
   },
 ];
 
@@ -195,30 +197,39 @@ export const engineeringCapabilities = {
   ],
 };
 
-/** Featured project — LawWiz (formerly Toolkit Law). */
+/**
+ * Featured project — LawWiz legal technology SaaS.
+ * Public product name is used. COMPS USA is not identified as the client
+ * because a public client-relationship approval is not documented here.
+ * Ongoing work uses present-tense engineering language — not "we built".
+ */
 export const featuredProject = {
   slug: "legal-technology-saas-platform",
-  title: "LawWiz",
+  title: "Legal Technology SaaS Platform",
+  productName: "LawWiz",
   category: "Legal Technology SaaS",
+  ongoing: true,
   problem:
     "Legal professionals needed one product for complex legal workflows instead of fragmented tools across web, mobile, and browser add-ons.",
   solution:
-    "LawWiz (formerly Toolkit Law) is a legal technology platform spanning a mobile app, web application, browser extensions, and add-ons to streamline legal and business workflows.",
+    "KruskalCode is engineering the LawWiz legal technology platform — a SaaS product spanning a web application, mobile application, browser extension, and related add-ons designed around legal and business workflows.",
   description:
-    "We built the LawWiz legal technology product across a mobile app, web application, browser extensions, and add-ons — a production SaaS used by legal professionals.",
+    "KruskalCode is engineering the LawWiz legal technology platform across web, mobile, browser extension, and add-on surfaces for legal professionals.",
   capabilities: [
-    "Mobile application",
+    "SaaS platform",
     "Web application",
-    "Browser extensions",
-    "Add-ons",
-    "SaaS workflows and integrations",
+    "Mobile application",
+    "Browser extension",
+    "APIs/integrations",
+    "Business workflows",
+    "Automation",
   ],
-  technologies: ["Mobile", "Web", "SaaS", "Browser Extensions", "Add-ons"],
+  technologies: [],
   href: "/portfolio/legal-technology-saas-platform/",
   liveUrl: "https://www.lawwiz.com",
   cta: "View Case Study",
   built:
-    "KruskalCode built LawWiz as a multi-surface legal technology product: mobile app, web application, extensions, and add-ons for production use.",
+    "KruskalCode is engineering the LawWiz legal technology platform as a multi-surface product: web application, mobile application, browser extensions, and add-ons for production use.",
   image: "/assets/optimized/mockups/LawWiz-mockup-1280.webp",
 };
 
@@ -254,8 +265,6 @@ export const docturnalProject = {
   liveUrl: "https://www.docturnalhealth.com/",
   cta: "View Case Study",
   image: "/assets/optimized/mockups/Doctor-health-mockup-1280.webp",
-  outcomeNote:
-    "The live site is public. No fabricated patient counts, revenue, or conversion metrics are listed.",
 };
 
 export const whoWeHelp = [
@@ -294,30 +303,63 @@ export const homepageFaqs = [
       "Common stacks include React, Next.js, TypeScript, Node.js, Laravel, PHP, Bootstrap, MySQL, AWS, Stripe, REST APIs, authentication systems, and AI integrations — selected based on the product needs.",
   },
   {
-    question: "Can you work with US-based companies?",
+    question: "Do you work with US-based companies?",
     answer:
-      "Yes. We have experience delivering software for international businesses and communicate in English throughout discovery, development, and support.",
+      "Yes. We have experience delivering software for US and international businesses and communicate in English throughout discovery, development, and support.",
   },
 ];
 
 export const landingFaqs = [
-  ...homepageFaqs,
   {
-    question: "What budget range do you typically work with?",
+    question: "How much does custom software development cost?",
     answer:
-      "Project scope varies. Use the form budget options so we can respond with a realistic estimate. Larger custom software and SaaS builds generally start in the mid four figures and scale with complexity.",
+      "Cost depends on scope, complexity, integrations, and whether you need an MVP or a full production platform. Use the budget options in the project form so we can respond with a realistic estimate. Custom software and SaaS work is typically a larger investment than a simple marketing website.",
+  },
+  {
+    question: "How long does it take to build custom software?",
+    answer:
+      "Timelines depend on requirements. A focused MVP is often planned in weeks and built over a few months. Larger SaaS platforms, business systems, and multi-surface products take longer. We confirm milestones after we understand the workflow, users, and constraints.",
+  },
+  {
+    question: "Can you work with an existing application?",
+    answer:
+      "Yes. We can extend, modernize, integrate with, or rebuild parts of an existing application after reviewing the current architecture, codebase, and business goals.",
+  },
+  {
+    question: "Can you develop an MVP and scale it later?",
+    answer:
+      "Yes. We often start with a focused first version that proves the core workflow, then continue with features, integrations, and infrastructure as the product grows.",
+  },
+  {
+    question: "Do you work with US-based companies?",
+    answer:
+      "Yes. We have experience delivering software for US and international businesses and communicate in English throughout discovery, development, and support.",
+  },
+  {
+    question: "What technologies do you use?",
+    answer:
+      "Common stacks include React, Next.js, TypeScript, Node.js, Laravel, PHP, Bootstrap, MySQL, AWS, Stripe, REST APIs, authentication systems, and AI integrations. We choose the stack based on the product — not a single default toolkit.",
+  },
+  {
+    question: "Can you maintain the software after launch?",
+    answer:
+      "Yes. We provide ongoing development, maintenance, integrations, and feature work after launch so the product can keep improving in production.",
+  },
+  {
+    question: "Can you integrate third-party APIs and services?",
+    answer:
+      "Yes. We integrate payments, authentication, CRMs, cloud services, and other third-party APIs into custom software when it supports the business workflow.",
   },
 ];
 
 export const projectTypeOptions = [
   "Custom Software",
-  "SaaS Platform",
+  "SaaS",
   "Web Application",
-  "Business Automation",
   "AI Application",
+  "Business Automation",
+  "CRM / ERP",
   "Mobile Application",
-  "CRM / ERP / Portal",
-  "API / Integrations",
   "Other",
 ];
 
@@ -330,16 +372,34 @@ export const budgetOptions = [
 ];
 
 export const timelineOptions = [
-  "ASAP / Urgent",
+  "ASAP",
   "1–3 months",
   "3–6 months",
-  "6+ months",
+  "6–12 months",
   "Not sure yet",
 ];
+
+/**
+ * Approved public testimonials.
+ * Each item must include quote, name, position, and company.
+ * Incomplete marketplace usernames are not shown on conversion pages.
+ */
+export const approvedTestimonials = [];
+
+export const partnershipTrust = {
+  heading: "Building Long-Term Software Partnerships",
+  body: "KruskalCode works with businesses and teams that need reliable software engineering, from initial product development through ongoing improvement and scale.",
+};
 
 export const finalCtaCopy = {
   heading: "Let's Discuss Your Project",
   body: "Tell us what you want to build. We'll review your goals, scope, and constraints — then outline a practical path forward.",
   primaryCta: { label: "Discuss Your Project", href: "/contact/" },
   secondaryCta: { label: "Get a Project Estimate", href: "/contact/#project-form" },
+};
+
+export const serviceCtaCopy = {
+  heading: "Have a Software Project in Mind?",
+  body: "Tell us what you're building and we'll discuss the best technical approach.",
+  primaryCta: { label: "Discuss Your Project", href: "/contact/" },
 };

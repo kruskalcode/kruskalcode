@@ -41,6 +41,8 @@ const relatedPublicWork = [
 ];
 
 export default function FeaturedWorkSection({ showRelated = true }) {
+  const technologies = featuredProject.technologies || [];
+
   return (
     <Box component="section" sx={{ bgcolor: "#ffffff", py: { xs: 7, md: 10 } }}>
       <Container maxWidth="lg">
@@ -73,7 +75,7 @@ export default function FeaturedWorkSection({ showRelated = true }) {
                 mb: 1.5,
               }}
             >
-              {featuredProject.category}
+              Project · {featuredProject.category}
             </Typography>
             <Typography
               component="h3"
@@ -87,13 +89,25 @@ export default function FeaturedWorkSection({ showRelated = true }) {
             >
               {featuredProject.title}
             </Typography>
-            <Typography sx={{ color: "#475569", lineHeight: 1.8, mb: 2.5, fontSize: 16 }}>
-              {featuredProject.description}
+
+            <Typography sx={{ fontWeight: 700, color: "#0f172a", mb: 0.75 }}>
+              Challenge
             </Typography>
+            <Typography sx={{ color: "#475569", lineHeight: 1.8, mb: 2.25, fontSize: 15 }}>
+              {featuredProject.problem}
+            </Typography>
+
+            <Typography sx={{ fontWeight: 700, color: "#0f172a", mb: 0.75 }}>
+              Solution
+            </Typography>
+            <Typography sx={{ color: "#475569", lineHeight: 1.8, mb: 2.25, fontSize: 15 }}>
+              {featuredProject.solution}
+            </Typography>
+
             <Typography sx={{ fontWeight: 700, color: "#0f172a", mb: 1 }}>
-              Capabilities demonstrated
+              Capabilities
             </Typography>
-            <Stack component="ul" spacing={0.75} sx={{ m: 0, pl: 2.5, mb: 3 }}>
+            <Stack component="ul" spacing={0.75} sx={{ m: 0, pl: 2.5, mb: 2.5 }}>
               {featuredProject.capabilities.map((item) => (
                 <Typography
                   component="li"
@@ -104,25 +118,34 @@ export default function FeaturedWorkSection({ showRelated = true }) {
                 </Typography>
               ))}
             </Stack>
-            <Stack direction="row" flexWrap="wrap" gap={1} sx={{ mb: 3 }}>
-              {featuredProject.technologies.map((tech) => (
-                <Box
-                  key={tech}
-                  sx={{
-                    px: 1.5,
-                    py: 0.5,
-                    borderRadius: 999,
-                    bgcolor: "#fff",
-                    border: "1px solid #e2e8f0",
-                    fontSize: 13,
-                    fontWeight: 600,
-                    color: "#334155",
-                  }}
-                >
-                  {tech}
-                </Box>
-              ))}
-            </Stack>
+
+            {technologies.length > 0 ? (
+              <>
+                <Typography sx={{ fontWeight: 700, color: "#0f172a", mb: 1 }}>
+                  Technology
+                </Typography>
+                <Stack direction="row" flexWrap="wrap" gap={1} sx={{ mb: 3 }}>
+                  {technologies.map((tech) => (
+                    <Box
+                      key={tech}
+                      sx={{
+                        px: 1.5,
+                        py: 0.5,
+                        borderRadius: 999,
+                        bgcolor: "#fff",
+                        border: "1px solid #e2e8f0",
+                        fontSize: 13,
+                        fontWeight: 600,
+                        color: "#334155",
+                      }}
+                    >
+                      {tech}
+                    </Box>
+                  ))}
+                </Stack>
+              </>
+            ) : null}
+
             <Button
               component={NextLink}
               href={featuredProject.href}
@@ -145,11 +168,12 @@ export default function FeaturedWorkSection({ showRelated = true }) {
 
           <Box
             sx={{
-              minHeight: { xs: 220, md: "100%" },
               borderRadius: 2,
               overflow: "hidden",
-              bgcolor: "#0f172a",
+              bgcolor: "#eef2f7",
               position: "relative",
+              display: "flex",
+              alignItems: "center",
             }}
           >
             {featuredProject.image ? (
@@ -157,11 +181,11 @@ export default function FeaturedWorkSection({ showRelated = true }) {
                 src={featuredProject.image}
                 alt={`${featuredProject.title} product mockup`}
                 width={640}
-                height={512}
+                height={480}
+                sizes="(max-width: 900px) 100vw, 45vw"
                 style={{
                   width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
+                  height: "auto",
                   display: "block",
                 }}
               />
@@ -221,9 +245,8 @@ export default function FeaturedWorkSection({ showRelated = true }) {
                       overflow: "hidden",
                       textDecoration: "none",
                       color: "inherit",
-                      transition: "transform 200ms ease, border-color 200ms ease",
+                      transition: "border-color 200ms ease",
                       "&:hover": {
-                        transform: "translateY(-3px)",
                         borderColor: "#fcb51e",
                       },
                     }}
@@ -234,24 +257,11 @@ export default function FeaturedWorkSection({ showRelated = true }) {
                         alt={`${project.title} project mockup`}
                         width={640}
                         height={512}
+                        sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 25vw"
+                        loading="lazy"
                         style={{ width: "100%", height: "auto", display: "block" }}
                       />
-                    ) : (
-                      <Box
-                        sx={{
-                          aspectRatio: "640 / 400",
-                          background:
-                            "linear-gradient(145deg, #15233f, #0f172a 55%, rgba(252,181,30,0.25))",
-                          display: "flex",
-                          alignItems: "flex-end",
-                          p: 2.5,
-                        }}
-                      >
-                        <Typography sx={{ color: "#fff", fontWeight: 800, fontSize: 20 }}>
-                          {project.title}
-                        </Typography>
-                      </Box>
-                    )}
+                    ) : null}
                     <Box sx={{ p: 2 }}>
                       <Typography sx={{ fontWeight: 800, color: "#0f172a" }}>
                         {project.title}

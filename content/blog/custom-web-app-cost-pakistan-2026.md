@@ -127,7 +127,7 @@ Once we have this information, we can provide a much more accurate proposal, oft
 
 Ultimately, investing in a custom web application is investing in the future efficiency and growth of your business. Let's build something great together.
 
-If you're planning this kind of work, our [web design and development service page](/services/web-design-development/) explains how KruskalCode scopes and delivers it.
+If you're planning this kind of work, see our [custom software development](/custom-software-development/) page or our [web design and development service page](/services/web-design-development/) for how KruskalCode scopes and delivers it.
 
 ## FAQ
 

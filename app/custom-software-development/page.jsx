@@ -4,6 +4,7 @@ import { landingFaqs } from "@/data/conversion";
 import {
   createMetadata,
   getBreadcrumbSchema,
+  getCustomSoftwareServiceSchema,
   getFaqSchema,
   getSoftwareApplicationSchema,
   pageSeo,
@@ -24,6 +25,7 @@ export default function CustomSoftwareDevelopmentPage() {
         ])}
       />
       <JsonLd data={getSoftwareApplicationSchema()} />
+      <JsonLd data={getCustomSoftwareServiceSchema()} />
       <JsonLd data={getFaqSchema(landingFaqs)} />
       <AdsLandingContent />
     </>

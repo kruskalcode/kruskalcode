@@ -76,7 +76,7 @@ A great partner doesn't just build what you ask for; they challenge you, offer s
 
 They offer clear maintenance agreements, discuss future scaling, and plan for potential enhancements. They understand that a website is a living product that needs ongoing care and evolution.
 
-At KruskalCode, our entire approach to web design and development is built around these principles. We believe in forging long-term partnerships, not just completing projects. We pride ourselves on our meticulous planning, transparent communication, and our commitment to delivering solutions that truly drive business value. If you're looking for a partner to build a robust, scalable, and impactful web presence, we encourage you to explore our services at `/services/web-design-development/` and see how we align with your needs. We're here to guide you through the process, answer your questions, and ensure your investment yields tangible results.
+At KruskalCode, our entire approach to web design and development is built around these principles. We believe in forging long-term partnerships, not just completing projects. We pride ourselves on our meticulous planning, transparent communication, and our commitment to delivering solutions that truly drive business value. If you're looking for a partner to build a robust, scalable, and impactful web presence, we encourage you to explore our [custom software development](/custom-software-development/) and [web design and development](/services/web-design-development/) services. We're here to guide you through the process, answer your questions, and ensure your investment yields tangible results.
 
 ## FAQ
 

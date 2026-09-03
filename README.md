@@ -61,3 +61,20 @@ After the build finishes, static files are generated in the `out/` directory.
 - Email: `info@kruskalcode.com`
 - Phone: `+923314442274`
 - Scheduling: `https://cal.com/kruskalcode`
+
+## Google Ads conversion tracking
+
+The site is prepared for Google Ads. Tags load **only** when IDs are set, so leaving them empty does not inject extra scripts.
+
+1. Copy `.env.example` to `.env.local` (or set the same keys on hosting).
+2. Add your Google Tag Manager and/or GA4 IDs if you already use them. Do not duplicate the same tag in both GTM and the native `gtag` snippet unless you intend to.
+3. Create conversion actions in Google Ads and paste:
+   - `NEXT_PUBLIC_GOOGLE_ADS_ID` (`AW-XXXXXXXXX`)
+   - `NEXT_PUBLIC_GOOGLE_ADS_LEAD_LABEL` — **successful form submissions only** (`contact_form_submit` / `project_inquiry_submit` / `generate_lead`)
+   - `NEXT_PUBLIC_GOOGLE_ADS_CONSULT_LABEL` — consultation calendar clicks
+   - `NEXT_PUBLIC_GOOGLE_ADS_PHONE_LABEL` — `tel:` clicks
+   - `NEXT_PUBLIC_GOOGLE_ADS_EMAIL_LABEL` — `mailto:` clicks
+4. Set `NEXT_PUBLIC_FORM_ENDPOINT` (and access key if required) so inquiries are delivered without relying on the mailto fallback.
+5. Rebuild and deploy. Conversion IDs are inlined at build time.
+
+Primary Google Search Ads landing page: `/custom-software-development/`

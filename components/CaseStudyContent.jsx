@@ -15,6 +15,10 @@ import { featuredProject } from "@/data/conversion";
 
 export default function CaseStudyContent({ project = featuredProject }) {
   const liveUrl = project.liveUrl;
+  const technologies = project.technologies || [];
+  const engineeringHeading = project.ongoing
+    ? "What KruskalCode Is Engineering"
+    : "What KruskalCode Built";
 
   return (
     <>
@@ -127,6 +131,7 @@ export default function CaseStudyContent({ project = featuredProject }) {
                 alt={`${project.title} product mockup`}
                 width={1280}
                 height={1024}
+                sizes="(max-width: 1200px) 100vw, 1120px"
                 style={{ width: "100%", height: "auto", display: "block" }}
               />
             </Box>
@@ -137,7 +142,7 @@ export default function CaseStudyContent({ project = featuredProject }) {
                 component="h2"
                 sx={{ fontWeight: 800, color: "#0f172a", mb: 1.5, fontSize: 24 }}
               >
-                Problem
+                Challenge
               </Typography>
               <Typography sx={{ color: "#64748b", lineHeight: 1.8, fontSize: 16 }}>
                 {project.problem}
@@ -161,11 +166,13 @@ export default function CaseStudyContent({ project = featuredProject }) {
               component="h2"
               sx={{ fontWeight: 800, color: "#0f172a", mb: 2, fontSize: 24 }}
             >
-              What KruskalCode Built
+              {engineeringHeading}
             </Typography>
             <Typography sx={{ color: "#64748b", lineHeight: 1.8, mb: 3, maxWidth: 760 }}>
-              {project.built ||
-                "KruskalCode engineered a scalable SaaS foundation with automation-ready workflows, integration-friendly APIs, and a web application architecture designed for production use."}
+              {project.built}
+            </Typography>
+            <Typography sx={{ fontWeight: 700, color: "#0f172a", mb: 1.5 }}>
+              Capabilities
             </Typography>
             <Stack component="ul" spacing={1} sx={{ m: 0, pl: 2.5, mb: 4 }}>
               {project.capabilities.map((item) => (
@@ -176,50 +183,56 @@ export default function CaseStudyContent({ project = featuredProject }) {
             </Stack>
           </Box>
 
-          <Box sx={{ mt: 2 }}>
-            <Typography
-              component="h2"
-              sx={{ fontWeight: 800, color: "#0f172a", mb: 2, fontSize: 24 }}
-            >
-              Technology
-            </Typography>
-            <Stack direction="row" flexWrap="wrap" gap={1}>
-              {project.technologies.map((tech) => (
-                <Box
-                  key={tech}
-                  sx={{
-                    px: 1.5,
-                    py: 0.7,
-                    bgcolor: "#0f172a",
-                    color: "#fff",
-                    borderRadius: 1,
-                    fontSize: 13,
-                    fontWeight: 600,
-                  }}
-                >
-                  {tech}
-                </Box>
-              ))}
-            </Stack>
-          </Box>
+          {technologies.length > 0 ? (
+            <Box sx={{ mt: 2 }}>
+              <Typography
+                component="h2"
+                sx={{ fontWeight: 800, color: "#0f172a", mb: 2, fontSize: 24 }}
+              >
+                Technology
+              </Typography>
+              <Stack direction="row" flexWrap="wrap" gap={1}>
+                {technologies.map((tech) => (
+                  <Box
+                    key={tech}
+                    sx={{
+                      px: 1.5,
+                      py: 0.7,
+                      bgcolor: "#0f172a",
+                      color: "#fff",
+                      borderRadius: 1,
+                      fontSize: 13,
+                      fontWeight: 600,
+                    }}
+                  >
+                    {tech}
+                  </Box>
+                ))}
+              </Stack>
+            </Box>
+          ) : null}
 
-          <Box
-            sx={{
-              mt: 6,
-              p: 3.5,
-              borderRadius: 2,
-              border: "1px dashed #cbd5e1",
-              bgcolor: "#f8fafc",
-            }}
-          >
-            <Typography sx={{ fontWeight: 700, color: "#0f172a", mb: 1 }}>
-              Outcomes & screenshots
-            </Typography>
-            <Typography sx={{ color: "#64748b", lineHeight: 1.7, fontSize: 15 }}>
-              {project.outcomeNote ||
-                "Public outcome metrics and additional product screenshots are not listed here. No fabricated results are shown."}
-            </Typography>
-          </Box>
+          {project.outcome ? (
+            <Box
+              sx={{
+                mt: 6,
+                p: 3.5,
+                borderRadius: 2,
+                border: "1px solid #e2e8f0",
+                bgcolor: "#f8fafc",
+              }}
+            >
+              <Typography
+                component="h2"
+                sx={{ fontWeight: 800, color: "#0f172a", mb: 1, fontSize: 24 }}
+              >
+                Result
+              </Typography>
+              <Typography sx={{ color: "#64748b", lineHeight: 1.7, fontSize: 15 }}>
+                {project.outcome}
+              </Typography>
+            </Box>
+          ) : null}
 
           <Box sx={{ mt: 5 }}>
             <Button

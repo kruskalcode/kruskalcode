@@ -5,15 +5,17 @@ import NextLink from "next/link";
 import { usePathname } from "next/navigation";
 import { trackEvent } from "@/lib/tracking";
 
-const HIDDEN_PATHS = ["/contact/", "/custom-software-development/"];
-
 export default function MobileStickyCta() {
   const pathname = usePathname();
   const normalized = pathname?.endsWith("/") ? pathname : `${pathname}/`;
+  const isLanding = normalized === "/custom-software-development/";
+  const isContact = normalized === "/contact/";
 
-  if (HIDDEN_PATHS.some((path) => normalized === path || normalized?.startsWith(path))) {
+  if (isContact) {
     return null;
   }
+
+  const href = isLanding ? "#project-form" : "/contact/";
 
   return (
     <Box
@@ -32,7 +34,7 @@ export default function MobileStickyCta() {
     >
       <Button
         component={NextLink}
-        href="/contact/"
+        href={href}
         fullWidth
         variant="contained"
         onClick={() =>

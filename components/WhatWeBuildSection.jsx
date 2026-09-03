@@ -6,7 +6,12 @@ import NextLink from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import { whatWeBuild } from "@/data/conversion";
 
-export default function WhatWeBuildSection({ dark = false }) {
+export default function WhatWeBuildSection({ dark = false, landing = false }) {
+  const items = whatWeBuild.map((item) =>
+    landing && item.title === "Custom Software"
+      ? { ...item, href: "#project-form", cta: "Discuss Your Project" }
+      : item,
+  );
   return (
     <Box
       component="section"
@@ -23,7 +28,7 @@ export default function WhatWeBuildSection({ dark = false }) {
           subtitle="Focused product engineering for businesses that need custom software — not a laundry list of unrelated services."
         />
         <Grid container spacing={2.5}>
-          {whatWeBuild.map((item) => (
+          {items.map((item) => (
             <Grid item xs={12} sm={6} md={4} key={item.title}>
               <Box
                 sx={{

@@ -23,6 +23,63 @@ export default function BlogSidebar({
             fontSize: "1rem",
             fontWeight: 700,
             color: "#0f172a",
+            mb: 1,
+          }}
+        >
+          Custom software
+        </Typography>
+        <Typography sx={{ fontSize: 14, color: "#64748b", lineHeight: 1.7, mb: 2 }}>
+          Building a SaaS product, web application, or business system? Tell us what you need.
+        </Typography>
+        <Button
+          component={NextLink}
+          href="/custom-software-development/"
+          fullWidth
+          sx={{
+            justifyContent: "center",
+            color: "#0f172a",
+            fontWeight: 800,
+            textTransform: "none",
+            bgcolor: "rgba(252, 181, 30, 0.12)",
+            borderRadius: 2,
+            mb: 1,
+            "&:hover": { bgcolor: "rgba(252, 181, 30, 0.2)" },
+          }}
+        >
+          View Custom Software
+        </Button>
+        <Button
+          component={NextLink}
+          href="/contact/"
+          fullWidth
+          sx={{
+            justifyContent: "center",
+            color: "#0f172a",
+            fontWeight: 700,
+            textTransform: "none",
+            borderRadius: 2,
+            "&:hover": { bgcolor: "rgba(252, 181, 30, 0.10)" },
+          }}
+        >
+          Discuss Your Project
+        </Button>
+      </Box>
+
+      <Box
+        sx={{
+          bgcolor: "#ffffff",
+          borderRadius: 3,
+          p: 3,
+          boxShadow: "0 18px 40px rgba(15, 23, 42, 0.06)",
+          border: "1px solid rgba(15, 23, 42, 0.08)",
+          mb: 4,
+        }}
+      >
+        <Typography
+          sx={{
+            fontSize: "1rem",
+            fontWeight: 700,
+            color: "#0f172a",
             mb: 2,
           }}
         >

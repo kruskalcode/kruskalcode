@@ -101,7 +101,7 @@ function ServicePageCard({ service }) {
           },
         }}
       >
-        Learn more
+        View Service
       </Button>
     </Box>
   );
@@ -110,6 +110,51 @@ function ServicePageCard({ service }) {
 export default function ServicesContent() {
   return (
     <Box sx={{ bgcolor: "#ffffff" }}>
+      <Box component="section" sx={{ pt: { xs: 5, md: 6 }, pb: 0 }}>
+        <Container maxWidth="lg">
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column", sm: "row" },
+              alignItems: { xs: "flex-start", sm: "center" },
+              justifyContent: "space-between",
+              gap: 2,
+              p: { xs: 2.5, md: 3 },
+              border: "1px solid #e2e8f0",
+              borderRadius: 2,
+              bgcolor: "#f8fafc",
+            }}
+          >
+            <Box>
+              <Typography sx={{ fontWeight: 800, color: "#0f172a", mb: 0.5, fontSize: 18 }}>
+                Looking for custom software development?
+              </Typography>
+              <Typography sx={{ color: "#64748b", fontSize: 15, lineHeight: 1.7 }}>
+                SaaS platforms, web applications, automation, and AI-powered business systems.
+              </Typography>
+            </Box>
+            <Button
+              component={NextLink}
+              href="/custom-software-development/"
+              variant="contained"
+              sx={{
+                bgcolor: "#fcb51e",
+                color: "#0f172a",
+                fontWeight: 800,
+                textTransform: "none",
+                borderRadius: 999,
+                px: 3,
+                py: 1.2,
+                whiteSpace: "nowrap",
+                boxShadow: "none",
+                "&:hover": { bgcolor: "#e09f16", boxShadow: "none" },
+              }}
+            >
+              View Custom Software
+            </Button>
+          </Box>
+        </Container>
+      </Box>
       <Box component="section" sx={{ py: { xs: 6, md: 8 } }}>
         <Container maxWidth="lg">
           <MotionBox

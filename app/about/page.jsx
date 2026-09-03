@@ -15,6 +15,7 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import NextLink from "next/link";
 
 /* ─── Fade-in animation ─── */
 const fadeUp = {
@@ -317,7 +318,8 @@ export default function AboutPage() {
                   ))}
                 </List>
                 <Button
-                  href="/services/"
+                  component={NextLink}
+                  href="/custom-software-development/"
                   disableRipple
                   sx={{
                     p: 0,
@@ -333,7 +335,7 @@ export default function AboutPage() {
                     },
                   }}
                 >
-                  More...
+                  View Custom Software
                 </Button>
               </Box>
             </Grid>
