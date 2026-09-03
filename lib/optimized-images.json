@@ -297,6 +297,32 @@
       }
     }
   },
+  "/assets/mockups/Doctor-health-mockup.jpeg": {
+    "width": 2048,
+    "height": 2048,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/mockups/Doctor-health-mockup-320.avif",
+        "480": "/assets/optimized/mockups/Doctor-health-mockup-480.avif",
+        "640": "/assets/optimized/mockups/Doctor-health-mockup-640.avif",
+        "768": "/assets/optimized/mockups/Doctor-health-mockup-768.avif",
+        "1024": "/assets/optimized/mockups/Doctor-health-mockup-1024.avif",
+        "1280": "/assets/optimized/mockups/Doctor-health-mockup-1280.avif",
+        "1600": "/assets/optimized/mockups/Doctor-health-mockup-1600.avif",
+        "1920": "/assets/optimized/mockups/Doctor-health-mockup-1920.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/mockups/Doctor-health-mockup-320.webp",
+        "480": "/assets/optimized/mockups/Doctor-health-mockup-480.webp",
+        "640": "/assets/optimized/mockups/Doctor-health-mockup-640.webp",
+        "768": "/assets/optimized/mockups/Doctor-health-mockup-768.webp",
+        "1024": "/assets/optimized/mockups/Doctor-health-mockup-1024.webp",
+        "1280": "/assets/optimized/mockups/Doctor-health-mockup-1280.webp",
+        "1600": "/assets/optimized/mockups/Doctor-health-mockup-1600.webp",
+        "1920": "/assets/optimized/mockups/Doctor-health-mockup-1920.webp"
+      }
+    }
+  },
   "/assets/mockups/everyday-dev-tools-mockup.png": {
     "width": 1920,
     "height": 7189,
@@ -420,6 +446,32 @@
         "1280": "/assets/optimized/mockups/healthcareed-Mockup-scaled-1280.webp",
         "1600": "/assets/optimized/mockups/healthcareed-Mockup-scaled-1600.webp",
         "1920": "/assets/optimized/mockups/healthcareed-Mockup-scaled-1920.webp"
+      }
+    }
+  },
+  "/assets/mockups/LawWiz-mockup.png": {
+    "width": 1920,
+    "height": 1006,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/mockups/LawWiz-mockup-320.avif",
+        "480": "/assets/optimized/mockups/LawWiz-mockup-480.avif",
+        "640": "/assets/optimized/mockups/LawWiz-mockup-640.avif",
+        "768": "/assets/optimized/mockups/LawWiz-mockup-768.avif",
+        "1024": "/assets/optimized/mockups/LawWiz-mockup-1024.avif",
+        "1280": "/assets/optimized/mockups/LawWiz-mockup-1280.avif",
+        "1600": "/assets/optimized/mockups/LawWiz-mockup-1600.avif",
+        "1920": "/assets/optimized/mockups/LawWiz-mockup-1920.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/mockups/LawWiz-mockup-320.webp",
+        "480": "/assets/optimized/mockups/LawWiz-mockup-480.webp",
+        "640": "/assets/optimized/mockups/LawWiz-mockup-640.webp",
+        "768": "/assets/optimized/mockups/LawWiz-mockup-768.webp",
+        "1024": "/assets/optimized/mockups/LawWiz-mockup-1024.webp",
+        "1280": "/assets/optimized/mockups/LawWiz-mockup-1280.webp",
+        "1600": "/assets/optimized/mockups/LawWiz-mockup-1600.webp",
+        "1920": "/assets/optimized/mockups/LawWiz-mockup-1920.webp"
       }
     }
   },
