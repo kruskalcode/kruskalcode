@@ -1,6 +1,7 @@
 "use client";
 
 import ContactHero from "@/components/ContactHero";
+import LeadQualificationForm from "@/components/LeadQualificationForm";
 import EmailIcon from "@mui/icons-material/Email";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -11,17 +12,16 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import {
   Box,
-  Button,
   Container,
   Grid,
   IconButton,
   Stack,
-  TextField,
   Typography,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import { company } from "@/data/site";
 import { fadeUp } from "@/components/MotionBox";
+import { trackConversion } from "@/lib/tracking";
 
 const socialIcons = {
   Facebook: FacebookIcon,
@@ -39,34 +39,12 @@ const socialColors = {
   YouTube: "#cd201f",
 };
 
-const fieldSx = {
-  "& .MuiOutlinedInput-root": {
-    borderRadius: "4px",
-    bgcolor: "#f0f0f0",
-    fontSize: "14px",
-    "& fieldset": { borderColor: "#e0e0e0" },
-    "&:hover fieldset": { borderColor: "#fcb51e" },
-    "&.Mui-focused fieldset": { borderColor: "#fcb51e" },
-  },
-  "& .MuiInputLabel-root": {
-    fontSize: "14px",
-    color: "#666",
-  },
-  "& .MuiInputLabel-root.Mui-focused": { color: "#fcb51e" },
-};
-
 export default function ContactPage() {
   return (
     <Box sx={{ bgcolor: "#fff" }}>
       <ContactHero />
 
-      <Box
-        sx={{
-          position: "relative",
-          bgcolor: "#fff",
-          px: 0,
-        }}
-      >
+      <Box sx={{ position: "relative", bgcolor: "#fff", px: 0 }}>
         <Grid container spacing={0}>
           <Grid item xs={12} md={8}>
             <Box
@@ -77,96 +55,11 @@ export default function ContactPage() {
               variants={fadeUp}
               sx={{
                 py: { xs: 4, md: 6 },
-                px: 5,
+                px: { xs: 2.5, sm: 4, md: 5 },
                 bgcolor: "#fff",
-                backgroundImage: "url('/assets/optimized/backgound-300.webp')",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "right center",
-                backgroundSize: { xs: "cover", md: "auto 100%" },
               }}
             >
-              <Typography
-                sx={{
-                  fontSize: { xs: "1.6rem", md: "1.9rem" },
-                  fontWeight: 700,
-                  color: "#fcb51e",
-                  fontFamily: "var(--font-sora), 'Sora', sans-serif",
-                  mb: 1.5,
-                }}
-              >
-                Request a call back
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "14px",
-                  color: "#555",
-                  lineHeight: 1.8,
-                  mb: 3,
-                  maxWidth: 520,
-                }}
-              >
-                Got any questions? Looking for some help? Please fill out quick
-                form and will try to get back asap.
-              </Typography>
-
-              <Box
-                component="form"
-                action={`mailto:${company.email}`}
-                method="post"
-                encType="text/plain"
-              >
-                <Stack spacing={2.5}>
-                  <TextField
-                    fullWidth
-                    label="Full Name *"
-                    name="Name"
-                    required
-                    sx={fieldSx}
-                  />
-                  <TextField
-                    fullWidth
-                    label="Phone Number"
-                    name="Phone"
-                    sx={fieldSx}
-                  />
-                  <TextField
-                    fullWidth
-                    type="email"
-                    label="Email *"
-                    name="Email"
-                    required
-                    sx={fieldSx}
-                  />
-                  <TextField
-                    fullWidth
-                    multiline
-                    minRows={5}
-                    label="How can we help?"
-                    name="Message"
-                    sx={fieldSx}
-                  />
-                  <Box>
-                    <Button
-                      type="submit"
-                      variant="contained"
-                      sx={{
-                        bgcolor: "#fcb51e",
-                        color: "#0f172a",
-                        fontWeight: 700,
-                        fontSize: "14px",
-                        px: 4,
-                        py: 1.2,
-                        borderRadius: "4px",
-                        textTransform: "none",
-                        boxShadow: "none",
-                        "&:hover": { bgcolor: "#e09f16", boxShadow: "none" },
-                      }}
-                    >
-                      Submit
-                    </Button>
-                  </Box>
-                </Stack>
-              </Box>
+              <LeadQualificationForm source="contact" />
             </Box>
           </Grid>
 
@@ -204,8 +97,8 @@ export default function ContactPage() {
                   maxWidth: 480,
                 }}
               >
-                We aim to respond to all inquiries within 24 hours. Reach out to
-                us through any of the channels below.
+                Prefer email or phone? Reach out directly — we respond to qualified
+                project inquiries promptly.
               </Typography>
 
               <Stack spacing={2.5} sx={{ mb: 4 }}>
@@ -224,6 +117,7 @@ export default function ContactPage() {
                   <Box
                     component="a"
                     href={`mailto:${company.email}`}
+                    onClick={() => trackConversion("EMAIL_CLICK")}
                     sx={{
                       fontSize: "14px",
                       color: "#333",
@@ -239,6 +133,7 @@ export default function ContactPage() {
                   <Box
                     component="a"
                     href={`tel:${company.phone}`}
+                    onClick={() => trackConversion("PHONE_CLICK")}
                     sx={{
                       fontSize: "14px",
                       color: "#333",
@@ -290,6 +185,27 @@ export default function ContactPage() {
                   );
                 })}
               </Stack>
+
+              <Box sx={{ mt: 4 }}>
+                <Typography sx={{ fontWeight: 700, color: "#0f172a", mb: 1 }}>
+                  Prefer a call?
+                </Typography>
+                <Box
+                  component="a"
+                  href={company.scheduleUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => trackConversion("CONSULTATION_REQUEST", { method: "calendar" })}
+                  sx={{
+                    color: "#fcb51e",
+                    fontWeight: 700,
+                    textDecoration: "underline",
+                    fontSize: 14,
+                  }}
+                >
+                  Schedule a project discussion
+                </Box>
+              </Box>
             </Box>
           </Grid>
         </Grid>

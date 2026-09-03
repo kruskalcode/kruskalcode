@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Button, Container, Typography } from "@mui/material";
+import NextLink from "next/link";
 import { motion } from "framer-motion";
 import { fadeUp } from "@/components/MotionBox";
-import { company } from "@/data/site";
 
 export default function StartWithUsCTA() {
   return (
@@ -40,13 +40,12 @@ export default function StartWithUsCTA() {
                 fontSize: { xs: 20, md: 24 },
                 fontWeight: 700,
                 color: "#fcb51e",
-                textTransform: "uppercase",
                 mb: 2,
                 fontFamily: "var(--font-sora), 'Sora', sans-serif",
                 letterSpacing: "0.02em",
               }}
             >
-              Would you like to start with us?
+              Let&apos;s Discuss Your Project
             </Typography>
             <Typography
               sx={{
@@ -57,15 +56,14 @@ export default function StartWithUsCTA() {
                 maxWidth: 750,
               }}
             >
-              Let&apos;s discuss how we can help your agency grow to KruskalCode. We
-              explore what you&apos;re doing now, and what it takes to move your
-              digital marketing agency from 6 to 7 figures.
+              Tell us what you want to build. We&apos;ll review your goals, scope, and
+              constraints — then outline a practical path forward for custom software,
+              SaaS, or business systems.
             </Typography>
           </Box>
           <Button
-            href={company.scheduleUrl || "https://cal.com/kruskalcode"}
-            target="_blank"
-            rel="noreferrer"
+            component={NextLink}
+            href="/contact/"
             variant="contained"
             size="large"
             sx={{
@@ -82,7 +80,7 @@ export default function StartWithUsCTA() {
               boxShadow: "none",
             }}
           >
-            Want To Start Now
+            Discuss Your Project
           </Button>
         </Box>
       </Container>

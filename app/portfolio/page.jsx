@@ -45,8 +45,9 @@ export default function PortfolioPage() {
               mb: { xs: 3, md: 4 },
             }}
           >
-            We design and develop digital solutions that turn complex challenges
-            into clear results.
+            We design and develop custom software, SaaS platforms, and business
+            applications that turn complex operational challenges into working
+            products.
           </Typography>
         </Container>
       </Box>

@@ -96,13 +96,11 @@ export default function WhyChooseUs({ reverse = false }) {
               <Typography
                 sx={{ mb: 2, lineHeight: 1.8, fontSize: 16, color: "#475569" }}
               >
-                KruskalCode is a leading software development company known for
-                its expertise in creating high-quality, innovative solutions.
-                They prioritize customer satisfaction by collaborating closely
-                with clients and employing agile methodologies for flexibility
-                and rapid iteration. With a proven track record and a focus on
-                cutting‑edge technologies, KruskalCode ensures scalable and
-                effective software that aligns with your business goals.
+                KruskalCode is a custom software development company focused on
+                building SaaS platforms, web applications, automation systems, and
+                business software for growing companies. We collaborate closely with
+                clients, use practical engineering practices, and design systems meant
+                for real production use.
               </Typography>
               <List disablePadding>
                 {whyChooseUs.map((item) => (

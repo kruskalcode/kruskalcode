@@ -17,9 +17,12 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import NextLink from "next/link";
+import TrackedContactLink from "@/components/TrackedContactLink";
 import { company, services } from "@/data/site";
 
 const quickLinks = [
+  { href: "/", label: "Home" },
+  { href: "/custom-software-development/", label: "Custom Software" },
   { href: "/about/", label: "About" },
   { href: "/services/", label: "Services" },
   { href: "/portfolio/", label: "Portfolio" },
@@ -103,11 +106,9 @@ export default function Footer() {
                 fontSize: "14px",
               }}
             >
-              At KruskalCode, we are passionate about transforming ideas into
-              digital experiences that drive success. Specializing in
-              comprehensive web development services, we bring together
-              creativity, technology, and strategy to deliver solutions that
-              meet the unique needs of each client.
+              KruskalCode is a custom software development company that builds SaaS
+              platforms, web applications, business automation systems, and
+              production-ready software for growing businesses.
             </Typography>
           </Grid>
 
@@ -196,18 +197,19 @@ export default function Footer() {
               </Stack>
               <Stack direction="row" spacing={2} alignItems="center">
                 <EmailIcon sx={{ color: "#fcb51e", fontSize: 20 }} />
-                <MuiLink href={`mailto:${company.email}`} sx={footerLinkSx}>
+                <TrackedContactLink type="email" href={`mailto:${company.email}`} sx={footerLinkSx}>
                   {company.email}
-                </MuiLink>
+                </TrackedContactLink>
               </Stack>
               <Stack direction="row" spacing={2} alignItems="center">
                 <PhoneIcon sx={{ color: "#fcb51e", fontSize: 20 }} />
-                <MuiLink
+                <TrackedContactLink
+                  type="phone"
                   href={`tel:${company.phone}`}
                   sx={{ ...footerLinkSx, textDecoration: "none" }}
                 >
                   +923314442274
-                </MuiLink>
+                </TrackedContactLink>
               </Stack>
             </Stack>
 

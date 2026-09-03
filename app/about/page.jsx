@@ -1,6 +1,5 @@
 "use client";
 
-import CheckIcon from "@mui/icons-material/Check";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import StartWithUsCTA from "@/components/StartWithUsCTA";
 import {
@@ -14,9 +13,8 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
 
 /* ─── Fade-in animation ─── */
 const fadeUp = {
@@ -31,47 +29,6 @@ const stagger = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.12 } },
 };
-
-/* ─── Animated number counter ─── */
-function Counter({ end, label }) {
-  const [val, setVal] = useState(0);
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-
-  useEffect(() => {
-    if (!inView) return;
-    let n = 0;
-    const target = parseInt(end, 10);
-    const step = Math.max(1, Math.ceil(1500 / target));
-    const timer = setInterval(() => {
-      n += 1;
-      setVal(n);
-      if (n >= target) clearInterval(timer);
-    }, step);
-    return () => clearInterval(timer);
-  }, [inView, end]);
-
-  return (
-    <Box ref={ref} sx={{ textAlign: "center", py: { xs: 4, md: 7 } }}>
-      <Typography
-        sx={{
-          fontSize: { xs: "3rem", md: "4rem" },
-          fontWeight: 900,
-          color: "#fcb51e",
-          lineHeight: 1,
-          fontFamily: "var(--font-sora), 'Sora', sans-serif",
-        }}
-      >
-        {val}+
-      </Typography>
-      <Typography
-        sx={{ fontSize: "1rem", fontWeight: 600, color: "#fff", mt: 1 }}
-      >
-        {label}
-      </Typography>
-    </Box>
-  );
-}
 
 /* ─── Development process data ─── */
 const LEFT_STEPS = [
@@ -163,21 +120,13 @@ function Step({ num, title, body }) {
 }
 
 /* ─── Why Choose Us checklist ─── */
-const WHY_LIST = [
-  "Comprehensive Reporting and Analytics",
-  "Cost-Effective Software Delivery",
-  "Qualified and Expert Team",
-  "Maximize Product Efficiency",
-  "Top-Notch Customer Support",
-];
-
 /* ─── Our Services list ─── */
 const SERVICES = [
-  "Artificial Intelligence",
-  "DevOps Services",
-  "Digital Marketing",
+  "Custom Software Development",
+  "SaaS Platforms",
+  "Web Applications",
+  "AI Applications",
   "Mobile Application Development",
-  "Web Design & Development",
 ];
 
 const visuallyHiddenH1 = {
@@ -496,10 +445,10 @@ export default function AboutPage() {
       {/* ── 4. Why Choose Us ── */}
       <WhyChooseUs />
 
-      {/* ── 5. Stats Counter ── */}
+      {/* ── 5. Engineering focus ── */}
       <Box
         component="section"
-        sx={{ position: "relative", overflow: "hidden", py: { xs: 4, md: 2 } }}
+        sx={{ position: "relative", overflow: "hidden", py: { xs: 8, md: 10 } }}
       >
         <Box
           sx={{
@@ -519,18 +468,23 @@ export default function AboutPage() {
             zIndex: 1,
           }}
         />
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
-          <Grid container>
-            <Grid item xs={12} sm={4}>
-              <Counter end="100" label="Projects Completed" />
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <Counter end="50" label="Satisfied Clients" />
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <Counter end="15" label="Experienced Staff" />
-            </Grid>
-          </Grid>
+        <Container maxWidth="md" sx={{ position: "relative", zIndex: 2, textAlign: "center" }}>
+          <Typography
+            sx={{
+              fontSize: { xs: "1.6rem", md: "2rem" },
+              fontWeight: 800,
+              color: "#fcb51e",
+              fontFamily: "var(--font-sora), 'Sora', sans-serif",
+              mb: 2,
+            }}
+          >
+            Built for production business software
+          </Typography>
+          <Typography sx={{ color: "rgba(255,255,255,0.85)", lineHeight: 1.8, fontSize: 16 }}>
+            KruskalCode focuses on custom software, SaaS platforms, web applications,
+            automation, and long-term product engineering for growing businesses —
+            including international clients.
+          </Typography>
         </Container>
       </Box>
 

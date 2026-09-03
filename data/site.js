@@ -1,7 +1,7 @@
 export const company = {
   name: "KruskalCode",
   logo: "/assets/optimized/logo-640.webp",
-  tagline: "Engineering Your Vision into Reality",
+  tagline: "Custom Software Development for Growing Businesses",
   location: "Plot 81 St 4 Sector I-10/3 Islamabad, Pakistan",
   email: "info@kruskalcode.com",
   phone: "+923314442274",
@@ -220,10 +220,10 @@ export const engagementProcess = [
 ];
 
 export const stats = [
-  { value: "50+", label: "Projects Delivered" },
-  { value: "5+", label: "Years Experience" },
-  { value: "30+", label: "Happy Clients" },
-  { value: "9", label: "Service Areas" },
+  { value: "Full-stack", label: "Product Engineering" },
+  { value: "SaaS", label: "Business Applications" },
+  { value: "Global", label: "Client Collaboration" },
+  { value: "Ongoing", label: "Support & Scale" },
 ];
 
 export const testimonials = [
@@ -299,11 +299,11 @@ export const portfolioProjects = [
 ];
 
 export const whyChooseUs = [
-  "Comprehensive Reporting & Analytics",
-  "Cost-Effective Solutions",
-  "Qualified Expert Team",
-  "Maximum Product Efficiency",
-  "Top-Notch Customer Support",
+  "Business-First Engineering",
+  "Full-Stack Product Development",
+  "Built for Production Use",
+  "Long-Term Engineering Partnership",
+  "Clear Process from Discovery to Scale",
 ];
 
 export function getServiceBySlug(slug) {
@@ -316,35 +316,35 @@ export function getServiceHref(service) {
 
 export const serviceWhyUsCards = [
   {
-    title: "Comprehensive Reporting and Analytics",
+    title: "Business-First Engineering",
     icon: "Analytics",
     description:
-      "We provide detailed reports and analytics, allowing for data-driven decisions and clear visibility into project progress and outcomes.",
+      "We start from workflows and outcomes, then design software that fits how your business actually operates.",
   },
   {
-    title: "Cost-Effective Software Delivery",
+    title: "Full-Stack Product Development",
     icon: "Savings",
     description:
-      "We scope and build software with practical architecture choices, clear priorities, and delivery practices that protect quality while respecting budget.",
+      "Frontend, backend, databases, APIs, integrations, and cloud deployment handled as one coherent product effort.",
   },
   {
-    title: "Qualified and Expert Team",
+    title: "Built for Production",
     icon: "Groups",
     description:
-      "Our staff is composed of certified and qualified experts who bring specialized skills to every project, ensuring top-tier service and outcomes.",
+      "We focus on maintainable architecture, security basics, and software designed for real business use.",
   },
   {
-    title: "Maximize Product Efficiency",
+    title: "Long-Term Engineering Partner",
     icon: "Speed",
     description:
-      "We improve workflows, performance, automation, and maintainability so digital products stay efficient for users, teams, and long-term operations.",
+      "Support continues after launch with improvements, maintenance, integrations, and new features.",
   },
 ];
 
 export const serviceStats = [
-  { end: 100, label: "Projects Completed" },
-  { end: 50, label: "Satisfied Clients" },
-  { end: 15, label: "Experienced Staff" },
+  { end: 0, label: "Custom software focus" },
+  { end: 0, label: "Full-stack delivery" },
+  { end: 0, label: "Long-term partnership" },
 ];
 
 // Per-service images: set folder (optional) + hero/intro filenames with any extension.
@@ -625,45 +625,33 @@ export const servicesPageSummaries = {
 
 export const technologyStack = [
   {
-    name: "HTML5",
-    label: "HTML5",
-    image:
-      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
-  },
-  {
-    name: "CSS3",
-    label: "CSS3",
-    image:
-      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
-  },
-  {
-    name: "Bootstrap",
-    label: "Bootstrap",
-    labelColor: "#7952b3",
-    image:
-      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
-  },
-  {
     name: "JavaScript",
     image:
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
   },
   {
+    name: "TypeScript",
+    label: "TypeScript",
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  },
+  {
     name: "React",
-    label: "React JS",
+    label: "React",
     image:
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   },
   {
-    name: "Angular",
-    label: "Angular",
+    name: "Next.js",
+    label: "Next.js",
     image:
-      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
   },
   {
-    name: "WordPress",
+    name: "Node.js",
+    label: "Node.js",
     image:
-      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
   },
   {
     name: "PHP",
@@ -677,22 +665,22 @@ export const technologyStack = [
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
   },
   {
-    name: "CodeIgniter",
-    label: "CodeIgniter",
-    image:
-      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg",
-  },
-  {
-    name: "Node.js",
-    label: "Node.js",
-    image:
-      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-  },
-  {
     name: "MySQL",
     label: "MySQL",
     image:
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+  },
+  {
+    name: "AWS",
+    label: "AWS",
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+  },
+  {
+    name: "Bootstrap",
+    label: "Bootstrap",
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
   },
 ];
 

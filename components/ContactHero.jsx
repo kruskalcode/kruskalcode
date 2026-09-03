@@ -25,7 +25,7 @@ export default function ContactHero() {
       }}
     >
       <Box component="h1" sx={visuallyHiddenH1}>
-        Contact KruskalCode Islamabad Software Agency
+        Contact KruskalCode — Discuss Your Custom Software Project
       </Box>
       <Box
         sx={{

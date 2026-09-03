@@ -18,6 +18,8 @@
 
 html {
   background: var(--background);
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
 }
 
 body {
@@ -40,4 +42,11 @@ a {
 img {
   display: block;
   max-width: 100%;
+}
+
+/* Space for mobile sticky CTA */
+@media (max-width: 899px) {
+  body {
+    padding-bottom: 76px;
+  }
 }

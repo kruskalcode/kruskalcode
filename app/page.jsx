@@ -1,8 +1,21 @@
 import HomeContent from "@/components/HomeContent";
-import { createMetadata, pageSeo } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
+import { homepageFaqs } from "@/data/conversion";
+import {
+  createMetadata,
+  getFaqSchema,
+  getSoftwareApplicationSchema,
+  pageSeo,
+} from "@/lib/seo";
 
 export const metadata = createMetadata(pageSeo.home);
 
 export default function HomePage() {
-  return <HomeContent />;
+  return (
+    <>
+      <JsonLd data={getSoftwareApplicationSchema()} />
+      <JsonLd data={getFaqSchema(homepageFaqs)} />
+      <HomeContent />
+    </>
+  );
 }

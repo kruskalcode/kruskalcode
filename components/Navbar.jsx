@@ -218,9 +218,9 @@ export default function Navbar() {
           )}
 
           <Button
-            href={company.scheduleUrl}
-            target="_blank"
-            rel="noreferrer"
+            component={NextLink}
+            href="/contact/"
+            prefetch
             variant="contained"
             sx={{
               ml: 2.5,
@@ -237,7 +237,7 @@ export default function Navbar() {
               "&:hover": { bgcolor: "#e09f16", boxShadow: "none" },
             }}
           >
-            Schedule Free Call
+            Discuss Your Project
           </Button>
         </Stack>
 
@@ -342,10 +342,11 @@ export default function Navbar() {
           </List>
           <Button
             fullWidth
-            href={company.scheduleUrl}
-            target="_blank"
-            rel="noreferrer"
+            component={NextLink}
+            href="/contact/"
+            prefetch
             variant="contained"
+            onClick={() => setDrawerOpen(false)}
             sx={{
               mt: 2,
               bgcolor: "#fcb51e",
@@ -356,7 +357,7 @@ export default function Navbar() {
               "&:hover": { bgcolor: "#e09f16" },
             }}
           >
-            Schedule Free Call
+            Discuss Your Project
           </Button>
         </Box>
       </Drawer>

@@ -26,11 +26,19 @@ export default function NotFound() {
         </Typography>
         <Button
           component={NextLink}
-          href="/"
+          href="/contact/"
           variant="contained"
           color="primary"
+          sx={{ mt: 4, color: "#0a0f1e", mr: 2 }}
+        >
+          Discuss Your Project
+        </Button>
+        <Button
+          component={NextLink}
+          href="/"
+          variant="outlined"
           startIcon={<ArrowBackIcon />}
-          sx={{ mt: 4, color: "#0a0f1e" }}
+          sx={{ mt: 4, color: "#fff", borderColor: "rgba(255,255,255,0.4)" }}
         >
           Go Home
         </Button>

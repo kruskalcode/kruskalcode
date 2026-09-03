@@ -297,6 +297,54 @@
       }
     }
   },
+  "/assets/mockups/everyday-dev-tools-mockup.png": {
+    "width": 1920,
+    "height": 7189,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/mockups/everyday-dev-tools-mockup-320.avif",
+        "480": "/assets/optimized/mockups/everyday-dev-tools-mockup-480.avif",
+        "640": "/assets/optimized/mockups/everyday-dev-tools-mockup-640.avif",
+        "768": "/assets/optimized/mockups/everyday-dev-tools-mockup-768.avif",
+        "1024": "/assets/optimized/mockups/everyday-dev-tools-mockup-1024.avif",
+        "1280": "/assets/optimized/mockups/everyday-dev-tools-mockup-1280.avif",
+        "1600": "/assets/optimized/mockups/everyday-dev-tools-mockup-1600.avif",
+        "1920": "/assets/optimized/mockups/everyday-dev-tools-mockup-1920.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/mockups/everyday-dev-tools-mockup-320.webp",
+        "480": "/assets/optimized/mockups/everyday-dev-tools-mockup-480.webp",
+        "640": "/assets/optimized/mockups/everyday-dev-tools-mockup-640.webp",
+        "768": "/assets/optimized/mockups/everyday-dev-tools-mockup-768.webp",
+        "1024": "/assets/optimized/mockups/everyday-dev-tools-mockup-1024.webp",
+        "1280": "/assets/optimized/mockups/everyday-dev-tools-mockup-1280.webp",
+        "1600": "/assets/optimized/mockups/everyday-dev-tools-mockup-1600.webp",
+        "1920": "/assets/optimized/mockups/everyday-dev-tools-mockup-1920.webp"
+      }
+    }
+  },
+  "/assets/mockups/everydaydevtools-Mockup.jpg": {
+    "width": 1280,
+    "height": 1024,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/mockups/everydaydevtools-Mockup-320.avif",
+        "480": "/assets/optimized/mockups/everydaydevtools-Mockup-480.avif",
+        "640": "/assets/optimized/mockups/everydaydevtools-Mockup-640.avif",
+        "768": "/assets/optimized/mockups/everydaydevtools-Mockup-768.avif",
+        "1024": "/assets/optimized/mockups/everydaydevtools-Mockup-1024.avif",
+        "1280": "/assets/optimized/mockups/everydaydevtools-Mockup-1280.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/mockups/everydaydevtools-Mockup-320.webp",
+        "480": "/assets/optimized/mockups/everydaydevtools-Mockup-480.webp",
+        "640": "/assets/optimized/mockups/everydaydevtools-Mockup-640.webp",
+        "768": "/assets/optimized/mockups/everydaydevtools-Mockup-768.webp",
+        "1024": "/assets/optimized/mockups/everydaydevtools-Mockup-1024.webp",
+        "1280": "/assets/optimized/mockups/everydaydevtools-Mockup-1280.webp"
+      }
+    }
+  },
   "/assets/mockups/evolventalux_Mockup-scaled.jpg": {
     "width": 2560,
     "height": 2048,
@@ -398,6 +446,50 @@
         "1280": "/assets/optimized/mockups/ProMathTools_Mockup-scaled-1280.webp",
         "1600": "/assets/optimized/mockups/ProMathTools_Mockup-scaled-1600.webp",
         "1920": "/assets/optimized/mockups/ProMathTools_Mockup-scaled-1920.webp"
+      }
+    }
+  },
+  "/assets/mockups/promathtools-extension-Mockup.jpg": {
+    "width": 1280,
+    "height": 1024,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/mockups/promathtools-extension-Mockup-320.avif",
+        "480": "/assets/optimized/mockups/promathtools-extension-Mockup-480.avif",
+        "640": "/assets/optimized/mockups/promathtools-extension-Mockup-640.avif",
+        "768": "/assets/optimized/mockups/promathtools-extension-Mockup-768.avif",
+        "1024": "/assets/optimized/mockups/promathtools-extension-Mockup-1024.avif",
+        "1280": "/assets/optimized/mockups/promathtools-extension-Mockup-1280.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/mockups/promathtools-extension-Mockup-320.webp",
+        "480": "/assets/optimized/mockups/promathtools-extension-Mockup-480.webp",
+        "640": "/assets/optimized/mockups/promathtools-extension-Mockup-640.webp",
+        "768": "/assets/optimized/mockups/promathtools-extension-Mockup-768.webp",
+        "1024": "/assets/optimized/mockups/promathtools-extension-Mockup-1024.webp",
+        "1280": "/assets/optimized/mockups/promathtools-extension-Mockup-1280.webp"
+      }
+    }
+  },
+  "/assets/mockups/promptvault-ai-Mockup.jpg": {
+    "width": 1280,
+    "height": 1024,
+    "variants": {
+      "avif": {
+        "320": "/assets/optimized/mockups/promptvault-ai-Mockup-320.avif",
+        "480": "/assets/optimized/mockups/promptvault-ai-Mockup-480.avif",
+        "640": "/assets/optimized/mockups/promptvault-ai-Mockup-640.avif",
+        "768": "/assets/optimized/mockups/promptvault-ai-Mockup-768.avif",
+        "1024": "/assets/optimized/mockups/promptvault-ai-Mockup-1024.avif",
+        "1280": "/assets/optimized/mockups/promptvault-ai-Mockup-1280.avif"
+      },
+      "webp": {
+        "320": "/assets/optimized/mockups/promptvault-ai-Mockup-320.webp",
+        "480": "/assets/optimized/mockups/promptvault-ai-Mockup-480.webp",
+        "640": "/assets/optimized/mockups/promptvault-ai-Mockup-640.webp",
+        "768": "/assets/optimized/mockups/promptvault-ai-Mockup-768.webp",
+        "1024": "/assets/optimized/mockups/promptvault-ai-Mockup-1024.webp",
+        "1280": "/assets/optimized/mockups/promptvault-ai-Mockup-1280.webp"
       }
     }
   },
