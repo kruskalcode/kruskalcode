@@ -195,7 +195,7 @@ export const engineeringCapabilities = {
   ],
 };
 
-/** Featured project — LawWiz (formerly Toolkit Law / toolkit.law). */
+/** Featured project — LawWiz (formerly Toolkit Law). */
 export const featuredProject = {
   slug: "legal-technology-saas-platform",
   title: "LawWiz",
@@ -215,7 +215,7 @@ export const featuredProject = {
   ],
   technologies: ["Mobile", "Web", "SaaS", "Browser Extensions", "Add-ons"],
   href: "/portfolio/legal-technology-saas-platform/",
-  liveUrl: "https://www.toolkit.law",
+  liveUrl: "https://www.lawwiz.com",
   cta: "View Case Study",
   built:
     "KruskalCode built LawWiz as a multi-surface legal technology product: mobile app, web application, extensions, and add-ons for production use.",
