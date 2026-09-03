@@ -12,7 +12,7 @@ const relatedPublicWork = [
     category: "Healthcare SaaS",
     description:
       "Telemedicine SaaS with Stripe membership plans, built with Laravel, PHP, Bootstrap, and AWS.",
-    image: null,
+    image: "/assets/optimized/mockups/Doctor-health-mockup-640.webp",
     href: "/portfolio/docturnal-health/",
     internal: true,
   },

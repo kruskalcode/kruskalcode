@@ -42,49 +42,54 @@ async function collectImages(directory) {
 }
 
 async function optimizeImage(sourcePath) {
-  const relativePath = path.relative(assetsRoot, sourcePath);
-  const metadata = await sharp(sourcePath).metadata();
+  try {
+    const relativePath = path.relative(assetsRoot, sourcePath);
+    const metadata = await sharp(sourcePath).metadata();
 
-  if (!metadata.width || !metadata.height) {
+    if (!metadata.width || !metadata.height) {
+      return null;
+    }
+
+    const widths = targetWidths.filter((width) => width <= metadata.width);
+    const largestTargetWidth = targetWidths[targetWidths.length - 1];
+    if (metadata.width <= largestTargetWidth && !widths.includes(metadata.width)) {
+      widths.push(metadata.width);
+    }
+
+    const variants = {
+      avif: {},
+      webp: {},
+    };
+
+    for (const width of widths) {
+      for (const format of ["avif", "webp"]) {
+        const outputPath = outputPathFor(relativePath, width, format);
+        await mkdir(path.dirname(outputPath), { recursive: true });
+
+        const pipeline = sharp(sourcePath)
+          .rotate()
+          .resize({ width, withoutEnlargement: true });
+
+        if (format === "avif") {
+          await pipeline.avif({ quality: 50, effort: 6 }).toFile(outputPath);
+        } else {
+          await pipeline.webp({ quality: 78, effort: 5 }).toFile(outputPath);
+        }
+
+        variants[format][width] = toPublicPath(outputPath);
+      }
+    }
+
+    return {
+      src: toPublicPath(sourcePath),
+      width: metadata.width,
+      height: metadata.height,
+      variants,
+    };
+  } catch (error) {
+    console.warn(`Skipped ${sourcePath}: ${error.message}`);
     return null;
   }
-
-  const widths = targetWidths.filter((width) => width <= metadata.width);
-  const largestTargetWidth = targetWidths[targetWidths.length - 1];
-  if (metadata.width <= largestTargetWidth && !widths.includes(metadata.width)) {
-    widths.push(metadata.width);
-  }
-
-  const variants = {
-    avif: {},
-    webp: {},
-  };
-
-  for (const width of widths) {
-    for (const format of ["avif", "webp"]) {
-      const outputPath = outputPathFor(relativePath, width, format);
-      await mkdir(path.dirname(outputPath), { recursive: true });
-
-      const pipeline = sharp(sourcePath)
-        .rotate()
-        .resize({ width, withoutEnlargement: true });
-
-      if (format === "avif") {
-        await pipeline.avif({ quality: 50, effort: 6 }).toFile(outputPath);
-      } else {
-        await pipeline.webp({ quality: 78, effort: 5 }).toFile(outputPath);
-      }
-
-      variants[format][width] = toPublicPath(outputPath);
-    }
-  }
-
-  return {
-    src: toPublicPath(sourcePath),
-    width: metadata.width,
-    height: metadata.height,
-    variants,
-  };
 }
 
 await rm(outputRoot, { recursive: true, force: true });

@@ -219,7 +219,7 @@ export const featuredProject = {
   cta: "View Case Study",
   built:
     "KruskalCode built LawWiz as a multi-surface legal technology product: mobile app, web application, extensions, and add-ons for production use.",
-  image: "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-640.webp",
+  image: "/assets/optimized/mockups/LawWiz-mockup-1280.webp",
 };
 
 export const docturnalProject = {
@@ -253,9 +253,9 @@ export const docturnalProject = {
   href: "/portfolio/docturnal-health/",
   liveUrl: "https://www.docturnalhealth.com/",
   cta: "View Case Study",
-  image: null,
+  image: "/assets/optimized/mockups/Doctor-health-mockup-1280.webp",
   outcomeNote:
-    "The live site is public. Additional membership-flow screenshots can be added here. No fabricated patient counts, revenue, or conversion metrics are listed.",
+    "The live site is public. No fabricated patient counts, revenue, or conversion metrics are listed.",
 };
 
 export const whoWeHelp = [

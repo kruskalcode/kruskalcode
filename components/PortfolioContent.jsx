@@ -17,7 +17,7 @@ const PROJECTS = [
   {
     title: "LawWiz",
     categories: ["CRM", "Mobile Application", "SAAS", "Websites", "Chrome Extension"],
-    image: "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-640.webp",
+    image: "/assets/optimized/mockups/LawWiz-mockup-640.webp",
     url: "/portfolio/legal-technology-saas-platform/",
     internal: true,
     description:
@@ -30,7 +30,7 @@ const PROJECTS = [
   {
     title: "Docturnal Health",
     categories: ["SAAS", "Websites"],
-    image: null,
+    image: "/assets/optimized/mockups/Doctor-health-mockup-640.webp",
     url: "/portfolio/docturnal-health/",
     internal: true,
     description:
