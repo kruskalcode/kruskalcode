@@ -172,15 +172,15 @@ export const engineeringCapabilities = {
     },
     {
       label: "Backend",
-      items: ["Node.js", "Laravel", "PHP"],
+      items: ["Node.js", "Laravel", "PHP", "CodeIgniter", "Python", "ASP.NET"],
     },
     {
       label: "Database",
-      items: ["MySQL"],
+      items: ["MySQL", "MongoDB", "PostgreSQL", "SQL"],
     },
     {
       label: "Cloud & Infrastructure",
-      items: ["AWS"],
+      items: ["AWS", "Google Cloud", "Azure"],
     },
     {
       label: "Integrations & Systems",
@@ -300,7 +300,7 @@ export const homepageFaqs = [
   {
     question: "What technologies do you use?",
     answer:
-      "Common stacks include React, Next.js, TypeScript, Node.js, Laravel, PHP, Bootstrap, MySQL, AWS, Stripe, REST APIs, authentication systems, and AI integrations — selected based on the product needs.",
+      "Common stacks include React, Next.js, TypeScript, Node.js, Laravel, PHP, CodeIgniter, Python, ASP.NET, Bootstrap, MySQL, MongoDB, PostgreSQL, SQL, AWS, Google Cloud, Azure, Stripe, REST APIs, authentication systems, and AI integrations — selected based on the product needs.",
   },
   {
     question: "Do you work with US-based companies?",
@@ -338,7 +338,7 @@ export const landingFaqs = [
   {
     question: "What technologies do you use?",
     answer:
-      "Common stacks include React, Next.js, TypeScript, Node.js, Laravel, PHP, Bootstrap, MySQL, AWS, Stripe, REST APIs, authentication systems, and AI integrations. We choose the stack based on the product — not a single default toolkit.",
+      "Common stacks include React, Next.js, TypeScript, Node.js, Laravel, PHP, CodeIgniter, Python, ASP.NET, Bootstrap, MySQL, MongoDB, PostgreSQL, SQL, AWS, Google Cloud, Azure, Stripe, REST APIs, authentication systems, and AI integrations. We choose the stack based on the product — not a single default toolkit.",
   },
   {
     question: "Can you maintain the software after launch?",

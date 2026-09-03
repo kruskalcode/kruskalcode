@@ -104,6 +104,35 @@ const theme = createTheme({
         },
       },
     },
+    MuiAccordion: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "#ffffff",
+          backgroundImage: "none",
+          color: "#0f172a",
+          boxShadow: "none",
+          border: "1px solid #e2e8f0",
+          "&:before": { display: "none" },
+        },
+      },
+    },
+    MuiAccordionSummary: {
+      styleOverrides: {
+        root: {
+          color: "#0f172a",
+        },
+        content: {
+          color: "#0f172a",
+        },
+      },
+    },
+    MuiAccordionDetails: {
+      styleOverrides: {
+        root: {
+          color: "#475569",
+        },
+      },
+    },
     MuiAppBar: {
       styleOverrides: {
         root: {

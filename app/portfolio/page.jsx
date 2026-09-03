@@ -1,5 +1,7 @@
+import FaqSection from "@/components/FaqSection";
 import JsonLd from "@/components/JsonLd";
 import PortfolioContent from "@/components/PortfolioContent";
+import { homepageFaqs } from "@/data/conversion";
 import { Box, Container, Typography } from "@mui/material";
 import { createMetadata, getBreadcrumbSchema, pageSeo } from "@/lib/seo";
 
@@ -53,6 +55,7 @@ export default function PortfolioPage() {
       </Box>
 
       <PortfolioContent />
+      <FaqSection items={homepageFaqs} />
     </Box>
   );
 }
