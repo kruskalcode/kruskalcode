@@ -91,7 +91,7 @@ export default function Footer() {
               >
                 <Image
                   src={company.logo}
-                  alt={`${company.name} software development agency logo`}
+                  alt={`${company.name} custom software development company logo`}
                   width={640}
                   height={174}
                   style={{ height: "100%", width: "auto", display: "block" }}

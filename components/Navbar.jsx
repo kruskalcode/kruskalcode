@@ -119,7 +119,7 @@ export default function Navbar() {
             >
               <Image
                 src={company.logo}
-                alt={`${company.name} software development agency logo`}
+                alt={`${company.name} custom software development company logo`}
                 width={640}
                 height={174}
                 onError={() => setLogoFailed(true)}

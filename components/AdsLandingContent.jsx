@@ -42,8 +42,8 @@ export default function AdsLandingContent() {
       </Box>
       <FinalCtaSection
         primaryHref="#project-form"
-        secondaryHref="/portfolio/"
-        secondaryLabel="View Our Work"
+        secondaryHref="#project-form"
+        secondaryLabel="Get a Project Estimate"
       />
     </>
   );

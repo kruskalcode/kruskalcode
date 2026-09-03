@@ -249,7 +249,7 @@ function getPrompt(topic) {
   const serviceLabel = serviceLabels[topic.targetService];
   const serviceUrl = `/services/${topic.targetService}/`;
 
-  return `You are writing for KruskalCode, a software/web/mobile/cloud development agency in Islamabad, Pakistan.
+  return `You are writing for KruskalCode, a custom software development / product engineering company in Islamabad, Pakistan.
 
 Topic: ${topic.title}
 Target service page slug: ${topic.targetService}
@@ -302,7 +302,7 @@ async function callGemini(prompt, apiKey, model) {
       systemInstruction: {
         parts: [
           {
-            text: "You write specific, practical, human-reviewed agency blog drafts. Return valid JSON only.",
+            text: "You write specific, practical, human-reviewed software company blog drafts. Return valid JSON only.",
           },
         ],
       },

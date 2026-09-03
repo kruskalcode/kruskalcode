@@ -58,7 +58,7 @@ GitLab CI is an integral part of the broader GitLab platform, which aims to be a
 **Takeaway:** If your small team values a truly integrated DevOps platform that covers everything from code to project management to security, and you're willing to invest a bit more time into learning a powerful system, GitLab CI is an excellent choice. It's particularly strong if you have specific security requirements or prefer the flexibility and cost control of self-hosted runners.
 
 ## Our Take at KruskalCode: It's All About Your Context
-As a software development agency, we rarely give a blanket recommendation without understanding a client's specific context. However, for most small product teams in Islamabad (and globally) that approach us, here's our general guidance:
+As a custom software development company, we rarely give a blanket recommendation without understanding a client's specific context. However, for most small product teams in Islamabad (and globally) that approach us, here's our general guidance:
 *   **Choose GitHub Actions if:**
     *   You are already on GitHub and love its interface.
     *   You want to get CI/CD running *fast* with minimal fuss.

@@ -16,7 +16,7 @@ export const landingHero = {
   supporting:
     "We build SaaS platforms, web applications, business automation systems, AI-powered applications, and custom software designed around your business needs.",
   primaryCta: { label: "Discuss Your Project", href: "#project-form" },
-  secondaryCta: { label: "View Our Work", href: "/portfolio/" },
+  secondaryCta: { label: "Get a Project Estimate", href: "#project-form" },
 };
 
 export const trustSection = {
@@ -367,8 +367,8 @@ export const budgetOptions = [
   "Under $2,000",
   "$2,000–$5,000",
   "$5,000–$10,000",
-  "$10,000–$25,000",
-  "$25,000+",
+  "$10,000–$25,000+",
+  "Not sure yet",
 ];
 
 export const timelineOptions = [

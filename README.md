@@ -1,6 +1,6 @@
 # KruskalCode Static Website
 
-A complete static Next.js 14 website for KruskalCode, an Islamabad-based software agency focused on web, mobile, cloud, AI, DevOps, consulting, and staffing services.
+A complete static Next.js 14 website for KruskalCode, an Islamabad-based custom software development / product engineering company focused on web, mobile, cloud, AI, DevOps, consulting, and staffing services.
 
 ## Tech Stack
 

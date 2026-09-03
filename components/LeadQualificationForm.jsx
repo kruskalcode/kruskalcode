@@ -91,12 +91,14 @@ export default function LeadQualificationForm({
     setValues((prev) => ({ ...prev, [field]: value }));
   };
 
-  const markSuccess = (submittedValues) => {
-    trackLeadConversion({
-      source,
-      projectType: submittedValues.projectType,
-      budget: submittedValues.budget,
-    });
+  const markSuccess = (submittedValues, { trackConversion = true } = {}) => {
+    if (trackConversion) {
+      trackLeadConversion({
+        source,
+        projectType: submittedValues.projectType,
+        budget: submittedValues.budget,
+      });
+    }
     setStatus("success");
     setValues(initialState);
   };
@@ -140,12 +142,14 @@ export default function LeadQualificationForm({
         return;
       }
 
+      // Mailto fallback: open the client, but do not fire Ads lead conversions
+      // until a real form endpoint confirms delivery.
       const subject = encodeURIComponent(
         `Project inquiry — ${values.company || values.name}`,
       );
       const body = encodeURIComponent(buildMailtoBody(values));
       window.location.href = `mailto:${company.email}?subject=${subject}&body=${body}`;
-      markSuccess(values);
+      markSuccess(values, { trackConversion: false });
     } catch {
       setStatus("idle");
       setError(
