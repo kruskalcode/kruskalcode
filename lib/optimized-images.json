@@ -571,32 +571,6 @@
       }
     }
   },
-  "/assets/mockups/Toolkitlaw-Mockup-scaled.jpg": {
-    "width": 2560,
-    "height": 2048,
-    "variants": {
-      "avif": {
-        "320": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-320.avif",
-        "480": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-480.avif",
-        "640": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-640.avif",
-        "768": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-768.avif",
-        "1024": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-1024.avif",
-        "1280": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-1280.avif",
-        "1600": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-1600.avif",
-        "1920": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-1920.avif"
-      },
-      "webp": {
-        "320": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-320.webp",
-        "480": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-480.webp",
-        "640": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-640.webp",
-        "768": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-768.webp",
-        "1024": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-1024.webp",
-        "1280": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-1280.webp",
-        "1600": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-1600.webp",
-        "1920": "/assets/optimized/mockups/Toolkitlaw-Mockup-scaled-1920.webp"
-      }
-    }
-  },
   "/assets/mockups/tunzie-tobwq-Mockup.jpg": {
     "width": 2500,
     "height": 2000,
