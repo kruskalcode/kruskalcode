@@ -60,6 +60,7 @@ After the build finishes, static files are generated in the `out/` directory.
 
 - Email: `info@kruskalcode.com`
 - Phone: `+923314442274`
+- WhatsApp: `https://wa.me/923314442274`
 - Scheduling: `https://cal.com/kruskalcode`
 
 ## Google Ads conversion tracking
@@ -74,6 +75,7 @@ The site is prepared for Google Ads. Tags load **only** when IDs are set, so lea
    - `NEXT_PUBLIC_GOOGLE_ADS_CONSULT_LABEL` — consultation calendar clicks
    - `NEXT_PUBLIC_GOOGLE_ADS_PHONE_LABEL` — `tel:` clicks
    - `NEXT_PUBLIC_GOOGLE_ADS_EMAIL_LABEL` — `mailto:` clicks
+   - `NEXT_PUBLIC_GOOGLE_ADS_WHATSAPP_LABEL` — WhatsApp clicks (engagement, not a lead)
 4. Set `NEXT_PUBLIC_FORM_ENDPOINT` (and access key if required) so inquiries are delivered without relying on the mailto fallback.
 5. Rebuild and deploy. Conversion IDs are inlined at build time.
 

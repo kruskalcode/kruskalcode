@@ -1,10 +1,15 @@
+const phone = "+923314442274";
+const whatsappMessage =
+  "Hi KruskalCode, I'd like to discuss a custom software project.";
+
 export const company = {
   name: "KruskalCode",
   logo: "/assets/optimized/logo-640.webp",
   tagline: "Custom Software Development for Growing Businesses",
   location: "Plot 81 St 4 Sector I-10/3 Islamabad, Pakistan",
   email: "info@kruskalcode.com",
-  phone: "+923314442274",
+  phone,
+  whatsappUrl: `https://wa.me/${phone.replace(/\D/g, "")}?text=${encodeURIComponent(whatsappMessage)}`,
   scheduleUrl: "https://cal.com/kruskalcode",
   termsUrl: "/terms-and-condition/",
   privacyUrl: "/privacy-policy/",

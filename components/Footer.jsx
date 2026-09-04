@@ -18,6 +18,7 @@ import {
 import Image from "next/image";
 import NextLink from "next/link";
 import TrackedContactLink from "@/components/TrackedContactLink";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { company, services } from "@/data/site";
 
 const quickLinks = [
@@ -209,6 +210,16 @@ export default function Footer() {
                   sx={{ ...footerLinkSx, textDecoration: "none" }}
                 >
                   +923314442274
+                </TrackedContactLink>
+              </Stack>
+              <Stack direction="row" spacing={2} alignItems="center">
+                <WhatsAppIcon sx={{ color: "#fcb51e", fontSize: 20 }} />
+                <TrackedContactLink
+                  type="whatsapp"
+                  href={company.whatsappUrl}
+                  sx={footerLinkSx}
+                >
+                  Chat on WhatsApp
                 </TrackedContactLink>
               </Stack>
             </Stack>

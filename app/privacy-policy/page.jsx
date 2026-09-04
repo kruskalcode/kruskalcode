@@ -17,7 +17,7 @@ const sections = [
   },
   {
     title: "Sharing Information",
-    body: "We do not sell personal information. We may use trusted third-party tools for scheduling, email, analytics, maps, or hosting when needed to operate the website and communicate with you.",
+    body: "We do not sell personal information. We may use trusted third-party tools for scheduling, email, WhatsApp, analytics, maps, or hosting when needed to operate the website and communicate with you.",
   },
   {
     title: "Data Security",

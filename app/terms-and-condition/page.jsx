@@ -13,7 +13,7 @@ const sections = [
   },
   {
     title: "Service Discussions",
-    body: "Information submitted through contact forms, email, or scheduling links is used to understand your project needs. A service engagement only begins after both parties agree to scope, timeline, pricing, and delivery terms in writing.",
+    body: "Information submitted through contact forms, email, WhatsApp, or scheduling links is used to understand your project needs. A service engagement only begins after both parties agree to scope, timeline, pricing, and delivery terms in writing.",
   },
   {
     title: "Intellectual Property",

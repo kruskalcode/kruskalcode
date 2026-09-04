@@ -21,6 +21,8 @@ import {
 import { motion } from "framer-motion";
 import { company } from "@/data/site";
 import { fadeUp } from "@/components/MotionBox";
+import TrackedContactLink from "@/components/TrackedContactLink";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { trackConversion } from "@/lib/tracking";
 
 const socialIcons = {
@@ -97,8 +99,8 @@ export default function ContactPage() {
                   maxWidth: 480,
                 }}
               >
-                Prefer email or phone? Reach out directly — we respond to qualified
-                project inquiries promptly.
+                Prefer email, phone, or WhatsApp? Reach out directly — we respond
+                to qualified project inquiries promptly.
               </Typography>
 
               <Stack spacing={2.5} sx={{ mb: 4 }}>
@@ -143,6 +145,21 @@ export default function ContactPage() {
                   >
                     {company.phone}
                   </Box>
+                </Stack>
+                <Stack direction="row" spacing={2} alignItems="center">
+                  <WhatsAppIcon sx={{ color: "#fcb51e", fontSize: 22 }} />
+                  <TrackedContactLink
+                    type="whatsapp"
+                    href={company.whatsappUrl}
+                    sx={{
+                      fontSize: "14px",
+                      color: "#333",
+                      textDecoration: "none",
+                      "&:hover": { color: "#fcb51e" },
+                    }}
+                  >
+                    Chat on WhatsApp
+                  </TrackedContactLink>
                 </Stack>
               </Stack>
 
